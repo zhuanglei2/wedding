@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>备婚指南</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif; background: #fdfcfb; color: #3d3d3d; line-height: 1.6; }
+        .container { max-width: 900px; margin: 0 auto; padding: 20px; }
+
+        /* Header */
+        .header { text-align: center; padding: 60px 20px; background: linear-gradient(160deg, #f8f1eb, #fdf6f0, #f5ede5); border-radius: 16px; margin-bottom: 30px; border: 1px solid #efe6dd; }
+        .header h1 { font-size: 28px; color: #5c4033; margin-bottom: 8px; letter-spacing: 2px; }
+        .header .subtitle { font-size: 14px; color: #a08c7b; letter-spacing: 4px; text-transform: uppercase; }
+        .header .date { font-size: 20px; color: #8b6f5e; margin-top: 12px; font-weight: 600; }
+
+        /* Tabs */
+        .tabs { display: flex; gap: 0; margin-bottom: 0; background: #fff; border-radius: 12px 12px 0 0; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+        .tab { flex: 1; padding: 16px; text-align: center; cursor: pointer; font-size: 15px; font-weight: 500; border: none; background: #f9f6f3; color: #888; transition: all 0.3s; }
+        .tab.active { background: #fff; color: #5c4033; border-bottom: 2px solid #c9a87c; }
+        .tab:hover { background: #fff; }
+
+        /* Content */
+        .content { background: #fff; padding: 30px; border-radius: 0 0 12px 12px; box-shadow: 0 2px 12px rgba(0,0,0,0.06); margin-bottom: 30px; }
+        .page { display: none; }
+        .page.active { display: block; }
+
+        /* Section */
+        .section { margin-bottom: 32px; }
+        .section-title { font-size: 17px; color: #5c4033; border-left: 3px solid #c9a87c; padding-left: 12px; margin-bottom: 16px; }
+
+        /* Done list */
+        .done-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 10px; margin-bottom: 24px; }
+        .done-item { background: #f4f9f4; padding: 10px 14px; border-radius: 8px; font-size: 14px; color: #4a8c5c; }
+        .done-item::before { content: "✓ "; font-weight: bold; }
+
+        /* Todo table */
+        .todo-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+        .todo-table th { background: #faf7f4; padding: 10px 12px; text-align: left; color: #8b6f5e; font-weight: 500; border-bottom: 2px solid #efe6dd; }
+        .todo-table td { padding: 10px 12px; border-bottom: 1px solid #f5f1ed; }
+        .todo-table tr:hover { background: #fdfbf9; }
+        .todo-table .checkbox { width: 20px; height: 20px; accent-color: #c9a87c; cursor: pointer; }
+        .todo-table .note { color: #999; font-size: 13px; }
+        .dot-critical { display:inline-block; width:8px; height:8px; border-radius:50%; background:#e74c3c; margin-right:6px; }
+        .dot-urgent { display:inline-block; width:8px; height:8px; border-radius:50%; background:#e67e22; margin-right:6px; }
+        .dot-normal { display:inline-block; width:8px; height:8px; border-radius:50%; background:#f1c40f; margin-right:6px; }
+        .dot-low { display:inline-block; width:8px; height:8px; border-radius:50%; background:#27ae60; margin-right:6px; }
+
+        /* Priority badge */
+        .badge { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 12px; font-weight: 500; }
+        .badge-critical { background: #fdecea; color: #c0392b; }
+        .badge-urgent { background: #fef4e8; color: #d35400; }
+        .badge-normal { background: #fef9e7; color: #b7950b; }
+        .badge-low { background: #eafaf1; color: #27ae60; }
+
+        /* Timeline */
+        .timeline { position: relative; }
+        .timeline-phase { margin-bottom: 28px; }
+        .phase-title { font-size: 15px; font-weight: 600; color: #5c4033; background: #faf7f4; padding: 10px 16px; border-radius: 8px; margin-bottom: 12px; }
+        .timeline-item { display: flex; padding: 8px 0; border-bottom: 1px solid #f5f1ed; align-items: flex-start; }
+        .timeline-item:last-child { border-bottom: none; }
+        .time-col { width: 70px; font-weight: 600; color: #8b6f5e; font-size: 14px; flex-shrink: 0; padding-top: 2px; }
+        .event-col { flex: 1; font-size: 14px; }
+        .event-col .event-name { font-weight: 500; }
+        .event-col .event-note { color: #999; font-size: 13px; margin-top: 2px; }
+
+        /* Route */
+        .route-box { background: #faf7f4; border-radius: 12px; padding: 20px; margin-top: 20px; border: 1px solid #efe6dd; }
+        .route-step { display: flex; align-items: center; margin-bottom: 12px; }
+        .route-step:last-child { margin-bottom: 0; }
+        .route-dot { width: 10px; height: 10px; background: #c9a87c; border-radius: 50%; flex-shrink: 0; }
+        .route-line { width: 2px; height: 30px; background: #ddd0c3; margin-left: 5px; }
+        .route-text { margin-left: 12px; font-size: 14px; }
+        .route-text .place { font-weight: 600; color: #5c4033; }
+        .route-text .desc { color: #999; font-size: 13px; }
+
+        /* Warning box */
+        .warning-box { background: #fdf8f3; border: 1px solid #efe6dd; border-radius: 10px; padding: 16px 20px; margin-top: 24px; }
+        .warning-box h4 { color: #8b6f5e; margin-bottom: 10px; font-size: 15px; }
+        .warning-box ul { padding-left: 20px; }
+        .warning-box li { font-size: 14px; margin-bottom: 6px; color: #666; }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .container { padding: 10px; }
+            .content { padding: 16px; }
+            .done-list { grid-template-columns: 1fr; }
+            .header { padding: 40px 16px; }
+            .header h1 { font-size: 22px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>备婚指南</h1>
+            <div class="subtitle">Wedding Preparation Guide</div>
+            <div class="date">2026年10月6日</div>
+        </div>
+
+        <div class="tabs">
+            <div class="tab active" onclick="switchTab('todo')">备婚待办事项</div>
+            <div class="tab" onclick="switchTab('timeline')">婚礼当天时间表</div>
+        </div>
+
+        <div class="content">
+            <!-- 待办事项页 -->
+            <div class="page active" id="page-todo">
+                <div class="section">
+                    <h3 class="section-title">已完成 ✓</h3>
+                    <div class="done-list">
+                        <div class="done-item">婚庆公司</div>
+                        <div class="done-item">婚纱 & 西服</div>
+                        <div class="done-item">酒店总统套房</div>
+                        <div class="done-item">村里庭院布置</div>
+                        <div class="done-item">伴郎伴娘</div>
+                        <div class="done-item">摄影摄像</div>
+                        <div class="done-item">化妆跟妆师</div>
+                        <div class="done-item">晚宴场地</div>
+                        <div class="done-item">婚车车队</div>
+                        <div class="done-item">新娘敬酒服</div>
+                        <div class="done-item">新娘主纱</div>
+                        <div class="done-item">新娘出门纱</div>
+                        <div class="done-item">新娘晨袍</div>
+                        <div class="done-item">三金</div>
+                        <div class="done-item">彩礼</div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h3 class="section-title">🔴 立即处理 <span class="badge badge-critical">本周内</span></h3>
+                    <table class="todo-table">
+                        <tr><th width="30"></th><th>事项</th><th>备注</th></tr>
+                        <tr><td><input type="checkbox" class="checkbox"></td><td><span class="dot-critical"></span><strong>婚纱照预约</strong></td><td class="note">还没拍！拍摄+选片+制作至少1个月，必须立即预订</td></tr>
+                        <tr><td><input type="checkbox" class="checkbox"></td><td><span class="dot-critical"></span><strong>酒席桌数确认</strong></td><td class="note">国庆档紧俏，尽早定</td></tr>
+                        <tr><td><input type="checkbox" class="checkbox"></td><td><span class="dot-critical"></span><strong>菜单定稿</strong></td><td class="note">与酒店确认，桌数定了才能定菜单</td></tr>
+                    </table>
+                </div>
+
+                <div class="section">
+                    <h3 class="section-title">🟠 8月中旬前 <span class="badge badge-urgent">8月15日前</span></h3>
+                    <table class="todo-table">
+                        <tr><th width="30"></th><th>事项</th><th>备注</th></tr>
+                        <tr><td><input type="checkbox" class="checkbox"></td><td><span class="dot-urgent"></span>喜帖制作</td><td class="note">纸质 + 电子版</td></tr>
+                        <tr><td><input type="checkbox" class="checkbox"></td><td><span class="dot-urgent"></span>喜帖发送</td><td class="note">建议婚前1.5个月发出（8月中旬）</td></tr>
+                        <tr><td><input type="checkbox" class="checkbox"></td><td><span class="dot-urgent"></span>亲友群通知</td><td class="note">时间、地点、路线</td></tr>
+                        <tr><td><input type="checkbox" class="checkbox"></td><td><span class="dot-urgent"></span>婚戒对戒</td><td class="note">仪式交换环节需要，定制款需提前</td></tr>
+                        <tr><td><input type="checkbox" class="checkbox"></td><td><span class="dot-urgent"></span>领证</td><td class="note">如未领，建议婚礼前办妥</td></tr>
+                    </table>
+                </div>
+
+                <div class="section">
+                    <h3 class="section-title">🟡 9月初完成 <span class="badge badge-normal">9月上旬</span></h3>
+                    <table class="todo-table">
+                        <tr><th width="30"></th><th>事项</th><th>备注</th></tr>
+                        <tr><td><input type="checkbox" class="checkbox"></td><td><span class="dot-normal"></span>午宴便餐安排</td><td class="note">确认在男方家的桌数和菜品</td></tr>
+                        <tr><td><input type="checkbox" class="checkbox"></td><td><span class="dot-normal"></span>新娘婚鞋</td><td class="note">建议备两双</td></tr>
+                        <tr><td><input type="checkbox" class="checkbox"></td><td><span class="dot-normal"></span>喜酒</td><td class="note">按桌数备</td></tr>
+                        <tr><td><input type="checkbox" class="checkbox"></td><td><span class="dot-normal"></span>喜烟</td><td class="note">接亲 + 宴席各备</td></tr>
+                        <tr><td><input type="checkbox" class="checkbox"></td><td><span class="dot-normal"></span>喜糖</td><td class="note">散装 + 礼盒</td></tr>
+                        <tr><td><input type="checkbox" class="checkbox"></td><td><span class="dot-normal"></span>伴手礼</td><td class="note">按宾客数</td></tr>
+                        <tr><td><input type="checkbox" class="checkbox"></td><td><span class="dot-normal"></span>手捧花 & 胸花</td><td class="note">新郎+伴郎+双方父母</td></tr>
+                        <tr><td><input type="checkbox" class="checkbox"></td><td><span class="dot-normal"></span>鞭炮/礼炮</td><td class="note">出发、到新郎家各一次</td></tr>
+                        <tr><td><input type="checkbox" class="checkbox"></td><td><span class="dot-normal"></span>宾客接送 & 住宿</td><td class="note">外地宾客提前安排</td></tr>
+                    </table>
+                </div>
+
+                <div class="section">
+                    <h3 class="section-title">🟢 9月底前 <span class="badge badge-low">国庆前搞定</span></h3>
+                    <table class="todo-table">
+                        <tr><th width="30"></th><th>事项</th><th>备注</th></tr>
+                        <tr><td><input type="checkbox" class="checkbox"></td><td><span class="dot-low"></span>座位安排 & 桌签</td><td class="note">长辈/朋友分区</td></tr>
+                        <tr><td><input type="checkbox" class="checkbox"></td><td><span class="dot-low"></span>签到台布置</td><td class="note">礼金簿、签到笔、收礼金人员</td></tr>
+                        <tr><td><input type="checkbox" class="checkbox"></td><td><span class="dot-low"></span>亲友拦门红包</td><td class="note">20-30个（小额）</td></tr>
+                        <tr><td><input type="checkbox" class="checkbox"></td><td><span class="dot-low"></span>姐妹团拦门红包</td><td class="note">20-30个（小额）</td></tr>
+                        <tr><td><input type="checkbox" class="checkbox"></td><td><span class="dot-low"></span>新娘到新郎家红包</td><td class="note">若干</td></tr>
+                        <tr><td><input type="checkbox" class="checkbox"></td><td><span class="dot-low"></span>改口红包</td><td class="note">双方父母各一份</td></tr>
+                        <tr><td><input type="checkbox" class="checkbox"></td><td><span class="dot-low"></span>伴郎伴娘红包</td><td class="note">感谢红包</td></tr>
+                        <tr><td><input type="checkbox" class="checkbox"></td><td><span class="dot-low"></span>摄影/化妆/司仪红包</td><td class="note">按行情</td></tr>
+                        <tr><td><input type="checkbox" class="checkbox"></td><td><span class="dot-low"></span>压床红包</td><td class="note">如有安排</td></tr>
+                        <tr><td><input type="checkbox" class="checkbox"></td><td><span class="dot-low"></span>新郎发型师预约</td><td class="note">当天06:30需要</td></tr>
+                        <tr><td><input type="checkbox" class="checkbox"></td><td><span class="dot-low"></span>婚房布置</td><td class="note">喜字、气球、床品四件套</td></tr>
+                        <tr><td><input type="checkbox" class="checkbox"></td><td><span class="dot-low"></span>拍摄道具准备</td><td class="note">跟摄影师确认清单</td></tr>
+                        <tr><td><input type="checkbox" class="checkbox"></td><td><span class="dot-low"></span>10月天气预案</td><td class="note">外景遇雨备选方案</td></tr>
+                        <tr><td><input type="checkbox" class="checkbox"></td><td><span class="dot-low"></span>铺床/压床人选</td><td class="note">选好命人</td></tr>
+                        <tr><td><input type="checkbox" class="checkbox"></td><td><span class="dot-low"></span>十字披红</td><td class="note">新郎出发前</td></tr>
+                        <tr><td><input type="checkbox" class="checkbox"></td><td><span class="dot-low"></span>鞭炮安排</td><td class="note">新娘到新郎家时放</td></tr>
+                        <tr><td><input type="checkbox" class="checkbox"></td><td><span class="dot-low"></span>喂饭/吃点心环节</td><td class="note">确认有此环节，准备相关食品</td></tr>
+                        <tr><td><input type="checkbox" class="checkbox"></td><td><span class="dot-low"></span>敬茶流程 & 顺序</td><td class="note">先敬谁，准备茶杯跪垫</td></tr>
+                    </table>
+                </div>
+            </div>
+
+            <!-- 时间表页 -->
+            <div class="page" id="page-timeline">
+                <div class="timeline">
+                    <div class="timeline-phase">
+                        <div class="phase-title">新娘篇 · 酒店套房</div>
+                        <div class="timeline-item"><div class="time-col">04:30</div><div class="event-col"><div class="event-name">起床、吃早餐</div><div class="event-note">准备拍摄道具</div></div></div>
+                        <div class="timeline-item"><div class="time-col">05:00</div><div class="event-col"><div class="event-name">开始化妆</div><div class="event-note">化妆师到达</div></div></div>
+                        <div class="timeline-item"><div class="time-col">07:00</div><div class="event-col"><div class="event-name">伴娘到达</div><div class="event-note">摄影老师到达</div></div></div>
+                        <div class="timeline-item"><div class="time-col">07:20</div><div class="event-col"><div class="event-name">晨袍拍摄</div><div class="event-note">提前准备好拍摄道具</div></div></div>
+                        <div class="timeline-item"><div class="time-col">07:50</div><div class="event-col"><div class="event-name">换中式礼服做造型</div></div></div>
+                        <div class="timeline-item"><div class="time-col">08:18</div><div class="event-col"><div class="event-name">新娘和父母、伴娘拍摄</div></div></div>
+                        <div class="timeline-item"><div class="time-col">08:38</div><div class="event-col"><div class="event-name">最后准备，等待新郎到达</div></div></div>
+                    </div>
+
+                    <div class="timeline-phase">
+                        <div class="phase-title">新郎篇 · 新郎家</div>
+                        <div class="timeline-item"><div class="time-col">06:00</div><div class="event-col"><div class="event-name">起床、吃早餐</div></div></div>
+                        <div class="timeline-item"><div class="time-col">06:30</div><div class="event-col"><div class="event-name">换衣服做发型</div><div class="event-note">提前约好发型师</div></div></div>
+                        <div class="timeline-item"><div class="time-col">07:00</div><div class="event-col"><div class="event-name">伴郎到新郎家换衣服</div><div class="event-note">摄像老师到达</div></div></div>
+                        <div class="timeline-item"><div class="time-col">07:20</div><div class="event-col"><div class="event-name">新郎伴郎拍摄花絮</div></div></div>
+                        <div class="timeline-item"><div class="time-col">07:50</div><div class="event-col"><div class="event-name">婚车集合</div><div class="event-note">手捧花、胸花交给新郎</div></div></div>
+                        <div class="timeline-item"><div class="time-col">08:00</div><div class="event-col"><div class="event-name">🚗 出发接亲</div></div></div>
+                        <div class="timeline-item"><div class="time-col">08:38</div><div class="event-col"><div class="event-name">到达新娘酒店</div></div></div>
+                    </div>
+
+                    <div class="timeline-phase">
+                        <div class="phase-title">拦门 & 接亲篇</div>
+                        <div class="timeline-item"><div class="time-col">08:38</div><div class="event-col"><div class="event-name">亲友拦门</div><div class="event-note">红包20-30个、喜糖、香烟</div></div></div>
+                        <div class="timeline-item"><div class="time-col">08:58</div><div class="event-col"><div class="event-name">伴娘姐妹团拦门游戏</div><div class="event-note">准备红包20-30个</div></div></div>
+                        <div class="timeline-item"><div class="time-col">09:28</div><div class="event-col"><div class="event-name">新人和伴娘伴郎拍合影</div></div></div>
+                        <div class="timeline-item"><div class="time-col">09:38</div><div class="event-col"><div class="event-name">给父母敬茶、拍全家福</div><div class="event-note">准备红包、茶杯、跪垫</div></div></div>
+                        <div class="timeline-item"><div class="time-col">09:50</div><div class="event-col"><div class="event-name">准时出门回新郎家</div><div class="event-note">所有亲友车队一起</div></div></div>
+                        <div class="timeline-item"><div class="time-col">10:38</div><div class="event-col"><div class="event-name">到达新郎家</div><div class="event-note">先放鞭炮，新娘下车，备红包喜糖</div></div></div>
+                        <div class="timeline-item"><div class="time-col">10:48</div><div class="event-col"><div class="event-name">新房拍摄</div><div class="event-note">喂饭吃点心（暂定）</div></div></div>
+                    </div>
+
+                    <div class="timeline-phase">
+                        <div class="phase-title">下午篇 · 午宴 & 外景</div>
+                        <div class="timeline-item"><div class="time-col">11:00</div><div class="event-col"><div class="event-name">🚗 出发午宴便餐</div><div class="event-note">所有亲友车队一起</div></div></div>
+                        <div class="timeline-item"><div class="time-col">12:18</div><div class="event-col"><div class="event-name">午餐结束，新娘换轻纱</div><div class="event-note">亲友可提前出发酒店休息</div></div></div>
+                        <div class="timeline-item"><div class="time-col">13:18</div><div class="event-col"><div class="event-name">🚗 出发三门湾拍外景</div><div class="event-note">车队提前排好</div></div></div>
+                        <div class="timeline-item"><div class="time-col">14:08</div><div class="event-col"><div class="event-name">外景结束，回酒店</div><div class="event-note">检查车辆有无遗落物品</div></div></div>
+                    </div>
+
+                    <div class="timeline-phase">
+                        <div class="phase-title">晚宴篇 · 酒店宴会厅</div>
+                        <div class="timeline-item"><div class="time-col">14:58</div><div class="event-col"><div class="event-name">到达酒店，换主婚纱</div><div class="event-note">化妆间提前准备好</div></div></div>
+                        <div class="timeline-item"><div class="time-col">15:58</div><div class="event-col"><div class="event-name">拍场布照片</div></div></div>
+                        <div class="timeline-item"><div class="time-col">16:38</div><div class="event-col"><div class="event-name">彩排走场</div></div></div>
+                        <div class="timeline-item"><div class="time-col">17:00</div><div class="event-col"><div class="event-name">迎宾</div></div></div>
+                        <div class="timeline-item"><div class="time-col">17:28</div><div class="event-col"><div class="event-name">🎉 仪式开始</div></div></div>
+                        <div class="timeline-item"><div class="time-col">18:18</div><div class="event-col"><div class="event-name">敬酒</div></div></div>
+                        <div class="timeline-item"><div class="time-col">19:00</div><div class="event-col"><div class="event-name">给长辈敬茶</div><div class="event-note">准备茶水</div></div></div>
+                    </div>
+                </div>
+
+                <div class="route-box">
+                    <h4 style="color:#5c4033; margin-bottom:16px;">🗺️ 全天路线图</h4>
+                    <div style="display:flex; flex-direction:column; gap:0;">
+                        <div class="route-step"><div class="route-dot"></div><div class="route-text"><span class="place">① 男方家（宁海县力洋镇海头村）</span><br><span class="desc">08:00 出发接亲（建议07:45，防国庆堵车）</span></div></div>
+                        <div style="display:flex; align-items:center; margin-left:5px;"><div style="width:2px; height:30px; background:#ddd0c3;"></div><div style="margin-left:10px; font-size:12px; color:#8b6f5e;">🚗 约38分钟 <a href="https://uri.amap.com/navigation?from=力洋镇海头村&to=宁海金海开元酒店&mode=car&callnative=1" style="color:#c9a87c; text-decoration:none; margin-left:6px;">📍导航</a></div></div>
+                        <div class="route-step"><div class="route-dot"></div><div class="route-text"><span class="place">② 金海开元酒店（接亲）</span><br><span class="desc">08:38 到达 → 拦门、敬茶、合影 → 09:50 出发回男方家</span></div></div>
+                        <div style="display:flex; align-items:center; margin-left:5px;"><div style="width:2px; height:30px; background:#ddd0c3;"></div><div style="margin-left:10px; font-size:12px; color:#8b6f5e;">🚗 约38分钟 <a href="https://uri.amap.com/navigation?from=宁海金海开元酒店&to=力洋镇海头村&mode=car&callnative=1" style="color:#c9a87c; text-decoration:none; margin-left:6px;">📍导航</a></div></div>
+                        <div class="route-step"><div class="route-dot"></div><div class="route-text"><span class="place">③ 男方家（拦门 + 新房拍摄 + 中饭）</span><br><span class="desc">10:38 到达 → 拦门、新房拍摄、吃中饭 → 13:18 出发</span></div></div>
+                        <div style="display:flex; align-items:center; margin-left:5px;"><div style="width:2px; height:30px; background:#ddd0c3;"></div><div style="margin-left:10px; font-size:12px; color:#8b6f5e;">🚗 前往三门湾 <a href="https://uri.amap.com/navigation?from=力洋镇海头村&to=三门湾&mode=car&callnative=1" style="color:#c9a87c; text-decoration:none; margin-left:6px;">📍导航</a></div></div>
+                        <div class="route-step"><div class="route-dot"></div><div class="route-text"><span class="place">④ 三门湾（外景拍摄）</span><br><span class="desc">外景拍摄 → 14:08 拍摄结束返回</span></div></div>
+                        <div style="display:flex; align-items:center; margin-left:5px;"><div style="width:2px; height:30px; background:#ddd0c3;"></div><div style="margin-left:10px; font-size:12px; color:#8b6f5e;">🚗 前往西子酒店 <a href="https://uri.amap.com/navigation?from=三门湾&to=宁海西子国际酒店&mode=car&callnative=1" style="color:#c9a87c; text-decoration:none; margin-left:6px;">📍导航</a></div></div>
+                        <div class="route-step"><div class="route-dot"></div><div class="route-text"><span class="place">⑤ 西子酒店 · 闻涛厅（换装→仪式→晚宴）</span><br><span class="desc">14:58 到达，不再转场</span></div></div>
+                    </div>
+                    <div style="margin-top:16px; padding-top:12px; border-top:1px dashed #ddd0c3; font-size:13px; color:#999;">
+                        全天共 <strong>4次转场</strong>，涉及 <strong>5个地点</strong> · 最远一程：力洋海头村 ↔ 金海开元酒店（约38分钟）<br>
+                        <span style="font-size:12px;">点击「📍导航」可直接跳转高德地图导航</span>
+                    </div>
+                </div>
+
+                <div class="warning-box">
+                    <h4>⚠️ 注意事项</h4>
+                    <ul>
+                        <li><strong>国庆堵车风险</strong>：接亲路程建议提前15分钟出发</li>
+                        <li><strong>迎宾→仪式仅28分钟</strong>：建议16:50开始迎宾，确保宾客入场</li>
+                        <li><strong>换装3次</strong>：中式礼服→轻纱→主婚纱，化妆师需全程跟妆</li>
+                        <li><strong>外景拍摄</strong>：10月海边风大，新娘备披肩</li>
+                        <li><strong>每次转场</strong>：指定专人检查车辆有无遗落物品</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function switchTab(page) {
+            document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+            document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+
+            if (page === 'todo') {
+                document.querySelectorAll('.tab')[0].classList.add('active');
+                document.getElementById('page-todo').classList.add('active');
+            } else {
+                document.querySelectorAll('.tab')[1].classList.add('active');
+                document.getElementById('page-timeline').classList.add('active');
+            }
+        }
+    </script>
+</body>
+</html>
