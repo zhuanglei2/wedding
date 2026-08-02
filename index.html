@@ -6,14 +6,21 @@
     <title>备婚指南</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif; background: #fdfcfb; color: #3d3d3d; line-height: 1.6; }
-        .container { max-width: 900px; margin: 0 auto; padding: 20px; }
+        body { font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif; background: #fdfcfb; color: #3d3d3d; line-height: 1.6; position: relative; }
+        body::before { content: ''; position: fixed; top: 0; left: 0; right: 0; bottom: 0; pointer-events: none; z-index: 0; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Cpath d='M40 20c-4 8-12 12-20 12 8 0 16 4 20 12 4-8 12-12 20-12-8 0-16-4-20-12z' fill='%23e8ddd3' opacity='0.3'/%3E%3C/svg%3E"); }
+        .container { max-width: 900px; margin: 0 auto; padding: 20px; position: relative; z-index: 1; }
 
         /* Header */
-        .header { text-align: center; padding: 60px 20px; background: linear-gradient(160deg, #f8f1eb, #fdf6f0, #f5ede5); border-radius: 16px; margin-bottom: 30px; border: 1px solid #efe6dd; }
-        .header h1 { font-size: 28px; color: #5c4033; margin-bottom: 8px; letter-spacing: 2px; }
+        .header { text-align: center; padding: 60px 20px; background: linear-gradient(160deg, #f8f1eb, #fdf6f0, #f5ede5); border-radius: 16px; margin-bottom: 30px; border: 1px solid #efe6dd; position: relative; overflow: hidden; }
+        .header::before { content: ''; position: absolute; top: -20px; left: -20px; width: 120px; height: 120px; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M20 80 Q30 50 50 40 Q40 60 45 80' fill='none' stroke='%23c9a87c' stroke-width='1.5' opacity='0.3'/%3E%3Cpath d='M10 60 Q25 40 40 35 Q30 50 32 65' fill='none' stroke='%23c9a87c' stroke-width='1.2' opacity='0.25'/%3E%3Ccircle cx='50' cy='38' r='3' fill='%23c9a87c' opacity='0.2'/%3E%3Ccircle cx='38' cy='33' r='2' fill='%23c9a87c' opacity='0.2'/%3E%3C/svg%3E"); background-size: contain; background-repeat: no-repeat; }
+        .header::after { content: ''; position: absolute; bottom: -20px; right: -20px; width: 120px; height: 120px; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M80 20 Q70 50 50 60 Q60 40 55 20' fill='none' stroke='%23c9a87c' stroke-width='1.5' opacity='0.3'/%3E%3Cpath d='M90 40 Q75 60 60 65 Q70 50 68 35' fill='none' stroke='%23c9a87c' stroke-width='1.2' opacity='0.25'/%3E%3Ccircle cx='50' cy='62' r='3' fill='%23c9a87c' opacity='0.2'/%3E%3Ccircle cx='62' cy='67' r='2' fill='%23c9a87c' opacity='0.2'/%3E%3C/svg%3E"); background-size: contain; background-repeat: no-repeat; }
+        .header h1 { font-size: 28px; color: #5c4033; margin-bottom: 8px; letter-spacing: 2px; position: relative; }
         .header .subtitle { font-size: 14px; color: #a08c7b; letter-spacing: 4px; text-transform: uppercase; }
         .header .date { font-size: 20px; color: #8b6f5e; margin-top: 12px; font-weight: 600; }
+        .header .decor-rings { margin: 16px auto 0; width: 48px; height: 24px; position: relative; }
+        .header .decor-rings::before, .header .decor-rings::after { content: ''; position: absolute; width: 20px; height: 20px; border: 2px solid #c9a87c; border-radius: 50%; top: 0; opacity: 0.5; }
+        .header .decor-rings::before { left: 6px; }
+        .header .decor-rings::after { left: 20px; }
 
         /* Tabs */
         .tabs { display: flex; gap: 0; margin-bottom: 0; background: #fff; border-radius: 12px 12px 0 0; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
@@ -22,13 +29,15 @@
         .tab:hover { background: #fff; }
 
         /* Content */
-        .content { background: #fff; padding: 30px; border-radius: 0 0 12px 12px; box-shadow: 0 2px 12px rgba(0,0,0,0.06); margin-bottom: 30px; }
+        .content { background: #fff; padding: 30px; border-radius: 0 0 12px 12px; box-shadow: 0 2px 12px rgba(0,0,0,0.06); margin-bottom: 30px; position: relative; }
+        .content::after { content: ''; position: absolute; bottom: 10px; right: 10px; width: 100px; height: 100px; opacity: 0.06; pointer-events: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M50 10 C30 20 20 40 25 60 C30 80 45 90 50 90 C55 90 70 80 75 60 C80 40 70 20 50 10z' fill='none' stroke='%235c4033' stroke-width='2'/%3E%3Cpath d='M50 20 C40 30 35 45 38 58 C41 70 47 78 50 78 C53 78 59 70 62 58 C65 45 60 30 50 20z' fill='none' stroke='%235c4033' stroke-width='1.5'/%3E%3Cpath d='M50 10 L50 90' fill='none' stroke='%235c4033' stroke-width='1'/%3E%3C/svg%3E"); background-size: contain; background-repeat: no-repeat; }
         .page { display: none; }
         .page.active { display: block; }
 
         /* Section */
         .section { margin-bottom: 32px; }
         .section-title { font-size: 17px; color: #5c4033; border-left: 3px solid #c9a87c; padding-left: 12px; margin-bottom: 16px; }
+        .section::after { content: ''; display: block; height: 1px; margin-top: 24px; background: linear-gradient(to right, transparent, #e8ddd3, transparent); }
 
         /* Done list */
         .done-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 10px; margin-bottom: 24px; }
@@ -57,7 +66,7 @@
         /* Timeline */
         .timeline { position: relative; }
         .timeline-phase { margin-bottom: 28px; }
-        .phase-title { font-size: 15px; font-weight: 600; color: #5c4033; background: #faf7f4; padding: 10px 16px; border-radius: 8px; margin-bottom: 12px; }
+        .phase-title { font-size: 15px; font-weight: 600; color: #5c4033; background: linear-gradient(135deg, #faf7f4, #fdf6f0); padding: 10px 16px; border-radius: 8px; margin-bottom: 12px; border-left: 3px solid #c9a87c; }
         .timeline-item { display: flex; padding: 8px 0; border-bottom: 1px solid #f5f1ed; align-items: flex-start; }
         .timeline-item:last-child { border-bottom: none; }
         .time-col { width: 70px; font-weight: 600; color: #8b6f5e; font-size: 14px; flex-shrink: 0; padding-top: 2px; }
@@ -66,7 +75,8 @@
         .event-col .event-note { color: #999; font-size: 13px; margin-top: 2px; }
 
         /* Route */
-        .route-box { background: #faf7f4; border-radius: 12px; padding: 20px; margin-top: 20px; border: 1px solid #efe6dd; }
+        .route-box { background: #faf7f4; border-radius: 12px; padding: 20px; margin-top: 20px; border: 1px solid #efe6dd; position: relative; overflow: hidden; }
+        .route-box::before { content: ''; position: absolute; top: 0; right: 0; width: 150px; height: 150px; opacity: 0.08; pointer-events: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M70 10 Q60 30 55 50 Q50 70 60 90' fill='none' stroke='%23c9a87c' stroke-width='2'/%3E%3Cpath d='M55 50 Q45 45 35 50 Q25 55 30 65' fill='none' stroke='%23c9a87c' stroke-width='1.5'/%3E%3Cpath d='M55 50 Q65 45 75 50 Q85 55 80 65' fill='none' stroke='%23c9a87c' stroke-width='1.5'/%3E%3Ccircle cx='55' cy='30' r='2' fill='%23c9a87c'/%3E%3Ccircle cx='58' cy='70' r='2' fill='%23c9a87c'/%3E%3C/svg%3E"); background-size: contain; background-repeat: no-repeat; }
         .route-step { display: flex; align-items: center; margin-bottom: 12px; }
         .route-step:last-child { margin-bottom: 0; }
         .route-dot { width: 10px; height: 10px; background: #c9a87c; border-radius: 50%; flex-shrink: 0; }
@@ -83,12 +93,38 @@
 
         /* Responsive */
         @media (max-width: 600px) {
-            .container { padding: 10px; }
-            .content { padding: 16px; }
-            .done-list { grid-template-columns: 1fr; }
-            .header { padding: 40px 16px; }
-            .header h1 { font-size: 22px; }
+            .container { padding: 6px; }
+            .content { padding: 12px; }
+            .done-list { grid-template-columns: repeat(2, 1fr); gap: 6px; }
+            .done-item { padding: 6px 10px; font-size: 13px; }
+            .header { padding: 30px 16px; border-radius: 12px; margin-bottom: 16px; }
+            .header h1 { font-size: 20px; }
+            .header .subtitle { font-size: 11px; letter-spacing: 3px; }
+            .header .date { font-size: 17px; margin-top: 8px; }
+            .tabs { border-radius: 10px 10px 0 0; }
+            .tab { padding: 12px 8px; font-size: 14px; }
+            .section { margin-bottom: 20px; }
+            .section-title { font-size: 15px; margin-bottom: 10px; }
+            .todo-table td, .todo-table th { padding: 8px 6px; font-size: 13px; }
+            .todo-table .note { font-size: 12px; }
+            .timeline-item { padding: 6px 0; }
+            .time-col { width: 55px; font-size: 13px; }
+            .event-col .event-name { font-size: 13px; }
+            .event-col .event-note { font-size: 12px; }
+            .phase-title { font-size: 14px; padding: 8px 12px; }
+            .route-box { padding: 14px; }
+            .route-text { font-size: 13px; }
+            .route-text .desc { font-size: 12px; }
+            .warning-box { padding: 12px 14px; }
+            .warning-box li { font-size: 13px; }
         }
+
+        /* Collapsible sections */
+        .collapsible { cursor: pointer; user-select: none; display: flex; align-items: center; justify-content: space-between; }
+        .collapsible::after { content: '▾'; font-size: 14px; color: #a08c7b; transition: transform 0.3s; margin-left: 8px; }
+        .collapsible.collapsed::after { transform: rotate(-90deg); }
+        .collapse-body { overflow: hidden; transition: max-height 0.3s ease; }
+        .collapse-body.hidden { max-height: 0 !important; }
     </style>
 </head>
 <body>
@@ -97,6 +133,7 @@
             <h1>备婚指南</h1>
             <div class="subtitle">Wedding Preparation Guide</div>
             <div class="date">2026年10月6日</div>
+            <div class="decor-rings"></div>
         </div>
 
         <div class="tabs">
@@ -108,7 +145,8 @@
             <!-- 待办事项页 -->
             <div class="page active" id="page-todo">
                 <div class="section">
-                    <h3 class="section-title">已完成 ✓</h3>
+                    <h3 class="section-title collapsible collapsed" onclick="toggleSection(this)">已完成 ✓ <span style="font-size:12px;color:#999;font-weight:normal;">（14项）</span></h3>
+                    <div class="collapse-body hidden">
                     <div class="done-list">
                         <div class="done-item">婚庆公司</div>
                         <div class="done-item">婚纱 & 西服</div>
@@ -125,6 +163,7 @@
                         <div class="done-item">新娘晨袍</div>
                         <div class="done-item">三金</div>
                         <div class="done-item">彩礼</div>
+                    </div>
                     </div>
                 </div>
 
@@ -167,7 +206,8 @@
                 </div>
 
                 <div class="section">
-                    <h3 class="section-title">🟢 9月底前 <span class="badge badge-low">国庆前搞定</span></h3>
+                    <h3 class="section-title collapsible" onclick="toggleSection(this)">🟢 9月底前 <span class="badge badge-low">国庆前搞定</span></h3>
+                    <div class="collapse-body">
                     <table class="todo-table">
                         <tr><th width="30"></th><th>事项</th><th>备注</th></tr>
                         <tr><td><input type="checkbox" class="checkbox"></td><td><span class="dot-low"></span>座位安排 & 桌签</td><td class="note">长辈/朋友分区</td></tr>
@@ -189,6 +229,7 @@
                         <tr><td><input type="checkbox" class="checkbox"></td><td><span class="dot-low"></span>喂饭/吃点心环节</td><td class="note">确认有此环节，准备相关食品</td></tr>
                         <tr><td><input type="checkbox" class="checkbox"></td><td><span class="dot-low"></span>敬茶流程 & 顺序</td><td class="note">先敬谁，准备茶杯跪垫</td></tr>
                     </table>
+                    </div>
                 </div>
             </div>
 
@@ -196,7 +237,8 @@
             <div class="page" id="page-timeline">
                 <div class="timeline">
                     <div class="timeline-phase">
-                        <div class="phase-title">新娘篇 · 酒店套房</div>
+                        <div class="phase-title collapsible" onclick="toggleSection(this)">新娘篇 · 酒店套房 <span style="font-size:12px;color:#999;font-weight:normal;">04:30-08:38</span></div>
+                        <div class="collapse-body">
                         <div class="timeline-item"><div class="time-col">04:30</div><div class="event-col"><div class="event-name">起床、吃早餐</div><div class="event-note">准备拍摄道具</div></div></div>
                         <div class="timeline-item"><div class="time-col">05:00</div><div class="event-col"><div class="event-name">开始化妆</div><div class="event-note">化妆师到达</div></div></div>
                         <div class="timeline-item"><div class="time-col">07:00</div><div class="event-col"><div class="event-name">伴娘到达</div><div class="event-note">摄影老师到达</div></div></div>
@@ -204,10 +246,12 @@
                         <div class="timeline-item"><div class="time-col">07:50</div><div class="event-col"><div class="event-name">换中式礼服做造型</div></div></div>
                         <div class="timeline-item"><div class="time-col">08:18</div><div class="event-col"><div class="event-name">新娘和父母、伴娘拍摄</div></div></div>
                         <div class="timeline-item"><div class="time-col">08:38</div><div class="event-col"><div class="event-name">最后准备，等待新郎到达</div></div></div>
+                        </div>
                     </div>
 
                     <div class="timeline-phase">
-                        <div class="phase-title">新郎篇 · 新郎家</div>
+                        <div class="phase-title collapsible" onclick="toggleSection(this)">新郎篇 · 新郎家 <span style="font-size:12px;color:#999;font-weight:normal;">06:00-08:38</span></div>
+                        <div class="collapse-body">
                         <div class="timeline-item"><div class="time-col">06:00</div><div class="event-col"><div class="event-name">起床、吃早餐</div></div></div>
                         <div class="timeline-item"><div class="time-col">06:30</div><div class="event-col"><div class="event-name">换衣服做发型</div><div class="event-note">提前约好发型师</div></div></div>
                         <div class="timeline-item"><div class="time-col">07:00</div><div class="event-col"><div class="event-name">伴郎到新郎家换衣服</div><div class="event-note">摄像老师到达</div></div></div>
@@ -215,10 +259,12 @@
                         <div class="timeline-item"><div class="time-col">07:50</div><div class="event-col"><div class="event-name">婚车集合</div><div class="event-note">手捧花、胸花交给新郎</div></div></div>
                         <div class="timeline-item"><div class="time-col">08:00</div><div class="event-col"><div class="event-name">🚗 出发接亲</div></div></div>
                         <div class="timeline-item"><div class="time-col">08:38</div><div class="event-col"><div class="event-name">到达新娘酒店</div></div></div>
+                        </div>
                     </div>
 
                     <div class="timeline-phase">
-                        <div class="phase-title">拦门 & 接亲篇</div>
+                        <div class="phase-title collapsible" onclick="toggleSection(this)">拦门 & 接亲篇 <span style="font-size:12px;color:#999;font-weight:normal;">08:38-10:48</span></div>
+                        <div class="collapse-body">
                         <div class="timeline-item"><div class="time-col">08:38</div><div class="event-col"><div class="event-name">亲友拦门</div><div class="event-note">红包20-30个、喜糖、香烟</div></div></div>
                         <div class="timeline-item"><div class="time-col">08:58</div><div class="event-col"><div class="event-name">伴娘姐妹团拦门游戏</div><div class="event-note">准备红包20-30个</div></div></div>
                         <div class="timeline-item"><div class="time-col">09:28</div><div class="event-col"><div class="event-name">新人和伴娘伴郎拍合影</div></div></div>
@@ -226,18 +272,22 @@
                         <div class="timeline-item"><div class="time-col">09:50</div><div class="event-col"><div class="event-name">准时出门回新郎家</div><div class="event-note">所有亲友车队一起</div></div></div>
                         <div class="timeline-item"><div class="time-col">10:38</div><div class="event-col"><div class="event-name">到达新郎家</div><div class="event-note">先放鞭炮，新娘下车，备红包喜糖</div></div></div>
                         <div class="timeline-item"><div class="time-col">10:48</div><div class="event-col"><div class="event-name">新房拍摄</div><div class="event-note">喂饭吃点心（暂定）</div></div></div>
+                        </div>
                     </div>
 
                     <div class="timeline-phase">
-                        <div class="phase-title">下午篇 · 午宴 & 外景</div>
+                        <div class="phase-title collapsible" onclick="toggleSection(this)">下午篇 · 午宴 & 外景 <span style="font-size:12px;color:#999;font-weight:normal;">11:00-14:08</span></div>
+                        <div class="collapse-body">
                         <div class="timeline-item"><div class="time-col">11:00</div><div class="event-col"><div class="event-name">🚗 出发午宴便餐</div><div class="event-note">所有亲友车队一起</div></div></div>
                         <div class="timeline-item"><div class="time-col">12:18</div><div class="event-col"><div class="event-name">午餐结束，新娘换轻纱</div><div class="event-note">亲友可提前出发酒店休息</div></div></div>
                         <div class="timeline-item"><div class="time-col">13:18</div><div class="event-col"><div class="event-name">🚗 出发三门湾拍外景</div><div class="event-note">车队提前排好</div></div></div>
                         <div class="timeline-item"><div class="time-col">14:08</div><div class="event-col"><div class="event-name">外景结束，回酒店</div><div class="event-note">检查车辆有无遗落物品</div></div></div>
+                        </div>
                     </div>
 
                     <div class="timeline-phase">
-                        <div class="phase-title">晚宴篇 · 酒店宴会厅</div>
+                        <div class="phase-title collapsible" onclick="toggleSection(this)">晚宴篇 · 酒店宴会厅 <span style="font-size:12px;color:#999;font-weight:normal;">14:58-19:00</span></div>
+                        <div class="collapse-body">
                         <div class="timeline-item"><div class="time-col">14:58</div><div class="event-col"><div class="event-name">到达酒店，换主婚纱</div><div class="event-note">化妆间提前准备好</div></div></div>
                         <div class="timeline-item"><div class="time-col">15:58</div><div class="event-col"><div class="event-name">拍场布照片</div></div></div>
                         <div class="timeline-item"><div class="time-col">16:38</div><div class="event-col"><div class="event-name">彩排走场</div></div></div>
@@ -245,6 +295,7 @@
                         <div class="timeline-item"><div class="time-col">17:28</div><div class="event-col"><div class="event-name">🎉 仪式开始</div></div></div>
                         <div class="timeline-item"><div class="time-col">18:18</div><div class="event-col"><div class="event-name">敬酒</div></div></div>
                         <div class="timeline-item"><div class="time-col">19:00</div><div class="event-col"><div class="event-name">给长辈敬茶</div><div class="event-note">准备茶水</div></div></div>
+                        </div>
                     </div>
                 </div>
 
@@ -252,13 +303,13 @@
                     <h4 style="color:#5c4033; margin-bottom:16px;">🗺️ 全天路线图</h4>
                     <div style="display:flex; flex-direction:column; gap:0;">
                         <div class="route-step"><div class="route-dot"></div><div class="route-text"><span class="place">① 男方家（宁海县力洋镇海头村）</span><br><span class="desc">08:00 出发接亲（建议07:45，防国庆堵车）</span></div></div>
-                        <div style="display:flex; align-items:center; margin-left:5px;"><div style="width:2px; height:30px; background:#ddd0c3;"></div><div style="margin-left:10px; font-size:12px; color:#8b6f5e;">🚗 约38分钟 <a href="https://uri.amap.com/navigation?from=力洋镇海头村&to=宁海金海开元酒店&mode=car&callnative=1" style="color:#c9a87c; text-decoration:none; margin-left:6px;">📍导航</a></div></div>
+                        <div style="display:flex; align-items:center; margin-left:5px;"><div style="width:2px; height:30px; background:#ddd0c3;"></div><div style="margin-left:10px; font-size:12px; color:#8b6f5e;">🚗 约38分钟 <a href="https://uri.amap.com/navigation?to=121.430,29.288,宁海金海开元名都大酒店&mode=car&callnative=1" style="color:#c9a87c; text-decoration:none; margin-left:6px;">📍导航</a></div></div>
                         <div class="route-step"><div class="route-dot"></div><div class="route-text"><span class="place">② 金海开元酒店（接亲）</span><br><span class="desc">08:38 到达 → 拦门、敬茶、合影 → 09:50 出发回男方家</span></div></div>
-                        <div style="display:flex; align-items:center; margin-left:5px;"><div style="width:2px; height:30px; background:#ddd0c3;"></div><div style="margin-left:10px; font-size:12px; color:#8b6f5e;">🚗 约38分钟 <a href="https://uri.amap.com/navigation?from=宁海金海开元酒店&to=力洋镇海头村&mode=car&callnative=1" style="color:#c9a87c; text-decoration:none; margin-left:6px;">📍导航</a></div></div>
+                        <div style="display:flex; align-items:center; margin-left:5px;"><div style="width:2px; height:30px; background:#ddd0c3;"></div><div style="margin-left:10px; font-size:12px; color:#8b6f5e;">🚗 约38分钟 <a href="https://uri.amap.com/navigation?to=121.585,29.210,力洋镇海头村&mode=car&callnative=1" style="color:#c9a87c; text-decoration:none; margin-left:6px;">📍导航</a></div></div>
                         <div class="route-step"><div class="route-dot"></div><div class="route-text"><span class="place">③ 男方家（拦门 + 新房拍摄 + 中饭）</span><br><span class="desc">10:38 到达 → 拦门、新房拍摄、吃中饭 → 13:18 出发</span></div></div>
-                        <div style="display:flex; align-items:center; margin-left:5px;"><div style="width:2px; height:30px; background:#ddd0c3;"></div><div style="margin-left:10px; font-size:12px; color:#8b6f5e;">🚗 前往三门湾 <a href="https://uri.amap.com/navigation?from=力洋镇海头村&to=三门湾&mode=car&callnative=1" style="color:#c9a87c; text-decoration:none; margin-left:6px;">📍导航</a></div></div>
+                        <div style="display:flex; align-items:center; margin-left:5px;"><div style="width:2px; height:30px; background:#ddd0c3;"></div><div style="margin-left:10px; font-size:12px; color:#8b6f5e;">🚗 前往三门湾 <a href="https://uri.amap.com/navigation?to=121.560,29.150,三门湾&mode=car&callnative=1" style="color:#c9a87c; text-decoration:none; margin-left:6px;">📍导航</a></div></div>
                         <div class="route-step"><div class="route-dot"></div><div class="route-text"><span class="place">④ 三门湾（外景拍摄）</span><br><span class="desc">外景拍摄 → 14:08 拍摄结束返回</span></div></div>
-                        <div style="display:flex; align-items:center; margin-left:5px;"><div style="width:2px; height:30px; background:#ddd0c3;"></div><div style="margin-left:10px; font-size:12px; color:#8b6f5e;">🚗 前往西子酒店 <a href="https://uri.amap.com/navigation?from=三门湾&to=宁海西子国际酒店&mode=car&callnative=1" style="color:#c9a87c; text-decoration:none; margin-left:6px;">📍导航</a></div></div>
+                        <div style="display:flex; align-items:center; margin-left:5px;"><div style="width:2px; height:30px; background:#ddd0c3;"></div><div style="margin-left:10px; font-size:12px; color:#8b6f5e;">🚗 前往西子酒店 <a href="https://uri.amap.com/navigation?to=121.438,29.280,宁海西子国际大酒店&mode=car&callnative=1" style="color:#c9a87c; text-decoration:none; margin-left:6px;">📍导航</a></div></div>
                         <div class="route-step"><div class="route-dot"></div><div class="route-text"><span class="place">⑤ 西子酒店 · 闻涛厅（换装→仪式→晚宴）</span><br><span class="desc">14:58 到达，不再转场</span></div></div>
                     </div>
                     <div style="margin-top:16px; padding-top:12px; border-top:1px dashed #ddd0c3; font-size:13px; color:#999;">
@@ -294,6 +345,28 @@
                 document.getElementById('page-timeline').classList.add('active');
             }
         }
+
+        function toggleSection(el) {
+            var body = el.nextElementSibling;
+            if (!body || !body.classList.contains('collapse-body')) return;
+            el.classList.toggle('collapsed');
+            if (body.classList.contains('hidden')) {
+                body.classList.remove('hidden');
+                body.style.maxHeight = body.scrollHeight + 'px';
+            } else {
+                body.style.maxHeight = body.scrollHeight + 'px';
+                requestAnimationFrame(function() {
+                    body.style.maxHeight = '0';
+                    body.classList.add('hidden');
+                });
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('.collapse-body:not(.hidden)').forEach(function(el) {
+                el.style.maxHeight = 'none';
+            });
+        });
     </script>
 </body>
 </html>
