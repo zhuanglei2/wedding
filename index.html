@@ -141,7 +141,6 @@
         .contact-phone { margin-left: auto; }
         .contact-phone a { display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 50%; background: linear-gradient(135deg, #c9a87c, #a0835e); color: #fff; text-decoration: none; font-size: 16px; box-shadow: 0 2px 6px rgba(201,168,124,0.3); transition: transform 0.2s; }
         .contact-phone a:active { transform: scale(0.9); }
-        .contact-phone a .phone-icon { display: block; }
 
         /* Floating entry */
         .fab-contacts { position: fixed; bottom: 24px; right: 24px; width: 52px; height: 52px; border-radius: 50%; background: linear-gradient(135deg, #c9a87c, #8b6f5e); color: #fff; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 16px rgba(0,0,0,0.15); cursor: pointer; z-index: 100; font-size: 20px; border: none; transition: transform 0.2s; }
@@ -158,15 +157,15 @@
         /* Nav action sheet */
         .nav-sheet-overlay { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.4); z-index: 300; }
         .nav-sheet-overlay.show { display: block; }
-        .nav-sheet { position: fixed; bottom: 0; left: 0; right: 0; z-index: 301; transform: translateY(100%); transition: transform 0.3s ease; }
+        .nav-sheet { position: fixed; bottom: 0; left: 0; right: 0; z-index: 301; transform: translateY(100%); transition: transform 0.3s cubic-bezier(0.4,0,0.2,1); }
         .nav-sheet-overlay.show .nav-sheet { transform: translateY(0); }
-        .nav-sheet-body { background: #f2f2f7; border-radius: 14px 14px 0 0; padding-bottom: env(safe-area-inset-bottom, 0); }
+        .nav-sheet-body { background: #f2f2f7; border-radius: 14px 14px 0 0; }
         .nav-sheet-title { text-align: center; font-size: 13px; color: #86868b; padding: 14px 16px 8px; }
         .nav-sheet-actions { background: #fff; margin: 0 8px; border-radius: 14px; overflow: hidden; }
         .nav-sheet-actions a { display: block; padding: 16px 20px; text-align: center; text-decoration: none; color: #007aff; font-size: 17px; border-bottom: 0.5px solid #e5e5e5; }
         .nav-sheet-actions a:last-child { border-bottom: none; }
         .nav-sheet-actions a:active { background: #e5e5e5; }
-        .nav-sheet-cancel { display: block; margin: 8px 8px 8px; background: #fff; border-radius: 14px; padding: 16px 20px; text-align: center; color: #007aff; font-size: 17px; font-weight: 600; border: none; width: calc(100% - 16px); cursor: pointer; }
+        .nav-sheet-cancel { display: block; margin: 8px; background: #fff; border-radius: 14px; padding: 16px 20px; text-align: center; color: #007aff; font-size: 17px; font-weight: 600; border: none; width: calc(100% - 16px); cursor: pointer; padding-bottom: calc(16px + env(safe-area-inset-bottom, 8px)); }
         .nav-sheet-cancel:active { background: #e5e5e5; }
 
         @media (max-width: 600px) {
@@ -190,6 +189,23 @@
         .collapsible.collapsed::after { transform: rotate(-90deg); }
         .collapse-body { overflow: hidden; transition: max-height 0.3s ease; }
         .collapse-body.hidden { max-height: 0 !important; }
+
+        /* Weather module */
+        .weather-box { background: linear-gradient(135deg, #e8f4fd, #f0f7ff); border-radius: 12px; padding: 16px 20px; margin-bottom: 20px; border: 1px solid #d4e8f7; }
+        .weather-box h4 { font-size: 15px; color: #2c6faa; margin-bottom: 12px; }
+        .weather-slots { display: flex; gap: 8px; overflow-x: auto; padding-bottom: 4px; }
+        .weather-slot { flex-shrink: 0; text-align: center; padding: 10px 12px; background: #fff; border-radius: 10px; min-width: 72px; box-shadow: 0 1px 4px rgba(0,0,0,0.05); }
+        .weather-slot .w-time { font-size: 12px; color: #666; margin-bottom: 4px; }
+        .weather-slot .w-icon { font-size: 22px; margin: 4px 0; }
+        .weather-slot .w-temp { font-size: 14px; font-weight: 600; color: #333; }
+        .weather-slot .w-desc { font-size: 11px; color: #888; margin-top: 2px; }
+        .weather-loading { text-align: center; color: #888; font-size: 13px; padding: 10px 0; }
+        .weather-note { font-size: 12px; color: #999; margin-top: 10px; text-align: center; }
+        @media (max-width: 600px) {
+            .weather-box { padding: 12px 14px; }
+            .weather-slot { min-width: 64px; padding: 8px 10px; }
+            .weather-slot .w-icon { font-size: 18px; }
+        }
     </style>
 </head>
 <body>
@@ -313,6 +329,12 @@
 
             <!-- 时间表页 -->
             <div class="page" id="page-timeline">
+                <div class="weather-box" id="weather-box">
+                    <h4>🌤️ 婚礼当天天气预报 · 宁海</h4>
+                    <div class="weather-loading" id="weather-loading">加载天气中...</div>
+                    <div class="weather-slots" id="weather-slots"></div>
+                    <div class="weather-note" id="weather-note"></div>
+                </div>
                 <div class="timeline">
                     <div class="timeline-phase">
                         <div class="phase-title collapsible" onclick="toggleSection(this)">新娘篇 · 酒店套房 <span style="font-size:12px;color:#999;font-weight:normal;">04:30-08:38</span></div>
@@ -419,22 +441,22 @@
             <button class="modal-close" onclick="document.getElementById('contacts-modal').classList.remove('show')">&times;</button>
             <h3>筹备小组</h3>
             <div class="contact-list">
-                <div class="contact-item"><div class="contact-role">新郎</div><div class="contact-name">庄磊</div><div class="contact-phone"><a href="tel:18658487873">📞</a></div></div>
-                <div class="contact-item"><div class="contact-role">新娘</div><div class="contact-name">待补充</div><div class="contact-phone"><a href="tel:">📞</a></div></div>
-                <div class="contact-item"><div class="contact-role">婚庆</div><div class="contact-name">花田喜事-王爽</div><div class="contact-phone"><a href="tel:">📞</a></div></div>
-                <div class="contact-item"><div class="contact-role">摄影</div><div class="contact-name">芊禧影像-老杨</div><div class="contact-phone"><a href="tel:">📞</a></div></div>
-                <div class="contact-item"><div class="contact-role">化妆</div><div class="contact-name">赢赢</div><div class="contact-phone"><a href="tel:">📞</a></div></div>
-                <div class="contact-item"><div class="contact-role">婚车</div><div class="contact-name">杨哥</div><div class="contact-phone"><a href="tel:">📞</a></div></div>
-                <div class="contact-item"><div class="contact-role">酒店</div><div class="contact-name">西子国际-谢婉娇</div><div class="contact-phone"><a href="tel:">📞</a></div></div>
-                <div class="contact-item"><div class="contact-role">伴郎</div><div class="contact-name">楚楚、张帆</div><div class="contact-phone"><a href="tel:">📞</a></div></div>
-                <div class="contact-item"><div class="contact-role">伴娘</div><div class="contact-name">萧萧、晴儿</div><div class="contact-phone"><a href="tel:">📞</a></div></div>
+                <div class="contact-item"><div class="contact-role">新郎</div><div class="contact-name">庄磊</div><div class="contact-phone"><a href="tel:18658487873"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></a></div></div>
+                <div class="contact-item"><div class="contact-role">新娘</div><div class="contact-name">待补充</div><div class="contact-phone"><a href="tel:"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></a></div></div>
+                <div class="contact-item"><div class="contact-role">婚庆</div><div class="contact-name">花田喜事-王爽</div><div class="contact-phone"><a href="tel:"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></a></div></div>
+                <div class="contact-item"><div class="contact-role">摄影</div><div class="contact-name">芊禧影像-老杨</div><div class="contact-phone"><a href="tel:"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></a></div></div>
+                <div class="contact-item"><div class="contact-role">化妆</div><div class="contact-name">赢赢</div><div class="contact-phone"><a href="tel:"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></a></div></div>
+                <div class="contact-item"><div class="contact-role">婚车</div><div class="contact-name">杨哥</div><div class="contact-phone"><a href="tel:"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></a></div></div>
+                <div class="contact-item"><div class="contact-role">酒店</div><div class="contact-name">西子国际-谢婉娇</div><div class="contact-phone"><a href="tel:"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></a></div></div>
+                <div class="contact-item"><div class="contact-role">伴郎</div><div class="contact-name">楚楚、张帆</div><div class="contact-phone"><a href="tel:"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></a></div></div>
+                <div class="contact-item"><div class="contact-role">伴娘</div><div class="contact-name">萧萧、晴儿</div><div class="contact-phone"><a href="tel:"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></a></div></div>
             </div>
             <h3 style="font-size:15px;color:#5c4033;margin:20px 0 12px;padding-top:16px;border-top:1px solid #efe6dd;">紧急联系人</h3>
             <div class="contact-list">
-                <div class="contact-item"><div class="contact-role">新郎父</div><div class="contact-name">待补充</div><div class="contact-phone"><a href="tel:">📞</a></div></div>
-                <div class="contact-item"><div class="contact-role">新郎母</div><div class="contact-name">待补充</div><div class="contact-phone"><a href="tel:">📞</a></div></div>
-                <div class="contact-item"><div class="contact-role">新娘父</div><div class="contact-name">待补充</div><div class="contact-phone"><a href="tel:">📞</a></div></div>
-                <div class="contact-item"><div class="contact-role">新娘母</div><div class="contact-name">待补充</div><div class="contact-phone"><a href="tel:">📞</a></div></div>
+                <div class="contact-item"><div class="contact-role">新郎父</div><div class="contact-name">待补充</div><div class="contact-phone"><a href="tel:"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></a></div></div>
+                <div class="contact-item"><div class="contact-role">新郎母</div><div class="contact-name">待补充</div><div class="contact-phone"><a href="tel:"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></a></div></div>
+                <div class="contact-item"><div class="contact-role">新娘父</div><div class="contact-name">待补充</div><div class="contact-phone"><a href="tel:"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></a></div></div>
+                <div class="contact-item"><div class="contact-role">新娘母</div><div class="contact-name">待补充</div><div class="contact-phone"><a href="tel:"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></a></div></div>
             </div>
         </div>
     </div>
@@ -456,35 +478,42 @@
             var isIOS = /iphone|ipad|ipod/.test(ua);
             var isAndroid = /android/.test(ua);
             var isHarmony = /harmonyos|hmos/.test(ua);
+            var isWechat = /micromessenger/.test(ua);
 
             var list = document.getElementById('nav-picker-list');
             list.innerHTML = '';
             var apps = [];
 
-            if (isIOS) {
+            if (isWechat) {
                 apps = [
-                    {name: '高德地图', icon: '🗺️', url: 'iosamap://path?sourceApplication=wedding&dlat='+lat+'&dlon='+lng+'&dname='+encodeURIComponent(name)+'&dev=0&t=0'},
-                    {name: '百度地图', icon: '📍', url: 'baidumap://map/direction?destination=latlng:'+lat+','+lng+'|name:'+encodeURIComponent(name)+'&coord_type=wgs84&mode=driving&src=wedding'},
-                    {name: '腾讯地图', icon: '🧭', url: 'qqmap://map/routeplan?type=drive&to='+encodeURIComponent(name)+'&tocoord='+lat+','+lng+'&referer=wedding'},
-                    {name: 'Apple 地图', icon: '🍎', url: 'https://maps.apple.com/?daddr='+lat+','+lng+'&dname='+encodeURIComponent(name)+'&dirflg=d'}
+                    {name: '高德地图', url: 'https://uri.amap.com/navigation?to='+lng+','+lat+','+encodeURIComponent(name)+'&mode=car'},
+                    {name: '百度地图', url: 'https://api.map.baidu.com/direction?destination=latlng:'+lat+','+lng+'%7Cname:'+encodeURIComponent(name)+'&mode=driving&coord_type=wgs84&output=html'},
+                    {name: '腾讯地图', url: 'https://apis.map.qq.com/uri/v1/routeplan?type=drive&to='+encodeURIComponent(name)+'&tocoord='+lat+','+lng+'&referer=wedding'}
+                ];
+            } else if (isIOS) {
+                apps = [
+                    {name: '高德地图', url: 'iosamap://path?sourceApplication=wedding&dlat='+lat+'&dlon='+lng+'&dname='+encodeURIComponent(name)+'&dev=0&t=0'},
+                    {name: '百度地图', url: 'baidumap://map/direction?destination=latlng:'+lat+','+lng+'%7Cname:'+encodeURIComponent(name)+'&coord_type=wgs84&mode=driving&src=ios.wedding.app'},
+                    {name: '腾讯地图', url: 'qqmap://map/routeplan?type=drive&from=我的位置&fromcoord=CurrentLocation&to='+encodeURIComponent(name)+'&tocoord='+lat+','+lng+'&referer=wedding'},
+                    {name: 'Apple 地图', url: 'https://maps.apple.com/?daddr='+lat+','+lng+'&dname='+encodeURIComponent(name)+'&dirflg=d'}
                 ];
             } else if (isAndroid || isHarmony) {
                 apps = [
-                    {name: '高德地图', icon: '🗺️', url: 'androidamap://route/plan/?sourceApplication=wedding&dlat='+lat+'&dlon='+lng+'&dname='+encodeURIComponent(name)+'&dev=0&t=0'},
-                    {name: '百度地图', icon: '📍', url: 'baidumap://map/direction?destination=latlng:'+lat+','+lng+'|name:'+encodeURIComponent(name)+'&coord_type=wgs84&mode=driving&src=wedding'},
-                    {name: '腾讯地图', icon: '🧭', url: 'qqmap://map/routeplan?type=drive&to='+encodeURIComponent(name)+'&tocoord='+lat+','+lng+'&referer=wedding'},
-                    {name: '系统地图', icon: '📌', url: 'geo:'+lat+','+lng+'?q='+encodeURIComponent(name)}
+                    {name: '高德地图', url: 'androidamap://route/plan/?sourceApplication=wedding&dlat='+lat+'&dlon='+lng+'&dname='+encodeURIComponent(name)+'&dev=0&t=0'},
+                    {name: '百度地图', url: 'baidumap://map/direction?destination=latlng:'+lat+','+lng+'%7Cname:'+encodeURIComponent(name)+'&coord_type=wgs84&mode=driving&src=andr.wedding.app'},
+                    {name: '腾讯地图', url: 'qqmap://map/routeplan?type=drive&from=我的位置&fromcoord=CurrentLocation&to='+encodeURIComponent(name)+'&tocoord='+lat+','+lng+'&referer=wedding'},
+                    {name: '系统地图', url: 'geo:'+lat+','+lng+'?q='+encodeURIComponent(name)}
                 ];
             } else {
                 apps = [
-                    {name: '高德地图', icon: '🗺️', url: 'https://uri.amap.com/navigation?to='+lng+','+lat+','+encodeURIComponent(name)+'&mode=car'},
-                    {name: '百度地图', icon: '📍', url: 'http://api.map.baidu.com/direction?destination=latlng:'+lat+','+lng+'|name:'+encodeURIComponent(name)+'&mode=driving&coord_type=wgs84&output=html'},
-                    {name: '腾讯地图', icon: '🧭', url: 'https://apis.map.qq.com/uri/v1/routeplan?type=drive&to='+encodeURIComponent(name)+'&tocoord='+lat+','+lng+'&referer=wedding'}
+                    {name: '高德地图', url: 'https://uri.amap.com/navigation?to='+lng+','+lat+','+encodeURIComponent(name)+'&mode=car'},
+                    {name: '百度地图', url: 'https://api.map.baidu.com/direction?destination=latlng:'+lat+','+lng+'%7Cname:'+encodeURIComponent(name)+'&mode=driving&coord_type=wgs84&output=html'},
+                    {name: '腾讯地图', url: 'https://apis.map.qq.com/uri/v1/routeplan?type=drive&to='+encodeURIComponent(name)+'&tocoord='+lat+','+lng+'&referer=wedding'}
                 ];
             }
 
             // H5 fallback always at bottom
-            apps.push({name: '网页导航(兜底)', icon: '🌐', url: 'https://uri.amap.com/navigation?to='+lng+','+lat+','+encodeURIComponent(name)+'&mode=car'});
+            apps.push({name: '网页导航(兜底)', url: 'https://uri.amap.com/navigation?to='+lng+','+lat+','+encodeURIComponent(name)+'&mode=car'});
 
             apps.forEach(function(app) {
                 var a = document.createElement('a');
@@ -566,7 +595,86 @@
             document.querySelectorAll('.collapse-body:not(.hidden)').forEach(function(el) {
                 el.style.maxHeight = 'none';
             });
+            loadWeather();
         });
+
+        function loadWeather() {
+            var targetDate = '2026-08-05';
+            var weddingDate = '2026-10-06';
+            var now = new Date();
+            var wedding = new Date(weddingDate+'T00:00:00+08:00');
+            var diffDays = Math.ceil((wedding - now) / 86400000);
+
+            var useDate = diffDays <= 7 ? weddingDate : targetDate;
+            var label = diffDays <= 7 ? '婚礼当天' : '演示（' + useDate + '）';
+            document.querySelector('#weather-box h4').textContent = '🌤️ ' + label + '天气预报 · 宁海';
+
+            var lat = 29.28, lng = 121.43;
+            var url = 'https://api.open-meteo.com/v1/forecast?latitude='+lat+'&longitude='+lng+'&hourly=temperature_2m,weathercode,windspeed_10m&timezone=Asia/Shanghai&start_date='+useDate+'&end_date='+useDate;
+
+            fetch(url).then(function(r){ return r.json(); }).then(function(data) {
+                var hours = data.hourly.time;
+                var temps = data.hourly.temperature_2m;
+                var codes = data.hourly.weathercode;
+                var winds = data.hourly.windspeed_10m;
+
+                var keyHours = [5, 7, 8, 10, 12, 13, 15, 17, 19];
+                var slots = document.getElementById('weather-slots');
+                var loading = document.getElementById('weather-loading');
+                loading.style.display = 'none';
+
+                keyHours.forEach(function(h) {
+                    var idx = h;
+                    if (idx >= hours.length) return;
+                    var slot = document.createElement('div');
+                    slot.className = 'weather-slot';
+                    var icon = weatherIcon(codes[idx]);
+                    var desc = weatherDesc(codes[idx]);
+                    slot.innerHTML = '<div class="w-time">'+String(h).padStart(2,'0')+':00</div><div class="w-icon">'+icon+'</div><div class="w-temp">'+Math.round(temps[idx])+'°C</div><div class="w-desc">'+desc+'</div>';
+                    slots.appendChild(slot);
+                });
+
+                var note = document.getElementById('weather-note');
+                if (diffDays > 7) {
+                    note.textContent = '注：当前为演示数据（'+useDate+'），婚礼前7天自动切换为10月6日实时预报';
+                } else {
+                    note.textContent = '数据来源：Open-Meteo · 更新于 '+new Date().toLocaleString('zh-CN');
+                }
+            }).catch(function() {
+                document.getElementById('weather-loading').textContent = '天气数据加载失败，请稍后刷新';
+            });
+        }
+
+        function weatherIcon(code) {
+            if (code === 0) return '☀️';
+            if (code <= 3) return '⛅';
+            if (code <= 49) return '🌫️';
+            if (code <= 59) return '🌦️';
+            if (code <= 69) return '🌧️';
+            if (code <= 79) return '🌨️';
+            if (code <= 82) return '🌧️';
+            if (code <= 86) return '🌨️';
+            if (code >= 95) return '⛈️';
+            return '🌥️';
+        }
+
+        function weatherDesc(code) {
+            if (code === 0) return '晴';
+            if (code <= 2) return '多云';
+            if (code === 3) return '阴';
+            if (code <= 49) return '雾';
+            if (code <= 55) return '小雨';
+            if (code <= 59) return '中雨';
+            if (code <= 65) return '雨';
+            if (code <= 69) return '雨夹雪';
+            if (code <= 75) return '雪';
+            if (code <= 79) return '冰粒';
+            if (code === 80) return '小阵雨';
+            if (code <= 82) return '大阵雨';
+            if (code <= 86) return '阵雪';
+            if (code >= 95) return '雷暴';
+            return '多云';
+        }
     </script>
 </body>
 </html>
