@@ -445,15 +445,25 @@
             var list = document.getElementById('nav-picker-list');
             list.innerHTML = '';
             var apps = [
-                {name: '高德地图', icon: '🗺️', url: 'https://uri.amap.com/navigation?to='+lng+','+lat+','+encodeURIComponent(name)+'&mode=car&callnative=1'},
-                {name: '百度地图', icon: '📍', url: 'http://api.map.baidu.com/direction?destination=latlng:'+lat+','+lng+'|name:'+encodeURIComponent(name)+'&mode=driving&coord_type=wgs84&output=html'},
-                {name: '腾讯地图', icon: '🧭', url: 'https://apis.map.qq.com/uri/v1/routeplan?type=drive&to='+encodeURIComponent(name)+'&tocoord='+lat+','+lng+'&referer=wedding'},
-                {name: 'Apple 地图', icon: '🍎', url: 'https://maps.apple.com/?daddr='+lat+','+lng+'&dirflg=d'}
+                {name: '高德地图', icon: '🗺️', scheme: 'iosamap://navi?sourceApplication=wedding&dname='+encodeURIComponent(name)+'&dlat='+lat+'&dlon='+lng+'&dev=0&style=2', fallback: 'https://uri.amap.com/navigation?to='+lng+','+lat+','+encodeURIComponent(name)+'&mode=car&callnative=1'},
+                {name: '百度地图', icon: '📍', scheme: 'baidumap://map/direction?destination=latlng:'+lat+','+lng+'|name:'+encodeURIComponent(name)+'&coord_type=wgs84&mode=driving', fallback: 'http://api.map.baidu.com/direction?destination=latlng:'+lat+','+lng+'|name:'+encodeURIComponent(name)+'&mode=driving&coord_type=wgs84&output=html'},
+                {name: '腾讯地图', icon: '🧭', scheme: 'qqmap://map/routeplan?type=drive&to='+encodeURIComponent(name)+'&tocoord='+lat+','+lng+'&referer=wedding', fallback: 'https://apis.map.qq.com/uri/v1/routeplan?type=drive&to='+encodeURIComponent(name)+'&tocoord='+lat+','+lng+'&referer=wedding'},
+                {name: 'Apple 地图', icon: '🍎', scheme: 'https://maps.apple.com/?daddr='+lat+','+lng+'&dirflg=d', fallback: 'https://maps.apple.com/?daddr='+lat+','+lng+'&dirflg=d'}
             ];
             apps.forEach(function(app) {
                 var a = document.createElement('a');
-                a.href = app.url;
-                a.target = '_blank';
+                a.href = '#';
+                a.onclick = function(e) {
+                    e.preventDefault();
+                    var clicked = Date.now();
+                    window.location.href = app.scheme;
+                    setTimeout(function() {
+                        if (Date.now() - clicked < 2500) {
+                            window.location.href = app.fallback;
+                        }
+                    }, 1500);
+                    document.getElementById('nav-modal').classList.remove('show');
+                };
                 a.innerHTML = '<span class="nav-icon">'+app.icon+'</span>'+app.name;
                 list.appendChild(a);
             });
