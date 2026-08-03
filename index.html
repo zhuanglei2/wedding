@@ -442,28 +442,43 @@
 
     <script>
         function openNav(lat, lng, name) {
+            var ua = navigator.userAgent.toLowerCase();
+            var isIOS = /iphone|ipad|ipod/.test(ua);
+            var isAndroid = /android/.test(ua);
+            var isHarmony = /harmonyos|hmos/.test(ua);
+
             var list = document.getElementById('nav-picker-list');
             list.innerHTML = '';
-            var apps = [
-                {name: '高德地图', icon: '🗺️', scheme: 'iosamap://navi?sourceApplication=wedding&dname='+encodeURIComponent(name)+'&dlat='+lat+'&dlon='+lng+'&dev=0&style=2', fallback: 'https://uri.amap.com/navigation?to='+lng+','+lat+','+encodeURIComponent(name)+'&mode=car&callnative=1'},
-                {name: '百度地图', icon: '📍', scheme: 'baidumap://map/direction?destination=latlng:'+lat+','+lng+'|name:'+encodeURIComponent(name)+'&coord_type=wgs84&mode=driving', fallback: 'http://api.map.baidu.com/direction?destination=latlng:'+lat+','+lng+'|name:'+encodeURIComponent(name)+'&mode=driving&coord_type=wgs84&output=html'},
-                {name: '腾讯地图', icon: '🧭', scheme: 'qqmap://map/routeplan?type=drive&to='+encodeURIComponent(name)+'&tocoord='+lat+','+lng+'&referer=wedding', fallback: 'https://apis.map.qq.com/uri/v1/routeplan?type=drive&to='+encodeURIComponent(name)+'&tocoord='+lat+','+lng+'&referer=wedding'},
-                {name: 'Apple 地图', icon: '🍎', scheme: 'https://maps.apple.com/?daddr='+lat+','+lng+'&dirflg=d', fallback: 'https://maps.apple.com/?daddr='+lat+','+lng+'&dirflg=d'}
-            ];
+            var apps = [];
+
+            if (isIOS) {
+                apps = [
+                    {name: '高德地图', icon: '🗺️', url: 'iosamap://path?sourceApplication=wedding&dlat='+lat+'&dlon='+lng+'&dname='+encodeURIComponent(name)+'&dev=0&t=0'},
+                    {name: '百度地图', icon: '📍', url: 'baidumap://map/direction?destination=latlng:'+lat+','+lng+'|name:'+encodeURIComponent(name)+'&coord_type=wgs84&mode=driving&src=wedding'},
+                    {name: '腾讯地图', icon: '🧭', url: 'qqmap://map/routeplan?type=drive&to='+encodeURIComponent(name)+'&tocoord='+lat+','+lng+'&referer=wedding'},
+                    {name: 'Apple 地图', icon: '🍎', url: 'https://maps.apple.com/?daddr='+lat+','+lng+'&dname='+encodeURIComponent(name)+'&dirflg=d'}
+                ];
+            } else if (isAndroid || isHarmony) {
+                apps = [
+                    {name: '高德地图', icon: '🗺️', url: 'androidamap://route/plan/?sourceApplication=wedding&dlat='+lat+'&dlon='+lng+'&dname='+encodeURIComponent(name)+'&dev=0&t=0'},
+                    {name: '百度地图', icon: '📍', url: 'baidumap://map/direction?destination=latlng:'+lat+','+lng+'|name:'+encodeURIComponent(name)+'&coord_type=wgs84&mode=driving&src=wedding'},
+                    {name: '腾讯地图', icon: '🧭', url: 'qqmap://map/routeplan?type=drive&to='+encodeURIComponent(name)+'&tocoord='+lat+','+lng+'&referer=wedding'},
+                    {name: '系统地图', icon: '📌', url: 'geo:'+lat+','+lng+'?q='+encodeURIComponent(name)}
+                ];
+            } else {
+                apps = [
+                    {name: '高德地图', icon: '🗺️', url: 'https://uri.amap.com/navigation?to='+lng+','+lat+','+encodeURIComponent(name)+'&mode=car'},
+                    {name: '百度地图', icon: '📍', url: 'http://api.map.baidu.com/direction?destination=latlng:'+lat+','+lng+'|name:'+encodeURIComponent(name)+'&mode=driving&coord_type=wgs84&output=html'},
+                    {name: '腾讯地图', icon: '🧭', url: 'https://apis.map.qq.com/uri/v1/routeplan?type=drive&to='+encodeURIComponent(name)+'&tocoord='+lat+','+lng+'&referer=wedding'}
+                ];
+            }
+
+            // H5 fallback always at bottom
+            apps.push({name: '网页导航(兜底)', icon: '🌐', url: 'https://uri.amap.com/navigation?to='+lng+','+lat+','+encodeURIComponent(name)+'&mode=car'});
+
             apps.forEach(function(app) {
                 var a = document.createElement('a');
-                a.href = '#';
-                a.onclick = function(e) {
-                    e.preventDefault();
-                    var clicked = Date.now();
-                    window.location.href = app.scheme;
-                    setTimeout(function() {
-                        if (Date.now() - clicked < 2500) {
-                            window.location.href = app.fallback;
-                        }
-                    }, 1500);
-                    document.getElementById('nav-modal').classList.remove('show');
-                };
+                a.href = app.url;
                 a.innerHTML = '<span class="nav-icon">'+app.icon+'</span>'+app.name;
                 list.appendChild(a);
             });
