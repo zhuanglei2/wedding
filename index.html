@@ -134,13 +134,14 @@
         .progress-fill { height: 100%; background: linear-gradient(90deg, #c9a87c, #8b6f5e); border-radius: 4px; transition: width 0.5s ease; }
 
         /* Contacts */
-        .contact-list { display: flex; flex-direction: column; gap: 10px; }
-        .contact-item { display: flex; align-items: center; padding: 12px 16px; background: #faf7f4; border-radius: 10px; border: 1px solid #efe6dd; }
-        .contact-role { width: 80px; font-size: 13px; color: #a08c7b; flex-shrink: 0; }
-        .contact-name { flex: 1; font-size: 14px; font-weight: 500; color: #5c4033; }
-        .contact-phone a { font-size: 14px; color: #c9a87c; text-decoration: none; display: inline-flex; align-items: center; gap: 4px; }
-        .contact-phone a::before { content: '📞'; font-size: 16px; }
-        .contact-phone a:hover { text-decoration: underline; }
+        .contact-list { display: flex; flex-direction: column; gap: 8px; }
+        .contact-item { display: flex; align-items: center; padding: 14px 16px; background: linear-gradient(135deg, #fdfcfb, #faf7f4); border-radius: 12px; border: 1px solid #efe6dd; }
+        .contact-role { font-size: 12px; color: #fff; background: #c9a87c; padding: 2px 8px; border-radius: 4px; flex-shrink: 0; min-width: 56px; text-align: center; }
+        .contact-name { flex: 1; font-size: 14px; font-weight: 500; color: #5c4033; margin-left: 12px; }
+        .contact-phone { margin-left: auto; }
+        .contact-phone a { display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 50%; background: linear-gradient(135deg, #c9a87c, #a0835e); color: #fff; text-decoration: none; font-size: 16px; box-shadow: 0 2px 6px rgba(201,168,124,0.3); transition: transform 0.2s; }
+        .contact-phone a:active { transform: scale(0.9); }
+        .contact-phone a .phone-icon { display: block; }
 
         /* Floating entry */
         .fab-contacts { position: fixed; bottom: 24px; right: 24px; width: 52px; height: 52px; border-radius: 50%; background: linear-gradient(135deg, #c9a87c, #8b6f5e); color: #fff; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 16px rgba(0,0,0,0.15); cursor: pointer; z-index: 100; font-size: 20px; border: none; transition: transform 0.2s; }
@@ -153,6 +154,13 @@
         .modal-box { background: #fff; border-radius: 16px; padding: 24px; max-width: 400px; width: 100%; max-height: 80vh; overflow-y: auto; position: relative; }
         .modal-box h3 { font-size: 17px; color: #5c4033; margin-bottom: 16px; text-align: center; }
         .modal-close { position: absolute; top: 12px; right: 16px; font-size: 20px; color: #999; cursor: pointer; border: none; background: none; }
+
+        /* Nav picker */
+        .nav-picker { display: flex; flex-direction: column; gap: 10px; padding: 10px 0; }
+        .nav-picker a { display: flex; align-items: center; gap: 12px; padding: 14px 16px; background: #faf7f4; border-radius: 10px; border: 1px solid #efe6dd; text-decoration: none; color: #5c4033; font-size: 15px; font-weight: 500; }
+        .nav-picker a:active { background: #f0ebe5; }
+        .nav-picker .nav-icon { width: 32px; height: 32px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 18px; }
+
         @media (max-width: 600px) {
             .fab-contacts { width: 46px; height: 46px; bottom: 18px; right: 18px; font-size: 18px; }
             .fab-label { bottom: 22px; right: 72px; }
@@ -365,13 +373,13 @@
                     <h4 style="color:#5c4033; margin-bottom:16px;">🗺️ 全天路线图</h4>
                     <div style="display:flex; flex-direction:column; gap:0;">
                         <div class="route-step"><div class="route-dot"></div><div class="route-text"><span class="place">① 男方家（宁海县力洋镇海头村）</span><br><span class="desc">08:00 出发接亲（建议07:45，防国庆堵车）</span></div></div>
-                        <div style="display:flex; align-items:center; margin-left:5px;"><div style="width:2px; height:30px; background:#ddd0c3;"></div><div style="margin-left:10px; font-size:12px; color:#8b6f5e;">🚗 约38分钟 <a href="https://uri.amap.com/navigation?to=121.430,29.288,宁海金海开元名都大酒店&mode=car&callnative=1" style="color:#c9a87c; text-decoration:none; margin-left:6px;">📍导航</a></div></div>
+                        <div style="display:flex; align-items:center; margin-left:5px;"><div style="width:2px; height:30px; background:#ddd0c3;"></div><div style="margin-left:10px; font-size:12px; color:#8b6f5e;">🚗 约38分钟 <a href="javascript:void(0)" onclick="openNav(29.288,121.430,'金海开元名都大酒店')" style="color:#c9a87c; text-decoration:none; margin-left:6px;">📍导航</a></div></div>
                         <div class="route-step"><div class="route-dot"></div><div class="route-text"><span class="place">② 金海开元酒店（接亲）</span><br><span class="desc">08:38 到达 → 拦门、敬茶、合影 → 09:50 出发回男方家</span></div></div>
-                        <div style="display:flex; align-items:center; margin-left:5px;"><div style="width:2px; height:30px; background:#ddd0c3;"></div><div style="margin-left:10px; font-size:12px; color:#8b6f5e;">🚗 约38分钟 <a href="https://uri.amap.com/navigation?to=121.585,29.210,力洋镇海头村&mode=car&callnative=1" style="color:#c9a87c; text-decoration:none; margin-left:6px;">📍导航</a></div></div>
+                        <div style="display:flex; align-items:center; margin-left:5px;"><div style="width:2px; height:30px; background:#ddd0c3;"></div><div style="margin-left:10px; font-size:12px; color:#8b6f5e;">🚗 约38分钟 <a href="javascript:void(0)" onclick="openNav(29.210,121.585,'力洋镇海头村')" style="color:#c9a87c; text-decoration:none; margin-left:6px;">📍导航</a></div></div>
                         <div class="route-step"><div class="route-dot"></div><div class="route-text"><span class="place">③ 男方家（拦门 + 新房拍摄 + 中饭）</span><br><span class="desc">10:38 到达 → 拦门、新房拍摄、吃中饭 → 13:18 出发</span></div></div>
-                        <div style="display:flex; align-items:center; margin-left:5px;"><div style="width:2px; height:30px; background:#ddd0c3;"></div><div style="margin-left:10px; font-size:12px; color:#8b6f5e;">🚗 前往三门湾 <a href="https://uri.amap.com/navigation?to=121.560,29.150,三门湾&mode=car&callnative=1" style="color:#c9a87c; text-decoration:none; margin-left:6px;">📍导航</a></div></div>
+                        <div style="display:flex; align-items:center; margin-left:5px;"><div style="width:2px; height:30px; background:#ddd0c3;"></div><div style="margin-left:10px; font-size:12px; color:#8b6f5e;">🚗 前往三门湾 <a href="javascript:void(0)" onclick="openNav(29.150,121.560,'三门湾')" style="color:#c9a87c; text-decoration:none; margin-left:6px;">📍导航</a></div></div>
                         <div class="route-step"><div class="route-dot"></div><div class="route-text"><span class="place">④ 三门湾（外景拍摄）</span><br><span class="desc">外景拍摄 → 14:08 拍摄结束返回</span></div></div>
-                        <div style="display:flex; align-items:center; margin-left:5px;"><div style="width:2px; height:30px; background:#ddd0c3;"></div><div style="margin-left:10px; font-size:12px; color:#8b6f5e;">🚗 前往西子酒店 <a href="https://uri.amap.com/navigation?to=121.438,29.280,宁海西子国际大酒店&mode=car&callnative=1" style="color:#c9a87c; text-decoration:none; margin-left:6px;">📍导航</a></div></div>
+                        <div style="display:flex; align-items:center; margin-left:5px;"><div style="width:2px; height:30px; background:#ddd0c3;"></div><div style="margin-left:10px; font-size:12px; color:#8b6f5e;">🚗 前往西子酒店 <a href="javascript:void(0)" onclick="openNav(29.280,121.438,'西子国际大酒店')" style="color:#c9a87c; text-decoration:none; margin-left:6px;">📍导航</a></div></div>
                         <div class="route-step"><div class="route-dot"></div><div class="route-text"><span class="place">⑤ 西子酒店 · 闻涛厅（换装→仪式→晚宴）</span><br><span class="desc">14:58 到达，不再转场</span></div></div>
                     </div>
                     <div style="margin-top:16px; padding-top:12px; border-top:1px dashed #ddd0c3; font-size:13px; color:#999;">
@@ -395,7 +403,7 @@
     </div>
 
     <!-- 筹备小组 浮动入口 -->
-    <button class="fab-contacts" onclick="document.getElementById('contacts-modal').classList.add('show')">&#128222;</button>
+    <button class="fab-contacts" onclick="document.getElementById('contacts-modal').classList.add('show')"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></button>
     <div class="fab-label">筹备小组</div>
 
     <div class="modal-overlay" id="contacts-modal" onclick="if(event.target===this)this.classList.remove('show')">
@@ -403,27 +411,55 @@
             <button class="modal-close" onclick="document.getElementById('contacts-modal').classList.remove('show')">&times;</button>
             <h3>筹备小组</h3>
             <div class="contact-list">
-                <div class="contact-item"><div class="contact-role">新郎</div><div class="contact-name">庄磊</div><div class="contact-phone"><a href="tel:18658487873">18658487873</a></div></div>
-                <div class="contact-item"><div class="contact-role">新娘</div><div class="contact-name">待补充</div><div class="contact-phone"><a href="tel:">待补充</a></div></div>
-                <div class="contact-item"><div class="contact-role">婚庆负责人</div><div class="contact-name">花田喜事-王爽</div><div class="contact-phone"><a href="tel:">待补充</a></div></div>
-                <div class="contact-item"><div class="contact-role">摄影师</div><div class="contact-name">芊禧影像-老杨</div><div class="contact-phone"><a href="tel:">待补充</a></div></div>
-                <div class="contact-item"><div class="contact-role">化妆师</div><div class="contact-name">赢赢</div><div class="contact-phone"><a href="tel:">待补充</a></div></div>
-                <div class="contact-item"><div class="contact-role">婚车司机</div><div class="contact-name">杨哥</div><div class="contact-phone"><a href="tel:">待补充</a></div></div>
-                <div class="contact-item"><div class="contact-role">酒店对接人</div><div class="contact-name">西子国际酒店-谢婉娇</div><div class="contact-phone"><a href="tel:">待补充</a></div></div>
-                <div class="contact-item"><div class="contact-role">伴郎</div><div class="contact-name">楚楚、张帆</div><div class="contact-phone"><a href="tel:">待补充</a></div></div>
-                <div class="contact-item"><div class="contact-role">伴娘</div><div class="contact-name">萧萧、晴儿</div><div class="contact-phone"><a href="tel:">待补充</a></div></div>
+                <div class="contact-item"><div class="contact-role">新郎</div><div class="contact-name">庄磊</div><div class="contact-phone"><a href="tel:18658487873">📞</a></div></div>
+                <div class="contact-item"><div class="contact-role">新娘</div><div class="contact-name">待补充</div><div class="contact-phone"><a href="tel:">📞</a></div></div>
+                <div class="contact-item"><div class="contact-role">婚庆</div><div class="contact-name">花田喜事-王爽</div><div class="contact-phone"><a href="tel:">📞</a></div></div>
+                <div class="contact-item"><div class="contact-role">摄影</div><div class="contact-name">芊禧影像-老杨</div><div class="contact-phone"><a href="tel:">📞</a></div></div>
+                <div class="contact-item"><div class="contact-role">化妆</div><div class="contact-name">赢赢</div><div class="contact-phone"><a href="tel:">📞</a></div></div>
+                <div class="contact-item"><div class="contact-role">婚车</div><div class="contact-name">杨哥</div><div class="contact-phone"><a href="tel:">📞</a></div></div>
+                <div class="contact-item"><div class="contact-role">酒店</div><div class="contact-name">西子国际-谢婉娇</div><div class="contact-phone"><a href="tel:">📞</a></div></div>
+                <div class="contact-item"><div class="contact-role">伴郎</div><div class="contact-name">楚楚、张帆</div><div class="contact-phone"><a href="tel:">📞</a></div></div>
+                <div class="contact-item"><div class="contact-role">伴娘</div><div class="contact-name">萧萧、晴儿</div><div class="contact-phone"><a href="tel:">📞</a></div></div>
             </div>
             <h3 style="font-size:15px;color:#5c4033;margin:20px 0 12px;padding-top:16px;border-top:1px solid #efe6dd;">紧急联系人</h3>
             <div class="contact-list">
-                <div class="contact-item"><div class="contact-role">新郎父亲</div><div class="contact-name">待补充</div><div class="contact-phone"><a href="tel:">待补充</a></div></div>
-                <div class="contact-item"><div class="contact-role">新郎母亲</div><div class="contact-name">待补充</div><div class="contact-phone"><a href="tel:">待补充</a></div></div>
-                <div class="contact-item"><div class="contact-role">新娘父亲</div><div class="contact-name">待补充</div><div class="contact-phone"><a href="tel:">待补充</a></div></div>
-                <div class="contact-item"><div class="contact-role">新娘母亲</div><div class="contact-name">待补充</div><div class="contact-phone"><a href="tel:">待补充</a></div></div>
+                <div class="contact-item"><div class="contact-role">新郎父</div><div class="contact-name">待补充</div><div class="contact-phone"><a href="tel:">📞</a></div></div>
+                <div class="contact-item"><div class="contact-role">新郎母</div><div class="contact-name">待补充</div><div class="contact-phone"><a href="tel:">📞</a></div></div>
+                <div class="contact-item"><div class="contact-role">新娘父</div><div class="contact-name">待补充</div><div class="contact-phone"><a href="tel:">📞</a></div></div>
+                <div class="contact-item"><div class="contact-role">新娘母</div><div class="contact-name">待补充</div><div class="contact-phone"><a href="tel:">📞</a></div></div>
             </div>
         </div>
     </div>
 
+    <!-- 导航选择弹窗 -->
+    <div class="modal-overlay" id="nav-modal" onclick="if(event.target===this)this.classList.remove('show')">
+        <div class="modal-box">
+            <button class="modal-close" onclick="document.getElementById('nav-modal').classList.remove('show')">&times;</button>
+            <h3>选择导航应用</h3>
+            <div class="nav-picker" id="nav-picker-list"></div>
+        </div>
+    </div>
+
     <script>
+        function openNav(lat, lng, name) {
+            var list = document.getElementById('nav-picker-list');
+            list.innerHTML = '';
+            var apps = [
+                {name: '高德地图', icon: '🗺️', url: 'https://uri.amap.com/navigation?to='+lng+','+lat+','+encodeURIComponent(name)+'&mode=car&callnative=1'},
+                {name: '百度地图', icon: '📍', url: 'http://api.map.baidu.com/direction?destination=latlng:'+lat+','+lng+'|name:'+encodeURIComponent(name)+'&mode=driving&coord_type=wgs84&output=html'},
+                {name: '腾讯地图', icon: '🧭', url: 'https://apis.map.qq.com/uri/v1/routeplan?type=drive&to='+encodeURIComponent(name)+'&tocoord='+lat+','+lng+'&referer=wedding'},
+                {name: 'Apple 地图', icon: '🍎', url: 'https://maps.apple.com/?daddr='+lat+','+lng+'&dirflg=d'}
+            ];
+            apps.forEach(function(app) {
+                var a = document.createElement('a');
+                a.href = app.url;
+                a.target = '_blank';
+                a.innerHTML = '<span class="nav-icon">'+app.icon+'</span>'+app.name;
+                list.appendChild(a);
+            });
+            document.getElementById('nav-modal').classList.add('show');
+        }
+
         function switchTab(page) {
             document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
             document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
