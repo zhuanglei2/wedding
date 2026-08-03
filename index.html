@@ -119,6 +119,55 @@
             .warning-box li { font-size: 13px; }
         }
 
+        /* Countdown */
+        .countdown { text-align: center; margin-top: 20px; padding-top: 16px; border-top: 1px solid #efe6dd; }
+        .countdown-title { font-size: 13px; color: #a08c7b; margin-bottom: 10px; letter-spacing: 2px; }
+        .countdown-boxes { display: flex; justify-content: center; gap: 12px; }
+        .countdown-box { background: #fff; border-radius: 10px; padding: 10px 14px; min-width: 60px; box-shadow: 0 2px 6px rgba(0,0,0,0.04); border: 1px solid #efe6dd; }
+        .countdown-box .num { font-size: 26px; font-weight: 700; color: #5c4033; line-height: 1.2; }
+        .countdown-box .label { font-size: 11px; color: #a08c7b; margin-top: 4px; }
+
+        /* Progress bar */
+        .progress-wrap { margin-top: 18px; padding: 0 20px; }
+        .progress-info { display: flex; justify-content: space-between; font-size: 12px; color: #a08c7b; margin-bottom: 6px; }
+        .progress-bar { height: 8px; background: #efe6dd; border-radius: 4px; overflow: hidden; }
+        .progress-fill { height: 100%; background: linear-gradient(90deg, #c9a87c, #8b6f5e); border-radius: 4px; transition: width 0.5s ease; }
+
+        /* Contacts */
+        .contact-list { display: flex; flex-direction: column; gap: 10px; }
+        .contact-item { display: flex; align-items: center; padding: 12px 16px; background: #faf7f4; border-radius: 10px; border: 1px solid #efe6dd; }
+        .contact-role { width: 80px; font-size: 13px; color: #a08c7b; flex-shrink: 0; }
+        .contact-name { flex: 1; font-size: 14px; font-weight: 500; color: #5c4033; }
+        .contact-phone a { font-size: 14px; color: #c9a87c; text-decoration: none; display: inline-flex; align-items: center; gap: 4px; }
+        .contact-phone a::before { content: '📞'; font-size: 16px; }
+        .contact-phone a:hover { text-decoration: underline; }
+
+        /* Floating entry */
+        .fab-contacts { position: fixed; bottom: 24px; right: 24px; width: 52px; height: 52px; border-radius: 50%; background: linear-gradient(135deg, #c9a87c, #8b6f5e); color: #fff; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 16px rgba(0,0,0,0.15); cursor: pointer; z-index: 100; font-size: 20px; border: none; transition: transform 0.2s; }
+        .fab-contacts:hover { transform: scale(1.1); }
+        .fab-label { position: fixed; bottom: 28px; right: 84px; background: #5c4033; color: #fff; font-size: 12px; padding: 4px 10px; border-radius: 6px; z-index: 100; pointer-events: none; opacity: 0.9; }
+
+        /* Contacts modal */
+        .modal-overlay { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.4); z-index: 200; align-items: center; justify-content: center; padding: 20px; }
+        .modal-overlay.show { display: flex; }
+        .modal-box { background: #fff; border-radius: 16px; padding: 24px; max-width: 400px; width: 100%; max-height: 80vh; overflow-y: auto; position: relative; }
+        .modal-box h3 { font-size: 17px; color: #5c4033; margin-bottom: 16px; text-align: center; }
+        .modal-close { position: absolute; top: 12px; right: 16px; font-size: 20px; color: #999; cursor: pointer; border: none; background: none; }
+        @media (max-width: 600px) {
+            .fab-contacts { width: 46px; height: 46px; bottom: 18px; right: 18px; font-size: 18px; }
+            .fab-label { bottom: 22px; right: 72px; }
+            .modal-box { padding: 18px; }
+        }
+
+        @media (max-width: 600px) {
+            .countdown { margin-top: 14px; padding-top: 12px; }
+            .countdown-boxes { gap: 8px; }
+            .countdown-box { padding: 8px 10px; min-width: 52px; }
+            .countdown-box .num { font-size: 20px; }
+            .countdown-box .label { font-size: 10px; }
+            .progress-wrap { padding: 0 10px; margin-top: 14px; }
+        }
+
         /* Collapsible sections */
         .collapsible { cursor: pointer; user-select: none; display: flex; align-items: center; justify-content: space-between; }
         .collapsible::after { content: '▾'; font-size: 14px; color: #a08c7b; transition: transform 0.3s; margin-left: 8px; }
@@ -134,6 +183,19 @@
             <div class="subtitle">Wedding Preparation Guide</div>
             <div class="date">2026年10月6日</div>
             <div class="decor-rings"></div>
+            <div class="countdown" id="countdown">
+                <div class="countdown-title">距离婚礼还有</div>
+                <div class="countdown-boxes">
+                    <div class="countdown-box"><div class="num" id="cd-days">--</div><div class="label">天</div></div>
+                    <div class="countdown-box"><div class="num" id="cd-hours">--</div><div class="label">时</div></div>
+                    <div class="countdown-box"><div class="num" id="cd-mins">--</div><div class="label">分</div></div>
+                    <div class="countdown-box"><div class="num" id="cd-secs">--</div><div class="label">秒</div></div>
+                </div>
+            </div>
+            <div class="progress-wrap">
+                <div class="progress-info"><span id="progress-text">备婚进度 14/50</span><span id="progress-pct">28%</span></div>
+                <div class="progress-bar"><div class="progress-fill" id="progress-fill" style="width:28%"></div></div>
+            </div>
         </div>
 
         <div class="tabs">
@@ -173,7 +235,6 @@
                         <tr><th width="30"></th><th>事项</th><th>备注</th></tr>
                         <tr><td><input type="checkbox" class="checkbox"></td><td><span class="dot-critical"></span><strong>婚纱照预约</strong></td><td class="note">还没拍！拍摄+选片+制作至少1个月，必须立即预订</td></tr>
                         <tr><td><input type="checkbox" class="checkbox"></td><td><span class="dot-critical"></span><strong>酒席桌数确认</strong></td><td class="note">国庆档紧俏，尽早定</td></tr>
-                        <tr><td><input type="checkbox" class="checkbox"></td><td><span class="dot-critical"></span><strong>菜单定稿</strong></td><td class="note">与酒店确认，桌数定了才能定菜单</td></tr>
                     </table>
                 </div>
 
@@ -193,6 +254,7 @@
                     <h3 class="section-title">🟡 9月初完成 <span class="badge badge-normal">9月上旬</span></h3>
                     <table class="todo-table">
                         <tr><th width="30"></th><th>事项</th><th>备注</th></tr>
+                        <tr><td><input type="checkbox" class="checkbox"></td><td><span class="dot-normal"></span>菜单定稿</td><td class="note">与酒店确认，桌数定了才能定菜单</td></tr>
                         <tr><td><input type="checkbox" class="checkbox"></td><td><span class="dot-normal"></span>午宴便餐安排</td><td class="note">确认在男方家的桌数和菜品</td></tr>
                         <tr><td><input type="checkbox" class="checkbox"></td><td><span class="dot-normal"></span>新娘婚鞋</td><td class="note">建议备两双</td></tr>
                         <tr><td><input type="checkbox" class="checkbox"></td><td><span class="dot-normal"></span>喜酒</td><td class="note">按桌数备</td></tr>
@@ -223,7 +285,7 @@
                         <tr><td><input type="checkbox" class="checkbox"></td><td><span class="dot-low"></span>婚房布置</td><td class="note">喜字、气球、床品四件套</td></tr>
                         <tr><td><input type="checkbox" class="checkbox"></td><td><span class="dot-low"></span>拍摄道具准备</td><td class="note">跟摄影师确认清单</td></tr>
                         <tr><td><input type="checkbox" class="checkbox"></td><td><span class="dot-low"></span>10月天气预案</td><td class="note">外景遇雨备选方案</td></tr>
-                        <tr><td><input type="checkbox" class="checkbox"></td><td><span class="dot-low"></span>铺床/压床人选</td><td class="note">选好命人</td></tr>
+                        <tr><td><input type="checkbox" class="checkbox"></td><td><span class="dot-low"></span>铺床/压床人选</td><td class="note">强哥儿子；尿马桶人选：海涛哥儿子</td></tr>
                         <tr><td><input type="checkbox" class="checkbox"></td><td><span class="dot-low"></span>十字披红</td><td class="note">新郎出发前</td></tr>
                         <tr><td><input type="checkbox" class="checkbox"></td><td><span class="dot-low"></span>鞭炮安排</td><td class="note">新娘到新郎家时放</td></tr>
                         <tr><td><input type="checkbox" class="checkbox"></td><td><span class="dot-low"></span>喂饭/吃点心环节</td><td class="note">确认有此环节，准备相关食品</td></tr>
@@ -332,6 +394,35 @@
         </div>
     </div>
 
+    <!-- 筹备小组 浮动入口 -->
+    <button class="fab-contacts" onclick="document.getElementById('contacts-modal').classList.add('show')">&#128222;</button>
+    <div class="fab-label">筹备小组</div>
+
+    <div class="modal-overlay" id="contacts-modal" onclick="if(event.target===this)this.classList.remove('show')">
+        <div class="modal-box">
+            <button class="modal-close" onclick="document.getElementById('contacts-modal').classList.remove('show')">&times;</button>
+            <h3>筹备小组</h3>
+            <div class="contact-list">
+                <div class="contact-item"><div class="contact-role">新郎</div><div class="contact-name">庄磊</div><div class="contact-phone"><a href="tel:18658487873">18658487873</a></div></div>
+                <div class="contact-item"><div class="contact-role">新娘</div><div class="contact-name">待补充</div><div class="contact-phone"><a href="tel:">待补充</a></div></div>
+                <div class="contact-item"><div class="contact-role">婚庆负责人</div><div class="contact-name">花田喜事-王爽</div><div class="contact-phone"><a href="tel:">待补充</a></div></div>
+                <div class="contact-item"><div class="contact-role">摄影师</div><div class="contact-name">芊禧影像-老杨</div><div class="contact-phone"><a href="tel:">待补充</a></div></div>
+                <div class="contact-item"><div class="contact-role">化妆师</div><div class="contact-name">赢赢</div><div class="contact-phone"><a href="tel:">待补充</a></div></div>
+                <div class="contact-item"><div class="contact-role">婚车司机</div><div class="contact-name">杨哥</div><div class="contact-phone"><a href="tel:">待补充</a></div></div>
+                <div class="contact-item"><div class="contact-role">酒店对接人</div><div class="contact-name">西子国际酒店-谢婉娇</div><div class="contact-phone"><a href="tel:">待补充</a></div></div>
+                <div class="contact-item"><div class="contact-role">伴郎</div><div class="contact-name">楚楚、张帆</div><div class="contact-phone"><a href="tel:">待补充</a></div></div>
+                <div class="contact-item"><div class="contact-role">伴娘</div><div class="contact-name">萧萧、晴儿</div><div class="contact-phone"><a href="tel:">待补充</a></div></div>
+            </div>
+            <h3 style="font-size:15px;color:#5c4033;margin:20px 0 12px;padding-top:16px;border-top:1px solid #efe6dd;">紧急联系人</h3>
+            <div class="contact-list">
+                <div class="contact-item"><div class="contact-role">新郎父亲</div><div class="contact-name">待补充</div><div class="contact-phone"><a href="tel:">待补充</a></div></div>
+                <div class="contact-item"><div class="contact-role">新郎母亲</div><div class="contact-name">待补充</div><div class="contact-phone"><a href="tel:">待补充</a></div></div>
+                <div class="contact-item"><div class="contact-role">新娘父亲</div><div class="contact-name">待补充</div><div class="contact-phone"><a href="tel:">待补充</a></div></div>
+                <div class="contact-item"><div class="contact-role">新娘母亲</div><div class="contact-name">待补充</div><div class="contact-phone"><a href="tel:">待补充</a></div></div>
+            </div>
+        </div>
+    </div>
+
     <script>
         function switchTab(page) {
             document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
@@ -340,7 +431,7 @@
             if (page === 'todo') {
                 document.querySelectorAll('.tab')[0].classList.add('active');
                 document.getElementById('page-todo').classList.add('active');
-            } else {
+            } else if (page === 'timeline') {
                 document.querySelectorAll('.tab')[1].classList.add('active');
                 document.getElementById('page-timeline').classList.add('active');
             }
@@ -361,6 +452,44 @@
                 });
             }
         }
+
+        function updateCountdown() {
+            var wedding = new Date('2026-10-06T00:00:00+08:00').getTime();
+            var now = new Date().getTime();
+            var diff = wedding - now;
+            if (diff <= 0) {
+                document.getElementById('countdown').querySelector('.countdown-title').textContent = '今天是大喜之日！';
+                document.getElementById('cd-days').textContent = '0';
+                document.getElementById('cd-hours').textContent = '0';
+                document.getElementById('cd-mins').textContent = '0';
+                document.getElementById('cd-secs').textContent = '0';
+                return;
+            }
+            var days = Math.floor(diff / 86400000);
+            var hours = Math.floor((diff % 86400000) / 3600000);
+            var mins = Math.floor((diff % 3600000) / 60000);
+            var secs = Math.floor((diff % 60000) / 1000);
+            document.getElementById('cd-days').textContent = days;
+            document.getElementById('cd-hours').textContent = hours;
+            document.getElementById('cd-mins').textContent = mins;
+            document.getElementById('cd-secs').textContent = secs;
+        }
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+
+        function updateProgress() {
+            var done = 14;
+            var checked = document.querySelectorAll('.checkbox:checked').length;
+            var total = 14 + document.querySelectorAll('.checkbox').length;
+            var completed = done + checked;
+            var pct = Math.round(completed / total * 100);
+            document.getElementById('progress-text').textContent = '备婚进度 ' + completed + '/' + total;
+            document.getElementById('progress-pct').textContent = pct + '%';
+            document.getElementById('progress-fill').style.width = pct + '%';
+        }
+        document.addEventListener('change', function(e) {
+            if (e.target.classList.contains('checkbox')) updateProgress();
+        });
 
         document.addEventListener('DOMContentLoaded', function() {
             document.querySelectorAll('.collapse-body:not(.hidden)').forEach(function(el) {
