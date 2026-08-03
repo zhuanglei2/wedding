@@ -155,11 +155,19 @@
         .modal-box h3 { font-size: 17px; color: #5c4033; margin-bottom: 16px; text-align: center; }
         .modal-close { position: absolute; top: 12px; right: 16px; font-size: 20px; color: #999; cursor: pointer; border: none; background: none; }
 
-        /* Nav picker */
-        .nav-picker { display: flex; flex-direction: column; gap: 10px; padding: 10px 0; }
-        .nav-picker a { display: flex; align-items: center; gap: 12px; padding: 14px 16px; background: #faf7f4; border-radius: 10px; border: 1px solid #efe6dd; text-decoration: none; color: #5c4033; font-size: 15px; font-weight: 500; }
-        .nav-picker a:active { background: #f0ebe5; }
-        .nav-picker .nav-icon { width: 32px; height: 32px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 18px; }
+        /* Nav action sheet */
+        .nav-sheet-overlay { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.4); z-index: 300; }
+        .nav-sheet-overlay.show { display: block; }
+        .nav-sheet { position: fixed; bottom: 0; left: 0; right: 0; z-index: 301; transform: translateY(100%); transition: transform 0.3s ease; }
+        .nav-sheet-overlay.show .nav-sheet { transform: translateY(0); }
+        .nav-sheet-body { background: #f2f2f7; border-radius: 14px 14px 0 0; padding-bottom: env(safe-area-inset-bottom, 0); }
+        .nav-sheet-title { text-align: center; font-size: 13px; color: #86868b; padding: 14px 16px 8px; }
+        .nav-sheet-actions { background: #fff; margin: 0 8px; border-radius: 14px; overflow: hidden; }
+        .nav-sheet-actions a { display: block; padding: 16px 20px; text-align: center; text-decoration: none; color: #007aff; font-size: 17px; border-bottom: 0.5px solid #e5e5e5; }
+        .nav-sheet-actions a:last-child { border-bottom: none; }
+        .nav-sheet-actions a:active { background: #e5e5e5; }
+        .nav-sheet-cancel { display: block; margin: 8px 8px 8px; background: #fff; border-radius: 14px; padding: 16px 20px; text-align: center; color: #007aff; font-size: 17px; font-weight: 600; border: none; width: calc(100% - 16px); cursor: pointer; }
+        .nav-sheet-cancel:active { background: #e5e5e5; }
 
         @media (max-width: 600px) {
             .fab-contacts { width: 46px; height: 46px; bottom: 18px; right: 18px; font-size: 18px; }
@@ -431,12 +439,14 @@
         </div>
     </div>
 
-    <!-- 导航选择弹窗 -->
-    <div class="modal-overlay" id="nav-modal" onclick="if(event.target===this)this.classList.remove('show')">
-        <div class="modal-box">
-            <button class="modal-close" onclick="document.getElementById('nav-modal').classList.remove('show')">&times;</button>
-            <h3>选择导航应用</h3>
-            <div class="nav-picker" id="nav-picker-list"></div>
+    <!-- 导航选择底部面板 -->
+    <div class="nav-sheet-overlay" id="nav-modal" onclick="if(event.target===this)this.classList.remove('show')">
+        <div class="nav-sheet">
+            <div class="nav-sheet-body">
+                <div class="nav-sheet-title">选择导航应用</div>
+                <div class="nav-sheet-actions" id="nav-picker-list"></div>
+            </div>
+            <button class="nav-sheet-cancel" onclick="document.getElementById('nav-modal').classList.remove('show')">取消</button>
         </div>
     </div>
 
@@ -479,7 +489,7 @@
             apps.forEach(function(app) {
                 var a = document.createElement('a');
                 a.href = app.url;
-                a.innerHTML = '<span class="nav-icon">'+app.icon+'</span>'+app.name;
+                a.textContent = app.name;
                 list.appendChild(a);
             });
             document.getElementById('nav-modal').classList.add('show');
