@@ -453,26 +453,29 @@
             <button class="modal-close" onclick="document.getElementById('transport-modal').classList.remove('show')">&times;</button>
             <h3>宾客交通指引</h3>
             <div style="display:flex;flex-direction:column;gap:12px;">
-                <div class="transport-item">
+                <div class="transport-item" style="cursor:pointer;" onclick="openNav(29.874,121.544,'宁海站')">
                     <div class="transport-icon"><svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11V6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v5"/><path d="M2 11h20v7a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-7z"/><circle cx="6.5" cy="15.5" r="1.5"/><circle cx="17.5" cy="15.5" r="1.5"/></svg></div>
                     <div class="transport-info">
                         <div class="transport-title">高铁 · 宁波站 → 宁海站</div>
                         <div class="transport-desc">车程约 25-30 分钟，班次密集<br>首班 ~07:00 / 末班 ~22:50<br>建议购买 D/G 字头列车</div>
                         <span class="transport-tag">推荐</span>
+                        <span class="transport-tag" style="background:#c9a87c;margin-left:4px;">点击导航到宁海站</span>
                     </div>
                 </div>
-                <div class="transport-item">
+                <div class="transport-item" style="cursor:pointer;" onclick="openNav(29.826,121.524,'宁波火车站')">
                     <div class="transport-icon"><svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
                     <div class="transport-info">
                         <div class="transport-title">宁波机场 → 宁波火车站</div>
                         <div class="transport-desc">栎社机场 → 宁波站<br>地铁 2 号线：约 30 分钟<br>打车/网约车：约 15 分钟</div>
+                        <span class="transport-tag" style="background:#c9a87c;">点击导航到宁波站</span>
                     </div>
                 </div>
-                <div class="transport-item">
+                <div class="transport-item" style="cursor:pointer;" onclick="openNav(29.288,121.430,'金海开元名都大酒店')">
                     <div class="transport-icon"><svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
                     <div class="transport-info">
                         <div class="transport-title">宁海站 → 金海开元名都大酒店</div>
                         <div class="transport-desc">打车约 15 分钟，约 8 公里<br>出站后可直接网约车前往</div>
+                        <span class="transport-tag" style="background:#c9a87c;">点击导航到酒店</span>
                     </div>
                 </div>
             </div>
