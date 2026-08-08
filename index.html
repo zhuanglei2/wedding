@@ -146,6 +146,16 @@
         .fab-contacts { position: fixed; bottom: 24px; right: 24px; width: 52px; height: 52px; border-radius: 50%; background: linear-gradient(135deg, #c9a87c, #8b6f5e); color: #fff; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 16px rgba(0,0,0,0.15); cursor: pointer; z-index: 100; font-size: 20px; border: none; transition: transform 0.2s; }
         .fab-contacts:hover { transform: scale(1.1); }
         .fab-label { position: fixed; bottom: 28px; right: 84px; background: #5c4033; color: #fff; font-size: 12px; padding: 4px 10px; border-radius: 6px; z-index: 100; pointer-events: none; opacity: 0.9; }
+        .fab-transport { position: fixed; bottom: 90px; right: 24px; width: 52px; height: 52px; border-radius: 50%; background: linear-gradient(135deg, #7eb8c9, #4a8fa0); color: #fff; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 16px rgba(0,0,0,0.15); cursor: pointer; z-index: 100; font-size: 20px; border: none; transition: transform 0.2s; }
+        .fab-transport:hover { transform: scale(1.1); }
+        .fab-transport-label { position: fixed; bottom: 94px; right: 84px; background: #4a8fa0; color: #fff; font-size: 12px; padding: 4px 10px; border-radius: 6px; z-index: 100; pointer-events: none; opacity: 0.9; }
+        .transport-item { display: flex; align-items: flex-start; padding: 14px 16px; background: linear-gradient(135deg, #fdfcfb, #f4f9fa); border-radius: 12px; border: 1px solid #ddeef3; gap: 12px; }
+        .transport-icon { flex-shrink: 0; width: 36px; height: 36px; background: linear-gradient(135deg, #7eb8c9, #4a8fa0); border-radius: 8px; display: flex; align-items: center; justify-content: center; }
+        .transport-icon svg { width: 20px; height: 20px; stroke: #fff; fill: none; }
+        .transport-info { flex: 1; }
+        .transport-title { font-size: 14px; font-weight: 600; color: #3a3a3a; margin-bottom: 4px; }
+        .transport-desc { font-size: 12px; color: #666; line-height: 1.5; }
+        .transport-tag { display: inline-block; font-size: 11px; color: #fff; background: #4a8fa0; padding: 1px 6px; border-radius: 3px; margin-top: 4px; }
 
         /* Contacts modal */
         .modal-overlay { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.4); z-index: 200; align-items: center; justify-content: center; padding: 20px; }
@@ -171,6 +181,8 @@
         @media (max-width: 600px) {
             .fab-contacts { width: 46px; height: 46px; bottom: 18px; right: 18px; font-size: 18px; }
             .fab-label { bottom: 22px; right: 72px; }
+            .fab-transport { width: 46px; height: 46px; bottom: 76px; right: 18px; font-size: 18px; }
+            .fab-transport-label { bottom: 80px; right: 72px; }
             .modal-box { padding: 18px; }
         }
 
@@ -428,6 +440,44 @@
                         <li><strong>每次转场</strong>：指定专人检查车辆有无遗落物品</li>
                     </ul>
                 </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 交通指引 浮动入口 -->
+    <button class="fab-transport" onclick="document.getElementById('transport-modal').classList.add('show')"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11V6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v5"/><path d="M2 11h20v7a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-7z"/><circle cx="6.5" cy="15.5" r="1.5"/><circle cx="17.5" cy="15.5" r="1.5"/></svg></button>
+    <div class="fab-transport-label">交通指引</div>
+
+    <div class="modal-overlay" id="transport-modal" onclick="if(event.target===this)this.classList.remove('show')">
+        <div class="modal-box">
+            <button class="modal-close" onclick="document.getElementById('transport-modal').classList.remove('show')">&times;</button>
+            <h3>宾客交通指引</h3>
+            <div style="display:flex;flex-direction:column;gap:12px;">
+                <div class="transport-item">
+                    <div class="transport-icon"><svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11V6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v5"/><path d="M2 11h20v7a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-7z"/><circle cx="6.5" cy="15.5" r="1.5"/><circle cx="17.5" cy="15.5" r="1.5"/></svg></div>
+                    <div class="transport-info">
+                        <div class="transport-title">高铁 · 宁波站 → 宁海站</div>
+                        <div class="transport-desc">车程约 25-30 分钟，班次密集<br>首班 ~07:00 / 末班 ~22:50<br>建议购买 D/G 字头列车</div>
+                        <span class="transport-tag">推荐</span>
+                    </div>
+                </div>
+                <div class="transport-item">
+                    <div class="transport-icon"><svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+                    <div class="transport-info">
+                        <div class="transport-title">宁波机场 → 宁波火车站</div>
+                        <div class="transport-desc">栎社机场 → 宁波站<br>地铁 2 号线：约 30 分钟<br>打车/网约车：约 15 分钟</div>
+                    </div>
+                </div>
+                <div class="transport-item">
+                    <div class="transport-icon"><svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+                    <div class="transport-info">
+                        <div class="transport-title">宁海站 → 金海开元名都大酒店</div>
+                        <div class="transport-desc">打车约 15 分钟，约 8 公里<br>出站后可直接网约车前往</div>
+                    </div>
+                </div>
+            </div>
+            <div style="margin-top:16px;padding:12px;background:#f9f6f2;border-radius:10px;font-size:12px;color:#8b7355;line-height:1.6;">
+                💡 <b>温馨提示</b>：10月为国庆假期后，高铁票源充足。建议提前 1-2 天购票，可通过 12306 APP 购买。如需接站服务请联系新郎。
             </div>
         </div>
     </div>
