@@ -29,6 +29,11 @@ input:focus, select:focus, textarea:focus { outline:none; border-color:#c9a87c; 
 textarea { resize:vertical; min-height:72px; }
 .row2 { display:flex; gap:12px; }
 .row2 .form-group { flex:1; }
+.stepper { display:flex; align-items:center; border:1.5px solid #efe6dd; border-radius:10px; background:#fdfcfb; overflow:hidden; }
+.step-btn { width:50px; height:48px; border:none; background:transparent; font-size:20px; color:#c9a87c; cursor:pointer; font-weight:600; flex-shrink:0; transition:background .15s; }
+.step-btn:active { background:#f0e6da; }
+.step-val { flex:1; text-align:center; border:none; background:transparent; font-size:17px; color:#5c4033; font-weight:600; padding:0; outline:none; -webkit-appearance:none; -moz-appearance:textfield; }
+.step-val::-webkit-outer-spin-button, .step-val::-webkit-inner-spin-button { -webkit-appearance:none; margin:0; }
 .radio-group, .check-group { display:flex; gap:10px; flex-wrap:wrap; }
 .radio-group label, .check-group label {
   flex:1; min-width:90px; display:flex; align-items:center; justify-content:center; gap:6px; padding:12px 8px; border:1.5px solid #efe6dd; border-radius:10px; font-size:13px; font-weight:400; cursor:pointer; background:#fdfcfb; transition:all .2s; color:#5c4033;
@@ -89,7 +94,11 @@ textarea { resize:vertical; min-height:72px; }
 
       <div class="form-group">
         <label class="lab">同行累计人数<span class="req">*</span></label>
-        <input type="number" name="同行累计人数" min="1" max="20" placeholder="包含本人，如3人" required>
+        <div class="stepper">
+          <button type="button" class="step-btn" onclick="adjustNum(this,-1)">−</button>
+          <input type="number" class="step-val" name="同行累计人数" value="1" min="1" max="20" readonly>
+          <button type="button" class="step-btn" onclick="adjustNum(this,1)">+</button>
+        </div>
       </div>
 
       <div class="form-group">
@@ -178,6 +187,14 @@ textarea { resize:vertical; min-height:72px; }
 </div>
 
 <script>
+function adjustNum(btn, delta){
+  var input = btn.parentNode.querySelector('.step-val');
+  var v = parseInt(input.value) || 1;
+  var min = parseInt(input.min) || 0;
+  var max = parseInt(input.max) || 99;
+  v = Math.max(min, Math.min(max, v + delta));
+  input.value = v;
+}
 document.getElementById('rsvp-form').addEventListener('submit', function(e){
   e.preventDefault();
   var stay = document.querySelectorAll('input[name^="住宿_"]:checked').length;
