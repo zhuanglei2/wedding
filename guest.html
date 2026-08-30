@@ -6,64 +6,67 @@
 <title>宾客登记 · 庄磊 & 吴郁婚礼</title>
 <style>
 * { margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
-body { font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif; background:linear-gradient(135deg,#fdfcfb 0%,#f5efe8 100%); color:#5c4033; min-height:100vh; padding:20px 16px 48px; }
+body { font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif; background:linear-gradient(160deg,#fdfcfb 0%,#f7f1ea 55%,#f2ebe1 100%); color:#5c4033; min-height:100vh; padding:28px 16px 56px; }
 .container { max-width:520px; margin:0 auto; }
-.header { text-align:center; padding:16px 0 24px; }
-.header .names { font-size:24px; color:#5c4033; font-weight:600; letter-spacing:3px; }
-.header .amp { display:inline-block; color:#c9a87c; margin:0 8px; }
-.header .info { font-size:24px; color:#5c4033; margin-top:10px; letter-spacing:3px; font-weight:700; }
-.header .date { font-size:12px; color:#999; margin-top:6px; }
-.card { background:#fff; border-radius:16px; padding:24px 20px; box-shadow:0 4px 20px rgba(139,111,94,0.08); border:1px solid #efe6dd; margin-bottom:18px; }
-.card-title { font-size:15px; color:#5c4033; font-weight:600; margin-bottom:18px; text-align:center; position:relative; }
-.card-title::after { content:""; display:block; width:32px; height:2px; background:linear-gradient(90deg,#c9a87c,#8b6f5e); margin:8px auto 0; border-radius:1px; }
-.intro { font-size:13px; color:#8b7355; line-height:1.8; text-align:center; margin-bottom:6px; }
+.header { text-align:center; padding:4px 0 6px; }
+.header .ornament { display:block; width:52px; height:26px; margin:0 auto 14px; }
+.header .info { font-size:23px; color:#5c4033; letter-spacing:2px; font-weight:700; }
+.header .en { font-size:11px; color:#c9a87c; letter-spacing:4px; margin-top:9px; text-transform:uppercase; }
+.header::after { content:""; display:block; width:48px; height:1px; background:linear-gradient(90deg,transparent,#c9a87c,transparent); margin:16px auto 0; }
+.card { background:#fff; border-radius:18px; padding:26px 22px; box-shadow:0 6px 24px rgba(139,111,94,0.09); border:1px solid #efe6dd; margin-bottom:20px; }
+.card-title { font-size:16px; color:#5c4033; font-weight:600; margin-bottom:6px; text-align:center; letter-spacing:1px; }
+.card-title::after { content:""; display:block; width:30px; height:2px; background:linear-gradient(90deg,#c9a87c,#8b6f5e); margin:10px auto 18px; border-radius:1px; }
+.intro { font-size:13px; color:#8b7355; line-height:1.8; text-align:center; margin-bottom:18px; }
 .form-group { margin-bottom:20px; }
 .form-group label.lab { display:block; font-size:13px; font-weight:600; color:#5c4033; margin-bottom:9px; }
-.form-group .req { color:#c9a87c; margin-left:2px; }
-.form-group .sub-lab { font-size:12px; color:#999; margin-top:-4px; margin-bottom:9px; font-weight:400; }
+.form-group .req { color:#d9534f; margin-left:3px; }
+.form-group .sub-lab { font-size:12px; color:#a99a89; margin-top:-5px; margin-bottom:10px; font-weight:400; }
 input[type=text], input[type=number], input[type=date], input[type=time], select, textarea {
-  width:100%; padding:12px 14px; border:1.5px solid #efe6dd; border-radius:10px; font-size:14px; color:#5c4033; background:#fdfcfb; transition:border-color .2s; font-family:inherit;
+  width:100%; padding:13px 14px; border:1.5px solid #efe6dd; border-radius:10px; font-size:14px; color:#5c4033; background:#fdfcfb; transition:all .2s; font-family:inherit;
 }
-input:focus, select:focus, textarea:focus { outline:none; border-color:#c9a87c; background:#fff; }
+input:focus, select:focus, textarea:focus { outline:none; border-color:#c9a87c; background:#fff; box-shadow:0 0 0 3px rgba(201,168,124,0.13); }
 textarea { resize:vertical; min-height:72px; }
 .row2 { display:flex; gap:12px; }
 .row2 .form-group { flex:1; }
 .radio-group, .check-group { display:flex; gap:10px; flex-wrap:wrap; }
 .radio-group label, .check-group label {
-  flex:1; min-width:90px; display:flex; align-items:center; justify-content:center; gap:6px; padding:11px 8px; border:1.5px solid #efe6dd; border-radius:10px; font-size:13px; font-weight:400; cursor:pointer; background:#fdfcfb; transition:all .2s; color:#5c4033;
+  flex:1; min-width:90px; display:flex; align-items:center; justify-content:center; gap:6px; padding:12px 8px; border:1.5px solid #efe6dd; border-radius:10px; font-size:13px; font-weight:400; cursor:pointer; background:#fdfcfb; transition:all .2s; color:#5c4033;
 }
+.radio-group label:active, .check-group label:active { transform:scale(0.97); }
 .radio-group input, .check-group input { position:absolute; opacity:0; width:0; height:0; }
-.radio-group label:has(input:checked), .check-group label:has(input:checked) { background:linear-gradient(135deg,#c9a87c,#b8926a); border-color:#c9a87c; color:#fff; }
-.submit-btn { width:100%; padding:15px; border:none; border-radius:12px; background:linear-gradient(135deg,#c9a87c,#8b6f5e); color:#fff; font-size:16px; font-weight:600; cursor:pointer; letter-spacing:3px; transition:transform .15s; }
+.radio-group label:has(input:checked), .check-group label:has(input:checked) { background:linear-gradient(135deg,#c9a87c,#b8926a); border-color:#c9a87c; color:#fff; box-shadow:0 3px 10px rgba(201,168,124,0.3); }
+.submit-btn { width:100%; padding:15px; border:none; border-radius:12px; background:linear-gradient(135deg,#c9a87c,#8b6f5e); color:#fff; font-size:16px; font-weight:600; cursor:pointer; letter-spacing:3px; transition:all .15s; box-shadow:0 4px 14px rgba(139,111,94,0.25); margin-top:4px; }
 .submit-btn:active { transform:scale(0.98); }
 .submit-btn:disabled { opacity:0.6; }
 .hint { font-size:12px; color:#999; text-align:center; margin-top:14px; line-height:1.7; }
 .back-link { display:block; text-align:center; margin-top:20px; font-size:13px; color:#c9a87c; text-decoration:none; }
 /* 成功页 */
 .thanks { text-align:center; padding:48px 20px; }
-.thanks .check { width:64px; height:64px; margin:0 auto 20px; border-radius:50%; background:linear-gradient(135deg,#c9a87c,#8b6f5e); display:flex; align-items:center; justify-content:center; }
+.thanks .check { width:64px; height:64px; margin:0 auto 20px; border-radius:50%; background:linear-gradient(135deg,#c9a87c,#8b6f5e); display:flex; align-items:center; justify-content:center; box-shadow:0 6px 18px rgba(201,168,124,0.4); }
 .thanks .check svg { width:30px; height:30px; stroke:#fff; fill:none; }
 .thanks h2 { font-size:20px; color:#5c4033; margin-bottom:10px; }
 .thanks p { font-size:14px; color:#8b7355; line-height:1.8; }
 .hidden { display:none; }
 /* 交通指引 */
-.notice { background:linear-gradient(135deg,#fff8e8,#fdf0e0); border:1px solid #f0d878; color:#8b6f1a; font-size:13px; padding:12px 16px; border-radius:12px; line-height:1.6; margin-bottom:18px; }
-.route { padding:14px 0; border-bottom:1px dashed #efe6dd; }
-.route:last-of-type { border-bottom:none; padding-bottom:6px; }
-.route-head { display:flex; align-items:center; gap:8px; margin-bottom:8px; }
-.route-tag { font-size:13px; font-weight:600; color:#5c4033; }
-.route-rec { font-size:11px; color:#fff; background:#c9a87c; padding:1px 7px; border-radius:8px; }
+.notice { background:linear-gradient(135deg,#fff8e8,#fdf0e0); border:1px solid #f0d878; color:#8b6f1a; font-size:13px; padding:13px 16px; border-radius:12px; line-height:1.7; margin-bottom:20px; }
+.route { padding:15px 0; border-bottom:1px dashed #efe6dd; }
+.route:last-of-type { border-bottom:none; padding-bottom:8px; }
+.route-head { display:flex; align-items:center; gap:8px; margin-bottom:9px; }
+.route-tag { font-size:14px; font-weight:600; color:#5c4033; }
+.route-rec { font-size:10px; color:#fff; background:linear-gradient(135deg,#c9a87c,#8b6f5e); padding:2px 8px; border-radius:8px; }
 .route-body { padding-left:4px; }
-.route-line { font-size:12.5px; color:#7a6a5a; line-height:1.9; }
-.nav-btn { display:block; text-align:center; margin-top:14px; padding:11px; border-radius:10px; background:linear-gradient(135deg,#7eb8c9,#4a8fa0); color:#fff; font-size:14px; text-decoration:none; font-weight:500; }
-.nav-btn:active { transform:scale(0.98); }
+.route-line { font-size:12.5px; color:#7a6a5a; line-height:1.95; }
+.nav-btn { display:block; text-align:center; margin-top:16px; padding:12px; border-radius:10px; background:#fff; border:1.5px solid #c9a87c; color:#b8926a; font-size:14px; text-decoration:none; font-weight:500; transition:all .15s; }
+.nav-btn:active { transform:scale(0.98); background:#fdf6ed; }
 </style>
 </head>
 <body>
 <div class="container">
 
   <div class="header">
+    <svg class="ornament" viewBox="0 0 52 26" fill="none" stroke="#c9a87c" stroke-width="1.5"><circle cx="18" cy="13" r="9.5"/><circle cx="34" cy="13" r="9.5"/></svg>
     <div class="info">2026.10.06婚礼宾客登记</div>
+    <div class="en">Wedding Guest RSVP</div>
   </div>
 
   <div class="notice">📌 页面必填信息麻烦在 <b style="color:#e74c3c;font-size:15px;">2026 年 9 月 5 日</b> 前填好哦，这样我们就能尽快安排下大家的住宿啦～</div>
