@@ -28,7 +28,12 @@ input[type=text], input[type=number], input[type=date], input[type=time], select
 input:focus, select:focus, textarea:focus { outline:none; border-color:#c9a87c; background:#fff; box-shadow:0 0 0 3px rgba(201,168,124,0.13); }
 textarea { resize:vertical; min-height:72px; }
 .row2 { display:flex; gap:12px; }
-.row2 .form-group { flex:1; }
+.row2 .form-group { flex:1; min-width:0; }
+.row2 select, .row2 input[type=time] { height:46px; padding:0 14px; line-height:46px; }
+.row2 select { -webkit-appearance:none; appearance:none; background:#fdfcfb url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'><path fill='%23c9a87c' d='M0 0l5 6 5-6z'/></svg>") no-repeat right 14px center; padding-right:32px; }
+input[type=time] { -webkit-appearance:none; appearance:none; }
+input[type=time]::-webkit-calendar-picker-indicator { filter:invert(0.5); cursor:pointer; }
+input[type=time]::-webkit-inner-spin-button, input[type=time]::-webkit-outer-spin-button { -webkit-appearance:none; margin:0; }
 .stepper { display:flex; align-items:center; border:1.5px solid #efe6dd; border-radius:10px; background:#fdfcfb; overflow:hidden; }
 .step-btn { width:50px; height:48px; border:none; background:transparent; font-size:20px; color:#c9a87c; cursor:pointer; font-weight:600; flex-shrink:0; transition:background .15s; }
 .step-btn:active { background:#f0e6da; }
