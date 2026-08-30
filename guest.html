@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>宾客登记 · 庄磊婚礼</title>
+<style>
+* { margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+body { font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif; background:linear-gradient(135deg,#fdfcfb 0%,#f5efe8 100%); color:#5c4033; min-height:100vh; padding:20px 16px 48px; }
+.container { max-width:520px; margin:0 auto; }
+.header { text-align:center; padding:16px 0 24px; }
+.header .names { font-size:24px; color:#5c4033; font-weight:600; letter-spacing:3px; }
+.header .amp { display:inline-block; color:#c9a87c; margin:0 8px; }
+.header .info { font-size:13px; color:#c9a87c; margin-top:10px; letter-spacing:1px; }
+.header .date { font-size:12px; color:#999; margin-top:6px; }
+.card { background:#fff; border-radius:16px; padding:24px 20px; box-shadow:0 4px 20px rgba(139,111,94,0.08); border:1px solid #efe6dd; margin-bottom:18px; }
+.card-title { font-size:15px; color:#5c4033; font-weight:600; margin-bottom:18px; text-align:center; position:relative; }
+.card-title::after { content:""; display:block; width:32px; height:2px; background:linear-gradient(90deg,#c9a87c,#8b6f5e); margin:8px auto 0; border-radius:1px; }
+.intro { font-size:13px; color:#8b7355; line-height:1.8; text-align:center; margin-bottom:6px; }
+.form-group { margin-bottom:20px; }
+.form-group label.lab { display:block; font-size:13px; font-weight:600; color:#5c4033; margin-bottom:9px; }
+.form-group .req { color:#c9a87c; margin-left:2px; }
+input[type=text], input[type=number], input[type=date], input[type=time], select, textarea {
+  width:100%; padding:12px 14px; border:1.5px solid #efe6dd; border-radius:10px; font-size:14px; color:#5c4033; background:#fdfcfb; transition:border-color .2s; font-family:inherit;
+}
+input:focus, select:focus, textarea:focus { outline:none; border-color:#c9a87c; background:#fff; }
+textarea { resize:vertical; min-height:72px; }
+.row2 { display:flex; gap:12px; }
+.row2 .form-group { flex:1; }
+.radio-group, .check-group { display:flex; gap:10px; flex-wrap:wrap; }
+.radio-group label, .check-group label {
+  flex:1; min-width:90px; display:flex; align-items:center; justify-content:center; gap:6px; padding:11px 8px; border:1.5px solid #efe6dd; border-radius:10px; font-size:13px; font-weight:400; cursor:pointer; background:#fdfcfb; transition:all .2s; color:#5c4033;
+}
+.radio-group input, .check-group input { position:absolute; opacity:0; width:0; height:0; }
+.radio-group label:has(input:checked), .check-group label:has(input:checked) { background:linear-gradient(135deg,#c9a87c,#b8926a); border-color:#c9a87c; color:#fff; }
+.submit-btn { width:100%; padding:15px; border:none; border-radius:12px; background:linear-gradient(135deg,#c9a87c,#8b6f5e); color:#fff; font-size:16px; font-weight:600; cursor:pointer; letter-spacing:3px; transition:transform .15s; }
+.submit-btn:active { transform:scale(0.98); }
+.submit-btn:disabled { opacity:0.6; }
+.hint { font-size:12px; color:#999; text-align:center; margin-top:14px; line-height:1.7; }
+.back-link { display:block; text-align:center; margin-top:20px; font-size:13px; color:#c9a87c; text-decoration:none; }
+/* 成功页 */
+.thanks { text-align:center; padding:48px 20px; }
+.thanks .check { width:64px; height:64px; margin:0 auto 20px; border-radius:50%; background:linear-gradient(135deg,#c9a87c,#8b6f5e); display:flex; align-items:center; justify-content:center; }
+.thanks .check svg { width:30px; height:30px; stroke:#fff; fill:none; }
+.thanks h2 { font-size:20px; color:#5c4033; margin-bottom:10px; }
+.thanks p { font-size:14px; color:#8b7355; line-height:1.8; }
+.hidden { display:none; }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <div class="header">
+    <div class="names">庄磊<span class="amp">&amp;</span>新娘</div>
+    <div class="info">婚礼宾客登记</div>
+    <div class="date">2026年10月6日 · 宁海金海开元名都大酒店</div>
+  </div>
+
+  <!-- 表单 -->
+  <div class="card" id="form-card">
+    <div class="card-title">宾客信息登记</div>
+    <p class="intro">感谢您赴约我们的婚礼 ❤️<br>请填写以下信息，方便我们为您安排接送与住宿。</p>
+    <form id="rsvp-form" action="https://formsubmit.co/a1013630965@163.com" method="POST">
+      <input type="hidden" name="_subject" value="💌 婚礼宾客登记 - 新提交">
+      <input type="hidden" name="_template" value="table">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_next" value="http://www.zl-wedding.asia/guest.html?done=1">
+
+      <div class="form-group">
+        <label class="lab">姓名<span class="req">*</span></label>
+        <input type="text" name="姓名" placeholder="请输入您的姓名" required>
+      </div>
+
+      <div class="form-group">
+        <label class="lab">同行人数<span class="req">*</span></label>
+        <input type="number" name="同行人数" min="0" max="20" placeholder="不含您本人，如2人" required>
+      </div>
+
+      <div class="form-group">
+        <label class="lab">到达方式<span class="req">*</span></label>
+        <div class="radio-group">
+          <label><input type="radio" name="到达方式" value="飞机" required><span>✈️ 飞机</span></label>
+          <label><input type="radio" name="到达方式" value="高铁"><span>🚄 高铁</span></label>
+          <label><input type="radio" name="到达方式" value="自驾"><span>🚗 自驾</span></label>
+        </div>
+      </div>
+
+      <div class="row2">
+        <div class="form-group">
+          <label class="lab">预计到达日期</label>
+          <select name="到达日期">
+            <option value="10月5日">10月5日</option>
+            <option value="10月6日">10月6日</option>
+            <option value="其他">其他</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="lab">预计到达时间</label>
+          <input type="text" name="预计到达时间" placeholder="如 15:00">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="lab">是否需要接送</label>
+        <div class="radio-group">
+          <label><input type="radio" name="需要接送" value="需要" checked><span>需要</span></label>
+          <label><input type="radio" name="需要接送" value="不需要"><span>不需要</span></label>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="lab">住宿安排</label>
+        <div class="check-group">
+          <label><input type="checkbox" name="住宿_10月5日晚" value="是" checked><span>10月5日晚</span></label>
+          <label><input type="checkbox" name="住宿_10月6日晚" value="是" checked><span>10月6日晚</span></label>
+          <label><input type="checkbox" name="住宿_10月7日晚" value="是"><span>7日晚(留下玩)</span></label>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="lab">住宿/其他备注</label>
+        <textarea name="备注" placeholder="如：7号需住宿1间、饮食忌口、特殊需求等"></textarea>
+      </div>
+
+      <button type="submit" class="submit-btn">提交登记</button>
+      <p class="hint">提交后将由新人收到登记信息。<br>如有变更可再次提交，我们会以最新一份为准。</p>
+    </form>
+  </div>
+
+  <!-- 成功页 -->
+  <div class="card thanks hidden" id="thanks-card">
+    <div class="check"><svg viewBox="0 0 24 24" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg></div>
+    <h2>登记成功，感谢您！</h2>
+    <p>我们已收到您的信息，<br>期待10月6日与您相聚宁海 ❤️</p>
+    <a class="back-link" href="http://www.zl-wedding.asia">← 返回婚礼主页</a>
+  </div>
+
+  <a class="back-link" href="http://www.zl-wedding.asia" style="margin-top:4px;">← 返回婚礼主页</a>
+</div>
+
+<script>
+if (location.search.indexOf('done=1') !== -1) {
+  document.getElementById('form-card').classList.add('hidden');
+  document.getElementById('thanks-card').classList.remove('hidden');
+}
+</script>
+</body>
+</html>
