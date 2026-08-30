@@ -20,6 +20,7 @@ body { font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif; bac
 .form-group { margin-bottom:20px; }
 .form-group label.lab { display:block; font-size:13px; font-weight:600; color:#5c4033; margin-bottom:9px; }
 .form-group .req { color:#c9a87c; margin-left:2px; }
+.form-group .sub-lab { font-size:12px; color:#999; margin-top:-4px; margin-bottom:9px; font-weight:400; }
 input[type=text], input[type=number], input[type=date], input[type=time], select, textarea {
   width:100%; padding:12px 14px; border:1.5px solid #efe6dd; border-radius:10px; font-size:14px; color:#5c4033; background:#fdfcfb; transition:border-color .2s; font-family:inherit;
 }
@@ -68,7 +69,7 @@ textarea { resize:vertical; min-height:72px; }
 
   <!-- 交通指引 -->
   <div class="card" id="transport-card">
-    <div class="card-title">交通指引</div>
+    <div class="card-title">交通指引参考</div>
     <div class="route">
       <div class="route-head"><span class="route-tag plane">✈️ 飞机</span></div>
       <div class="route-body">
@@ -89,7 +90,7 @@ textarea { resize:vertical; min-height:72px; }
       <div class="route-head"><span class="route-tag car">🚗 自驾</span></div>
       <div class="route-body">
         <div class="route-line">导航至「金海开元名都大酒店」</div>
-        <div class="route-line">📍 宁海县桃源中路258号 · 酒店有免费停车场</div>
+        <div class="route-line">酒店提供免费停车场</div>
       </div>
     </div>
     <a class="nav-btn" href="https://uri.amap.com/navigation?to=121.430,29.288,金海开元名都大酒店&mode=car">📍 一键导航到酒店</a>
@@ -111,8 +112,8 @@ textarea { resize:vertical; min-height:72px; }
       </div>
 
       <div class="form-group">
-        <label class="lab">同行人数<span class="req">*</span></label>
-        <input type="number" name="同行人数" min="0" max="20" placeholder="不含您本人，如2人" required>
+        <label class="lab">同行累计人数<span class="req">*</span></label>
+        <input type="number" name="同行累计人数" min="1" max="20" placeholder="包含本人，如3人" required>
       </div>
 
       <div class="form-group">
@@ -154,16 +155,12 @@ textarea { resize:vertical; min-height:72px; }
 
       <div class="form-group">
         <label class="lab">住宿安排</label>
+        <div class="sub-lab">方便为您安排住宿天数</div>
         <div class="check-group">
           <label><input type="checkbox" name="住宿_10月5日晚" value="是" checked><span>10月5日晚</span></label>
           <label><input type="checkbox" name="住宿_10月6日晚" value="是" checked><span>10月6日晚</span></label>
           <label><input type="checkbox" name="住宿_10月7日晚" value="是"><span>7日晚(留下玩)</span></label>
         </div>
-      </div>
-
-      <div class="form-group">
-        <label class="lab">住宿/其他备注</label>
-        <textarea name="备注" placeholder="如：7号需住宿1间、饮食忌口、特殊需求等"></textarea>
       </div>
 
       <button type="submit" class="submit-btn">提交登记</button>
