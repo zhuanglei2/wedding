@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>宾客登记 · 庄磊 & 吴郁婚礼</title>
+<title>婚礼宾客登记</title>
 <style>
 * { margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
 body { font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif; background:linear-gradient(160deg,#fdfcfb 0%,#f7f1ea 55%,#f2ebe1 100%); color:#5c4033; min-height:100vh; padding:28px 16px 56px; }
@@ -98,6 +98,16 @@ input[type=time]::-webkit-inner-spin-button, input[type=time]::-webkit-outer-spi
       </div>
 
       <div class="form-group">
+        <label class="lab">住宿安排<span class="req">*</span></label>
+        <div class="sub-lab">默认10月5号到6号，可多选</div>
+        <div class="check-group">
+          <label><input type="checkbox" name="住宿_10月5日晚" value="是" checked><span>10月5日晚</span></label>
+          <label><input type="checkbox" name="住宿_10月6日晚" value="是" checked><span>10月6日晚</span></label>
+          <label><input type="checkbox" name="住宿_10月7日晚" value="是"><span>7日晚(留下玩)</span></label>
+        </div>
+      </div>
+
+      <div class="form-group">
         <label class="lab">到达方式</label>
         <div class="radio-group">
           <label><input type="radio" name="到达方式" value="飞机"><span>✈️ 飞机</span></label>
@@ -126,16 +136,6 @@ input[type=time]::-webkit-inner-spin-button, input[type=time]::-webkit-outer-spi
         <div class="radio-group">
           <label><input type="radio" name="需要接送" value="需要" checked><span>需要</span></label>
           <label><input type="radio" name="需要接送" value="不需要"><span>不需要</span></label>
-        </div>
-      </div>
-
-      <div class="form-group">
-        <label class="lab">住宿安排<span class="req">*</span></label>
-        <div class="sub-lab">默认10月5号到6号，可多选</div>
-        <div class="check-group">
-          <label><input type="checkbox" name="住宿_10月5日晚" value="是" checked><span>10月5日晚</span></label>
-          <label><input type="checkbox" name="住宿_10月6日晚" value="是" checked><span>10月6日晚</span></label>
-          <label><input type="checkbox" name="住宿_10月7日晚" value="是"><span>7日晚(留下玩)</span></label>
         </div>
       </div>
 
