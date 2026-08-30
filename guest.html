@@ -34,11 +34,6 @@ textarea { resize:vertical; min-height:72px; }
 input[type=time] { -webkit-appearance:none; appearance:none; }
 input[type=time]::-webkit-calendar-picker-indicator { filter:invert(0.5); cursor:pointer; }
 input[type=time]::-webkit-inner-spin-button, input[type=time]::-webkit-outer-spin-button { -webkit-appearance:none; margin:0; }
-.stepper { display:flex; align-items:center; justify-content:space-between; background:#fdfcfb; border:1.5px solid #efe6dd; border-radius:30px; padding:5px; }
-.step-btn { width:40px; height:40px; border-radius:50%; border:none; background:linear-gradient(135deg,#c9a87c,#8b6f5e); color:#fff; font-size:18px; font-weight:600; cursor:pointer; flex-shrink:0; transition:transform .12s; box-shadow:0 2px 8px rgba(139,111,94,0.28); line-height:1; }
-.step-btn:active { transform:scale(0.88); }
-.step-val { flex:1; text-align:center; border:none; background:transparent; font-size:20px; color:#5c4033; font-weight:700; padding:0; outline:none; -webkit-appearance:none; -moz-appearance:textfield; }
-.step-val::-webkit-outer-spin-button, .step-val::-webkit-inner-spin-button { -webkit-appearance:none; margin:0; }
 .radio-group, .check-group { display:flex; gap:10px; flex-wrap:wrap; }
 .radio-group label, .check-group label {
   flex:1; min-width:90px; display:flex; align-items:center; justify-content:center; gap:6px; padding:12px 8px; border:1.5px solid #efe6dd; border-radius:10px; font-size:13px; font-weight:400; cursor:pointer; background:#fdfcfb; transition:all .2s; color:#5c4033;
@@ -99,11 +94,7 @@ input[type=time]::-webkit-inner-spin-button, input[type=time]::-webkit-outer-spi
 
       <div class="form-group">
         <label class="lab">同行累计人数<span class="req">*</span></label>
-        <div class="stepper">
-          <button type="button" class="step-btn" onclick="adjustNum(this,-1)">−</button>
-          <input type="number" class="step-val" name="同行累计人数" value="1" min="1" max="20" readonly>
-          <button type="button" class="step-btn" onclick="adjustNum(this,1)">+</button>
-        </div>
+        <input type="number" name="同行累计人数" min="1" max="20" placeholder="包含本人，如3人" required>
       </div>
 
       <div class="form-group">
@@ -192,14 +183,6 @@ input[type=time]::-webkit-inner-spin-button, input[type=time]::-webkit-outer-spi
 </div>
 
 <script>
-function adjustNum(btn, delta){
-  var input = btn.parentNode.querySelector('.step-val');
-  var v = parseInt(input.value) || 1;
-  var min = parseInt(input.min) || 0;
-  var max = parseInt(input.max) || 99;
-  v = Math.max(min, Math.min(max, v + delta));
-  input.value = v;
-}
 document.getElementById('rsvp-form').addEventListener('submit', function(e){
   e.preventDefault();
   var stay = document.querySelectorAll('input[name^="住宿_"]:checked').length;
