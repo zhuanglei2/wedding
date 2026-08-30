@@ -45,6 +45,16 @@ textarea { resize:vertical; min-height:72px; }
 .thanks h2 { font-size:20px; color:#5c4033; margin-bottom:10px; }
 .thanks p { font-size:14px; color:#8b7355; line-height:1.8; }
 .hidden { display:none; }
+/* 交通指引 */
+.route { padding:14px 0; border-bottom:1px dashed #efe6dd; }
+.route:last-of-type { border-bottom:none; padding-bottom:6px; }
+.route-head { display:flex; align-items:center; gap:8px; margin-bottom:8px; }
+.route-tag { font-size:13px; font-weight:600; color:#5c4033; }
+.route-rec { font-size:11px; color:#fff; background:#c9a87c; padding:1px 7px; border-radius:8px; }
+.route-body { padding-left:4px; }
+.route-line { font-size:12.5px; color:#7a6a5a; line-height:1.9; }
+.nav-btn { display:block; text-align:center; margin-top:14px; padding:11px; border-radius:10px; background:linear-gradient(135deg,#7eb8c9,#4a8fa0); color:#fff; font-size:14px; text-decoration:none; font-weight:500; }
+.nav-btn:active { transform:scale(0.98); }
 </style>
 </head>
 <body>
@@ -54,6 +64,35 @@ textarea { resize:vertical; min-height:72px; }
     <div class="names">庄磊<span class="amp">&amp;</span>吴郁</div>
     <div class="info">婚礼宾客登记</div>
     <div class="date">2026年10月6日 · 宁海金海开元名都大酒店</div>
+  </div>
+
+  <!-- 交通指引 -->
+  <div class="card" id="transport-card">
+    <div class="card-title">交通指引</div>
+    <div class="route">
+      <div class="route-head"><span class="route-tag plane">✈️ 飞机</span></div>
+      <div class="route-body">
+        <div class="route-line">① 各地 → 宁波栎社机场</div>
+        <div class="route-line">② 机场 → 宁波站：地铁2号线约30min / 打车约15min</div>
+        <div class="route-line">③ 宁波站 → 宁海站：高铁约25-30min</div>
+        <div class="route-line">④ 宁海站 → 酒店：打车约15min</div>
+      </div>
+    </div>
+    <div class="route">
+      <div class="route-head"><span class="route-tag train">🚄 高铁</span><span class="route-rec">推荐</span></div>
+      <div class="route-body">
+        <div class="route-line">① 各地 → 宁海站（可直达，或宁波站转）</div>
+        <div class="route-line">② 宁海站 → 酒店：打车约15min，约8公里</div>
+      </div>
+    </div>
+    <div class="route">
+      <div class="route-head"><span class="route-tag car">🚗 自驾</span></div>
+      <div class="route-body">
+        <div class="route-line">导航至「金海开元名都大酒店」</div>
+        <div class="route-line">📍 宁海县桃源中路258号 · 酒店有免费停车场</div>
+      </div>
+    </div>
+    <a class="nav-btn" href="https://uri.amap.com/navigation?to=121.430,29.288,金海开元名都大酒店&mode=car">📍 一键导航到酒店</a>
   </div>
 
   <!-- 表单 -->
@@ -83,6 +122,11 @@ textarea { resize:vertical; min-height:72px; }
           <label><input type="radio" name="到达方式" value="高铁"><span>🚄 高铁</span></label>
           <label><input type="radio" name="到达方式" value="自驾"><span>🚗 自驾</span></label>
         </div>
+      </div>
+
+      <div class="form-group">
+        <label class="lab">航班/车次号</label>
+        <input type="text" name="航班或车次号" placeholder="如 CA1234 / G7511，方便接站">
       </div>
 
       <div class="row2">
