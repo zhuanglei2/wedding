@@ -188,6 +188,21 @@ input[type=time]::-webkit-inner-spin-button, input[type=time]::-webkit-outer-spi
 </div>
 
 <script>
+// 到达方式：支持反选取消
+(function(){
+  var radios = document.querySelectorAll('input[name="到达方式"]');
+  radios.forEach(function(r){
+    r.addEventListener('click', function(){
+      if (this.getAttribute('data-on') === '1') {
+        this.checked = false;
+        this.removeAttribute('data-on');
+      } else {
+        radios.forEach(function(x){ x.removeAttribute('data-on'); });
+        this.setAttribute('data-on','1');
+      }
+    });
+  });
+})();
 document.getElementById('rsvp-form').addEventListener('submit', function(e){
   e.preventDefault();
   var stay = document.querySelectorAll('input[name^="住宿_"]:checked').length;
