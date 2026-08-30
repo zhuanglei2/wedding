@@ -208,6 +208,8 @@ document.getElementById('rsvp-form').addEventListener('submit', function(e){
     if (!r.ok && r.status !== 302) throw new Error('http '+r.status);
     document.getElementById('form-card').classList.add('hidden');
     document.getElementById('transport-card').classList.add('hidden');
+    var notice = document.querySelector('.notice');
+    if (notice) notice.classList.add('hidden');
     document.getElementById('thanks-card').classList.remove('hidden');
     window.scrollTo(0,0);
   })
