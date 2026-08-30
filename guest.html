@@ -47,6 +47,7 @@ textarea { resize:vertical; min-height:72px; }
 .thanks p { font-size:14px; color:#8b7355; line-height:1.8; }
 .hidden { display:none; }
 /* 交通指引 */
+.notice { background:linear-gradient(135deg,#fff8e8,#fdf0e0); border:1px solid #f0d878; color:#8b6f1a; font-size:13px; padding:12px 16px; border-radius:12px; line-height:1.6; margin-bottom:18px; }
 .route { padding:14px 0; border-bottom:1px dashed #efe6dd; }
 .route:last-of-type { border-bottom:none; padding-bottom:6px; }
 .route-head { display:flex; align-items:center; gap:8px; margin-bottom:8px; }
@@ -64,6 +65,8 @@ textarea { resize:vertical; min-height:72px; }
   <div class="header">
     <div class="info">婚礼宾客登记</div>
   </div>
+
+  <div class="notice">📌 页面必填信息辛苦 <b>2026.09.05</b> 号前确认掉，方便住宿安排确认～</div>
 
   <!-- 交通指引 -->
   <div class="card" id="transport-card">
@@ -162,7 +165,6 @@ textarea { resize:vertical; min-height:72px; }
       </div>
 
       <button type="submit" class="submit-btn">提交登记</button>
-      <p class="hint">提交后将由新人收到登记信息。<br>如有变更可再次提交，我们会以最新一份为准。</p>
     </form>
   </div>
 
