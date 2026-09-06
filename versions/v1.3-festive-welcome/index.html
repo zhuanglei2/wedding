@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>庄磊 & 吴郁 · 婚礼网站 · v1.3</title>
+  <script>
+    fetch("../v1.0-editorial-storybook/index.html").then(function(response){return response.text()}).then(function(html){
+      var festive = '<style>@import url("https://fonts.googleapis.com/css2?family=Zhi+Mang+Xing&display=swap");.top{position:relative;background:#a42a2b!important;border-bottom-color:#e7b95d!important;color:#fff5df!important}.top:before,.top:after{content:"";position:absolute;top:0;bottom:0;width:62px;opacity:.38;background:repeating-linear-gradient(135deg,transparent 0 8px,#e8bd6360 8px 9px,transparent 9px 17px)}.top:before{left:0}.top:after{right:0;transform:scaleX(-1)}.top b{color:#f2ca70!important;text-shadow:0 1px 0 #722022}.top a{color:#fff5df!important}.hero{overflow:hidden;background:linear-gradient(119deg,#f6ede2 0%,#f4efe5 48%,#efe2d8 100%)!important;border-bottom:5px solid #a42a2b}.hero:before{content:"囍";position:absolute;z-index:0;left:4%;top:0;color:#a42a2b0c;font:400 clamp(170px,24vw,315px)/1 "Zhi Mang Xing",cursive}.hero-copy,.hero-photo,.hero-note{z-index:1}.hero h1{position:relative;color:#a42a2b!important;font-family:"Zhi Mang Xing","STKaiti","Kaiti SC",cursive!important;font-weight:400!important;font-size:clamp(78px,9vw,126px)!important;line-height:.9!important;letter-spacing:.1em!important}.hero h1 .amp{font-family:Caveat,cursive!important;color:#b5883e!important;font-size:33px!important;letter-spacing:0!important;margin:12px 0 7px 12px!important}.hero-copy:after{content:"";display:block;width:118px;margin-top:26px;border-top:2px solid #b5883e;box-shadow:16px 5px 0 -1px #a42a2b}.hero .eyebrow,.date-line{color:#a42a2b!important}.date-line:before{border-color:#b5883e!important}.hero-photo{box-shadow:15px 18px 0 #b5883e55!important}.hero-photo:before{border-color:#a42a2b!important}.hero-photo:after{content:"10·06";position:absolute;z-index:3;right:-17px;top:-16px;width:57px;height:57px;display:grid;place-items:center;border:2px solid #a42a2b;border-radius:50%;background:#f4cb75;color:#842528;font:600 15px/1 Caveat,cursive;letter-spacing:.03em;transform:rotate(12deg)}</style>';
+      html=html.replace("</head>",festive+"</head>").replace("VERSION 1.0","VERSION 1.3").replace("打开版本中心","v1.3：喜庆首页头部");
+      document.open();document.write(html);document.close();
+    });
+  </script>
+</head>
+<body></body>
+</html>

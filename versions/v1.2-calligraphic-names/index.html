@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>庄磊 & 吴郁 · 婚礼网站 · v1.2</title>
+  <script>
+    fetch("../v1.0-editorial-storybook/index.html").then(function(response){return response.text()}).then(function(html){
+      var lettering = '<style>@import url("https://fonts.googleapis.com/css2?family=Zhi+Mang+Xing&display=swap");.hero h1{font-family:"Zhi Mang Xing","STKaiti","Kaiti SC",cursive!important;font-weight:400!important;font-size:clamp(78px,9vw,126px)!important;line-height:.9!important;letter-spacing:.1em!important;transform:none}.hero h1 .amp{font-family:Caveat,cursive!important;font-size:33px!important;letter-spacing:0!important;transform:none;margin:12px 0 7px 12px!important}.hero-copy:after{content:"";display:block;width:108px;margin-top:26px;border-top:1px solid var(--red)}</style>';
+      html=html.replace("</head>",lettering+"</head>").replace("VERSION 1.0","VERSION 1.2").replace("打开版本中心","v1.2：行书手写姓名");
+      document.open();document.write(html);document.close();
+    });
+  </script>
+</head>
+<body></body>
+</html>
