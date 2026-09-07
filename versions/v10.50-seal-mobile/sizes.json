@@ -1,0 +1,38 @@
+[
+  {
+    "name": "cover-780.webp",
+    "width": 780,
+    "height": 1689,
+    "bytes": 132278
+  },
+  {
+    "name": "cover-780.jpg",
+    "width": 780,
+    "height": 1689,
+    "bytes": 216676
+  },
+  {
+    "name": "cover-1170.webp",
+    "width": 1170,
+    "height": 2534,
+    "bytes": 248746
+  },
+  {
+    "name": "cover-1170.jpg",
+    "width": 1170,
+    "height": 2534,
+    "bytes": 452516
+  },
+  {
+    "name": "cover-1400.webp",
+    "width": 1400,
+    "height": 3032,
+    "bytes": 316996
+  },
+  {
+    "name": "cover-1400.jpg",
+    "width": 1400,
+    "height": 3032,
+    "bytes": 602857
+  }
+]
