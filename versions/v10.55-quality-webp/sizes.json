@@ -1,0 +1,27 @@
+{
+  "source": "../v10.54-photo-right/invitation-v10.54.png",
+  "sourceSha256": "051cdecb87de5a3bddbf67c6106d439a119d01770231e032af14d3316d0f6b75",
+  "originalBytes": 5295638,
+  "results": [
+    {
+      "name": "cover.webp",
+      "quality": 90,
+      "effort": 6,
+      "smartSubsample": true,
+      "width": 1400,
+      "height": 3282,
+      "bytes": 509408,
+      "reductionPercent": 90.38
+    },
+    {
+      "name": "cover.jpg",
+      "quality": 92,
+      "chromaSubsampling": "4:4:4",
+      "mozjpeg": true,
+      "width": 1400,
+      "height": 3282,
+      "bytes": 912941,
+      "reductionPercent": 82.76
+    }
+  ]
+}
