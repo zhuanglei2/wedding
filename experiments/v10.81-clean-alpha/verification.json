@@ -1,0 +1,51 @@
+{
+  "source": "/Users/eleme/IdeaProjects/wedding/experiments/v10.80-flat-contact-frame/characters-generated.png",
+  "sourceSha256": "6237099c41af96c359cba84ab3c09005120fe1e9ce5a1310255b3b935bd2d0f0",
+  "width": 1254,
+  "height": 1254,
+  "hasAlpha": true,
+  "transparent": 884333,
+  "opaque": 688183,
+  "foregroundComponents": [
+    {
+      "label": 17,
+      "count": 395736
+    },
+    {
+      "label": 1,
+      "count": 292447
+    }
+  ],
+  "sourceRGBUnchanged": true,
+  "sourceFileUnchanged": true,
+  "checks": [
+    {
+      "part": "boy face",
+      "alpha": 255
+    },
+    {
+      "part": "boy shirt",
+      "alpha": 255
+    },
+    {
+      "part": "sleeve hem",
+      "alpha": 255
+    },
+    {
+      "part": "girl face",
+      "alpha": 255
+    },
+    {
+      "part": "neckline",
+      "alpha": 255
+    },
+    {
+      "part": "veil",
+      "alpha": 255
+    },
+    {
+      "part": "skirt",
+      "alpha": 255
+    }
+  ]
+}
