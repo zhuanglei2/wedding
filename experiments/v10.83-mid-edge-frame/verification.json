@@ -1,0 +1,58 @@
+{
+  "version": "10.83",
+  "kind": "static_original_cover_plus_character_layers",
+  "width": 1400,
+  "height": 3282,
+  "originals": {
+    "cover": "98897f059a595390d4904608e5a6e0ff6d0e3608308cdc85a1ebc156f6087a33",
+    "actors": "87f3750fbdabfacee4e9d416df9d15d8b85183f6763847e1b8f03464b8f398ee"
+  },
+  "layout": [
+    {
+      "name": "groom",
+      "left": 1208,
+      "top": 1050,
+      "width": 184,
+      "height": 270,
+      "sourceBounds": {
+        "id": 1,
+        "count": 292447,
+        "x0": 664,
+        "y0": 12,
+        "x1": 1243,
+        "y1": 861
+      }
+    },
+    {
+      "name": "bride",
+      "left": 1145,
+      "top": 1340,
+      "width": 227,
+      "height": 270,
+      "sourceBounds": {
+        "id": 2,
+        "count": 395736,
+        "x0": 63,
+        "y0": 354,
+        "x1": 797,
+        "y1": 1229
+      }
+    }
+  ],
+  "checks": {
+    "sourceFilesUnchanged": true,
+    "changedOutsideOverlay": 0,
+    "changedAtOrBelow1650px": 0,
+    "changedProtectedContentPixels": 0,
+    "changedSideBorderPixels": 0,
+    "originalAspectPreserved": true,
+    "noAddedMargins": true,
+    "noPrecurledPaper": true
+  },
+  "limits": [
+    "Static pose only: contact and natural motion not validated.",
+    "Full cover is taller than a 9:16 viewport; no promise of 9:16 video compatibility.",
+    "Characters are from V10.80 pose draft, not pixel-identical to original product photo.",
+    "No real-video matte/mesh integration, no upload, no deployment."
+  ]
+}
