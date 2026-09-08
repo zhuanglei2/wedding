@@ -1,0 +1,29 @@
+/* The existing static invitation remains the no-JS / reduced-motion fallback. */
+.opening-underlay{display:none}
+@media (prefers-reduced-motion:no-preference){
+  html.paper-motion .opening-sequence{position:relative;isolation:isolate;background:#2e241f}
+  html.paper-motion .opening-underlay{display:block;position:sticky;top:0;height:100vh;height:100svh;z-index:0;overflow:hidden;background:#2e241f;pointer-events:none}
+  html.paper-motion .opening-underlay picture{display:block;width:100%;height:100%}
+  html.paper-motion .opening-underlay img{width:100%;height:100%;object-fit:contain;object-position:50% 50%;opacity:var(--photo-opacity,1)}
+  html.paper-motion .opening-underlay::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(24,15,10,.72),rgba(24,15,10,.12) 30%,rgba(24,15,10,0) 48%,rgba(24,15,10,0) 85%,rgba(24,15,10,.3));pointer-events:none}
+  /* Cancel the underlay's flow space: the first cover stays at its original y=0. */
+  html.paper-motion .image-cover{position:relative;z-index:2;margin-top:-100vh;margin-top:-100svh;box-shadow:0 14px 24px -12px rgba(31,7,4,.65)}
+  html.paper-motion .classic{display:flex;align-items:flex-start;position:relative;z-index:1;min-height:100vh;min-height:100svh;background:none;color:#fff5e4;padding:clamp(28px,7vh,76px) 8% 36px}
+  html.paper-motion .classic .copy{margin:0;max-width:32rem;text-shadow:0 2px 10px #160b06}
+  html.paper-motion .classic .label{color:#ead2a9}
+  html.paper-motion .classic .label,html.paper-motion .classic .copy>p:last-child{font-size:clamp(14px,2.2vw,16px)}
+  html.paper-motion .classic h2{font-size:clamp(28px,5vw,44px);margin:14px 0}
+  /* Photo is visible in the underlay; retain its original alt/caption for AT. */
+  html.paper-motion .classic figure{position:absolute;width:1px;height:1px;padding:0;margin:-1px;border:0;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap}
+  html.paper-motion .party{position:relative;z-index:3}
+  html.paper-motion .party::before{content:"";position:absolute;left:0;right:0;top:-64px;height:64px;background:linear-gradient(180deg,rgba(41,40,38,0),#292826);pointer-events:none}
+  html.paper-motion [data-scroll-reveal]{opacity:var(--copy-opacity,1);transform:translate3d(0,var(--copy-offset,0px),0)}
+}
+@media print{
+  .opening-underlay{display:none!important}
+  html.paper-motion .image-cover{margin-top:0;box-shadow:none}
+  html.paper-motion .classic{display:block;min-height:0;background:#e9dfcf;color:#3b3029}
+  html.paper-motion .classic .copy{text-shadow:none}
+  html.paper-motion .classic figure{position:static;width:auto;height:auto;clip:auto;white-space:normal;margin:0;overflow:visible}
+  html.paper-motion [data-scroll-reveal]{opacity:1;transform:none}
+}

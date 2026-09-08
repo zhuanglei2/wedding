@@ -1,0 +1,12 @@
+Use case: stylized-concept. Asset type: production 2D puppet-rig sprite atlas, transparent PNG.
+Use the attached image as the identity / clothing / plush material reference for the SAME two POP MART Twinkle Twinkle wedding dolls. Create separable rig parts for these two characters for an animation where they fly, reach their arms, grip and pull open a paper invitation. Keep recognizable faces, black hat with blue band, black wedding vest, yellow plush fur, bride's huge ivory bow, veil, ivory wedding dress, bouquet. No real people.
+EXACT layout: a 4-column by 2-row equal square-cell atlas, 2048x1024 landscape. No grid lines, labels, text, shadows on the background, border, floor, or background color. Genuinely transparent alpha background. Each part isolated centered within its own cell, with transparent gutters.
+Top row cell 1: groom HEAD AND TORSO as ONE contiguous piece, hat to waist, NO arms and NO legs; include full filled torso behind arm sockets.
+Top row cell 2: bride HEAD AND DRESS as ONE contiguous piece with bow veil bouquet, NO arms, full filled torso behind arm sockets. Dress hem stays whole.
+Top row cell 3: groom LEFT arm alone, white short sleeve upper end to yellow mitten lower end, straight relaxed vertical orientation, shoulder at top, hand at bottom, complete long rounded sleeve root for overlap.
+Top row cell 4: groom RIGHT arm alone same orientation.
+Bottom row cell 1: groom LEFT leg alone including black trouser and black/white shoe, hip at top, shoe at bottom.
+Bottom row cell 2: groom RIGHT leg alone same orientation.
+Bottom row cell 3: bride LEFT arm alone, ivory sleeve upper end to yellow plush mitten lower end, straight vertical orientation shoulder at top.
+Bottom row cell 4: bride RIGHT arm alone same orientation.
+Each head+body fills about 90 percent cell height; every detached limb fills about 75 percent of cell height, can be independently scaled later. Orthographic FRONT VIEW, consistent soft studio illumination, crisp high quality plush fabric. This is a reusable rig sheet, NOT eight characters, NOT a sequence of poses. Only two head/body pieces, four arm pieces and two leg pieces; no extra hands on bodies, no duplicate facial features. Do not include any wedding invitation text or actual paper in this asset.
