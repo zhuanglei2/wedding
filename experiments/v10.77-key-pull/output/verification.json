@@ -1,0 +1,32 @@
+{
+  "version": "10.77",
+  "format": "animated GIF",
+  "durationSeconds": 5,
+  "frames": 100,
+  "width": 464,
+  "height": 1022,
+  "maximumComputedContactErrorPx": 5.684341886080802e-14,
+  "sourceHashes": {
+    "cover.webp": "98897f059a595390d4904608e5a6e0ff6d0e3608308cdc85a1ebc156f6087a33",
+    "classic-reveal.webp": "d1b7800d1f79bcfbde35c1c40f7f3338bcae4ca3f347d5960f372b9e74b771ab",
+    "rig-atlas.png": "4ec9864038189e90fbc8473535dd154dea0f5b4f8fee03d2cb6242539e2c5feb",
+    "head-expressions.png": "2519e550ffe3b8009c59232513e9fc25cd6dfbdc3403486efcd82f932f4bd9fe",
+    "character-rig.js": "64c49aedf0dd12d4184fa52a2eea4cec12d8df0f3703798b0d3a5195d09f4f2a",
+    "page-turn-math.js": "942cbfa44d0e97613a21623aaefc33cc2a8834de51c479598cf5d58048f23392"
+  },
+  "checks": [
+    "100 encoded frames / 5 seconds",
+    "paper waits until 1.6s",
+    "paper has varying strip normals and positive z depth",
+    "hand transforms match projected edge after contact",
+    "opaque palm pixels present near target",
+    "source files unchanged"
+  ],
+  "limits": [
+    "2D raster character limbs, not a 3D character model",
+    "No finger closing/wrapping or cloth simulation",
+    "Frame samples inspected; no browser/mobile playback QA",
+    "GIF colour quantization is preview-only",
+    "No real-video matte/mesh extraction and no deployment"
+  ]
+}
