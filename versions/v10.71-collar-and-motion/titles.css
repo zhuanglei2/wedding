@@ -1,0 +1,3 @@
+/* V10.57: let the Chinese titles introduce each photo, without chapter labels. */
+.chapter h2,html.paper-motion .classic h2{margin:0 0 14px;letter-spacing:.035em}
+.party .copy,.garden .copy{margin-bottom:26px}
