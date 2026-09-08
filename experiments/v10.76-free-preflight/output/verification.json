@@ -1,0 +1,37 @@
+{
+  "kind": "offline_synthetic_compositing_test",
+  "assets": {
+    "cover.webp": "98897f059a595390d4904608e5a6e0ff6d0e3608308cdc85a1ebc156f6087a33",
+    "classic-reveal.webp": "d1b7800d1f79bcfbde35c1c40f7f3338bcae4ca3f347d5960f372b9e74b771ab",
+    "star-couple.png": "7b1d096dec94a32bc04508a05565c6be84d770472dd4231667ebc16d93c92037"
+  },
+  "tests": {
+    "sourceFilesUnchanged": true,
+    "triangleInteriorMapping": true,
+    "sharedTriangleSeamsFullyCovered": true,
+    "firstFrameEqualsOriginalCover": true,
+    "lastFrameEqualsOriginalUnderlay": true,
+    "rejectOpaqueOnlyInput": true,
+    "rejectMissingMesh": true,
+    "existingCharacterMatteSeparator": true
+  },
+  "firstFrameLayout": {
+    "width": 1080,
+    "height": 1920,
+    "contentWidth": 819.0127970749543,
+    "padX": 130.49360146252286,
+    "normalizedCrop": {
+      "left": 0.12082740876159524,
+      "right": 0.8791725912384047,
+      "top": 0,
+      "bottom": 1
+    },
+    "actorHeight": 278.4
+  },
+  "limitations": [
+    "Known synthetic mesh only; no mesh recovered from generated video.",
+    "Existing static character crop only; hands do not articulate or grasp.",
+    "No video matte extraction, no real-video integration or mobile browser verification.",
+    "No physical lighting or natural character animation validation."
+  ]
+}
