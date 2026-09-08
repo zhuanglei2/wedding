@@ -1,0 +1,14 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>V10.75 · 拉纸衔接检查</title><link rel="stylesheet" href="study.css"></head>
+<body><main><header><p class="eyebrow">V10.75 / 本地技术检查</p><h1>先让这一页，接得上。</h1><p>真实请柬、真实第二层图片。圆框是人物占位范围，不是星星人成片。</p></header>
+<div class="layout"><section class="viewer" aria-label="翻页几何检查">
+<div id="stage"><img id="underlay" src="../../versions/v10.71-collar-and-motion/classic-reveal.webp" alt="第二层使用原始婚纱照，不重绘"><div id="shade"></div><img id="cover" src="../../versions/v10.71-collar-and-motion/cover.webp" alt="完整原始请柬，1400乘3282"><div id="paper"></div><svg id="guides" viewBox="0 0 1400 3282" aria-label="抓点与人物范围"><g id="boy"><ellipse/><line/><circle/><text>男孩范围</text></g><g id="girl"><ellipse/><line/><circle/><text>女孩范围</text></g></svg></div>
+</section><aside><p class="status" id="status" role="status">正在加载原图…</p>
+<label for="time">拖动检查动作阶段 <output id="time-value">0.00 秒</output></label><input id="time" type="range" min="0" max="10" step=".01" value="0" disabled>
+<div class="buttons"><button data-time="0">原始首帧</button><button data-time="3">抓纸中段</button><button data-time="4">松手位置</button><button data-time="6.8">牵稳停留</button><button data-time="10">原始第二层</button></div>
+<label class="check"><input id="show-guides" type="checkbox" checked>显示人物范围和抓点</label>
+<dl><dt>请柬显示比例</dt><dd>1400 × 3282，原图不拉伸</dd><dt>9:16 外层操作画布</dt><dd id="carrier"></dd><dt>拖尾强度（本页不渲染粒子）</dt><dd id="stars">0</dd><dt>接触误差（几何占位）</dt><dd id="contact">—</dd></dl>
+<p class="note">范围框只验证空间、纸边和时间关系，不能证明真实手部接触、衣服稳定或动画自然。真实视频尚未生成，也尚未完成抠像与纸面跟踪。</p>
+<p class="note">这里以整张请柬检查材质连续性；手机实际可视区域还需按屏幕高度与滚动位置验证，不能把长请柬硬塞成一屏。</p>
+<a href="README.md">查看本版说明</a></aside></div></main>
+<script src="../../versions/v10.71-collar-and-motion/paper-surface.js"></script><script src="geometry.js"></script><script src="study.js"></script></body></html>
