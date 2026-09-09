@@ -1,0 +1,44 @@
+[
+  {
+    "source": "v10.100-refined-character-scale/rig-atlas.png",
+    "output": "rig-atlas.webp",
+    "before": 2747274,
+    "after": 1896412,
+    "visible_pixels_equal": true,
+    "sha256": "e43d4885bc61b301bb5a38241e84a1537161cceff81a7e8b064dd8c98e3f2721"
+  },
+  {
+    "source": "v10.100-refined-character-scale/head-expressions.png",
+    "output": "eye-lids.png",
+    "before": 2679062,
+    "after": 4703,
+    "source_boxes": [
+      [
+        1208,
+        240,
+        40,
+        12
+      ],
+      [
+        1289,
+        239,
+        39,
+        11
+      ],
+      [
+        1212,
+        584,
+        39,
+        10
+      ],
+      [
+        1290,
+        584,
+        39,
+        11
+      ]
+    ],
+    "pixels_equal": true,
+    "sha256": "203341c0ce1dd6046bb61e0570fcbcb3b6c80dac96823fd8d2f1473df62f68d5"
+  }
+]

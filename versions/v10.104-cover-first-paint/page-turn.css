@@ -1,0 +1,55 @@
+/* Reading first. Character/page motion exists only between pages 1 and 2. */
+/* The atlas is a canvas source, never page content. Author img{display:block}
+   otherwise overrides the browser's default [hidden] styling. Keep this outside
+   motion queries so loading, reduced-motion and print cannot add a bottom gap. */
+.rig-source[hidden]{display:none!important}
+html.turn-playing{scroll-behavior:auto!important;overscroll-behavior:none}
+html.turn-playing body,html.turn-playing .cover-enter{touch-action:pinch-zoom}
+.turn-flight,.page-turn-stars{display:none;pointer-events:none}
+.star-trail{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:0}
+.image-cover{position:relative}
+.cover-enter{position:absolute;inset:0;z-index:1;display:block;cursor:pointer;touch-action:pan-y;text-decoration:none;-webkit-tap-highlight-color:transparent}
+.cover-enter:focus-visible{outline:2px solid #ecd2a2;outline-offset:-6px}
+.paper-slices{display:none;pointer-events:none}
+@media(prefers-reduced-motion:no-preference){
+  html.star-turn .opening-sequence{position:relative;isolation:isolate;background:#2e241f}
+  html.star-turn .opening-underlay{display:block;position:sticky;top:0;height:var(--turn-vh);z-index:0;overflow:hidden;background:#2e241f}
+  html.star-turn .opening-underlay picture,html.star-turn .opening-underlay img{display:block;width:100%;height:100%}
+  html.star-turn .opening-underlay img{object-fit:contain;object-position:center}
+  html.star-turn .opening-underlay::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,#180f0ab8,#180f0a1f 30%,transparent 48%,transparent 85%,#180f0a4d);pointer-events:none}
+  html.star-turn .turn-track{position:relative;z-index:2;height:var(--track-height);margin-top:calc(-1 * var(--turn-vh));pointer-events:none}
+  html.star-turn .turn-sheet{position:sticky;top:var(--sheet-top);height:var(--sheet-height);background:var(--cover-fill,#922c25);pointer-events:none}
+  /* Keep the same sheet and crop; only its positioning changes while playing.
+     The explicit-height track retains layout, so no spacer is inserted. */
+  html.star-turn.turn-playing .turn-sheet{position:fixed;top:var(--play-sheet-top);left:var(--play-sheet-left);width:var(--play-sheet-width);margin:0}
+  html.star-turn .image-cover{position:relative;margin:0;box-shadow:none;background:var(--cover-fill,#922c25)}
+  html.star-turn .image-cover>picture{opacity:var(--front-opacity,1)}
+  html.star-turn .cover-enter{pointer-events:auto}
+  html.star-turn .paper-slices{display:block;position:absolute;inset:0;opacity:0;perspective-origin:0 var(--hinge-y);pointer-events:none}
+  .paper-strip{position:absolute;left:0;top:0;height:100%;transform-style:preserve-3d;transform-origin:0 0}
+  .paper-front,.paper-back{position:absolute;inset:0;overflow:hidden;backface-visibility:hidden;-webkit-backface-visibility:hidden}
+  .paper-front{background:#922c25}
+  .paper-front img{position:absolute;top:0;height:auto;max-width:none}
+  .paper-front::before{content:"";position:absolute;inset:0;z-index:1;background:#fff2d4;opacity:var(--strip-light,0);pointer-events:none}
+  .paper-front::after{content:"";position:absolute;inset:0;background:#260900;opacity:var(--strip-shade,0)}
+  .paper-back{transform:rotateY(180deg);background:linear-gradient(90deg,#ead7b7,#f4e6ce 45%,#f7ecd8);background-repeat:no-repeat}
+  .paper-back::after{content:"";position:absolute;inset:0;background:#604429;opacity:var(--back-shade,0);pointer-events:none}
+  html.star-turn .classic{display:flex;align-items:flex-start;position:relative;z-index:1;min-height:var(--turn-vh);margin-top:calc(-1 * var(--turn-vh));background:transparent;color:#fff5e4;padding:clamp(28px,7vh,76px) 8% 36px}
+  html.star-turn .classic .copy{margin:0;max-width:32rem;text-shadow:0 2px 10px #160b06}
+  html.star-turn .classic h2{font-size:clamp(28px,5vw,44px)}
+  html.star-turn .classic figure{position:absolute;width:1px;height:1px;padding:0;margin:-1px;border:0;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap}
+  html.star-turn .turn-flight{display:block;position:fixed;inset:0;overflow:hidden;z-index:10;pointer-events:none}
+  html.star-turn .page-turn-stars{display:block;position:absolute;inset:0;width:100%;height:100%;z-index:1;filter:drop-shadow(0 3px 3px #1809032e)}
+  html.star-turn .party{position:relative;z-index:3}
+  html.star-turn .party::before{content:"";position:absolute;left:0;right:0;top:-48px;height:48px;background:linear-gradient(transparent,#292826);pointer-events:none}
+}
+@media print{
+ .turn-flight,.page-turn-stars,.cover-enter,.paper-slices{display:none!important}
+ html.star-turn .image-cover>picture{opacity:1!important}
+  html.star-turn .opening-underlay{display:none!important}
+  html.star-turn .turn-track,html.star-turn .turn-sheet,html.star-turn.turn-playing .turn-sheet{position:static;width:auto;height:auto;margin:0;transform:none!important;box-shadow:none}
+  html.star-turn .turn-sheet::after{display:none}
+  html.star-turn .classic{display:block;min-height:0;margin:0;background:#e9dfcf;color:#3b3029}
+  html.star-turn .classic .copy{text-shadow:none}
+  html.star-turn .classic figure{position:static;width:auto;height:auto;margin:0;padding:12px;clip:auto;white-space:normal;overflow:visible}
+}
