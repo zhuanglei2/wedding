@@ -1,0 +1,18 @@
+{
+  "version": "10.98",
+  "status": "first_frame_candidate_pending_review",
+  "mode": "builtin_image_gen_edit",
+  "imageGenerationCalls": 1,
+  "input": "../v10.97-motion-assets/reference-source-f024.png",
+  "inputSHA256": "1dab0437bf303c3bdb38f560dd078a1d15749a555b13140b492325ce4adfbbdd",
+  "output": "first-frame-candidate.png",
+  "outputSHA256": "cfd7d18d712ce8c8dd104c9a5da537bb069ad63dfc860c84c49378de211ed01c",
+  "size": [954, 1649],
+  "prompt": "IMAGE-PROMPT.txt",
+  "visualReview": "Full-frame inspection: two characters, padded mitten at edge, visible collars and full gown. Details rerendered; not pixel-preserving.",
+  "unchangedCharacterPixels": false,
+  "realWeddingPhotoProvided": false,
+  "videoGenerated": false,
+  "pixverseSubmitted": false,
+  "deployed": false
+}
