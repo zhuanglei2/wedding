@@ -1,0 +1,84 @@
+{
+  "version": "10.87",
+  "status": "HOLD_REAL_VIDEO_COMPOSITE_NOT_VERIFIED",
+  "kind": "static_layout_and_director_targets_not_generated_motion",
+  "source": "../v10.81-clean-alpha/characters-transparent.png",
+  "sourceSha256": "87f3750fbdabfacee4e9d416df9d15d8b85183f6763847e1b8f03464b8f398ee",
+  "frame": {
+    "width": 900,
+    "height": 1600
+  },
+  "card": {
+    "left": 130,
+    "top": 50,
+    "width": 640,
+    "height": 1500
+  },
+  "layout": [
+    {
+      "name": "groom",
+      "left": 497,
+      "top": 350,
+      "height": 400,
+      "width": 272.94117647058823,
+      "sourceBounds": {
+        "label": 1,
+        "count": 292447,
+        "x0": 664,
+        "x1": 1243,
+        "y0": 12,
+        "y1": 861
+      }
+    },
+    {
+      "name": "bride",
+      "left": 410,
+      "top": 830,
+      "height": 400,
+      "width": 335.6164383561644,
+      "sourceBounds": {
+        "label": 2,
+        "count": 395736,
+        "x0": 63,
+        "x1": 797,
+        "y0": 354,
+        "y1": 1229
+      }
+    }
+  ],
+  "grip": {
+    "x": 768.5294117647059,
+    "y": 559.8823529411765
+  },
+  "desiredPull": {
+    "dx": -200,
+    "dy": 0,
+    "endProjectedCardAngleDegrees": 46.56746344221023
+  },
+  "checks": {
+    "sourceFileUnchanged": true,
+    "completeComponents": 2,
+    "minimumCarrierMarginPx": 130.05882352941177,
+    "minimumCardMarginPx": 0.05882352941176805,
+    "minActorVerticalGapPx": 80,
+    "gripToCardEdgePx": 1.4705882352941444,
+    "realPhotoIncluded": false
+  },
+  "gates": {
+    "staticLayout": true,
+    "promptPrepared": true,
+    "platformConfigured": false,
+    "actualVideoMatte": false,
+    "actualVideoHandTracking": false,
+    "mobileComposite": false,
+    "readyToSpendCredits": false
+  },
+  "limits": [
+    "Pixel-preserving component extraction, then uniform resize for layout; not original resolution in output.",
+    "Checks only cover prescribed translation envelopes, NOT AI-generated body movement.",
+    "Flat rectangular prop is a spatial reference, not proof of thick-card motion.",
+    "Reference side margins are off-site working space; production invitation is untouched.",
+    "Source pose lacks a separate thumb/fingers: palm contact is intended, not realistic finger wrapping.",
+    "Second segment needs release BEFORE handholding/flight."
+  ]
+}
