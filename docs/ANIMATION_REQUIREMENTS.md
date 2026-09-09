@@ -79,7 +79,7 @@
 
 ## 7. 当前资产与未解决事项
 
-- 正式本地完整 HTML：`../versions/v10.71-collar-and-motion/index.html`。
+- 最新本地完整 HTML：`../versions/v10.100-refined-character-scale/index.html`（基于 V10.71 缩小角色20%、减轻光效、减弱拉纸透视；未接入 AI 视频、未部署）。V10.71 原样保留。
 - 正式封面及第二页原图：同目录 `cover.webp`、`classic-reveal.webp`，不要覆盖。
 - V10.94：实际 PixVerse 4秒输出，卡片几乎没拉开、女孩上移，动作质量否决。
 - V10.95：分层整卡翻页机制，照片不单独乱动、最终可清空红边；人物抓握与表演不合格。
