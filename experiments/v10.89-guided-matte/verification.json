@@ -1,0 +1,112 @@
+{
+  "version": "10.89",
+  "sourceSHA256": "1bb4f057b1e3e8f95d970ac3fa71d8288650639a085c46a0940c4bce6767cc64",
+  "frameCount": 97,
+  "RGBIdenticalToDecodedSource": true,
+  "dressInteriorProbes": [
+    {
+      "frame": 0,
+      "rect": [
+        410,
+        582,
+        434,
+        605
+      ],
+      "oldOpaqueFraction": 0.24094202898550723,
+      "newOpaqueFraction": 1.0
+    },
+    {
+      "frame": 36,
+      "rect": [
+        410,
+        587,
+        432,
+        610
+      ],
+      "oldOpaqueFraction": 0.23517786561264822,
+      "newOpaqueFraction": 1.0
+    },
+    {
+      "frame": 60,
+      "rect": [
+        326,
+        588,
+        350,
+        612
+      ],
+      "oldOpaqueFraction": 0.24305555555555555,
+      "newOpaqueFraction": 1.0
+    },
+    {
+      "frame": 96,
+      "rect": [
+        198,
+        590,
+        220,
+        613
+      ],
+      "oldOpaqueFraction": 0.3557312252964427,
+      "newOpaqueFraction": 1.0
+    }
+  ],
+  "largestAreaChanges": [
+    {
+      "frame": 63,
+      "area": 17248,
+      "relativeAreaChange": 0.02332
+    },
+    {
+      "frame": 51,
+      "area": 17107,
+      "relativeAreaChange": 0.02003
+    },
+    {
+      "frame": 70,
+      "area": 16862,
+      "relativeAreaChange": -0.01851
+    },
+    {
+      "frame": 50,
+      "area": 16771,
+      "relativeAreaChange": 0.0184
+    },
+    {
+      "frame": 65,
+      "area": 17374,
+      "relativeAreaChange": 0.01608
+    },
+    {
+      "frame": 56,
+      "area": 17269,
+      "relativeAreaChange": -0.01607
+    },
+    {
+      "frame": 79,
+      "area": 17298,
+      "relativeAreaChange": 0.01544
+    },
+    {
+      "frame": 59,
+      "area": 17128,
+      "relativeAreaChange": -0.01524
+    },
+    {
+      "frame": 52,
+      "area": 17354,
+      "relativeAreaChange": 0.01444
+    },
+    {
+      "frame": 87,
+      "area": 16913,
+      "relativeAreaChange": -0.01382
+    }
+  ],
+  "creditsConsumed": 0,
+  "deployed": false,
+  "limitations": [
+    "Guided GrabCut, not semantic AI matting or ground-truth segmentation.",
+    "Fine red fringe and temporal edge quality require further mobile assessment.",
+    "Source paper occludes the right side of the dress near the end; missing pixels are not recreated.",
+    "Hand-to-card contact and full-card turn remain unresolved."
+  ]
+}

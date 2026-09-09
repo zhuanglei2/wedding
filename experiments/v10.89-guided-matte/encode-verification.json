@@ -1,0 +1,12 @@
+{
+  "previewDecodedFrames": 97,
+  "fps": 24.0,
+  "size": [
+    1050,
+    466
+  ],
+  "losslessMaskFrames": 97,
+  "allMaskPixelsMatchWorkingAlpha": true,
+  "previewSHA256": "82574f2cb08a545f8f57789eb08bfa3e7119f6bacb7d3eeaec01390dfb4ef306",
+  "maskSHA256": "5d3118ef28a357e34398f73f6da88cdf62fcceac84fe44775c349e36297064e9"
+}
