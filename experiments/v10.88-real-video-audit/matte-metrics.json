@@ -1,0 +1,590 @@
+{
+  "method": "border-connected red hue + Euclidean beige key; thresholds 28 and 85; no semantic foreground ground truth",
+  "allFramesProcessed": 97,
+  "sourceUnchanged": true,
+  "measurements": [
+    {
+      "frame": 0,
+      "time": 0,
+      "conservativeRetained": 15980,
+      "aggressiveRetained": 9792
+    },
+    {
+      "frame": 1,
+      "time": 0.0416667,
+      "conservativeRetained": 16299,
+      "aggressiveRetained": 9737
+    },
+    {
+      "frame": 2,
+      "time": 0.0833333,
+      "conservativeRetained": 16194,
+      "aggressiveRetained": 9723
+    },
+    {
+      "frame": 3,
+      "time": 0.125,
+      "conservativeRetained": 16269,
+      "aggressiveRetained": 9609
+    },
+    {
+      "frame": 4,
+      "time": 0.166667,
+      "conservativeRetained": 16265,
+      "aggressiveRetained": 9577
+    },
+    {
+      "frame": 5,
+      "time": 0.208333,
+      "conservativeRetained": 16515,
+      "aggressiveRetained": 9390
+    },
+    {
+      "frame": 6,
+      "time": 0.25,
+      "conservativeRetained": 16130,
+      "aggressiveRetained": 9424
+    },
+    {
+      "frame": 7,
+      "time": 0.291667,
+      "conservativeRetained": 16459,
+      "aggressiveRetained": 9430
+    },
+    {
+      "frame": 8,
+      "time": 0.333333,
+      "conservativeRetained": 16118,
+      "aggressiveRetained": 9470
+    },
+    {
+      "frame": 9,
+      "time": 0.375,
+      "conservativeRetained": 16286,
+      "aggressiveRetained": 9371
+    },
+    {
+      "frame": 10,
+      "time": 0.416667,
+      "conservativeRetained": 16381,
+      "aggressiveRetained": 9435
+    },
+    {
+      "frame": 11,
+      "time": 0.458333,
+      "conservativeRetained": 16134,
+      "aggressiveRetained": 9460
+    },
+    {
+      "frame": 12,
+      "time": 0.5,
+      "conservativeRetained": 16168,
+      "aggressiveRetained": 8731
+    },
+    {
+      "frame": 13,
+      "time": 0.541667,
+      "conservativeRetained": 16303,
+      "aggressiveRetained": 9496
+    },
+    {
+      "frame": 14,
+      "time": 0.583333,
+      "conservativeRetained": 16316,
+      "aggressiveRetained": 9461
+    },
+    {
+      "frame": 15,
+      "time": 0.625,
+      "conservativeRetained": 16349,
+      "aggressiveRetained": 9480
+    },
+    {
+      "frame": 16,
+      "time": 0.666667,
+      "conservativeRetained": 16304,
+      "aggressiveRetained": 9519
+    },
+    {
+      "frame": 17,
+      "time": 0.708333,
+      "conservativeRetained": 16310,
+      "aggressiveRetained": 9560
+    },
+    {
+      "frame": 18,
+      "time": 0.75,
+      "conservativeRetained": 16327,
+      "aggressiveRetained": 9610
+    },
+    {
+      "frame": 19,
+      "time": 0.791667,
+      "conservativeRetained": 16333,
+      "aggressiveRetained": 9603
+    },
+    {
+      "frame": 20,
+      "time": 0.833333,
+      "conservativeRetained": 16353,
+      "aggressiveRetained": 9561
+    },
+    {
+      "frame": 21,
+      "time": 0.875,
+      "conservativeRetained": 16345,
+      "aggressiveRetained": 9556
+    },
+    {
+      "frame": 22,
+      "time": 0.916667,
+      "conservativeRetained": 16520,
+      "aggressiveRetained": 9518
+    },
+    {
+      "frame": 23,
+      "time": 0.958333,
+      "conservativeRetained": 16699,
+      "aggressiveRetained": 9506
+    },
+    {
+      "frame": 24,
+      "time": 1,
+      "conservativeRetained": 16076,
+      "aggressiveRetained": 9451
+    },
+    {
+      "frame": 25,
+      "time": 1.041667,
+      "conservativeRetained": 17104,
+      "aggressiveRetained": 9403
+    },
+    {
+      "frame": 26,
+      "time": 1.083333,
+      "conservativeRetained": 17273,
+      "aggressiveRetained": 9499
+    },
+    {
+      "frame": 27,
+      "time": 1.125,
+      "conservativeRetained": 17213,
+      "aggressiveRetained": 9506
+    },
+    {
+      "frame": 28,
+      "time": 1.166667,
+      "conservativeRetained": 16778,
+      "aggressiveRetained": 9503
+    },
+    {
+      "frame": 29,
+      "time": 1.208333,
+      "conservativeRetained": 16766,
+      "aggressiveRetained": 8911
+    },
+    {
+      "frame": 30,
+      "time": 1.25,
+      "conservativeRetained": 16727,
+      "aggressiveRetained": 8821
+    },
+    {
+      "frame": 31,
+      "time": 1.291667,
+      "conservativeRetained": 16734,
+      "aggressiveRetained": 9385
+    },
+    {
+      "frame": 32,
+      "time": 1.333333,
+      "conservativeRetained": 16632,
+      "aggressiveRetained": 9208
+    },
+    {
+      "frame": 33,
+      "time": 1.375,
+      "conservativeRetained": 16698,
+      "aggressiveRetained": 9260
+    },
+    {
+      "frame": 34,
+      "time": 1.416667,
+      "conservativeRetained": 17053,
+      "aggressiveRetained": 9306
+    },
+    {
+      "frame": 35,
+      "time": 1.458333,
+      "conservativeRetained": 16915,
+      "aggressiveRetained": 8604
+    },
+    {
+      "frame": 36,
+      "time": 1.5,
+      "conservativeRetained": 16865,
+      "aggressiveRetained": 9325
+    },
+    {
+      "frame": 37,
+      "time": 1.541667,
+      "conservativeRetained": 16457,
+      "aggressiveRetained": 9324
+    },
+    {
+      "frame": 38,
+      "time": 1.583333,
+      "conservativeRetained": 16708,
+      "aggressiveRetained": 9193
+    },
+    {
+      "frame": 39,
+      "time": 1.625,
+      "conservativeRetained": 16947,
+      "aggressiveRetained": 8587
+    },
+    {
+      "frame": 40,
+      "time": 1.666667,
+      "conservativeRetained": 16441,
+      "aggressiveRetained": 8260
+    },
+    {
+      "frame": 41,
+      "time": 1.708333,
+      "conservativeRetained": 16467,
+      "aggressiveRetained": 8997
+    },
+    {
+      "frame": 42,
+      "time": 1.75,
+      "conservativeRetained": 16434,
+      "aggressiveRetained": 9552
+    },
+    {
+      "frame": 43,
+      "time": 1.791667,
+      "conservativeRetained": 16485,
+      "aggressiveRetained": 9129
+    },
+    {
+      "frame": 44,
+      "time": 1.833333,
+      "conservativeRetained": 16289,
+      "aggressiveRetained": 9458
+    },
+    {
+      "frame": 45,
+      "time": 1.875,
+      "conservativeRetained": 16189,
+      "aggressiveRetained": 9543
+    },
+    {
+      "frame": 46,
+      "time": 1.916667,
+      "conservativeRetained": 16123,
+      "aggressiveRetained": 9060
+    },
+    {
+      "frame": 47,
+      "time": 1.958333,
+      "conservativeRetained": 15846,
+      "aggressiveRetained": 9041
+    },
+    {
+      "frame": 48,
+      "time": 2,
+      "conservativeRetained": 15515,
+      "aggressiveRetained": 8866
+    },
+    {
+      "frame": 49,
+      "time": 2.041667,
+      "conservativeRetained": 15885,
+      "aggressiveRetained": 8580
+    },
+    {
+      "frame": 50,
+      "time": 2.083333,
+      "conservativeRetained": 16740,
+      "aggressiveRetained": 9004
+    },
+    {
+      "frame": 51,
+      "time": 2.125,
+      "conservativeRetained": 17201,
+      "aggressiveRetained": 9345
+    },
+    {
+      "frame": 52,
+      "time": 2.166667,
+      "conservativeRetained": 17897,
+      "aggressiveRetained": 9134
+    },
+    {
+      "frame": 53,
+      "time": 2.208333,
+      "conservativeRetained": 18219,
+      "aggressiveRetained": 9922
+    },
+    {
+      "frame": 54,
+      "time": 2.25,
+      "conservativeRetained": 18950,
+      "aggressiveRetained": 9945
+    },
+    {
+      "frame": 55,
+      "time": 2.291667,
+      "conservativeRetained": 18801,
+      "aggressiveRetained": 9801
+    },
+    {
+      "frame": 56,
+      "time": 2.333333,
+      "conservativeRetained": 20236,
+      "aggressiveRetained": 10769
+    },
+    {
+      "frame": 57,
+      "time": 2.375,
+      "conservativeRetained": 20337,
+      "aggressiveRetained": 11208
+    },
+    {
+      "frame": 58,
+      "time": 2.416667,
+      "conservativeRetained": 21058,
+      "aggressiveRetained": 10703
+    },
+    {
+      "frame": 59,
+      "time": 2.458333,
+      "conservativeRetained": 21322,
+      "aggressiveRetained": 11772
+    },
+    {
+      "frame": 60,
+      "time": 2.5,
+      "conservativeRetained": 22027,
+      "aggressiveRetained": 11404
+    },
+    {
+      "frame": 61,
+      "time": 2.541667,
+      "conservativeRetained": 22979,
+      "aggressiveRetained": 12615
+    },
+    {
+      "frame": 62,
+      "time": 2.583333,
+      "conservativeRetained": 22831,
+      "aggressiveRetained": 12104
+    },
+    {
+      "frame": 63,
+      "time": 2.625,
+      "conservativeRetained": 23652,
+      "aggressiveRetained": 13655
+    },
+    {
+      "frame": 64,
+      "time": 2.666667,
+      "conservativeRetained": 24364,
+      "aggressiveRetained": 13298
+    },
+    {
+      "frame": 65,
+      "time": 2.708333,
+      "conservativeRetained": 24973,
+      "aggressiveRetained": 14280
+    },
+    {
+      "frame": 66,
+      "time": 2.75,
+      "conservativeRetained": 24967,
+      "aggressiveRetained": 14049
+    },
+    {
+      "frame": 67,
+      "time": 2.791667,
+      "conservativeRetained": 25014,
+      "aggressiveRetained": 14046
+    },
+    {
+      "frame": 68,
+      "time": 2.833333,
+      "conservativeRetained": 25674,
+      "aggressiveRetained": 13050
+    },
+    {
+      "frame": 69,
+      "time": 2.875,
+      "conservativeRetained": 26603,
+      "aggressiveRetained": 14100
+    },
+    {
+      "frame": 70,
+      "time": 2.916667,
+      "conservativeRetained": 26147,
+      "aggressiveRetained": 13164
+    },
+    {
+      "frame": 71,
+      "time": 2.958333,
+      "conservativeRetained": 27486,
+      "aggressiveRetained": 12993
+    },
+    {
+      "frame": 72,
+      "time": 3,
+      "conservativeRetained": 27586,
+      "aggressiveRetained": 12419
+    },
+    {
+      "frame": 73,
+      "time": 3.041667,
+      "conservativeRetained": 28448,
+      "aggressiveRetained": 12655
+    },
+    {
+      "frame": 74,
+      "time": 3.083333,
+      "conservativeRetained": 28901,
+      "aggressiveRetained": 12030
+    },
+    {
+      "frame": 75,
+      "time": 3.125,
+      "conservativeRetained": 28395,
+      "aggressiveRetained": 11974
+    },
+    {
+      "frame": 76,
+      "time": 3.166667,
+      "conservativeRetained": 31754,
+      "aggressiveRetained": 11189
+    },
+    {
+      "frame": 77,
+      "time": 3.208333,
+      "conservativeRetained": 28799,
+      "aggressiveRetained": 11570
+    },
+    {
+      "frame": 78,
+      "time": 3.25,
+      "conservativeRetained": 32664,
+      "aggressiveRetained": 11381
+    },
+    {
+      "frame": 79,
+      "time": 3.291667,
+      "conservativeRetained": 33694,
+      "aggressiveRetained": 11605
+    },
+    {
+      "frame": 80,
+      "time": 3.333333,
+      "conservativeRetained": 35087,
+      "aggressiveRetained": 11576
+    },
+    {
+      "frame": 81,
+      "time": 3.375,
+      "conservativeRetained": 36154,
+      "aggressiveRetained": 12068
+    },
+    {
+      "frame": 82,
+      "time": 3.416667,
+      "conservativeRetained": 37097,
+      "aggressiveRetained": 12183
+    },
+    {
+      "frame": 83,
+      "time": 3.458333,
+      "conservativeRetained": 31298,
+      "aggressiveRetained": 11775
+    },
+    {
+      "frame": 84,
+      "time": 3.5,
+      "conservativeRetained": 30967,
+      "aggressiveRetained": 11552
+    },
+    {
+      "frame": 85,
+      "time": 3.541667,
+      "conservativeRetained": 31287,
+      "aggressiveRetained": 11744
+    },
+    {
+      "frame": 86,
+      "time": 3.583333,
+      "conservativeRetained": 31390,
+      "aggressiveRetained": 12208
+    },
+    {
+      "frame": 87,
+      "time": 3.625,
+      "conservativeRetained": 31507,
+      "aggressiveRetained": 12477
+    },
+    {
+      "frame": 88,
+      "time": 3.666667,
+      "conservativeRetained": 40899,
+      "aggressiveRetained": 12054
+    },
+    {
+      "frame": 89,
+      "time": 3.708333,
+      "conservativeRetained": 31797,
+      "aggressiveRetained": 11754
+    },
+    {
+      "frame": 90,
+      "time": 3.75,
+      "conservativeRetained": 42705,
+      "aggressiveRetained": 11441
+    },
+    {
+      "frame": 91,
+      "time": 3.791667,
+      "conservativeRetained": 44008,
+      "aggressiveRetained": 11865
+    },
+    {
+      "frame": 92,
+      "time": 3.833333,
+      "conservativeRetained": 45074,
+      "aggressiveRetained": 11387
+    },
+    {
+      "frame": 93,
+      "time": 3.875,
+      "conservativeRetained": 31909,
+      "aggressiveRetained": 10598
+    },
+    {
+      "frame": 94,
+      "time": 3.916667,
+      "conservativeRetained": 31689,
+      "aggressiveRetained": 10602
+    },
+    {
+      "frame": 95,
+      "time": 3.958333,
+      "conservativeRetained": 31554,
+      "aggressiveRetained": 10888
+    },
+    {
+      "frame": 96,
+      "time": 4,
+      "conservativeRetained": 31773,
+      "aggressiveRetained": 10063
+    }
+  ],
+  "warning": "Retained pixel count is not mask accuracy. Both candidates require visual assessment; no success score is claimed."
+}

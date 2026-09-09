@@ -1,0 +1,13 @@
+{
+  "version": "10.88",
+  "inputAvailable": true,
+  "all97FramesDecoded": true,
+  "simpleBackgroundKey": "failed",
+  "continuousHandPaperContact": "failed_early_samples",
+  "advancedSemanticVideoMatte": "not_tested",
+  "allFrameSemanticHandTracking": "not_completed",
+  "webMobileIntegration": "not_validated",
+  "readyToSpendCredits": false,
+  "creditsConsumed": 0,
+  "deploymentPerformed": false
+}

@@ -1,0 +1,593 @@
+{
+  "input": "/Users/eleme/Downloads/PixVerse_V6_Image_Text_540P_One_continuous_fou.mp4",
+  "inputSha256": "1bb4f057b1e3e8f95d970ac3fa71d8288650639a085c46a0940c4bce6767cc64",
+  "sourceUnchanged": true,
+  "decoder": "FFmpeg 7.1 via imageio-ffmpeg 0.6.0",
+  "duration": 4.041666666666667,
+  "nominalFPS": 24,
+  "frameCount": 97,
+  "frames": [
+    {
+      "file": "frame-001.png",
+      "time": 0,
+      "width": 576,
+      "height": 1024
+    },
+    {
+      "file": "frame-002.png",
+      "time": 0.0416667,
+      "width": 576,
+      "height": 1024
+    },
+    {
+      "file": "frame-003.png",
+      "time": 0.0833333,
+      "width": 576,
+      "height": 1024
+    },
+    {
+      "file": "frame-004.png",
+      "time": 0.125,
+      "width": 576,
+      "height": 1024
+    },
+    {
+      "file": "frame-005.png",
+      "time": 0.166667,
+      "width": 576,
+      "height": 1024
+    },
+    {
+      "file": "frame-006.png",
+      "time": 0.208333,
+      "width": 576,
+      "height": 1024
+    },
+    {
+      "file": "frame-007.png",
+      "time": 0.25,
+      "width": 576,
+      "height": 1024
+    },
+    {
+      "file": "frame-008.png",
+      "time": 0.291667,
+      "width": 576,
+      "height": 1024
+    },
+    {
+      "file": "frame-009.png",
+      "time": 0.333333,
+      "width": 576,
+      "height": 1024
+    },
+    {
+      "file": "frame-010.png",
+      "time": 0.375,
+      "width": 576,
+      "height": 1024
+    },
+    {
+      "file": "frame-011.png",
+      "time": 0.416667,
+      "width": 576,
+      "height": 1024
+    },
+    {
+      "file": "frame-012.png",
+      "time": 0.458333,
+      "width": 576,
+      "height": 1024
+    },
+    {
+      "file": "frame-013.png",
+      "time": 0.5,
+      "width": 576,
+      "height": 1024
+    },
+    {
+      "file": "frame-014.png",
+      "time": 0.541667,
+      "width": 576,
+      "height": 1024
+    },
+    {
+      "file": "frame-015.png",
+      "time": 0.583333,
+      "width": 576,
+      "height": 1024
+    },
+    {
+      "file": "frame-016.png",
+      "time": 0.625,
+      "width": 576,
+      "height": 1024
+    },
+    {
+      "file": "frame-017.png",
+      "time": 0.666667,
+      "width": 576,
+      "height": 1024
+    },
+    {
+      "file": "frame-018.png",
+      "time": 0.708333,
+      "width": 576,
+      "height": 1024
+    },
+    {
+      "file": "frame-019.png",
+      "time": 0.75,
+      "width": 576,
+      "height": 1024
+    },
+    {
+      "file": "frame-020.png",
+      "time": 0.791667,
+      "width": 576,
+      "height": 1024
+    },
+    {
+      "file": "frame-021.png",
+      "time": 0.833333,
+      "width": 576,
+      "height": 1024
+    },
+    {
+      "file": "frame-022.png",
+      "time": 0.875,
+      "width": 576,
+      "height": 1024
+    },
+    {
+      "file": "frame-023.png",
+      "time": 0.916667,
+      "width": 576,
+      "height": 1024
+    },
+    {
+      "file": "frame-024.png",
+      "time": 0.958333,
+      "width": 576,
+      "height": 1024
+    },
+    {
+      "file": "frame-025.png",
+      "time": 1,
+      "width": 576,
+      "height": 1024
+    },
+    {
+      "file": "frame-026.png",
+      "time": 1.041667,
+      "width": 576,
+      "height": 1024
+    },
+    {
+      "file": "frame-027.png",
+      "time": 1.083333,
+      "width": 576,
+      "height": 1024
+    },
+    {
+      "file": "frame-028.png",
+      "time": 1.125,
+      "width": 576,
+      "height": 1024
+    },
+    {
+      "file": "frame-029.png",
+      "time": 1.166667,
+      "width": 576,
+      "height": 1024
+    },
+    {
+      "file": "frame-030.png",
+      "time": 1.208333,
+      "width": 576,
+      "height": 1024
+    },
+    {
+      "file": "frame-031.png",
+      "time": 1.25,
+      "width": 576,
+      "height": 1024
+    },
+    {
+      "file": "frame-032.png",
+      "time": 1.291667,
+      "width": 576,
+      "height": 1024
+    },
+    {
+      "file": "frame-033.png",
+      "time": 1.333333,
+      "width": 576,
+      "height": 1024
+    },
+    {
+      "file": "frame-034.png",
+      "time": 1.375,
+      "width": 576,
+      "height": 1024
+    },
+    {
+      "file": "frame-035.png",
+      "time": 1.416667,
+      "width": 576,
+      "height": 1024
+    },
+    {
+      "file": "frame-036.png",
+      "time": 1.458333,
+      "width": 576,
+      "height": 1024
+    },
+    {
+      "file": "frame-037.png",
+      "time": 1.5,
+      "width": 576,
+      "height": 1024
+    },
+    {
+      "file": "frame-038.png",
+      "time": 1.541667,
+      "width": 576,
+      "height": 1024
+    },
+    {
+      "file": "frame-039.png",
+      "time": 1.583333,
+      "width": 576,
+      "height": 1024
+    },
+    {
+      "file": "frame-040.png",
+      "time": 1.625,
+      "width": 576,
+      "height": 1024
+    },
+    {
+      "file": "frame-041.png",
+      "time": 1.666667,
+      "width": 576,
+      "height": 1024
+    },
+    {
+      "file": "frame-042.png",
+      "time": 1.708333,
+      "width": 576,
+      "height": 1024
+    },
+    {
+      "file": "frame-043.png",
+      "time": 1.75,
+      "width": 576,
+      "height": 1024
+    },
+    {
+      "file": "frame-044.png",
+      "time": 1.791667,
+      "width": 576,
+      "height": 1024
+    },
+    {
+      "file": "frame-045.png",
+      "time": 1.833333,
+      "width": 576,
+      "height": 1024
+    },
+    {
+      "file": "frame-046.png",
+      "time": 1.875,
+      "width": 576,
+      "height": 1024
+    },
+    {
+      "file": "frame-047.png",
+      "time": 1.916667,
+      "width": 576,
+      "height": 1024
+    },
+    {
+      "file": "frame-048.png",
+      "time": 1.958333,
+      "width": 576,
+      "height": 1024
+    },
+    {
+      "file": "frame-049.png",
+      "time": 2,
+      "width": 576,
+      "height": 1024
+    },
+    {
+      "file": "frame-050.png",
+      "time": 2.041667,
+      "width": 576,
+      "height": 1024
+    },
+    {
+      "file": "frame-051.png",
+      "time": 2.083333,
+      "width": 576,
+      "height": 1024
+    },
+    {
+      "file": "frame-052.png",
+      "time": 2.125,
+      "width": 576,
+      "height": 1024
+    },
+    {
+      "file": "frame-053.png",
+      "time": 2.166667,
+      "width": 576,
+      "height": 1024
+    },
+    {
+      "file": "frame-054.png",
+      "time": 2.208333,
+      "width": 576,
+      "height": 1024
+    },
+    {
+      "file": "frame-055.png",
+      "time": 2.25,
+      "width": 576,
+      "height": 1024
+    },
+    {
+      "file": "frame-056.png",
+      "time": 2.291667,
+      "width": 576,
+      "height": 1024
+    },
+    {
+      "file": "frame-057.png",
+      "time": 2.333333,
+      "width": 576,
+      "height": 1024
+    },
+    {
+      "file": "frame-058.png",
+      "time": 2.375,
+      "width": 576,
+      "height": 1024
+    },
+    {
+      "file": "frame-059.png",
+      "time": 2.416667,
+      "width": 576,
+      "height": 1024
+    },
+    {
+      "file": "frame-060.png",
+      "time": 2.458333,
+      "width": 576,
+      "height": 1024
+    },
+    {
+      "file": "frame-061.png",
+      "time": 2.5,
+      "width": 576,
+      "height": 1024
+    },
+    {
+      "file": "frame-062.png",
+      "time": 2.541667,
+      "width": 576,
+      "height": 1024
+    },
+    {
+      "file": "frame-063.png",
+      "time": 2.583333,
+      "width": 576,
+      "height": 1024
+    },
+    {
+      "file": "frame-064.png",
+      "time": 2.625,
+      "width": 576,
+      "height": 1024
+    },
+    {
+      "file": "frame-065.png",
+      "time": 2.666667,
+      "width": 576,
+      "height": 1024
+    },
+    {
+      "file": "frame-066.png",
+      "time": 2.708333,
+      "width": 576,
+      "height": 1024
+    },
+    {
+      "file": "frame-067.png",
+      "time": 2.75,
+      "width": 576,
+      "height": 1024
+    },
+    {
+      "file": "frame-068.png",
+      "time": 2.791667,
+      "width": 576,
+      "height": 1024
+    },
+    {
+      "file": "frame-069.png",
+      "time": 2.833333,
+      "width": 576,
+      "height": 1024
+    },
+    {
+      "file": "frame-070.png",
+      "time": 2.875,
+      "width": 576,
+      "height": 1024
+    },
+    {
+      "file": "frame-071.png",
+      "time": 2.916667,
+      "width": 576,
+      "height": 1024
+    },
+    {
+      "file": "frame-072.png",
+      "time": 2.958333,
+      "width": 576,
+      "height": 1024
+    },
+    {
+      "file": "frame-073.png",
+      "time": 3,
+      "width": 576,
+      "height": 1024
+    },
+    {
+      "file": "frame-074.png",
+      "time": 3.041667,
+      "width": 576,
+      "height": 1024
+    },
+    {
+      "file": "frame-075.png",
+      "time": 3.083333,
+      "width": 576,
+      "height": 1024
+    },
+    {
+      "file": "frame-076.png",
+      "time": 3.125,
+      "width": 576,
+      "height": 1024
+    },
+    {
+      "file": "frame-077.png",
+      "time": 3.166667,
+      "width": 576,
+      "height": 1024
+    },
+    {
+      "file": "frame-078.png",
+      "time": 3.208333,
+      "width": 576,
+      "height": 1024
+    },
+    {
+      "file": "frame-079.png",
+      "time": 3.25,
+      "width": 576,
+      "height": 1024
+    },
+    {
+      "file": "frame-080.png",
+      "time": 3.291667,
+      "width": 576,
+      "height": 1024
+    },
+    {
+      "file": "frame-081.png",
+      "time": 3.333333,
+      "width": 576,
+      "height": 1024
+    },
+    {
+      "file": "frame-082.png",
+      "time": 3.375,
+      "width": 576,
+      "height": 1024
+    },
+    {
+      "file": "frame-083.png",
+      "time": 3.416667,
+      "width": 576,
+      "height": 1024
+    },
+    {
+      "file": "frame-084.png",
+      "time": 3.458333,
+      "width": 576,
+      "height": 1024
+    },
+    {
+      "file": "frame-085.png",
+      "time": 3.5,
+      "width": 576,
+      "height": 1024
+    },
+    {
+      "file": "frame-086.png",
+      "time": 3.541667,
+      "width": 576,
+      "height": 1024
+    },
+    {
+      "file": "frame-087.png",
+      "time": 3.583333,
+      "width": 576,
+      "height": 1024
+    },
+    {
+      "file": "frame-088.png",
+      "time": 3.625,
+      "width": 576,
+      "height": 1024
+    },
+    {
+      "file": "frame-089.png",
+      "time": 3.666667,
+      "width": 576,
+      "height": 1024
+    },
+    {
+      "file": "frame-090.png",
+      "time": 3.708333,
+      "width": 576,
+      "height": 1024
+    },
+    {
+      "file": "frame-091.png",
+      "time": 3.75,
+      "width": 576,
+      "height": 1024
+    },
+    {
+      "file": "frame-092.png",
+      "time": 3.791667,
+      "width": 576,
+      "height": 1024
+    },
+    {
+      "file": "frame-093.png",
+      "time": 3.833333,
+      "width": 576,
+      "height": 1024
+    },
+    {
+      "file": "frame-094.png",
+      "time": 3.875,
+      "width": 576,
+      "height": 1024
+    },
+    {
+      "file": "frame-095.png",
+      "time": 3.916667,
+      "width": 576,
+      "height": 1024
+    },
+    {
+      "file": "frame-096.png",
+      "time": 3.958333,
+      "width": 576,
+      "height": 1024
+    },
+    {
+      "file": "frame-097.png",
+      "time": 4,
+      "width": 576,
+      "height": 1024
+    }
+  ]
+}

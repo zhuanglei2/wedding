@@ -1,0 +1,12 @@
+const fs=require('node:fs'),path=require('node:path'),cp=require('node:child_process'),crypto=require('node:crypto');
+const [ffmpeg,input,out]=process.argv.slice(2);fs.mkdirSync(out,{recursive:true});
+const sha=()=>crypto.createHash('sha256').update(fs.readFileSync(input)).digest('hex'),before=sha();
+const result=cp.spawnSync(ffmpeg,['-hide_banner','-nostdin','-i',input,'-vf','showinfo','-fps_mode','passthrough',path.join(out,'frame-%03d.png')],{encoding:'utf8',maxBuffer:16*1024*1024});
+if(result.status!==0)throw Error(result.stderr);
+const frames=[...result.stderr.matchAll(/\bn:\s*(\d+).*?pts_time:([\d.]+).*?\bs:(\d+)x(\d+)/g)].map(m=>({file:`frame-${String(Number(m[1])+1).padStart(3,'0')}.png`,time:Number(m[2]),width:Number(m[3]),height:Number(m[4])}));
+if(!frames.length)throw Error('No decoded timestamps');
+const fps=Number(result.stderr.match(/(\d+(?:\.\d+)?) fps/)?.[1]);
+const report={input,inputSha256:before,sourceUnchanged:before===sha(),decoder:'FFmpeg 7.1 via imageio-ffmpeg 0.6.0',duration:frames.at(-1).time+1/fps,nominalFPS:fps,frameCount:frames.length,frames};
+fs.writeFileSync(path.join(out,'decode.json'),JSON.stringify(report,null,2));
+fs.writeFileSync(path.join(__dirname,'decode.json'),JSON.stringify(report,null,2));
+console.log({frameCount:frames.length,fps,first:frames[0],last:frames.at(-1),sourceUnchanged:report.sourceUnchanged});
