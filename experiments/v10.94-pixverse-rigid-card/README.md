@@ -42,6 +42,7 @@ V6 / 540P / 4 seconds / one output, audio off, multishot off, displayed balance
 and displayed price. Only one generation is authorized in this run; no automatic
 retry or purchase. Record the actual result separately, not as a prompt success.
 
-Status at creation: preparation, not yet submitted. Production HTML and OSS
-remain untouched. Animation skill principles used: prior contact and a shared
+Submitted once: site display 09-09 12:22, V6 / 540P / 4s / one output, 24 points,
+balance 30 → 6. Generation completed; see `submission.json` and `RESULT.md`.
+Production HTML and OSS remain untouched. Animation skill principles used: prior contact and a shared
 hand/card motion beat, without applying bouncy UI spring motion to the card.
