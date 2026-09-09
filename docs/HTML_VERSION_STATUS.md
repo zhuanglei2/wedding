@@ -1,7 +1,8 @@
 # HTML 版本核对 — 2026-09-09
 
-最新完整本地婚礼请柬 HTML：`../versions/v10.100-refined-character-scale/index.html`。
-页面实际 title 是“庄磊 & 吴郁 · 婚礼请柬 · V10.100”。基于 V10.71 缩小角色20%、减轻拖尾与投影，并减弱拉纸透视。已于2026-09-09按用户要求部署香港OSS；未推送GitHub。
+最新完整本地婚礼请柬 HTML：`../versions/v10.101-fluid-flight-loading/index.html`。
+页面实际 title 是“庄磊 & 吴郁 · 婚礼请柬 · V10.101”：连续飞入、曲线牵手飞离、无损贴图精简及首图优先加载。此版仅本地，未部署、未推送。
+已部署版本仍为 V10.100，位于 `../versions/v10.100-refined-character-scale/index.html`。V10.100及其发布记录已同步GitHub。
 上一个完整网页 V10.71 保留于 `../versions/v10.71-collar-and-motion/index.html`，对应提交 `142a322`。
 这仍是早先的网页动画实现，未接入后面的AI视频；其中的动作问题不能当作已经修好。
 
