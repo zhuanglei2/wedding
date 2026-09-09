@@ -1,0 +1,37 @@
+{
+  "version": "10.97",
+  "type": "existing_asset_freeze_and_generation_draft",
+  "sourceSHA256": "885c18f50121d1db3a44c8deadaa0414bcd6a270208ec32a3e87abcdc3c5633d",
+  "frames": 97,
+  "fps": 24,
+  "duration": 4.041666666666667,
+  "layers": {
+    "boy": {
+      "frames": 97,
+      "size": [
+        592,
+        1024
+      ],
+      "format": "FFV1 BGRA",
+      "exactRGBA": true,
+      "sha256": "86677e7ca56a15c92688f784406b20ff928b2c4f2385fb2eb255547987902278"
+    },
+    "girl": {
+      "frames": 97,
+      "size": [
+        592,
+        1024
+      ],
+      "format": "FFV1 BGRA",
+      "exactRGBA": true,
+      "sha256": "1062fd548a27c06c6f3c4c6b1038ae0576cd4b2199bce6f2d24712a32326df33"
+    }
+  },
+  "sourceFrameReference": 24,
+  "referenceExactDecodedSourcePixels": true,
+  "reviewSHA256": "ce32eb8c59c90fbf08600136c5d847c4633db2d959d001a62581b6e7eaf116db",
+  "newMotionGenerated": false,
+  "submitted": false,
+  "deployed": false,
+  "important": "Lossless RGBA storage does not certify segmentation or natural gripping."
+}
