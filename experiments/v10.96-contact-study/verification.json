@@ -1,0 +1,1839 @@
+{
+  "version": "10.96",
+  "duration": 3.25,
+  "fps": 24,
+  "outputs": {
+    "contact-study.mp4": {
+      "frames": 78,
+      "size": [
+        480,
+        1126
+      ],
+      "sha256": "7e21d6de57a5d793595e5d7e782e895550bf8a35679a964f4506412dc90295c3"
+    },
+    "contact-review.mp4": {
+      "frames": 78,
+      "size": [
+        960,
+        1126
+      ],
+      "sha256": "5588a5e1686121d8b5d2efc038d0247721f9e03a41adc7c749d4ccf923b203ca"
+    }
+  },
+  "unchangedInputHashes": {
+    "/Users/eleme/IdeaProjects/wedding/versions/v10.71-collar-and-motion/cover.webp": "98897f059a595390d4904608e5a6e0ff6d0e3608308cdc85a1ebc156f6087a33",
+    "/Users/eleme/IdeaProjects/wedding/versions/v10.71-collar-and-motion/classic-reveal.webp": "d1b7800d1f79bcfbde35c1c40f7f3338bcae4ca3f347d5960f372b9e74b771ab",
+    "/Users/eleme/IdeaProjects/wedding/experiments/v10.95-layer-proof/source-v1094.mp4": "885c18f50121d1db3a44c8deadaa0414bcd6a270208ec32a3e87abcdc3c5633d"
+  },
+  "fullOpening": false,
+  "webIntegrated": false,
+  "newGeneration": false,
+  "deployed": false,
+  "contactAt": 0.3,
+  "anticipationStarts": 0.3,
+  "cardMovesAfter": 0.65,
+  "followerDelay": 0.18,
+  "maximumAngle": 48,
+  "wholePrintHomography": true,
+  "frameMetrics": [
+    {
+      "frame": 0,
+      "time": 0.0,
+      "phase": "CONTACT",
+      "cardAngleDegrees": 0.0,
+      "boyPivotDegrees": 0.0,
+      "sourceFrames": [
+        0,
+        0
+      ],
+      "palmTargetError": 2.6642330112736093e-06,
+      "boyAlphaPixels": 4533,
+      "girlAlphaPixels": 5524,
+      "contactDepthPixels": 0,
+      "girlTarget": [
+        370.0,
+        653.0799999999999
+      ],
+      "cardEdge": [
+        479.0,
+        484.18
+      ]
+    },
+    {
+      "frame": 1,
+      "time": 0.041666666666666664,
+      "phase": "CONTACT",
+      "cardAngleDegrees": 0.0,
+      "boyPivotDegrees": 0.0,
+      "sourceFrames": [
+        1,
+        0
+      ],
+      "palmTargetError": 3.964607883554996e-06,
+      "boyAlphaPixels": 4528,
+      "girlAlphaPixels": 5524,
+      "contactDepthPixels": 0,
+      "girlTarget": [
+        370.0,
+        653.0799999999999
+      ],
+      "cardEdge": [
+        479.0,
+        484.18
+      ]
+    },
+    {
+      "frame": 2,
+      "time": 0.08333333333333333,
+      "phase": "CONTACT",
+      "cardAngleDegrees": 0.0,
+      "boyPivotDegrees": 0.0,
+      "sourceFrames": [
+        2,
+        0
+      ],
+      "palmTargetError": 2.778987876109967e-06,
+      "boyAlphaPixels": 4540,
+      "girlAlphaPixels": 5524,
+      "contactDepthPixels": 0,
+      "girlTarget": [
+        370.0,
+        653.0799999999999
+      ],
+      "cardEdge": [
+        479.0,
+        484.18
+      ]
+    },
+    {
+      "frame": 3,
+      "time": 0.125,
+      "phase": "CONTACT",
+      "cardAngleDegrees": 0.0,
+      "boyPivotDegrees": 0.0,
+      "sourceFrames": [
+        3,
+        0
+      ],
+      "palmTargetError": 2.0361954499617843e-06,
+      "boyAlphaPixels": 4517,
+      "girlAlphaPixels": 5524,
+      "contactDepthPixels": 0,
+      "girlTarget": [
+        370.0,
+        653.0799999999999
+      ],
+      "cardEdge": [
+        479.0,
+        484.18
+      ]
+    },
+    {
+      "frame": 4,
+      "time": 0.16666666666666666,
+      "phase": "CONTACT",
+      "cardAngleDegrees": 0.0,
+      "boyPivotDegrees": 0.0,
+      "sourceFrames": [
+        4,
+        0
+      ],
+      "palmTargetError": 1.846498448376432e-06,
+      "boyAlphaPixels": 4511,
+      "girlAlphaPixels": 5524,
+      "contactDepthPixels": 0,
+      "girlTarget": [
+        370.0,
+        653.0799999999999
+      ],
+      "cardEdge": [
+        479.0,
+        484.18
+      ]
+    },
+    {
+      "frame": 5,
+      "time": 0.20833333333333334,
+      "phase": "CONTACT",
+      "cardAngleDegrees": 0.0,
+      "boyPivotDegrees": 0.0,
+      "sourceFrames": [
+        5,
+        1
+      ],
+      "palmTargetError": 1.1527234609486182e-06,
+      "boyAlphaPixels": 4524,
+      "girlAlphaPixels": 5533,
+      "contactDepthPixels": 20,
+      "girlTarget": [
+        370.0,
+        653.0799999999999
+      ],
+      "cardEdge": [
+        479.0,
+        484.18
+      ]
+    },
+    {
+      "frame": 6,
+      "time": 0.25,
+      "phase": "CONTACT",
+      "cardAngleDegrees": 0.0,
+      "boyPivotDegrees": 0.0,
+      "sourceFrames": [
+        6,
+        2
+      ],
+      "palmTargetError": 1.3426790443281824e-06,
+      "boyAlphaPixels": 4511,
+      "girlAlphaPixels": 5548,
+      "contactDepthPixels": 24,
+      "girlTarget": [
+        370.0,
+        653.0799999999999
+      ],
+      "cardEdge": [
+        479.0,
+        484.18
+      ]
+    },
+    {
+      "frame": 7,
+      "time": 0.2916666666666667,
+      "phase": "CONTACT",
+      "cardAngleDegrees": 0.0,
+      "boyPivotDegrees": 0.0,
+      "sourceFrames": [
+        7,
+        3
+      ],
+      "palmTargetError": 1.926261697876066e-06,
+      "boyAlphaPixels": 4498,
+      "girlAlphaPixels": 5528,
+      "contactDepthPixels": 24,
+      "girlTarget": [
+        370.0,
+        653.0799999999999
+      ],
+      "cardEdge": [
+        479.0,
+        484.18
+      ]
+    },
+    {
+      "frame": 8,
+      "time": 0.3333333333333333,
+      "phase": "PRELOAD",
+      "cardAngleDegrees": 0.0,
+      "boyPivotDegrees": 0.0480516457263334,
+      "sourceFrames": [
+        8,
+        4
+      ],
+      "palmTargetError": 3.4563507691028905e-06,
+      "boyAlphaPixels": 4473,
+      "girlAlphaPixels": 5536,
+      "contactDepthPixels": 24,
+      "girlTarget": [
+        370.0,
+        653.0799999999999
+      ],
+      "cardEdge": [
+        479.0,
+        484.18
+      ]
+    },
+    {
+      "frame": 9,
+      "time": 0.375,
+      "phase": "PRELOAD",
+      "cardAngleDegrees": 0.0,
+      "boyPivotDegrees": 0.43863547034561656,
+      "sourceFrames": [
+        9,
+        5
+      ],
+      "palmTargetError": 1.3505765939103518e-06,
+      "boyAlphaPixels": 4472,
+      "girlAlphaPixels": 5539,
+      "contactDepthPixels": 24,
+      "girlTarget": [
+        370.0,
+        653.0799999999999
+      ],
+      "cardEdge": [
+        479.0,
+        484.18
+      ]
+    },
+    {
+      "frame": 10,
+      "time": 0.4166666666666667,
+      "phase": "PRELOAD",
+      "cardAngleDegrees": 0.0,
+      "boyPivotDegrees": 1.2911833178849872,
+      "sourceFrames": [
+        10,
+        6
+      ],
+      "palmTargetError": 2.605312449717258e-06,
+      "boyAlphaPixels": 4450,
+      "girlAlphaPixels": 5531,
+      "contactDepthPixels": 24,
+      "girlTarget": [
+        370.0,
+        653.0799999999999
+      ],
+      "cardEdge": [
+        479.0,
+        484.18
+      ]
+    },
+    {
+      "frame": 11,
+      "time": 0.4583333333333333,
+      "phase": "PRELOAD",
+      "cardAngleDegrees": 0.0,
+      "boyPivotDegrees": 2.4511754070121192,
+      "sourceFrames": [
+        11,
+        7
+      ],
+      "palmTargetError": 3.3824032845998476e-06,
+      "boyAlphaPixels": 4276,
+      "girlAlphaPixels": 5547,
+      "contactDepthPixels": 24,
+      "girlTarget": [
+        370.0,
+        653.0799999999999
+      ],
+      "cardEdge": [
+        479.0,
+        484.18
+      ]
+    },
+    {
+      "frame": 12,
+      "time": 0.5,
+      "phase": "PRELOAD",
+      "cardAngleDegrees": 0.0,
+      "boyPivotDegrees": 3.62396240234375,
+      "sourceFrames": [
+        12,
+        8
+      ],
+      "palmTargetError": 4.012310870391351e-06,
+      "boyAlphaPixels": 4126,
+      "girlAlphaPixels": 5516,
+      "contactDepthPixels": 24,
+      "girlTarget": [
+        370.0,
+        653.0799999999999
+      ],
+      "cardEdge": [
+        479.0,
+        484.18
+      ]
+    },
+    {
+      "frame": 13,
+      "time": 0.5416666666666666,
+      "phase": "PRELOAD",
+      "cardAngleDegrees": 0.0,
+      "boyPivotDegrees": 4.509505370263885,
+      "sourceFrames": [
+        13,
+        9
+      ],
+      "palmTargetError": 1.672009106388606e-06,
+      "boyAlphaPixels": 3994,
+      "girlAlphaPixels": 5537,
+      "contactDepthPixels": 24,
+      "girlTarget": [
+        370.0,
+        653.0799999999999
+      ],
+      "cardEdge": [
+        479.0,
+        484.18
+      ]
+    },
+    {
+      "frame": 14,
+      "time": 0.5833333333333334,
+      "phase": "PRELOAD",
+      "cardAngleDegrees": 0.0,
+      "boyPivotDegrees": 4.937115734742007,
+      "sourceFrames": [
+        14,
+        10
+      ],
+      "palmTargetError": 3.2755405819818937e-06,
+      "boyAlphaPixels": 3914,
+      "girlAlphaPixels": 5532,
+      "contactDepthPixels": 24,
+      "girlTarget": [
+        370.0,
+        653.0799999999999
+      ],
+      "cardEdge": [
+        479.0,
+        484.18
+      ]
+    },
+    {
+      "frame": 15,
+      "time": 0.625,
+      "phase": "PRELOAD",
+      "cardAngleDegrees": 0.0,
+      "boyPivotDegrees": 5.0,
+      "sourceFrames": [
+        15,
+        11
+      ],
+      "palmTargetError": 3.215983752077964e-06,
+      "boyAlphaPixels": 3863,
+      "girlAlphaPixels": 5533,
+      "contactDepthPixels": 24,
+      "girlTarget": [
+        370.0,
+        653.0799999999999
+      ],
+      "cardEdge": [
+        479.0,
+        484.18
+      ]
+    },
+    {
+      "frame": 16,
+      "time": 0.6666666666666666,
+      "phase": "PULL",
+      "cardAngleDegrees": 0.020096021947873677,
+      "boyPivotDegrees": 4.999194954574499,
+      "sourceFrames": [
+        16,
+        12
+      ],
+      "palmTargetError": 3.1769410654127827e-06,
+      "boyAlphaPixels": 3866,
+      "girlAlphaPixels": 5537,
+      "contactDepthPixels": 24,
+      "girlTarget": [
+        370.0,
+        653.0799999999999
+      ],
+      "cardEdge": [
+        479.00345611367834,
+        484.1788504886768
+      ]
+    },
+    {
+      "frame": 17,
+      "time": 0.7083333333333334,
+      "phase": "PULL",
+      "cardAngleDegrees": 0.2377743484224968,
+      "boyPivotDegrees": 4.968005661272601,
+      "sourceFrames": [
+        17,
+        13
+      ],
+      "palmTargetError": 0.0,
+      "boyAlphaPixels": 3848,
+      "girlAlphaPixels": 5538,
+      "contactDepthPixels": 24,
+      "girlTarget": [
+        370.0,
+        653.0799999999999
+      ],
+      "cardEdge": [
+        479.03712205438956,
+        484.16639697388916
+      ]
+    },
+    {
+      "frame": 18,
+      "time": 0.75,
+      "phase": "PULL",
+      "cardAngleDegrees": 0.6740740740740743,
+      "boyPivotDegrees": 4.851004713854987,
+      "sourceFrames": [
+        18,
+        14
+      ],
+      "palmTargetError": 6.952945153202394e-07,
+      "boyAlphaPixels": 3759,
+      "girlAlphaPixels": 5522,
+      "contactDepthPixels": 24,
+      "girlTarget": [
+        370.0,
+        653.0799999999999
+      ],
+      "cardEdge": [
+        479.0838031326994,
+        484.1414249113634
+      ]
+    },
+    {
+      "frame": 19,
+      "time": 0.7916666666666666,
+      "phase": "PULL",
+      "cardAngleDegrees": 1.3032750342935528,
+      "boyPivotDegrees": 4.609567901234568,
+      "sourceFrames": [
+        19,
+        15
+      ],
+      "palmTargetError": 3.7177945918048716e-06,
+      "boyAlphaPixels": 3730,
+      "girlAlphaPixels": 5532,
+      "contactDepthPixels": 24,
+      "girlTarget": [
+        370.0,
+        653.0799999999999
+      ],
+      "cardEdge": [
+        479.10220980583324,
+        484.10538839729844
+      ]
+    },
+    {
+      "frame": 20,
+      "time": 0.8333333333333334,
+      "phase": "PULL",
+      "cardAngleDegrees": 2.0996570644718813,
+      "boyPivotDegrees": 4.222556145608021,
+      "sourceFrames": [
+        20,
+        16
+      ],
+      "palmTargetError": 2.6898318920267795e-06,
+      "boyAlphaPixels": 3743,
+      "girlAlphaPixels": 5524,
+      "contactDepthPixels": 24,
+      "girlTarget": [
+        370.00012680609154,
+        653.0799966447071
+      ],
+      "cardEdge": [
+        479.0425611016901,
+        484.0597430744712
+      ]
+    },
+    {
+      "frame": 21,
+      "time": 0.875,
+      "phase": "PULL",
+      "cardAngleDegrees": 3.0375000000000014,
+      "boyPivotDegrees": 3.684073818701461,
+      "sourceFrames": [
+        21,
+        17
+      ],
+      "palmTargetError": 2.7461322187801826e-06,
+      "boyAlphaPixels": 3744,
+      "girlAlphaPixels": 5523,
+      "contactDepthPixels": 24,
+      "girlTarget": [
+        370.02099539456964,
+        653.07232794077
+      ],
+      "cardEdge": [
+        478.8533021221423,
+        484.00595257461123
+      ]
+    },
+    {
+      "frame": 22,
+      "time": 0.9166666666666666,
+      "phase": "PULL",
+      "cardAngleDegrees": 4.091083676268861,
+      "boyPivotDegrees": 3.001227058016111,
+      "sourceFrames": [
+        22,
+        18
+      ],
+      "palmTargetError": 2.309786473946162e-06,
+      "boyAlphaPixels": 3719,
+      "girlAlphaPixels": 5526,
+      "contactDepthPixels": 36,
+      "girlTarget": [
+        370.0627539977724,
+        653.0291967197464
+      ],
+      "cardEdge": [
+        478.4869062606981,
+        483.94549273304887
+      ]
+    },
+    {
+      "frame": 23,
+      "time": 0.9583333333333334,
+      "phase": "PULL",
+      "cardAngleDegrees": 5.246557943402939,
+      "boyPivotDegrees": 2.1918820830739714,
+      "sourceFrames": [
+        23,
+        19
+      ],
+      "palmTargetError": 2.3222245677718108e-06,
+      "boyAlphaPixels": 3721,
+      "girlAlphaPixels": 5529,
+      "contactDepthPixels": 35,
+      "girlTarget": [
+        370.0921010304917,
+        652.927516616372
+      ],
+      "cardEdge": [
+        477.89771223005886,
+        483.87917175974957
+      ]
+    },
+    {
+      "frame": 24,
+      "time": 1.0,
+      "phase": "PULL",
+      "cardAngleDegrees": 6.849108367626888,
+      "boyPivotDegrees": 1.2824235116634983,
+      "sourceFrames": [
+        24,
+        20
+      ],
+      "palmTargetError": 4.669982740305588e-07,
+      "boyAlphaPixels": 3754,
+      "girlAlphaPixels": 5535,
+      "contactDepthPixels": 34,
+      "girlTarget": [
+        370.0659816185487,
+        652.7533011849275
+      ],
+      "cardEdge": [
+        476.75567082604107,
+        483.7872149884304
+      ]
+    },
+    {
+      "frame": 25,
+      "time": 1.0416666666666667,
+      "phase": "PULL",
+      "cardAngleDegrees": 8.985495097292086,
+      "boyPivotDegrees": 0.30551267608526267,
+      "sourceFrames": [
+        25,
+        21
+      ],
+      "palmTargetError": 4.207245825353693e-06,
+      "boyAlphaPixels": 3793,
+      "girlAlphaPixels": 5526,
+      "contactDepthPixels": 32,
+      "girlTarget": [
+        369.9378998124764,
+        652.5005753921156
+      ],
+      "cardEdge": [
+        474.6454871301004,
+        483.66478709707815
+      ]
+    },
+    {
+      "frame": 26,
+      "time": 1.0833333333333333,
+      "phase": "PULL",
+      "cardAngleDegrees": 11.543311487070062,
+      "boyPivotDegrees": -0.7021540606023624,
+      "sourceFrames": [
+        26,
+        22
+      ],
+      "palmTargetError": 1.9984095565124924e-06,
+      "boyAlphaPixels": 3826,
+      "girlAlphaPixels": 5538,
+      "contactDepthPixels": 35,
+      "girlTarget": [
+        369.66340338064197,
+        652.1702871099386
+      ],
+      "cardEdge": [
+        471.2356036739254,
+        483.5186765190263
+      ]
+    },
+    {
+      "frame": 27,
+      "time": 1.125,
+      "phase": "PULL",
+      "cardAngleDegrees": 14.410150891632377,
+      "boyPivotDegrees": -1.702086988337558,
+      "sourceFrames": [
+        27,
+        23
+      ],
+      "palmTargetError": 2.0743830664498187e-06,
+      "boyAlphaPixels": 3820,
+      "girlAlphaPixels": 5545,
+      "contactDepthPixels": 35,
+      "girlTarget": [
+        369.20474664968094,
+        651.7692186085759
+      ],
+      "cardEdge": [
+        466.2715962293937,
+        483.3558723597008
+      ]
+    },
+    {
+      "frame": 28,
+      "time": 1.1666666666666667,
+      "phase": "PULL",
+      "cardAngleDegrees": 17.47360666565057,
+      "boyPivotDegrees": -2.6562447338093564,
+      "sourceFrames": [
+        28,
+        24
+      ],
+      "palmTargetError": 1.2950508059043765e-06,
+      "boyAlphaPixels": 3828,
+      "girlAlphaPixels": 5543,
+      "contactDepthPixels": 33,
+      "girlTarget": [
+        368.3888623992053,
+        651.3088980492612
+      ],
+      "cardEdge": [
+        459.6389221790272,
+        483.18348791244534
+      ]
+    },
+    {
+      "frame": 29,
+      "time": 1.2083333333333333,
+      "phase": "PULL",
+      "cardAngleDegrees": 20.62127216379617,
+      "boyPivotDegrees": -3.52927594421198,
+      "sourceFrames": [
+        29,
+        25
+      ],
+      "palmTargetError": 1.919157988059171e-06,
+      "boyAlphaPixels": 3839,
+      "girlAlphaPixels": 5518,
+      "contactDepthPixels": 34,
+      "girlTarget": [
+        366.80243442302236,
+        650.8045109771602
+      ],
+      "cardEdge": [
+        451.4057364622673,
+        483.0086079651398
+      ]
+    },
+    {
+      "frame": 30,
+      "time": 1.25,
+      "phase": "PULL",
+      "cardAngleDegrees": 23.74074074074074,
+      "boyPivotDegrees": -4.290760970999191,
+      "sourceFrames": [
+        30,
+        26
+      ],
+      "palmTargetError": 3.823946965883181e-06,
+      "boyAlphaPixels": 3952,
+      "girlAlphaPixels": 5540,
+      "contactDepthPixels": 22,
+      "girlTarget": [
+        364.1373836125488,
+        650.2738118142479
+      ],
+      "cardEdge": [
+        441.8442415852243,
+        482.83808955684987
+      ]
+    },
+    {
+      "frame": 31,
+      "time": 1.2916666666666667,
+      "phase": "PULL",
+      "cardAngleDegrees": 26.719605751155832,
+      "boyPivotDegrees": -4.917453553638607,
+      "sourceFrames": [
+        31,
+        27
+      ],
+      "palmTargetError": 4.042136348489386e-06,
+      "boyAlphaPixels": 4356,
+      "girlAlphaPixels": 5531,
+      "contactDepthPixels": 21,
+      "girlTarget": [
+        360.1355563910805,
+        649.7360353521856
+      ],
+      "cardEdge": [
+        431.4300722522526,
+        482.6783603316612
+      ]
+    },
+    {
+      "frame": 32,
+      "time": 1.3333333333333333,
+      "phase": "PULL",
+      "cardAngleDegrees": 29.445460549712944,
+      "boyPivotDegrees": -5.395522503365994,
+      "sourceFrames": [
+        32,
+        28
+      ],
+      "palmTargetError": 4.115512580951524e-06,
+      "boyAlphaPixels": 4548,
+      "girlAlphaPixels": 5541,
+      "contactDepthPixels": 9,
+      "girlTarget": [
+        354.6484943795783,
+        649.2108082451992
+      ],
+      "cardEdge": [
+        420.8207704153402,
+        482.5352649561991
+      ]
+    },
+    {
+      "frame": 33,
+      "time": 1.375,
+      "phase": "PULL",
+      "cardAngleDegrees": 31.80589849108368,
+      "boyPivotDegrees": -5.722793386939669,
+      "sourceFrames": [
+        33,
+        29
+      ],
+      "palmTargetError": 1.928815355043593e-07,
+      "boyAlphaPixels": 4423,
+      "girlAlphaPixels": 5510,
+      "contactDepthPixels": 4,
+      "girlTarget": [
+        347.6818841974197,
+        648.7170605029561
+      ],
+      "cardEdge": [
+        410.8159390091629,
+        482.41400739585634
+      ]
+    },
+    {
+      "frame": 34,
+      "time": 1.4166666666666667,
+      "phase": "PULL",
+      "cardAngleDegrees": 33.72528869333603,
+      "boyPivotDegrees": -5.910990210394777,
+      "sourceFrames": [
+        34,
+        30
+      ],
+      "palmTargetError": 1.6081164963105335e-06,
+      "boyAlphaPixels": 4497,
+      "girlAlphaPixels": 5514,
+      "contactDepthPixels": 8,
+      "girlTarget": [
+        339.42106132382605,
+        648.2719369834423
+      ],
+      "cardEdge": [
+        402.13159062684645,
+        482.3173919600806
+      ]
+    },
+    {
+      "frame": 35,
+      "time": 1.4583333333333333,
+      "phase": "PULL",
+      "cardAngleDegrees": 35.467397039734315,
+      "boyPivotDegrees": -5.987977102797606,
+      "sourceFrames": [
+        35,
+        31
+      ],
+      "palmTargetError": 1.2215308665719489e-06,
+      "boyAlphaPixels": 4512,
+      "girlAlphaPixels": 5497,
+      "contactDepthPixels": 4,
+      "girlTarget": [
+        330.2367506417439,
+        647.8897088858405
+      ],
+      "cardEdge": [
+        393.83091752318705,
+        482.23135282167186
+      ]
+    },
+    {
+      "frame": 36,
+      "time": 1.5,
+      "phase": "PULL",
+      "cardAngleDegrees": 37.106144742831134,
+      "boyPivotDegrees": -6.0,
+      "sourceFrames": [
+        36,
+        32
+      ],
+      "palmTargetError": 2.3700818368613137e-06,
+      "boyAlphaPixels": 4564,
+      "girlAlphaPixels": 5488,
+      "contactDepthPixels": 4,
+      "girlTarget": [
+        320.67152206185733,
+        647.5806852434073
+      ],
+      "cardEdge": [
+        385.6657166476193,
+        482.1519376046404
+      ]
+    },
+    {
+      "frame": 37,
+      "time": 1.5416666666666667,
+      "phase": "PULL",
+      "cardAngleDegrees": 38.63931918946713,
+      "boyPivotDegrees": -6.0,
+      "sourceFrames": [
+        37,
+        33
+      ],
+      "palmTargetError": 1.456501924083335e-06,
+      "boyAlphaPixels": 4578,
+      "girlAlphaPixels": 5489,
+      "contactDepthPixels": 9,
+      "girlTarget": [
+        311.40888576495934,
+        647.3501244163504
+      ],
+      "cardEdge": [
+        377.7187490921954,
+        482.0790393148266
+      ]
+    },
+    {
+      "frame": 38,
+      "time": 1.5833333333333333,
+      "phase": "PULL",
+      "cardAngleDegrees": 40.06470776648292,
+      "boyPivotDegrees": -6.0,
+      "sourceFrames": [
+        38,
+        34
+      ],
+      "palmTargetError": 3.2568373615573542e-06,
+      "boyAlphaPixels": 4556,
+      "girlAlphaPixels": 5492,
+      "contactDepthPixels": 13,
+      "girlTarget": [
+        303.2220939770207,
+        647.197145584706
+      ],
+      "cardEdge": [
+        370.0683444750003,
+        482.0125344854946
+      ]
+    },
+    {
+      "frame": 39,
+      "time": 1.625,
+      "phase": "PULL",
+      "cardAngleDegrees": 41.38009786071916,
+      "boyPivotDegrees": -6.0,
+      "sourceFrames": [
+        39,
+        35
+      ],
+      "palmTargetError": 2.9343253313046965e-06,
+      "boyAlphaPixels": 4589,
+      "girlAlphaPixels": 5475,
+      "contactDepthPixels": 10,
+      "girlTarget": [
+        295.7288270330515,
+        647.113640241217
+      ],
+      "cardEdge": [
+        362.78822127421887,
+        481.9522885692653
+      ]
+    },
+    {
+      "frame": 40,
+      "time": 1.6666666666666667,
+      "phase": "PULL",
+      "cardAngleDegrees": 42.58327685901651,
+      "boyPivotDegrees": -6.0,
+      "sourceFrames": [
+        40,
+        36
+      ],
+      "palmTargetError": 2.8994306877261272e-06,
+      "boyAlphaPixels": 4585,
+      "girlAlphaPixels": 5432,
+      "contactDepthPixels": 12,
+      "girlTarget": [
+        288.3328407412216,
+        647.0831836842092
+      ],
+      "cardEdge": [
+        355.94735595604004,
+        481.8981613032311
+      ]
+    },
+    {
+      "frame": 41,
+      "time": 1.7083333333333333,
+      "phase": "PULL",
+      "cardAngleDegrees": 43.67203214821558,
+      "boyPivotDegrees": -6.0,
+      "sourceFrames": [
+        41,
+        37
+      ],
+      "palmTargetError": 3.646939721359395e-06,
+      "boyAlphaPixels": 4602,
+      "girlAlphaPixels": 5480,
+      "contactDepthPixels": 7,
+      "girlTarget": [
+        281.1098540816858,
+        647.0799999999999
+      ],
+      "cardEdge": [
+        349.6098922776396,
+        481.85001199903246
+      ]
+    },
+    {
+      "frame": 42,
+      "time": 1.75,
+      "phase": "PULL",
+      "cardAngleDegrees": 44.64415111515703,
+      "boyPivotDegrees": -6.0,
+      "sourceFrames": [
+        42,
+        38
+      ],
+      "palmTargetError": 3.237391145724244e-06,
+      "boyAlphaPixels": 4577,
+      "girlAlphaPixels": 5463,
+      "contactDepthPixels": 9,
+      "girlTarget": [
+        274.1316598692877,
+        647.0799999999999
+      ],
+      "cardEdge": [
+        343.8350812791559,
+        481.8077047147141
+      ]
+    },
+    {
+      "frame": 43,
+      "time": 1.7916666666666667,
+      "phase": "PULL",
+      "cardAngleDegrees": 45.4974211466815,
+      "boyPivotDegrees": -6.0,
+      "sourceFrames": [
+        43,
+        39
+      ],
+      "palmTargetError": 2.9296428621834747e-06,
+      "boyAlphaPixels": 4600,
+      "girlAlphaPixels": 5448,
+      "contactDepthPixels": 7,
+      "girlTarget": [
+        267.4659475120823,
+        647.0799999999999
+      ],
+      "cardEdge": [
+        338.6772417832819,
+        481.77111326972783
+      ]
+    },
+    {
+      "frame": 44,
+      "time": 1.8333333333333333,
+      "phase": "PULL",
+      "cardAngleDegrees": 46.229629629629635,
+      "boyPivotDegrees": -5.997963234230324,
+      "sourceFrames": [
+        44,
+        40
+      ],
+      "palmTargetError": 3.260951132938585e-06,
+      "boyAlphaPixels": 4537,
+      "girlAlphaPixels": 5412,
+      "contactDepthPixels": 15,
+      "girlTarget": [
+        261.17617197605614,
+        647.0799999999999
+      ],
+      "cardEdge": [
+        334.18573069331,
+        481.74012606823646
+      ]
+    },
+    {
+      "frame": 45,
+      "time": 1.875,
+      "phase": "PULL",
+      "cardAngleDegrees": 46.838563950842065,
+      "boyPivotDegrees": -5.978626549243927,
+      "sourceFrames": [
+        45,
+        41
+      ],
+      "palmTargetError": 3.3666600968028004e-06,
+      "boyAlphaPixels": 4562,
+      "girlAlphaPixels": 5451,
+      "contactDepthPixels": 17,
+      "girlTarget": [
+        255.32146148203992,
+        647.0799999999999
+      ],
+      "cardEdge": [
+        330.4049120148716,
+        481.71465069864234
+      ]
+    },
+    {
+      "frame": 46,
+      "time": 1.9166666666666667,
+      "phase": "PULL",
+      "cardAngleDegrees": 47.32201149715943,
+      "boyPivotDegrees": -5.926121535124602,
+      "sourceFrames": [
+        46,
+        42
+      ],
+      "palmTargetError": 2.8462561988824418e-06,
+      "boyAlphaPixels": 4569,
+      "girlAlphaPixels": 5479,
+      "contactDepthPixels": 17,
+      "girlTarget": [
+        249.95655563013634,
+        647.0799999999999
+      ],
+      "cardEdge": [
+        327.37411331865513,
+        481.69461827879553
+      ]
+    },
+    {
+      "frame": 47,
+      "time": 1.9583333333333333,
+      "phase": "PULL",
+      "cardAngleDegrees": 47.67775965542238,
+      "boyPivotDegrees": -5.831002511360028,
+      "sourceFrames": [
+        47,
+        43
+      ],
+      "palmTargetError": 1.0651712956472074e-06,
+      "boyAlphaPixels": 4475,
+      "girlAlphaPixels": 5470,
+      "contactDepthPixels": 12,
+      "girlTarget": [
+        245.13176497204051,
+        647.0799999999999
+      ],
+      "cardEdge": [
+        325.12755830902023,
+        481.67998751643137
+      ]
+    },
+    {
+      "frame": 48,
+      "time": 2.0,
+      "phase": "PULL",
+      "cardAngleDegrees": 47.90359581247155,
+      "boyPivotDegrees": -5.689453125,
+      "sourceFrames": [
+        48,
+        44
+      ],
+      "palmTargetError": 1.3124716934976025e-06,
+      "boyAlphaPixels": 4487,
+      "girlAlphaPixels": 5405,
+      "contactDepthPixels": 7,
+      "girlTarget": [
+        240.89294252889854,
+        647.0799999999999
+      ],
+      "cardEdge": [
+        323.69426426863953,
+        481.6707484528905
+      ]
+    },
+    {
+      "frame": 49,
+      "time": 2.0416666666666665,
+      "phase": "PULL",
+      "cardAngleDegrees": 47.9973073551476,
+      "boyPivotDegrees": -5.5024585083678925,
+      "sourceFrames": [
+        49,
+        45
+      ],
+      "palmTargetError": 1.503919304570328e-06,
+      "boyAlphaPixels": 4518,
+      "girlAlphaPixels": 5448,
+      "contactDepthPixels": 13,
+      "girlTarget": [
+        237.28145737711395,
+        647.0799999999999
+      ],
+      "cardEdge": [
+        323.09789341956844,
+        481.6669258549675
+      ]
+    },
+    {
+      "frame": 50,
+      "time": 2.0833333333333335,
+      "phase": "HOLD",
+      "cardAngleDegrees": 48.00000000000001,
+      "boyPivotDegrees": -5.274977436772099,
+      "sourceFrames": [
+        50,
+        46
+      ],
+      "palmTargetError": 3.9274173921894265e-06,
+      "boyAlphaPixels": 4694,
+      "girlAlphaPixels": 5459,
+      "contactDepthPixels": 13,
+      "girlTarget": [
+        234.33416019228275,
+        647.0799999999999
+      ],
+      "cardEdge": [
+        323.08074368039206,
+        481.6668161161599
+      ]
+    },
+    {
+      "frame": 51,
+      "time": 2.125,
+      "phase": "HOLD",
+      "cardAngleDegrees": 48.00000000000001,
+      "boyPivotDegrees": -5.015114486217499,
+      "sourceFrames": [
+        51,
+        47
+      ],
+      "palmTargetError": 2.0553792163213413e-06,
+      "boyAlphaPixels": 4663,
+      "girlAlphaPixels": 5452,
+      "contactDepthPixels": 11,
+      "girlTarget": [
+        232.0833305495117,
+        647.0799999999999
+      ],
+      "cardEdge": [
+        323.08074368039206,
+        481.6668161161599
+      ]
+    },
+    {
+      "frame": 52,
+      "time": 2.1666666666666665,
+      "phase": "HOLD",
+      "cardAngleDegrees": 48.00000000000001,
+      "boyPivotDegrees": -4.7332921911169,
+      "sourceFrames": [
+        52,
+        48
+      ],
+      "palmTargetError": 2.48528622093943e-06,
+      "boyAlphaPixels": 4649,
+      "girlAlphaPixels": 5445,
+      "contactDepthPixels": 13,
+      "girlTarget": [
+        230.55659582720554,
+        647.0799999999999
+      ],
+      "cardEdge": [
+        323.08074368039206,
+        481.6668161161599
+      ]
+    },
+    {
+      "frame": 53,
+      "time": 2.2083333333333335,
+      "phase": "HOLD",
+      "cardAngleDegrees": 48.00000000000001,
+      "boyPivotDegrees": -4.44142320200249,
+      "sourceFrames": [
+        53,
+        49
+      ],
+      "palmTargetError": 9.679932286470352e-07,
+      "boyAlphaPixels": 4675,
+      "girlAlphaPixels": 5440,
+      "contactDepthPixels": 13,
+      "girlTarget": [
+        229.77681175603576,
+        647.0799999999999
+      ],
+      "cardEdge": [
+        323.08074368039206,
+        481.6668161161599
+      ]
+    },
+    {
+      "frame": 54,
+      "time": 2.25,
+      "phase": "HOLD",
+      "cardAngleDegrees": 48.00000000000001,
+      "boyPivotDegrees": -4.152082443237306,
+      "sourceFrames": [
+        54,
+        50
+      ],
+      "palmTargetError": 1.7909796673159837e-06,
+      "boyAlphaPixels": 4649,
+      "girlAlphaPixels": 5435,
+      "contactDepthPixels": 15,
+      "girlTarget": [
+        229.67266931235284,
+        647.0799999999999
+      ],
+      "cardEdge": [
+        323.08074368039206,
+        481.6668161161599
+      ]
+    },
+    {
+      "frame": 55,
+      "time": 2.2916666666666665,
+      "phase": "HOLD",
+      "cardAngleDegrees": 48.00000000000001,
+      "boyPivotDegrees": -3.8776792707266643,
+      "sourceFrames": [
+        55,
+        51
+      ],
+      "palmTargetError": 2.3491703330751756e-06,
+      "boyAlphaPixels": 4650,
+      "girlAlphaPixels": 5435,
+      "contactDepthPixels": 15,
+      "girlTarget": [
+        229.67266931235284,
+        647.0799999999999
+      ],
+      "cardEdge": [
+        323.08074368039206,
+        481.6668161161599
+      ]
+    },
+    {
+      "frame": 56,
+      "time": 2.3333333333333335,
+      "phase": "HOLD",
+      "cardAngleDegrees": 48.00000000000001,
+      "boyPivotDegrees": -3.6296296296296293,
+      "sourceFrames": [
+        56,
+        52
+      ],
+      "palmTargetError": 3.7460328911573345e-06,
+      "boyAlphaPixels": 4642,
+      "girlAlphaPixels": 5436,
+      "contactDepthPixels": 18,
+      "girlTarget": [
+        229.67266931235284,
+        647.0799999999999
+      ],
+      "cardEdge": [
+        323.08074368039206,
+        481.6668161161599
+      ]
+    },
+    {
+      "frame": 57,
+      "time": 2.375,
+      "phase": "HOLD",
+      "cardAngleDegrees": 48.00000000000001,
+      "boyPivotDegrees": -3.4175282120704646,
+      "sourceFrames": [
+        57,
+        53
+      ],
+      "palmTargetError": 3.1732452530645e-06,
+      "boyAlphaPixels": 4667,
+      "girlAlphaPixels": 5434,
+      "contactDepthPixels": 19,
+      "girlTarget": [
+        229.67266931235284,
+        647.0799999999999
+      ],
+      "cardEdge": [
+        323.08074368039206,
+        481.6668161161599
+      ]
+    },
+    {
+      "frame": 58,
+      "time": 2.4166666666666665,
+      "phase": "HOLD",
+      "cardAngleDegrees": 48.00000000000001,
+      "boyPivotDegrees": -3.24832061485008,
+      "sourceFrames": [
+        58,
+        54
+      ],
+      "palmTargetError": 4.755669801259595e-06,
+      "boyAlphaPixels": 4675,
+      "girlAlphaPixels": 5455,
+      "contactDepthPixels": 18,
+      "girlTarget": [
+        229.67266931235284,
+        647.0799999999999
+      ],
+      "cardEdge": [
+        323.08074368039206,
+        481.6668161161599
+      ]
+    },
+    {
+      "frame": 59,
+      "time": 2.4583333333333335,
+      "phase": "HOLD",
+      "cardAngleDegrees": 48.00000000000001,
+      "boyPivotDegrees": -3.1254754971574856,
+      "sourceFrames": [
+        59,
+        55
+      ],
+      "palmTargetError": 3.109196033581846e-06,
+      "boyAlphaPixels": 4636,
+      "girlAlphaPixels": 5443,
+      "contactDepthPixels": 19,
+      "girlTarget": [
+        229.67266931235284,
+        647.0799999999999
+      ],
+      "cardEdge": [
+        323.08074368039206,
+        481.6668161161599
+      ]
+    },
+    {
+      "frame": 60,
+      "time": 2.5,
+      "phase": "HOLD",
+      "cardAngleDegrees": 48.00000000000001,
+      "boyPivotDegrees": -3.0481567382812482,
+      "sourceFrames": [
+        60,
+        56
+      ],
+      "palmTargetError": 1.128943728546342e-06,
+      "boyAlphaPixels": 4667,
+      "girlAlphaPixels": 5413,
+      "contactDepthPixels": 17,
+      "girlTarget": [
+        229.67266931235284,
+        647.0799999999999
+      ],
+      "cardEdge": [
+        323.08074368039206,
+        481.6668161161599
+      ]
+    },
+    {
+      "frame": 61,
+      "time": 2.5416666666666665,
+      "phase": "HOLD",
+      "cardAngleDegrees": 48.00000000000001,
+      "boyPivotDegrees": -3.010395595320949,
+      "sourceFrames": [
+        61,
+        57
+      ],
+      "palmTargetError": 3.104051897725171e-06,
+      "boyAlphaPixels": 4659,
+      "girlAlphaPixels": 5447,
+      "contactDepthPixels": 19,
+      "girlTarget": [
+        229.67266931235284,
+        647.0799999999999
+      ],
+      "cardEdge": [
+        323.08074368039206,
+        481.6668161161599
+      ]
+    },
+    {
+      "frame": 62,
+      "time": 2.5833333333333335,
+      "phase": "HOLD",
+      "cardAngleDegrees": 48.00000000000001,
+      "boyPivotDegrees": -3.0002628608986193,
+      "sourceFrames": [
+        62,
+        58
+      ],
+      "palmTargetError": 2.7631550941063226e-06,
+      "boyAlphaPixels": 4673,
+      "girlAlphaPixels": 5434,
+      "contactDepthPixels": 18,
+      "girlTarget": [
+        229.67266931235284,
+        647.0799999999999
+      ],
+      "cardEdge": [
+        323.08074368039206,
+        481.6668161161599
+      ]
+    },
+    {
+      "frame": 63,
+      "time": 2.625,
+      "phase": "HOLD",
+      "cardAngleDegrees": 48.00000000000001,
+      "boyPivotDegrees": -3.0,
+      "sourceFrames": [
+        63,
+        59
+      ],
+      "palmTargetError": 2.763144881520808e-06,
+      "boyAlphaPixels": 4671,
+      "girlAlphaPixels": 5433,
+      "contactDepthPixels": 18,
+      "girlTarget": [
+        229.67266931235284,
+        647.0799999999999
+      ],
+      "cardEdge": [
+        323.08074368039206,
+        481.6668161161599
+      ]
+    },
+    {
+      "frame": 64,
+      "time": 2.6666666666666665,
+      "phase": "HOLD",
+      "cardAngleDegrees": 48.00000000000001,
+      "boyPivotDegrees": -3.0,
+      "sourceFrames": [
+        64,
+        60
+      ],
+      "palmTargetError": 3.13878108087459e-06,
+      "boyAlphaPixels": 4668,
+      "girlAlphaPixels": 5429,
+      "contactDepthPixels": 18,
+      "girlTarget": [
+        229.67266931235284,
+        647.0799999999999
+      ],
+      "cardEdge": [
+        323.08074368039206,
+        481.6668161161599
+      ]
+    },
+    {
+      "frame": 65,
+      "time": 2.7083333333333335,
+      "phase": "HOLD",
+      "cardAngleDegrees": 48.00000000000001,
+      "boyPivotDegrees": -3.0,
+      "sourceFrames": [
+        65,
+        61
+      ],
+      "palmTargetError": 3.13878108087459e-06,
+      "boyAlphaPixels": 4661,
+      "girlAlphaPixels": 5430,
+      "contactDepthPixels": 18,
+      "girlTarget": [
+        229.67266931235284,
+        647.0799999999999
+      ],
+      "cardEdge": [
+        323.08074368039206,
+        481.6668161161599
+      ]
+    },
+    {
+      "frame": 66,
+      "time": 2.75,
+      "phase": "HOLD",
+      "cardAngleDegrees": 48.00000000000001,
+      "boyPivotDegrees": -3.0,
+      "sourceFrames": [
+        66,
+        62
+      ],
+      "palmTargetError": 3.4164231055503134e-06,
+      "boyAlphaPixels": 4653,
+      "girlAlphaPixels": 5425,
+      "contactDepthPixels": 18,
+      "girlTarget": [
+        229.67266931235284,
+        647.0799999999999
+      ],
+      "cardEdge": [
+        323.08074368039206,
+        481.6668161161599
+      ]
+    },
+    {
+      "frame": 67,
+      "time": 2.7916666666666665,
+      "phase": "HOLD",
+      "cardAngleDegrees": 48.00000000000001,
+      "boyPivotDegrees": -3.0,
+      "sourceFrames": [
+        67,
+        63
+      ],
+      "palmTargetError": 2.3788781946353023e-06,
+      "boyAlphaPixels": 4620,
+      "girlAlphaPixels": 5467,
+      "contactDepthPixels": 17,
+      "girlTarget": [
+        229.67266931235284,
+        647.0799999999999
+      ],
+      "cardEdge": [
+        323.08074368039206,
+        481.6668161161599
+      ]
+    },
+    {
+      "frame": 68,
+      "time": 2.8333333333333335,
+      "phase": "HOLD",
+      "cardAngleDegrees": 48.00000000000001,
+      "boyPivotDegrees": -3.0,
+      "sourceFrames": [
+        68,
+        64
+      ],
+      "palmTargetError": 3.04575417372323e-06,
+      "boyAlphaPixels": 4649,
+      "girlAlphaPixels": 5434,
+      "contactDepthPixels": 17,
+      "girlTarget": [
+        229.67266931235284,
+        647.0799999999999
+      ],
+      "cardEdge": [
+        323.08074368039206,
+        481.6668161161599
+      ]
+    },
+    {
+      "frame": 69,
+      "time": 2.875,
+      "phase": "HOLD",
+      "cardAngleDegrees": 48.00000000000001,
+      "boyPivotDegrees": -3.0,
+      "sourceFrames": [
+        69,
+        65
+      ],
+      "palmTargetError": 2.0802463757874537e-06,
+      "boyAlphaPixels": 4624,
+      "girlAlphaPixels": 5449,
+      "contactDepthPixels": 18,
+      "girlTarget": [
+        229.67266931235284,
+        647.0799999999999
+      ],
+      "cardEdge": [
+        323.08074368039206,
+        481.6668161161599
+      ]
+    },
+    {
+      "frame": 70,
+      "time": 2.9166666666666665,
+      "phase": "HOLD",
+      "cardAngleDegrees": 48.00000000000001,
+      "boyPivotDegrees": -3.0,
+      "sourceFrames": [
+        70,
+        66
+      ],
+      "palmTargetError": 1.1653858304084841e-06,
+      "boyAlphaPixels": 4606,
+      "girlAlphaPixels": 5443,
+      "contactDepthPixels": 19,
+      "girlTarget": [
+        229.67266931235284,
+        647.0799999999999
+      ],
+      "cardEdge": [
+        323.08074368039206,
+        481.6668161161599
+      ]
+    },
+    {
+      "frame": 71,
+      "time": 2.9583333333333335,
+      "phase": "HOLD",
+      "cardAngleDegrees": 48.00000000000001,
+      "boyPivotDegrees": -3.0,
+      "sourceFrames": [
+        71,
+        67
+      ],
+      "palmTargetError": 2.8312101224316088e-06,
+      "boyAlphaPixels": 4615,
+      "girlAlphaPixels": 5448,
+      "contactDepthPixels": 20,
+      "girlTarget": [
+        229.67266931235284,
+        647.0799999999999
+      ],
+      "cardEdge": [
+        323.08074368039206,
+        481.6668161161599
+      ]
+    },
+    {
+      "frame": 72,
+      "time": 3.0,
+      "phase": "HOLD",
+      "cardAngleDegrees": 48.00000000000001,
+      "boyPivotDegrees": -3.0,
+      "sourceFrames": [
+        72,
+        68
+      ],
+      "palmTargetError": 1.7487670131662401e-06,
+      "boyAlphaPixels": 4366,
+      "girlAlphaPixels": 5436,
+      "contactDepthPixels": 28,
+      "girlTarget": [
+        229.67266931235284,
+        647.0799999999999
+      ],
+      "cardEdge": [
+        323.08074368039206,
+        481.6668161161599
+      ]
+    },
+    {
+      "frame": 73,
+      "time": 3.0416666666666665,
+      "phase": "HOLD",
+      "cardAngleDegrees": 48.00000000000001,
+      "boyPivotDegrees": -3.0,
+      "sourceFrames": [
+        73,
+        69
+      ],
+      "palmTargetError": 3.718354055242882e-06,
+      "boyAlphaPixels": 4434,
+      "girlAlphaPixels": 5452,
+      "contactDepthPixels": 26,
+      "girlTarget": [
+        229.67266931235284,
+        647.0799999999999
+      ],
+      "cardEdge": [
+        323.08074368039206,
+        481.6668161161599
+      ]
+    },
+    {
+      "frame": 74,
+      "time": 3.0833333333333335,
+      "phase": "HOLD",
+      "cardAngleDegrees": 48.00000000000001,
+      "boyPivotDegrees": -3.0,
+      "sourceFrames": [
+        74,
+        70
+      ],
+      "palmTargetError": 3.717146579782789e-06,
+      "boyAlphaPixels": 4436,
+      "girlAlphaPixels": 5455,
+      "contactDepthPixels": 29,
+      "girlTarget": [
+        229.67266931235284,
+        647.0799999999999
+      ],
+      "cardEdge": [
+        323.08074368039206,
+        481.6668161161599
+      ]
+    },
+    {
+      "frame": 75,
+      "time": 3.125,
+      "phase": "HOLD",
+      "cardAngleDegrees": 48.00000000000001,
+      "boyPivotDegrees": -3.0,
+      "sourceFrames": [
+        75,
+        71
+      ],
+      "palmTargetError": 2.1394578485796577e-06,
+      "boyAlphaPixels": 4344,
+      "girlAlphaPixels": 5459,
+      "contactDepthPixels": 27,
+      "girlTarget": [
+        229.67266931235284,
+        647.0799999999999
+      ],
+      "cardEdge": [
+        323.08074368039206,
+        481.6668161161599
+      ]
+    },
+    {
+      "frame": 76,
+      "time": 3.1666666666666665,
+      "phase": "HOLD",
+      "cardAngleDegrees": 48.00000000000001,
+      "boyPivotDegrees": -3.0,
+      "sourceFrames": [
+        76,
+        72
+      ],
+      "palmTargetError": 3.5823548869821536e-06,
+      "boyAlphaPixels": 4301,
+      "girlAlphaPixels": 5444,
+      "contactDepthPixels": 27,
+      "girlTarget": [
+        229.67266931235284,
+        647.0799999999999
+      ],
+      "cardEdge": [
+        323.08074368039206,
+        481.6668161161599
+      ]
+    },
+    {
+      "frame": 77,
+      "time": 3.2083333333333335,
+      "phase": "HOLD",
+      "cardAngleDegrees": 48.00000000000001,
+      "boyPivotDegrees": -3.0,
+      "sourceFrames": [
+        77,
+        73
+      ],
+      "palmTargetError": 3.5823548869821536e-06,
+      "boyAlphaPixels": 4319,
+      "girlAlphaPixels": 5459,
+      "contactDepthPixels": 27,
+      "girlTarget": [
+        229.67266931235284,
+        647.0799999999999
+      ],
+      "cardEdge": [
+        323.08074368039206,
+        481.6668161161599
+      ]
+    }
+  ],
+  "limitations": [
+    "Existing video acting plus whole-body pivot; no new finger/elbow articulation.",
+    "Local depth cue, not a reconstructed 3D hand. No release/handholding/flight.",
+    "First actors already present. Matte silhouette still needs visual acceptance."
+  ]
+}

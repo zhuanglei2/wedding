@@ -1,0 +1,982 @@
+{
+  "frames": 97,
+  "decodedRGBPreserved": true,
+  "sourceSHA256": "885c18f50121d1db3a44c8deadaa0414bcd6a270208ec32a3e87abcdc3c5633d",
+  "method": "deterministic guided GrabCut + bounded skin-hull interior protection",
+  "faceCoreOpaqueAllFrames": true,
+  "semanticBoundaryCertification": false,
+  "stats": [
+    {
+      "frame": 0,
+      "protectedFaceCore": 1897,
+      "boyPixels": 7470,
+      "girlPixels": 11316
+    },
+    {
+      "frame": 1,
+      "protectedFaceCore": 2000,
+      "boyPixels": 7456,
+      "girlPixels": 11336
+    },
+    {
+      "frame": 2,
+      "protectedFaceCore": 2000,
+      "boyPixels": 7476,
+      "girlPixels": 11371
+    },
+    {
+      "frame": 3,
+      "protectedFaceCore": 1985,
+      "boyPixels": 7458,
+      "girlPixels": 11321
+    },
+    {
+      "frame": 4,
+      "protectedFaceCore": 1985,
+      "boyPixels": 7452,
+      "girlPixels": 11341
+    },
+    {
+      "frame": 5,
+      "protectedFaceCore": 1989,
+      "boyPixels": 7465,
+      "girlPixels": 11341
+    },
+    {
+      "frame": 6,
+      "protectedFaceCore": 1991,
+      "boyPixels": 7458,
+      "girlPixels": 11324
+    },
+    {
+      "frame": 7,
+      "protectedFaceCore": 1956,
+      "boyPixels": 7460,
+      "girlPixels": 11365
+    },
+    {
+      "frame": 8,
+      "protectedFaceCore": 1915,
+      "boyPixels": 7385,
+      "girlPixels": 11310
+    },
+    {
+      "frame": 9,
+      "protectedFaceCore": 1986,
+      "boyPixels": 7390,
+      "girlPixels": 11347
+    },
+    {
+      "frame": 10,
+      "protectedFaceCore": 1970,
+      "boyPixels": 7360,
+      "girlPixels": 11333
+    },
+    {
+      "frame": 11,
+      "protectedFaceCore": 1933,
+      "boyPixels": 7056,
+      "girlPixels": 11341
+    },
+    {
+      "frame": 12,
+      "protectedFaceCore": 1850,
+      "boyPixels": 6822,
+      "girlPixels": 11350
+    },
+    {
+      "frame": 13,
+      "protectedFaceCore": 1793,
+      "boyPixels": 6626,
+      "girlPixels": 11345
+    },
+    {
+      "frame": 14,
+      "protectedFaceCore": 1757,
+      "boyPixels": 6481,
+      "girlPixels": 11311
+    },
+    {
+      "frame": 15,
+      "protectedFaceCore": 1681,
+      "boyPixels": 6391,
+      "girlPixels": 11345
+    },
+    {
+      "frame": 16,
+      "protectedFaceCore": 1627,
+      "boyPixels": 6394,
+      "girlPixels": 11323
+    },
+    {
+      "frame": 17,
+      "protectedFaceCore": 1638,
+      "boyPixels": 6375,
+      "girlPixels": 11323
+    },
+    {
+      "frame": 18,
+      "protectedFaceCore": 1610,
+      "boyPixels": 6227,
+      "girlPixels": 11335
+    },
+    {
+      "frame": 19,
+      "protectedFaceCore": 1501,
+      "boyPixels": 6194,
+      "girlPixels": 11325
+    },
+    {
+      "frame": 20,
+      "protectedFaceCore": 1431,
+      "boyPixels": 6218,
+      "girlPixels": 11306
+    },
+    {
+      "frame": 21,
+      "protectedFaceCore": 1534,
+      "boyPixels": 6218,
+      "girlPixels": 11321
+    },
+    {
+      "frame": 22,
+      "protectedFaceCore": 1548,
+      "boyPixels": 6165,
+      "girlPixels": 11350
+    },
+    {
+      "frame": 23,
+      "protectedFaceCore": 1681,
+      "boyPixels": 6159,
+      "girlPixels": 11357
+    },
+    {
+      "frame": 24,
+      "protectedFaceCore": 1580,
+      "boyPixels": 6234,
+      "girlPixels": 11348
+    },
+    {
+      "frame": 25,
+      "protectedFaceCore": 1663,
+      "boyPixels": 6290,
+      "girlPixels": 11312
+    },
+    {
+      "frame": 26,
+      "protectedFaceCore": 1680,
+      "boyPixels": 6333,
+      "girlPixels": 11345
+    },
+    {
+      "frame": 27,
+      "protectedFaceCore": 1726,
+      "boyPixels": 6339,
+      "girlPixels": 11336
+    },
+    {
+      "frame": 28,
+      "protectedFaceCore": 1693,
+      "boyPixels": 6347,
+      "girlPixels": 11341
+    },
+    {
+      "frame": 29,
+      "protectedFaceCore": 1841,
+      "boyPixels": 6331,
+      "girlPixels": 11299
+    },
+    {
+      "frame": 30,
+      "protectedFaceCore": 1954,
+      "boyPixels": 6550,
+      "girlPixels": 11306
+    },
+    {
+      "frame": 31,
+      "protectedFaceCore": 2139,
+      "boyPixels": 7200,
+      "girlPixels": 11246
+    },
+    {
+      "frame": 32,
+      "protectedFaceCore": 2312,
+      "boyPixels": 7521,
+      "girlPixels": 11227
+    },
+    {
+      "frame": 33,
+      "protectedFaceCore": 2423,
+      "boyPixels": 7299,
+      "girlPixels": 11226
+    },
+    {
+      "frame": 34,
+      "protectedFaceCore": 2416,
+      "boyPixels": 7421,
+      "girlPixels": 11258
+    },
+    {
+      "frame": 35,
+      "protectedFaceCore": 2397,
+      "boyPixels": 7462,
+      "girlPixels": 11220
+    },
+    {
+      "frame": 36,
+      "protectedFaceCore": 2391,
+      "boyPixels": 7537,
+      "girlPixels": 11120
+    },
+    {
+      "frame": 37,
+      "protectedFaceCore": 2345,
+      "boyPixels": 7565,
+      "girlPixels": 11221
+    },
+    {
+      "frame": 38,
+      "protectedFaceCore": 2376,
+      "boyPixels": 7529,
+      "girlPixels": 11192
+    },
+    {
+      "frame": 39,
+      "protectedFaceCore": 2387,
+      "boyPixels": 7560,
+      "girlPixels": 11160
+    },
+    {
+      "frame": 40,
+      "protectedFaceCore": 2387,
+      "boyPixels": 7558,
+      "girlPixels": 11106
+    },
+    {
+      "frame": 41,
+      "protectedFaceCore": 2377,
+      "boyPixels": 7580,
+      "girlPixels": 11169
+    },
+    {
+      "frame": 42,
+      "protectedFaceCore": 2377,
+      "boyPixels": 7553,
+      "girlPixels": 11217
+    },
+    {
+      "frame": 43,
+      "protectedFaceCore": 2343,
+      "boyPixels": 7576,
+      "girlPixels": 11195
+    },
+    {
+      "frame": 44,
+      "protectedFaceCore": 2368,
+      "boyPixels": 7501,
+      "girlPixels": 11081
+    },
+    {
+      "frame": 45,
+      "protectedFaceCore": 2368,
+      "boyPixels": 7530,
+      "girlPixels": 11161
+    },
+    {
+      "frame": 46,
+      "protectedFaceCore": 2314,
+      "boyPixels": 7554,
+      "girlPixels": 11183
+    },
+    {
+      "frame": 47,
+      "protectedFaceCore": 2297,
+      "boyPixels": 7388,
+      "girlPixels": 11171
+    },
+    {
+      "frame": 48,
+      "protectedFaceCore": 2264,
+      "boyPixels": 7411,
+      "girlPixels": 11152
+    },
+    {
+      "frame": 49,
+      "protectedFaceCore": 2141,
+      "boyPixels": 7457,
+      "girlPixels": 11148
+    },
+    {
+      "frame": 50,
+      "protectedFaceCore": 2131,
+      "boyPixels": 7750,
+      "girlPixels": 11131
+    },
+    {
+      "frame": 51,
+      "protectedFaceCore": 2136,
+      "boyPixels": 7696,
+      "girlPixels": 11119
+    },
+    {
+      "frame": 52,
+      "protectedFaceCore": 2128,
+      "boyPixels": 7698,
+      "girlPixels": 11130
+    },
+    {
+      "frame": 53,
+      "protectedFaceCore": 2132,
+      "boyPixels": 7732,
+      "girlPixels": 11117
+    },
+    {
+      "frame": 54,
+      "protectedFaceCore": 2135,
+      "boyPixels": 7689,
+      "girlPixels": 11160
+    },
+    {
+      "frame": 55,
+      "protectedFaceCore": 2156,
+      "boyPixels": 7682,
+      "girlPixels": 11142
+    },
+    {
+      "frame": 56,
+      "protectedFaceCore": 2153,
+      "boyPixels": 7668,
+      "girlPixels": 11075
+    },
+    {
+      "frame": 57,
+      "protectedFaceCore": 2149,
+      "boyPixels": 7701,
+      "girlPixels": 11148
+    },
+    {
+      "frame": 58,
+      "protectedFaceCore": 2160,
+      "boyPixels": 7707,
+      "girlPixels": 11123
+    },
+    {
+      "frame": 59,
+      "protectedFaceCore": 2156,
+      "boyPixels": 7658,
+      "girlPixels": 11118
+    },
+    {
+      "frame": 60,
+      "protectedFaceCore": 2156,
+      "boyPixels": 7702,
+      "girlPixels": 11121
+    },
+    {
+      "frame": 61,
+      "protectedFaceCore": 2156,
+      "boyPixels": 7695,
+      "girlPixels": 11111
+    },
+    {
+      "frame": 62,
+      "protectedFaceCore": 2159,
+      "boyPixels": 7708,
+      "girlPixels": 11124
+    },
+    {
+      "frame": 63,
+      "protectedFaceCore": 2156,
+      "boyPixels": 7704,
+      "girlPixels": 11191
+    },
+    {
+      "frame": 64,
+      "protectedFaceCore": 2168,
+      "boyPixels": 7709,
+      "girlPixels": 11109
+    },
+    {
+      "frame": 65,
+      "protectedFaceCore": 2159,
+      "boyPixels": 7699,
+      "girlPixels": 11153
+    },
+    {
+      "frame": 66,
+      "protectedFaceCore": 2152,
+      "boyPixels": 7687,
+      "girlPixels": 11169
+    },
+    {
+      "frame": 67,
+      "protectedFaceCore": 2156,
+      "boyPixels": 7632,
+      "girlPixels": 11160
+    },
+    {
+      "frame": 68,
+      "protectedFaceCore": 2156,
+      "boyPixels": 7673,
+      "girlPixels": 11145
+    },
+    {
+      "frame": 69,
+      "protectedFaceCore": 2155,
+      "boyPixels": 7637,
+      "girlPixels": 11171
+    },
+    {
+      "frame": 70,
+      "protectedFaceCore": 2152,
+      "boyPixels": 7612,
+      "girlPixels": 11173
+    },
+    {
+      "frame": 71,
+      "protectedFaceCore": 2127,
+      "boyPixels": 7607,
+      "girlPixels": 11192
+    },
+    {
+      "frame": 72,
+      "protectedFaceCore": 2113,
+      "boyPixels": 7200,
+      "girlPixels": 11140
+    },
+    {
+      "frame": 73,
+      "protectedFaceCore": 2117,
+      "boyPixels": 7319,
+      "girlPixels": 11190
+    },
+    {
+      "frame": 74,
+      "protectedFaceCore": 2117,
+      "boyPixels": 7312,
+      "girlPixels": 11174
+    },
+    {
+      "frame": 75,
+      "protectedFaceCore": 1972,
+      "boyPixels": 7187,
+      "girlPixels": 11210
+    },
+    {
+      "frame": 76,
+      "protectedFaceCore": 1921,
+      "boyPixels": 7114,
+      "girlPixels": 11218
+    },
+    {
+      "frame": 77,
+      "protectedFaceCore": 1899,
+      "boyPixels": 7132,
+      "girlPixels": 11240
+    },
+    {
+      "frame": 78,
+      "protectedFaceCore": 1933,
+      "boyPixels": 7089,
+      "girlPixels": 11250
+    },
+    {
+      "frame": 79,
+      "protectedFaceCore": 1995,
+      "boyPixels": 7279,
+      "girlPixels": 11202
+    },
+    {
+      "frame": 80,
+      "protectedFaceCore": 2000,
+      "boyPixels": 7242,
+      "girlPixels": 11205
+    },
+    {
+      "frame": 81,
+      "protectedFaceCore": 1988,
+      "boyPixels": 7268,
+      "girlPixels": 11204
+    },
+    {
+      "frame": 82,
+      "protectedFaceCore": 2003,
+      "boyPixels": 7255,
+      "girlPixels": 11180
+    },
+    {
+      "frame": 83,
+      "protectedFaceCore": 2004,
+      "boyPixels": 7249,
+      "girlPixels": 11181
+    },
+    {
+      "frame": 84,
+      "protectedFaceCore": 2002,
+      "boyPixels": 7262,
+      "girlPixels": 11198
+    },
+    {
+      "frame": 85,
+      "protectedFaceCore": 1981,
+      "boyPixels": 7273,
+      "girlPixels": 11205
+    },
+    {
+      "frame": 86,
+      "protectedFaceCore": 1960,
+      "boyPixels": 7270,
+      "girlPixels": 11207
+    },
+    {
+      "frame": 87,
+      "protectedFaceCore": 1960,
+      "boyPixels": 7244,
+      "girlPixels": 11214
+    },
+    {
+      "frame": 88,
+      "protectedFaceCore": 1960,
+      "boyPixels": 7252,
+      "girlPixels": 11186
+    },
+    {
+      "frame": 89,
+      "protectedFaceCore": 1960,
+      "boyPixels": 7245,
+      "girlPixels": 11212
+    },
+    {
+      "frame": 90,
+      "protectedFaceCore": 1936,
+      "boyPixels": 7221,
+      "girlPixels": 11188
+    },
+    {
+      "frame": 91,
+      "protectedFaceCore": 1986,
+      "boyPixels": 7226,
+      "girlPixels": 11183
+    },
+    {
+      "frame": 92,
+      "protectedFaceCore": 1992,
+      "boyPixels": 7252,
+      "girlPixels": 11184
+    },
+    {
+      "frame": 93,
+      "protectedFaceCore": 1988,
+      "boyPixels": 7253,
+      "girlPixels": 11194
+    },
+    {
+      "frame": 94,
+      "protectedFaceCore": 1990,
+      "boyPixels": 7251,
+      "girlPixels": 11191
+    },
+    {
+      "frame": 95,
+      "protectedFaceCore": 1994,
+      "boyPixels": 7257,
+      "girlPixels": 11179
+    },
+    {
+      "frame": 96,
+      "protectedFaceCore": 1994,
+      "boyPixels": 7249,
+      "girlPixels": 11186
+    }
+  ],
+  "grips": {
+    "0": [
+      498.5952380952381,
+      352.53968253968253
+    ],
+    "1": [
+      498.5595238095238,
+      352.5436507936508
+    ],
+    "2": [
+      498.52777777777777,
+      352.4563492063492
+    ],
+    "3": [
+      498.5372549019608,
+      352.3921568627451
+    ],
+    "4": [
+      498.5314960629921,
+      352.36614173228344
+    ],
+    "5": [
+      498.51190476190476,
+      352.35714285714283
+    ],
+    "6": [
+      498.54150197628456,
+      352.37549407114625
+    ],
+    "7": [
+      498.52988047808765,
+      352.1792828685259
+    ],
+    "8": [
+      498.476,
+      351.96
+    ],
+    "9": [
+      498.03879310344826,
+      351.92672413793105
+    ],
+    "10": [
+      498.030303030303,
+      351.9004329004329
+    ],
+    "11": [
+      498.6072874493927,
+      352.0688259109312
+    ],
+    "12": [
+      499.6916299559471,
+      352.04405286343615
+    ],
+    "13": [
+      499.130612244898,
+      352.0448979591837
+    ],
+    "14": [
+      498.9641434262948,
+      352.1633466135458
+    ],
+    "15": [
+      499.97165991902835,
+      352.4251012145749
+    ],
+    "16": [
+      500.7204724409449,
+      352.53543307086613
+    ],
+    "17": [
+      500.5625,
+      352.41015625
+    ],
+    "18": [
+      500.54651162790697,
+      352.484496124031
+    ],
+    "19": [
+      500.76356589147287,
+      352.8837209302326
+    ],
+    "20": [
+      500.9150579150579,
+      352.88030888030886
+    ],
+    "21": [
+      500.7509578544061,
+      352.84674329501917
+    ],
+    "22": [
+      499.8233082706767,
+      352.65413533834584
+    ],
+    "23": [
+      499.09302325581393,
+      352.3565891472868
+    ],
+    "24": [
+      498.8910505836576,
+      352.0856031128405
+    ],
+    "25": [
+      498.6911196911197,
+      351.7799227799228
+    ],
+    "26": [
+      497.66,
+      351.904
+    ],
+    "27": [
+      497.8252032520325,
+      351.7967479674797
+    ],
+    "28": [
+      497.7732793522267,
+      351.57894736842104
+    ],
+    "29": [
+      497.5241935483871,
+      351.33870967741933
+    ],
+    "30": [
+      496.78636363636366,
+      350.5272727272727
+    ],
+    "31": [
+      495.9842931937173,
+      349.78010471204186
+    ],
+    "32": [
+      495.42857142857144,
+      349.45238095238096
+    ],
+    "33": [
+      495.0,
+      349.35333333333335
+    ],
+    "34": [
+      494.85616438356163,
+      349.3424657534247
+    ],
+    "35": [
+      495.0,
+      349.4026845637584
+    ],
+    "36": [
+      495.0337837837838,
+      349.4054054054054
+    ],
+    "37": [
+      495.3125,
+      349.36875
+    ],
+    "38": [
+      495.35,
+      349.45625
+    ],
+    "39": [
+      495.4909090909091,
+      349.41212121212124
+    ],
+    "40": [
+      495.4012345679012,
+      349.41358024691357
+    ],
+    "41": [
+      495.3207547169811,
+      349.42138364779873
+    ],
+    "42": [
+      495.314465408805,
+      349.41509433962267
+    ],
+    "43": [
+      495.30379746835445,
+      349.3607594936709
+    ],
+    "44": [
+      495.2628205128205,
+      349.4294871794872
+    ],
+    "45": [
+      495.2193548387097,
+      349.3741935483871
+    ],
+    "46": [
+      495.24675324675326,
+      349.3246753246753
+    ],
+    "47": [
+      495.2287581699346,
+      349.27450980392155
+    ],
+    "48": [
+      495.3137254901961,
+      349.1503267973856
+    ],
+    "49": [
+      495.15942028985506,
+      349.7391304347826
+    ],
+    "50": [
+      495.12056737588654,
+      349.72340425531917
+    ],
+    "51": [
+      495.1888111888112,
+      349.74825174825173
+    ],
+    "52": [
+      495.1666666666667,
+      349.7986111111111
+    ],
+    "53": [
+      495.40410958904107,
+      350.1095890410959
+    ],
+    "54": [
+      495.4935064935065,
+      349.9155844155844
+    ],
+    "55": [
+      495.5,
+      350.0194805194805
+    ],
+    "56": [
+      495.7546012269939,
+      350.09815950920245
+    ],
+    "57": [
+      495.80116959064327,
+      349.94736842105266
+    ],
+    "58": [
+      495.8362573099415,
+      349.9766081871345
+    ],
+    "59": [
+      495.867816091954,
+      349.8965517241379
+    ],
+    "60": [
+      495.9186046511628,
+      350.01162790697674
+    ],
+    "61": [
+      495.867816091954,
+      349.8965517241379
+    ],
+    "62": [
+      495.8,
+      350.09411764705885
+    ],
+    "63": [
+      495.8,
+      350.09411764705885
+    ],
+    "64": [
+      495.7865168539326,
+      349.94943820224717
+    ],
+    "65": [
+      495.7865168539326,
+      349.94943820224717
+    ],
+    "66": [
+      495.7528735632184,
+      350.0977011494253
+    ],
+    "67": [
+      495.73372781065086,
+      350.07100591715977
+    ],
+    "68": [
+      495.7470588235294,
+      350.02941176470586
+    ],
+    "69": [
+      495.76162790697674,
+      350.1511627906977
+    ],
+    "70": [
+      495.87005649717514,
+      350.0508474576271
+    ],
+    "71": [
+      496.32105263157894,
+      350.18947368421055
+    ],
+    "72": [
+      496.75,
+      350.2598039215686
+    ],
+    "73": [
+      496.6820512820513,
+      350.33846153846156
+    ],
+    "74": [
+      496.86341463414635,
+      350.3560975609756
+    ],
+    "75": [
+      497.3482587064677,
+      351.0348258706468
+    ],
+    "76": [
+      498.13793103448273,
+      351.064039408867
+    ],
+    "77": [
+      498.13793103448273,
+      351.064039408867
+    ],
+    "78": [
+      498.2307692307692,
+      351.17788461538464
+    ],
+    "79": [
+      498.81516587677726,
+      351.4454976303318
+    ],
+    "80": [
+      499.4337899543379,
+      351.7351598173516
+    ],
+    "81": [
+      499.14611872146116,
+      351.61187214611874
+    ],
+    "82": [
+      499.11162790697676,
+      351.83720930232556
+    ],
+    "83": [
+      499.08962264150944,
+      351.95754716981133
+    ],
+    "84": [
+      499.196261682243,
+      352.1121495327103
+    ],
+    "85": [
+      499.4590909090909,
+      352.2181818181818
+    ],
+    "86": [
+      499.44144144144144,
+      352.14864864864865
+    ],
+    "87": [
+      499.35714285714283,
+      352.20089285714283
+    ],
+    "88": [
+      499.35714285714283,
+      352.20089285714283
+    ],
+    "89": [
+      499.35714285714283,
+      352.20089285714283
+    ],
+    "90": [
+      499.39639639639637,
+      352.2162162162162
+    ],
+    "91": [
+      499.4088888888889,
+      352.2577777777778
+    ],
+    "92": [
+      499.45089285714283,
+      352.20982142857144
+    ],
+    "93": [
+      499.44642857142856,
+      352.16964285714283
+    ],
+    "94": [
+      499.509009009009,
+      352.14414414414415
+    ],
+    "95": [
+      499.57272727272726,
+      352.03636363636366
+    ],
+    "96": [
+      499.68202764976957,
+      351.9400921658986
+    ]
+  }
+}
