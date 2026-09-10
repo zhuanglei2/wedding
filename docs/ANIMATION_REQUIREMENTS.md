@@ -79,7 +79,7 @@
 
 ## 7. 当前资产与未解决事项
 
-- 最新本地完整 HTML：`../versions/v10.106-reference-party/index.html`（用户参考图红字/蓝心/纸纹内页，人物使用新提供的原始合照；翻页下层同步新页面，扩展加载解码门槛，飞行动作不改，未接入AI视频）。V10.106仅本地；线上仍为杭州OSS的V10.104，详见 `DEPLOYMENT_V10.104.md`。V10.105被否定但文件保留。未推送GitHub。微信安全区域适配暂缓。
+- 最新本地完整 HTML：`../versions/v10.107-music-player/index.html`（姓名右侧新增音乐按钮预留，音乐地址暂空；保留V10.106用户参考图红字/蓝心/纸纹内页及原始合照，复用其翻页脚本，未接入AI视频）。V10.107仅本地；线上仍为杭州OSS的V10.104，详见 `DEPLOYMENT_V10.104.md`。V10.105被否定但文件保留。未推送GitHub。微信安全区域适配暂缓。
 - 首屏原图继续引用 `../versions/v10.104-cover-first-paint/cover.webp`；V10.106第二页为该版本目录中的party-header.png＋couple-original.jpg（4000×6000原照副本，不交给AI重画）。旧classic-reveal.webp保留，不覆盖。
 - V10.94：实际 PixVerse 4秒输出，卡片几乎没拉开、女孩上移，动作质量否决。
 - V10.95：分层整卡翻页机制，照片不单独乱动、最终可清空红边；人物抓握与表演不合格。
