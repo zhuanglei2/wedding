@@ -79,7 +79,7 @@
 
 ## 7. 当前资产与未解决事项
 
-- 最新本地完整 HTML：`../versions/v10.113-photo-focus/index.html`（继承V10.112星星人按快门、打印原照和牵手离场；增强单次闪光，镜头先亮；打印完停留250ms后相片等比放大2.18倍，相机淡出，上方标题不变。放大完成后才渐显Record of happiness / 记录幸福，随后姓名日期。未重画原照，未接入AI视频）。V10.113仅本地；线上仍为杭州OSS的V10.104，详见 `DEPLOYMENT_V10.104.md`。旧版本保留。未推送GitHub。微信安全区域适配暂缓。
+- 最新本地完整 HTML：`../versions/v10.114-clean-photo-layer/index.html`（移除移动相片中的相机插画，仅保留原照与细蓝边；蓝星随相机淡出，修复V10.113装饰残留反馈。继承星星人按快门、增强单次闪光、打印原照后等比放大2.18倍、牵手离场。放大落稳后才显现Record of happiness / 记录幸福及姓名日期，未重画原照、未接入AI视频）。V10.114仅本地；线上仍为杭州OSS的V10.104，详见 `DEPLOYMENT_V10.104.md`。旧版本保留。未推送GitHub。微信安全区域适配暂缓。
 - 首屏原图继续引用 `../versions/v10.104-cover-first-paint/cover.webp`；V10.106第二页为该版本目录中的party-header.png＋couple-original.jpg（4000×6000原照副本，不交给AI重画）。旧classic-reveal.webp保留，不覆盖。
 - V10.94：实际 PixVerse 4秒输出，卡片几乎没拉开、女孩上移，动作质量否决。
 - V10.95：分层整卡翻页机制，照片不单独乱动、最终可清空红边；人物抓握与表演不合格。
