@@ -1,0 +1,54 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>第二页预览 · 庄磊 & 吴郁 · V10.109</title><style>html{background:#ded9d0}body{margin:0}main{max-width:760px;margin:auto}h1{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)}/* Reference-led party page. Two identical renderings: turn underlay and native scrolling page. */
+.reference-art{display:block;position:relative;width:100%;margin:0;padding:0;background:#f8f5f0;isolation:isolate}
+.reference-art .party-heading{position:relative;margin:0;padding:0;aspect-ratio:1}
+.reference-art .party-heading::after{content:"";position:absolute;left:0;right:0;bottom:0;height:2%;background:linear-gradient(transparent,#f8f5f0);pointer-events:none}
+.reference-art .party-photo{position:relative;margin:0;padding:0;aspect-ratio:2/3}
+.reference-art .party-photo::before{content:"";position:absolute;z-index:1;left:0;right:0;top:0;height:16%;background:linear-gradient(#f8f5f0,rgba(248,245,240,.90) 18%,rgba(248,245,240,.28) 70%,transparent);pointer-events:none}
+.reference-art img{display:block;width:100%;height:auto;margin:0;padding:0;border:0;object-fit:contain;object-position:center;opacity:1}
+.classic.reference-party{display:block;position:relative;padding:0;margin:0;min-height:0;background:#f8f5f0;color:#b83c31;outline-offset:-4px}
+.classic.reference-party h2.sr-only{margin:0}
+@media(prefers-reduced-motion:no-preference){
+ html.star-turn .opening-underlay,html.paper-motion .opening-underlay{background:#f8f5f0}
+ html.star-turn .opening-underlay::after,html.paper-motion .opening-underlay::after{content:none;background:none}
+ html.star-turn .opening-underlay .reference-art,html.paper-motion .opening-underlay .reference-art{width:100%;height:auto}
+ html.star-turn .opening-underlay .reference-art img,html.paper-motion .opening-underlay .reference-art img{width:100%;height:auto;object-fit:contain;object-position:center;opacity:1}
+ html.star-turn .classic.reference-party{display:block;padding:0;margin-top:calc(-1 * var(--turn-vh));min-height:var(--turn-vh);background:#f8f5f0}
+ html.paper-motion:not(.star-turn) .classic.reference-party{display:block;padding:0;min-height:100svh;background:#f8f5f0}
+}
+@media print{
+ html.star-turn .classic.reference-party,html.paper-motion .classic.reference-party{display:block;margin:0;padding:0;min-height:0}
+}
+</style><style id="photo-crop-style">
+/* Same static crop for the flip underlay and the visible second page. Original file is untouched. */
+.reference-art .party-photo{aspect-ratio:1;overflow:hidden}
+.reference-art .party-photo img,
+html.star-turn .opening-underlay .reference-art .party-photo img,
+html.paper-motion .opening-underlay .reference-art .party-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 28%}
+.reference-art .party-photo::before{height:12%}
+</style><style id="music-player-style">
+/* V10.109: native interactive music UI, not a rendered video composition. */
+.music-slot{position:absolute;z-index:3;right:7%;top:93.5%;transform:translateY(-50%);display:flex;align-items:center;justify-content:flex-end;gap:6px;width:46%;line-height:1}
+.music-meta{min-width:0;text-align:left;color:#a3342b;font-family:"Songti SC",serif}
+.music-title{display:block;font-size:clamp(14px,2.1vw,18px);line-height:1.5;white-space:nowrap}
+.music-caption{display:block;font-size:12px;line-height:1.5;color:#526b70;white-space:nowrap}
+.music-toggle{flex:none;display:grid;place-items:center;width:clamp(44px,10vw,74px);height:clamp(44px,10vw,74px);padding:0;border:0;background:transparent;color:#16849d;cursor:pointer;-webkit-tap-highlight-color:transparent;appearance:none}
+.music-toggle:disabled{opacity:1;cursor:default}
+.music-toggle:focus-visible{outline:2px dashed #b94035;outline-offset:1px;border-radius:50%}
+.music-toggle svg{display:block;width:clamp(34px,8.2vw,60px);height:clamp(34px,8.2vw,60px);overflow:visible}
+.music-disc{transform-origin:32px 32px;animation:music-disc-turn 6s linear infinite;animation-play-state:paused}
+.music-toggle[data-active="true"] .music-disc{animation-play-state:running}
+.music-toggle .music-pause{display:none}
+.music-toggle[data-active="true"] .music-play{display:none}
+.music-toggle[data-active="true"] .music-pause{display:block}
+.music-status{position:absolute;right:0;top:100%;width:max-content;max-width:220px;color:#a3342b;font:14px/1.5 "Songti SC",serif}
+.music-status:not(:empty){padding:5px 8px;background:#f8f5f0;border:1px solid #16849d55;border-radius:4px}
+@keyframes music-disc-turn{to{transform:rotate(360deg)}}
+@media(prefers-reduced-motion:reduce){.music-disc{animation:none}}
+@media print{.music-slot{display:none}}
+</style>
+<script src="../v10.108-music-motion/music-config.js" defer></script>
+<script src="../v10.108-music-motion/music-player.js" defer></script>
+</head><body><main><h1>Our wedding Party · 庄磊 & 吴郁 · 2026.10.06</h1><div class="reference-art">
+<div class="party-heading"><img src="../v10.106-reference-party/party-header.png" width="1254" height="1254" alt="Our wedding Party，速来搂席！庄磊 & 吴郁，2026.10.06" loading="eager" decoding="async" fetchpriority="low"><div class="music-slot"><button class="music-toggle" data-music-toggle data-playing="false" type="button" aria-label="预览我爱你不问归期的无声播放动效" aria-pressed="false" aria-disabled="true" title="我爱你不问归期（无声动效预览）" disabled><svg viewBox="0 0 64 64" aria-hidden="true" focusable="false"><g class="music-disc"><path d="M33 5C42 5 49 10 53 16" fill="none" stroke="#c64234" stroke-width="4" stroke-linecap="round"/><path d="M33 5C48 4 59 16 58 32C59 49 45 59 31 58C15 59 5 46 6 31C5 16 18 5 33 5Z" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/><path d="M13 16C9 22 9 31 10 35" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></g><path class="music-play" d="M27 22L43 32L27 43Z" fill="none" stroke="#c64234" stroke-width="2.7" stroke-linecap="round" stroke-linejoin="round"/><path class="music-pause" d="M26 23L26 42M39 23L39 42" fill="none" stroke="#c64234" stroke-width="3.6" stroke-linecap="round"/></svg></button><span class="music-meta"><span class="music-title" data-music-title>我爱你不问归期</span><span class="music-caption" data-music-caption>无声动效 · 点击预览</span></span><span class="music-status" role="status" aria-live="polite"></span></div></div>
+<div class="party-photo"><img src="../v10.106-reference-party/couple-original.jpg" width="4000" height="6000" alt="新郎庄磊与新娘吴郁的婚纱合照，方形取景保留双人面部、姿态与捧花" loading="eager" decoding="async" fetchpriority="low"></div>
+</div></main></body></html>
