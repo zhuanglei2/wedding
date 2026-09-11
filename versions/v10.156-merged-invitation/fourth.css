@@ -1,0 +1,24 @@
+/* V10.140: fuller editorial hierarchy; all media and animation stay shared. */
+@font-face{font-family:FourthEditorialSong;src:url("../v10.140-fuller-love/love-song.woff2") format("woff2");font-weight:400;font-style:normal;font-display:swap}
+.editorial-invite{--invite-red:#a42b1b;--invite-ink:#171613;--invite-copy:#974b3d;position:relative;isolation:isolate;container-type:inline-size;overflow:clip;width:100%;min-width:0;padding:0 0 9%;background:#f8f6f1;color:var(--invite-ink);font-family:FourthEditorialSong,"Songti SC","Noto Serif SC",serif;scroll-margin-top:0}
+html:not(.invite-media-ready) .editorial-invite{font-family:"Songti SC",serif}
+.invite-collage{position:relative;aspect-ratio:729/670;width:100%}
+.invite-heading{position:absolute;top:3%;right:4%;width:43%;text-align:center;font:400 clamp(32px,9.7vw,94px)/.88 "Bodoni MT",Didot,"Times New Roman",serif;letter-spacing:-.045em;z-index:2}
+.invite-heading span,.invite-heading em{display:block;white-space:nowrap}.invite-heading em{margin-top:.08em;color:var(--invite-red);font-size:.9em;line-height:1;letter-spacing:-.04em;transform:rotate(-3deg)}
+.invite-heading .invite-heading-note{margin:4% 0 0;font:400 clamp(12px,2.6vw,26px)/1.5 "Songti SC",serif;color:var(--invite-copy);letter-spacing:.025em}
+html.invite-media-ready .invite-heading-note{font-family:FourthEditorialSong,"Songti SC",serif}
+.invite-frame{position:absolute;width:44.5%;margin:0;padding:1.65% 1.65% 0;background:var(--invite-red);box-shadow:0 3px 7px #4e261718;transform-origin:50% 50%;z-index:2}
+.invite-frame-first{left:8%;top:15%;transform:rotate(-5.5deg)}.invite-frame-second{right:5.3%;top:38%;transform:rotate(4.6deg);z-index:3}
+.invite-photo{width:100%;aspect-ratio:2/3;overflow:hidden;background:#c6bdb0}.invite-photo img{display:block;width:100%;height:100%;object-fit:cover;object-position:50% 50%}
+.invite-frame-second .invite-photo{aspect-ratio:4/5}.invite-frame-second .invite-photo img{object-position:50% 57%}
+.invite-frame figcaption{margin:0;padding:5% 2% 5.4%;color:#f5e8d5;font-size:clamp(12px,2.8vw,28px);line-height:1.4;font-weight:400;letter-spacing:.025em}.invite-frame-second figcaption{text-align:right}
+.invite-bow{position:absolute;top:-5%;left:-10%;width:26%;height:auto;color:#151412;overflow:visible;pointer-events:none}.invite-frame-second .invite-bow{left:auto;right:-7%;top:-3%;transform:rotate(15deg)}
+.invite-letter{position:relative;display:grid;grid-template-columns:1fr 1fr;column-gap:5%;padding:5% 9% 0;align-items:center}
+.invite-prose{grid-column:1;grid-row:1;font-size:clamp(15px,2.9vw,29px);line-height:1.85;color:var(--invite-copy)}.invite-prose p{margin:0;overflow-wrap:anywhere}
+.invite-banquet{grid-column:2;grid-row:1;align-self:center;width:122%;max-width:none;height:auto;margin-left:-12%;mix-blend-mode:multiply;pointer-events:none}
+.invite-endnote{display:grid;grid-template-columns:44% 1fr;align-items:center;gap:5%;margin:7% 9% 0;padding-top:5%;border-top:1px solid #a42b1b3b}
+.invite-endnote-english{margin:0;font:400 clamp(25px,7.5vw,75px)/.98 "Bodoni MT",Didot,"Times New Roman",serif;letter-spacing:-.045em}.invite-endnote-english em{font-weight:400}
+.invite-endnote-copy{margin:0;text-align:right;font-size:clamp(14px,3vw,28px);line-height:1.85;color:var(--invite-copy);letter-spacing:.045em}
+@supports(font-size:1cqw){.invite-heading{font-size:clamp(32px,9.7cqw,94px)}.invite-heading .invite-heading-note{font-size:clamp(12px,2.6cqw,26px)}.invite-frame figcaption{font-size:clamp(12px,2.8cqw,28px)}.invite-prose{font-size:clamp(15px,2.9cqw,29px)}.invite-endnote-english{font-size:clamp(25px,7.5cqw,75px)}.invite-endnote-copy{font-size:clamp(14px,3cqw,28px)}}
+@media(max-width:360px){.invite-letter{padding-left:7%;padding-right:7%}.invite-prose{font-size:14px}.invite-heading .invite-heading-note{letter-spacing:0}.invite-endnote{margin-left:7%;margin-right:7%}}
+@media(forced-colors:active){.invite-frame{border:2px solid CanvasText}.invite-frame figcaption{color:CanvasText}.invite-endnote{border-color:CanvasText}}
