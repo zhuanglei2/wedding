@@ -1,0 +1,22 @@
+{
+  "deployedAt": "2026-09-11 14:01:07 UTC",
+  "publicUrl": "https://www.zl-wedding.asia/love.html?v=10.160",
+  "version": "V10.160",
+  "baseRevision": "4c700c998288bab3dad756b93aaf709862a20916",
+  "sourceFingerprint": "0f09ba56f07abbb3ef123a128d5877e42a9992c790c65b0adcf87d176d936d88",
+  "bucket": "hq-wedding",
+  "entry": "previews/v10.160-20260911-0f09ba56f07a/index.html",
+  "dependencies": 70,
+  "bytes": 40600209,
+  "htmlBytes": 103135,
+  "htmlSha256": "a0c588a779c877f6dfe31da523696d53750d0d60bf5022f452e3e03779a7ef57",
+  "status": "verified",
+  "cacheControl": "no-cache, max-age=0, must-revalidate",
+  "previousLoveSha256": "bff723737614b698571e8e7ad7aca689cf184ef93cbaebcdbd638836301c4c98",
+  "indexSha256": "9745f0d95a1b26dbf8ca7f86299152e3e4213f311708182b149c868deae1677c",
+  "guestSha256": "38eb940d81f347906be6d00dfededc2ea3516a80eb499f4160ebdbfddef624e7",
+  "backup": "previews/v10.160-20260911-0f09ba56f07a/previous-love.html",
+  "verificationScope": "OSS source: all 70 dependencies and both new entries byte-verified; index.html and guest.html unchanged",
+  "publicDomainVerification": "Not re-tested: earlier corporate domain security-policy block was not bypassed",
+  "browserValidation": "Not performed; prior file:// browser automation blocked by URL policy"
+}
