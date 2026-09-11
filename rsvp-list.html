@@ -18,8 +18,9 @@ body{font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;backgr
 .stat .l{font-size:11px;color:#a99a89;margin-top:4px}
 .card{background:#fff;border-radius:16px;padding:18px 16px;box-shadow:0 4px 20px rgba(139,111,94,0.08);border:1px solid #efe6dd;margin-top:16px;overflow-x:auto}
 table{width:100%;border-collapse:collapse;font-size:13px;min-width:560px}
-th{background:linear-gradient(135deg,#c9a87c,#8b6f5e);color:#fff;padding:10px 8px;text-align:left;font-weight:600;white-space:nowrap}
-td{padding:9px 8px;border-bottom:1px solid #f3ece3;vertical-align:top}
+th{background:#c9a87c;color:#fff;padding:11px 8px;text-align:center;font-weight:600;white-space:nowrap;font-size:12.5px}
+td{padding:9px 8px;border-bottom:1px solid #f3ece3;vertical-align:middle;text-align:center}
+td:first-child,td:nth-child(2){text-align:center}
 tr:nth-child(even) td{background:#fdfcfa}
 .tag{display:inline-block;font-size:11px;padding:1px 7px;border-radius:8px;background:#f0e6da;color:#8b6f1a;margin:1px}
 .tag.on{background:#c9a87c;color:#fff}
@@ -40,7 +41,7 @@ tr:nth-child(even) td{background:#fdfcfa}
     <div class="loading" id="status">加载中…</div>
     <table id="tbl" class="hidden" style="display:none">
       <thead><tr>
-        <th>#</th><th>姓名</th><th>同行</th><th>宝宝</th><th>到达方式</th><th>到达日期</th><th>到达时间</th><th>接送</th><th>住宿</th><th>提交时间</th>
+        <th>#</th><th>姓名</th><th>同行</th><th>带宝宝</th><th>到达方式</th><th>到达日期</th><th>到达时间</th><th>接送</th><th>住宿</th><th>提交时间</th>
       </tr></thead>
       <tbody id="tbody"></tbody>
     </table>
@@ -58,6 +59,24 @@ fetch('submissions.json?_='+Date.now())
 .then(function(r){ if(!r.ok) throw new Error(r.status); return r.json(); })
 .then(function(data){
   if(!data || !data.length){ document.getElementById('status').innerHTML='<div class="empty">暂无登记记录</div>'; return; }
+  // 排序：有到达日期+时间按到达正序；没填的按提交时间排到后面
+  data.forEach(function(r){ r.fields=r.fields||{}; });
+  data.sort(function(a,b){
+    var af=a.fields, bf=b.fields;
+    var aHas = af['到达日期'] && af['预计到达时间'] && /^\d{1,2}:\d{2}$/.test(af['预计到达时间']);
+    var bHas = bf['到达日期'] && bf['预计到达时间'] && /^\d{1,2}:\d{2}$/.test(bf['预计到达时间']);
+    function dayN(d){ var m=/(\d+)日/.exec(d||''); return m?parseInt(m[1]):99; }
+    if(aHas && bHas){
+      var da=dayN(af['到达日期']), db=dayN(bf['到达日期']);
+      if(da!==db) return da-db;
+      return af['预计到达时间'].localeCompare(bf['预计到达时间']);
+    }
+    if(aHas && !bHas) return -1;
+    if(!aHas && bHas) return 1;
+    // 都没填到达：按提交时间正序
+    var ta=a.date?new Date(a.date).getTime():0, tb=b.date?new Date(b.date).getTime():0;
+    return ta-tb;
+  });
   var totalPpl=0, baby=0, pickup=0, plane=0, train=0, car=0;
   data.forEach(function(r){
     var f=r.fields||{};
