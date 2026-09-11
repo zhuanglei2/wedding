@@ -1,6 +1,10 @@
 # V10.156 发布准备
 
-状态：本地合并及校验完成，尚未部署。缺少可读取的本机 OSS 凭据。
+状态：2026-09-11 21:15（北京时间）已部署至杭州 hq-wedding，68 个依赖及 love.html 均已回读逐字节校验；实际结果见 DEPLOYMENT.json。
+
+- 正式入口：https://www.zl-wedding.asia/love.html?v=10.156。
+- 已备份旧入口，index.html、guest.html 的内容摘要部署前后相同；未修改香港 bucket、DNS 或证书。
+- 正式域名在本机网络返回办公安全域名策略拦截（HTTP 403），未绕过拦截；因此未做正式域名及微信真机验收。OSS 源站回读验证成功。
 
 - 合并来源：V10.155-more-memories + V10.154-two-line-invitation。
 - 目标：杭州 hq-wedding 的 love.html。不修改 index.html、guest.html、香港 bucket、DNS 或证书。

@@ -1,0 +1,21 @@
+{
+  "deployedAt": "2026-09-11T13:15:33Z",
+  "version": "V10.156",
+  "baseRevision": "0a410948930ce270fd28aedb73b1e6a113a094a1",
+  "sourceFingerprint": "2f434a53e6f93301cb4baf506a7fb13ecd27957ce75978d19d6845eb4a6be289",
+  "bucket": "hq-wedding",
+  "entry": "previews/v10.156-20260911-2f434a53e6f9/index.html",
+  "publicUrl": "https://www.zl-wedding.asia/love.html?v=10.156",
+  "dependencies": 68,
+  "bytes": 46937125,
+  "htmlBytes": 102628,
+  "htmlSha256": "bff723737614b698571e8e7ad7aca689cf184ef93cbaebcdbd638836301c4c98",
+  "status": "verified",
+  "verificationScope": "OSS source: all dependencies and both new entries byte-verified; index.html and guest.html unchanged",
+  "publicDomainVerification": "Blocked by local corporate domain security policy (HTTP 403); not bypassed",
+  "cacheControl": "no-cache, max-age=0, must-revalidate",
+  "previousLoveSha256": "2f96a8f8412a42815eccc7551a2b4f85113c7cff200edec42b63812461a0818f",
+  "indexSha256": "9745f0d95a1b26dbf8ca7f86299152e3e4213f311708182b149c868deae1677c",
+  "guestSha256": "38eb940d81f347906be6d00dfededc2ea3516a80eb499f4160ebdbfddef624e7",
+  "backup": "previews/v10.156-20260911-2f434a53e6f9/previous-love.html"
+}
