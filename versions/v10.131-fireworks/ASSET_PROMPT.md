@@ -1,0 +1,9 @@
+# 手绘礼炮筒与烟花
+
+生成工具：内置 imagegen。生产素材：[party-fireworks.webp](party-fireworks.webp)。
+
+PNG → 无损 WebP，1536 × 1024，344424 字节。逐像素核验：alpha 不一致 0，所有 alpha > 0 的可见 RGB 不一致 0。未修改请柬或人物照片。透明区不应当作黑底展示；已在纸色上核对透明合成，仅作素材验证，不代表浏览器页面截图。
+
+## Prompt
+
+Create ONE original transparent PNG decorative illustration for a hand-lettered wedding invitation. Subject: a small cylindrical PARTY CONFETTI CANNON (a short hand-held celebration tube, not an artillery cannon, not a cone) angled diagonally upwards, with an open elliptical mouth, red hand-drawn outline and two loose teal-blue stripe bands; it releases a few airy paper confetti pieces and two curled streamers towards TWO small FIREWORK BURSTS nearby. One larger teal radial firework and one smaller red radial firework, made of fine irregular radiating pen strokes with separated little spark dots, unmistakably celebratory fireworks but no photorealistic glow. Build one cohesive compact, airy landscape group: tube in lower left, bursts upper middle and upper right. Approximately 3:2 landscape composition with transparent padding about 10 percent on all sides; keep the entire tube and each burst comfortably visible. Style: expressive French/Japanese illustrated wedding stationery, clean confident naturally irregular felt-tip pen lines, sparse colored-pencil hatching, handcrafted red-and-blue Polaroid invitation doodle. Only vermilion #cc3027 and peacock teal #168aa5 ink, with genuinely transparent unpainted interiors; no opaque white rectangle or paper texture. Thin-to-medium variable line weight that remains readable at about 150px wide. Refined and playful, not a vector stock icon and not a children's sticker. No text, letters, dates, people, photos, camera, hearts, large four-point stars, bows, frame, background, shadow, 3D, gradient, glow, or dense confetti. Final standalone transparent RGBA PNG, no complete invitation mockup.
