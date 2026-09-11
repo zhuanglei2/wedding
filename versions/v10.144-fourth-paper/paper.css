@@ -1,0 +1,6 @@
+/* Same blank paper area and width scale as page two; typography stays in V10.140. */
+.editorial-invite{background-color:#f8f5ef}
+.editorial-invite .invite-paper-layer{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:-1;display:flex;flex-direction:column}
+.editorial-invite .invite-paper-tile{display:block;flex:none;width:100%;aspect-ratio:8/3;background:url("../v10.125-keepsake-fast/media/camera-clean.webp") center bottom/100% auto no-repeat}
+.editorial-invite .invite-paper-tile:nth-child(even){transform:scaleY(-1)}
+html.cover-first:not(.invite-media-ready) .editorial-invite .invite-paper-tile{background-image:none}
