@@ -1,0 +1,14 @@
+/* V10.150: one paper surface beneath pages four and five. No type or photo changes. */
+.invitation-finale{position:relative;isolation:isolate;overflow:clip;background:#f8f5ef}
+.invitation-finale>.invite-paper-layer{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:-1;display:flex;flex-direction:column}
+.invitation-finale .invite-paper-tile{display:block;flex:none;width:100%;aspect-ratio:8/3;background:url("../v10.125-keepsake-fast/media/camera-clean.webp") center bottom/100% auto no-repeat}
+.invitation-finale .invite-paper-tile:nth-child(even){transform:scaleY(-1)}
+html.cover-first:not(.invite-media-ready) .invitation-finale .invite-paper-tile{background-image:none}
+.invitation-finale>.editorial-invite{background:transparent;padding-bottom:0}
+.invitation-finale>.closing{position:relative;display:flow-root;padding:0 9% 9%;background:none;color:#f6ddb1}
+/* A short continuous rule joins the story's sign-off to the invitation card. */
+.invitation-finale>.closing::before{content:"";display:block;width:1px;height:clamp(48px,8vw,80px);margin:clamp(16px,3vw,30px) auto 0;background:linear-gradient(to bottom,#a42b1b35,#a42b1bb8)}
+.closing-card{position:relative;padding:clamp(38px,6vw,60px) clamp(18px,4vw,40px) clamp(30px,5vw,50px);background:#962820;border:1px solid #eed3a04d;box-shadow:0 6px 20px #65251b18}
+html.later-media-ready .closing-card{background-image:linear-gradient(#92261eb8,#92261eb8),url("../../assets/peony-paper-v1.7.png");background-position:center;background-size:cover}
+.closing-card::before{content:"";position:absolute;top:0;left:50%;width:1px;height:20px;background:#eed3a073}
+@media(forced-colors:active){.invitation-finale>.closing::before,.closing-card::before{background:CanvasText}.closing-card{border-color:CanvasText;box-shadow:none}}
