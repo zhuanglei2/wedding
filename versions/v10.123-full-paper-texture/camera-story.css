@@ -1,0 +1,119 @@
+/* V10.116: one persistent photo sheet, print first and then a uniform lift. */
+.reference-art{--print-y:0%;--caption-alpha:1;--names-alpha:1;--photo-scale:2.18;--photo-rise:-8.15%;--camera-hide:1;--lens-flash:0}
+.camera-pending .reference-art{--print-y:-13.7%;--caption-alpha:0;--names-alpha:0;--photo-scale:1;--photo-rise:0%;--camera-hide:0}
+.reference-art .camera-art{opacity:0!important}
+.reference-art .camera-clean,
+html.star-turn .opening-underlay .reference-art .camera-clean,
+html.paper-motion .opening-underlay .reference-art .camera-clean{position:absolute;inset:0;display:block;width:100%;height:100%;object-fit:fill;opacity:1;pointer-events:none}
+/* Reuse only the blank lower paper of the existing asset; no generated replacement or altered photo. */
+.camera-paper-bed{position:absolute;inset:38% 0 25% 0;z-index:1;background:url("../v10.112-camera-story/camera-clean.png") center bottom/100% auto no-repeat;opacity:var(--camera-hide);clip-path:polygon(65% 0,100% 0,100% 100%,0 100%,0 3.6%,65% 3.6%);-webkit-mask-image:linear-gradient(#000 95%,transparent);mask-image:linear-gradient(#000 95%,transparent);pointer-events:none}
+.camera-photo-lift{position:absolute;inset:0;z-index:3;transform-origin:50.5% 66.45%;transform:translate3d(0,var(--photo-rise),0) scale(var(--photo-scale));pointer-events:none}
+.camera-print-clip{position:absolute;inset:0;clip-path:inset(59.6% 32.5% 26.7% 33.5%);pointer-events:none}
+/* The moving layer owns only the original photo. Never sample the camera illustration here. */
+.camera-print-sheet{position:absolute;inset:0;transform:translate3d(0,var(--print-y),0)}
+.reference-art .camera-photo{clip-path:none;background:#f8f5ef;outline:1px solid #1989a1;outline-offset:2px}
+.camera-caption,.camera-names{position:absolute;inset:0;z-index:2;background:url("../v10.111-camera-invitation/camera-invitation.png") center/100% 100% no-repeat;pointer-events:none}
+/* V10.121: separate the original handwritten caption into two display windows.
+   Keep the original bitmap, type, color and reveal clock; names/date are untouched. */
+.camera-caption{background:none;clip-path:inset(76% 0 10% 0);opacity:var(--caption-alpha)}
+.camera-caption::before,.camera-caption::after{content:"";position:absolute;inset:0;background:url("../v10.111-camera-invitation/camera-invitation.png") center/100% 100% no-repeat;pointer-events:none}
+.camera-caption::before{clip-path:inset(76% 49.5% 10% 12%);transform:translate(-1.8%,0)}
+.camera-caption::after{clip-path:inset(76% 16% 10% 50.5%);transform:translate(3.4%,.7%)}
+.camera-names{clip-path:inset(90% 0 0 0);opacity:var(--names-alpha)}
+.camera-shutter-press{position:absolute;left:58.3%;top:44.15%;width:6%;height:1.4%;border-radius:40%;background:#167f99;opacity:calc(var(--camera-press,0) * .5);transform:translateY(calc(var(--camera-press,0) * 2px));pointer-events:none}
+.camera-lens-glow{position:absolute;z-index:4;left:35%;top:40.9%;width:30%;height:20%;border-radius:50%;background:radial-gradient(circle,#fff 0 12%,#fffceacc 24%,#fff6d45c 42%,#fff6d400 70%);opacity:var(--lens-flash);transform:scale(calc(.72 + var(--lens-flash) * .45));pointer-events:none}
+.camera-flight-layer{position:fixed;inset:0;z-index:40;pointer-events:none;display:none}
+.camera-flight-layer.is-active{display:block}
+.camera-flight-layer canvas{position:absolute;inset:0;display:block;width:100%;height:100%;pointer-events:none}
+.camera-flash{position:absolute;inset:0;background:#fff9ed;opacity:0;pointer-events:none}
+@media(prefers-reduced-motion:reduce){
+ .camera-pending .reference-art{--print-y:0%;--caption-alpha:1;--names-alpha:1;--photo-scale:2.18;--photo-rise:-8.15%;--camera-hide:1}
+ .camera-flight-layer,.camera-lens-glow{display:none!important}
+}
+@media print{
+ .reference-art{--print-y:0%!important;--caption-alpha:1!important;--names-alpha:1!important;--photo-scale:2.18!important;--photo-rise:-8.15%!important;--camera-hide:1!important}
+ .camera-flight-layer,.camera-lens-glow{display:none!important}
+}
+/* The photo page follows its artwork height; no viewport-sized blank footer.
+   Do not let the next dark chapter's legacy gradient obscure the date. */
+html.star-turn .classic.reference-party,
+html.paper-motion .classic.reference-party{min-height:0}
+html.star-turn .opening-sequence + .chapter.party::before,
+html.paper-motion .opening-sequence + .chapter.party::before{content:none}
+
+/* V10.118: after the opening, remove all sticky/negative-margin playback
+   scaffolding. Natural height is still cover + poster, so the handoff is stable. */
+html.turn-settled .opening-underlay,
+html.turn-settled .paper-slices,
+html.turn-settled .turn-flight,
+html.turn-settled .cover-enter{display:none!important}
+html.turn-settled .turn-track,
+html.turn-settled .turn-sheet{position:relative!important;inset:auto!important;width:auto!important;height:auto!important;min-height:0!important;margin:0!important;padding:0!important;transform:none!important;box-shadow:none!important}
+html.turn-settled .turn-sheet::after{display:none!important}
+html.turn-settled .image-cover>picture{opacity:1!important}
+html.turn-settled .classic.reference-party{display:block!important;margin:0!important;min-height:0!important}
+html.turn-settled .opening-sequence + .chapter.party::before{content:none}
+
+
+/* V10.120: center the unchanged artwork on a full-height paper page. */
+.paper-page,
+html.star-turn .classic.reference-party.paper-page,
+html.turn-settled .classic.reference-party.paper-page{
+ display:flex!important;flex-direction:column;justify-content:center;
+ min-height:100vh!important;min-height:100lvh!important;
+ min-height:max(100lvh,var(--paper-height,0px))!important;
+ background:#f8f5ef;position:relative
+}
+.paper-page .reference-art{flex:none}
+.paper-page .reference-art::before,
+.paper-page .reference-art::after{content:"";position:absolute;left:0;right:0;height:2%;z-index:5;pointer-events:none}
+.paper-page .reference-art::before{top:0}
+/* V10.122: continue the blank paper grain instead of fading into a solid tail.
+   The extension is absolute, so names, date, page height and shutter coordinates do not move. */
+.paper-page .reference-art::after{bottom:0}
+.paper-page.paper-tail-ready .reference-art::before,
+.paper-page.paper-tail-ready .reference-art::after{content:none}
+/* V10.123: the same safe paper sample also fills the top extension.
+   Fade only across the paper-to-paper overlap, never into a solid-color block. */
+.paper-page.paper-tail-ready::before{
+ content:"";position:absolute;left:0;right:0;top:0;z-index:6;
+ height:var(--paper-head-height,0px);pointer-events:none;
+ background:url("../v10.112-camera-story/camera-clean.png") center bottom/auto var(--paper-head-source-height,0px) no-repeat;
+ -webkit-mask-image:linear-gradient(to bottom,#000 calc(100% - var(--paper-head-blend,0px)),transparent);
+ mask-image:linear-gradient(to bottom,#000 calc(100% - var(--paper-head-blend,0px)),transparent)
+}
+.paper-page.paper-tail-ready::after{
+ content:"";position:absolute;left:0;right:0;bottom:0;z-index:6;
+ height:var(--paper-tail-height,0px);pointer-events:none;
+ background:url("../v10.112-camera-story/camera-clean.png") center bottom/auto var(--paper-tail-source-height,0px) no-repeat;
+ -webkit-mask-image:linear-gradient(to bottom,transparent,#000 var(--paper-tail-blend,0px));
+ mask-image:linear-gradient(to bottom,transparent,#000 var(--paper-tail-blend,0px))
+}
+html.cover-first .paper-page::before{background-image:none!important}
+html.cover-first .paper-page::after{background-image:none!important}
+/* Below-fold bitmaps must not compete with the first invitation image. */
+html.cover-first .camera-paper-bed,
+html.cover-first .camera-caption,
+html.cover-first .camera-caption::before,
+html.cover-first .camera-caption::after,
+html.cover-first .camera-names{background-image:none!important}
+body{background-image:none!important}
+html:not(.later-media-ready) .closing{background-image:none!important}
+.cover-enter[aria-busy="true"]{cursor:progress}
+/* Settle the same photo at its actual final layout size, without a scaled
+   3D raster layer. Intermediate animation poses and source pixels stay intact. */
+.camera-photo-settled .camera-photo-lift,
+html:not(.camera-pending) .reference-art .camera-photo-lift{transform:none}
+.camera-photo-settled .camera-print-sheet,
+html:not(.camera-pending) .reference-art .camera-print-sheet{transform:none}
+.camera-photo-settled .camera-print-clip,
+html:not(.camera-pending) .reference-art .camera-print-clip{clip-path:none}
+.reference-art.camera-photo-settled .camera-photo,
+html:not(.camera-pending) .reference-art .camera-photo{
+ left:17.473%;top:45.002%;width:61.912%;height:26.596%;
+ outline-width:2.18px;outline-offset:4.36px
+}
+@media print{
+ .paper-page,html.star-turn .classic.reference-party.paper-page,
+ html.turn-settled .classic.reference-party.paper-page{min-height:0!important}
+}
