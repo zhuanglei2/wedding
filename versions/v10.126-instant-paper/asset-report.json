@@ -1,0 +1,79 @@
+[
+  {
+    "src": "../v10.111-camera-invitation/camera-invitation.png",
+    "out": "camera-art.webp",
+    "lossless": true,
+    "sourceSha256": "155f43e7fd668a864a9e27c60e5e1ee8cfa94114e9524a4e5a1822c840424bb7",
+    "originalBytes": 2719674,
+    "bytes": 1743510,
+    "height": 1536,
+    "width": 1024,
+    "pixelsEqual": true
+  },
+  {
+    "src": "../v10.112-camera-story/camera-clean.png",
+    "out": "camera-clean.webp",
+    "lossless": true,
+    "sourceSha256": "ddc4713054a1447926d0ff6c386f8f5bc80b10e50d4e47ce493b7712eb70eac6",
+    "originalBytes": 2291082,
+    "bytes": 1532766,
+    "height": 1536,
+    "width": 1024,
+    "pixelsEqual": true
+  },
+  {
+    "src": "../v10.106-reference-party/couple-original.jpg",
+    "out": "couple-960.webp",
+    "width": 960,
+    "quality": 94,
+    "sourceSha256": "39e6248100d2e1b8eb3ca2cc39af61c0799f76d3211192e31fb3efa7a072040a",
+    "originalBytes": 4019745,
+    "bytes": 165160,
+    "height": 1440,
+    "pixelsEqual": null
+  },
+  {
+    "src": "../v10.106-reference-party/couple-original.jpg",
+    "out": "couple-1600.webp",
+    "width": 1600,
+    "quality": 94,
+    "sourceSha256": "39e6248100d2e1b8eb3ca2cc39af61c0799f76d3211192e31fb3efa7a072040a",
+    "originalBytes": 4019745,
+    "bytes": 401458,
+    "height": 2400,
+    "pixelsEqual": null
+  },
+  {
+    "src": "../v10.106-reference-party/couple-original.jpg",
+    "out": "couple-2400.webp",
+    "width": 2400,
+    "quality": 94,
+    "sourceSha256": "39e6248100d2e1b8eb3ca2cc39af61c0799f76d3211192e31fb3efa7a072040a",
+    "originalBytes": 4019745,
+    "bytes": 972094,
+    "height": 3600,
+    "pixelsEqual": null
+  },
+  {
+    "src": "../v10.54-photo-right/invitation-v10.54.png",
+    "out": "cover-780.webp",
+    "width": 780,
+    "quality": 92,
+    "sourceSha256": "051cdecb87de5a3bddbf67c6106d439a119d01770231e032af14d3316d0f6b75",
+    "originalBytes": 5295638,
+    "bytes": 269294,
+    "height": 1829,
+    "pixelsEqual": null
+  },
+  {
+    "src": "../v10.54-photo-right/invitation-v10.54.png",
+    "out": "cover-1170.webp",
+    "width": 1170,
+    "quality": 92,
+    "sourceSha256": "051cdecb87de5a3bddbf67c6106d439a119d01770231e032af14d3316d0f6b75",
+    "originalBytes": 5295638,
+    "bytes": 497982,
+    "height": 2743,
+    "pixelsEqual": null
+  }
+]

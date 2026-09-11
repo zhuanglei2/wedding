@@ -1,0 +1,14 @@
+[
+  "../v10.104-cover-first-paint/page-turn-math.js",
+  "../v10.112-camera-story/character-rig.js",
+  "../v10.104-cover-first-paint/paper-surface.js",
+  "../v10.104-cover-first-paint/star-trail.js",
+  "../v10.114-clean-photo-layer/camera-story-math.js",
+  "handoff-math.js",
+  "instant-paper.js",
+  "camera-story-math.js",
+  "page-media.js",
+  "paper-tail.js",
+  "camera-story.js",
+  "page-turn.js"
+]
