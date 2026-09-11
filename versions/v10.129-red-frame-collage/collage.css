@@ -1,0 +1,13 @@
+.wedding-collage{position:relative;isolation:isolate;overflow:hidden;container-type:inline-size;background:#f8f6f1;color:#211c18;aspect-ratio:729/1130;width:100%;font-family:"Songti SC","Noto Serif SC",serif}
+.collage-heading{position:absolute;top:5%;right:5%;width:42%;text-align:center;z-index:2}
+.collage-heading h2{font-size:clamp(21px,4.3vw,43px);font-size:5.5cqw;font-weight:400;letter-spacing:.08em;line-height:1.4;margin:0 0 3%}
+.collage-heading span{display:block;font:normal 4.4cqw/1.2 Georgia,"Times New Roman",serif}.collage-heading i{font-weight:400;font-size:.9em}
+.collage-frame{position:absolute;width:45%;padding:1.6% 1.6% 0;background:#a62b19;box-shadow:0 2px 4px #40200d14;z-index:2}
+.collage-first{left:7%;top:10.5%;transform:rotate(-5deg)}.collage-second{right:5%;top:25%;transform:rotate(4deg);z-index:3}
+.collage-photo{aspect-ratio:3/4;overflow:hidden;background:#e3d9c9}.collage-photo img{width:100%;height:100%;object-fit:cover;object-position:50% 60%}
+.collage-frame figcaption{color:#f5e5d2;font-size:3cqw;line-height:1.4;padding:4% 2% 5%;letter-spacing:.025em}.collage-second figcaption{text-align:right}
+.collage-bow{position:absolute;width:25%;height:auto;top:-5%;left:-9%;color:#191715;overflow:visible}.collage-second .collage-bow{left:auto;right:-7%;top:-4%;transform:rotate(14deg)}
+.collage-prose{position:absolute;top:56%;left:9%;width:36%;color:#a14a3a;font-size:3cqw;line-height:1.9}
+.collage-banquet{position:absolute;right:4%;top:63%;width:47%;height:auto;mix-blend-mode:multiply}
+.collage-signature{position:absolute;left:9%;top:78%;font-size:3.8cqw;line-height:1.5;letter-spacing:.04em}.collage-signature time{display:block;margin-top:10%;font:4.1cqw/1.4 Georgia,serif;letter-spacing:.035em}
+.collage-wedding{position:absolute;bottom:6%;left:9%;font:8cqw/1 Georgia,"Times New Roman",serif;letter-spacing:-.025em}
