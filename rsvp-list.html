@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>宾客登记汇总</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;background:linear-gradient(160deg,#fdfcfb 0%,#f7f1ea 55%,#f2ebe1 100%);color:#5c4033;min-height:100vh;padding:24px 16px 48px}
+.wrap{max-width:760px;margin:0 auto}
+.hd{text-align:center;padding:4px 0 14px}
+.hd h1{font-size:22px;letter-spacing:2px;font-weight:700}
+.hd .sub{font-size:12px;color:#c9a87c;margin-top:6px;letter-spacing:2px}
+.hd::after{content:"";display:block;width:48px;height:1px;background:linear-gradient(90deg,transparent,#c9a87c,transparent);margin:14px auto 0}
+.stats{display:flex;gap:12px;margin:16px 0}
+.stat{flex:1;background:#fff;border:1px solid #efe6dd;border-radius:14px;padding:14px 10px;text-align:center;box-shadow:0 4px 14px rgba(139,111,94,0.06)}
+.stat .n{font-size:24px;font-weight:700;color:#5c4033}
+.stat .l{font-size:11px;color:#a99a89;margin-top:4px}
+.card{background:#fff;border-radius:16px;padding:18px 16px;box-shadow:0 4px 20px rgba(139,111,94,0.08);border:1px solid #efe6dd;margin-top:16px;overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:13px;min-width:560px}
+th{background:linear-gradient(135deg,#c9a87c,#8b6f5e);color:#fff;padding:10px 8px;text-align:left;font-weight:600;white-space:nowrap}
+td{padding:9px 8px;border-bottom:1px solid #f3ece3;vertical-align:top}
+tr:nth-child(even) td{background:#fdfcfa}
+.tag{display:inline-block;font-size:11px;padding:1px 7px;border-radius:8px;background:#f0e6da;color:#8b6f1a;margin:1px}
+.tag.on{background:#c9a87c;color:#fff}
+.empty{text-align:center;padding:40px 0;color:#b0a594;font-size:14px}
+.loading{text-align:center;padding:40px 0;color:#c9a87c;font-size:14px}
+.err{text-align:center;padding:30px;color:#d9534f;font-size:13px}
+.ft{text-align:center;margin-top:18px;font-size:11px;color:#c9a87c}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="hd">
+    <h1>宾客登记汇总</h1>
+    <div class="sub">Wedding Guest RSVP</div>
+  </div>
+  <div class="stats" id="stats"></div>
+  <div class="card">
+    <div class="loading" id="status">加载中…</div>
+    <table id="tbl" class="hidden" style="display:none">
+      <thead><tr>
+        <th>#</th><th>姓名</th><th>同行</th><th>宝宝</th><th>到达方式</th><th>到达日期</th><th>到达时间</th><th>接送</th><th>住宿</th><th>提交时间</th>
+      </tr></thead>
+      <tbody id="tbody"></tbody>
+    </table>
+  </div>
+  <div class="ft">数据来源：163邮箱 Formsubmit 登记 · 每日9:00自动更新</div>
+</div>
+<script>
+function esc(s){return (s||'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));}
+function stayTags(f){
+  var out=[];
+  Object.keys(f).forEach(function(k){ if(k.indexOf('住宿')===0 && f[k]==='是'){ out.push(k.replace('住宿_','').replace('晚','').replace('月','.')); } });
+  return out.length? out.map(function(t){return '<span class="tag on">'+esc(t)+'</span>';}).join(' '):'<span class="tag">未选</span>';
+}
+fetch('submissions.json?_='+Date.now())
+.then(function(r){ if(!r.ok) throw new Error(r.status); return r.json(); })
+.then(function(data){
+  if(!data || !data.length){ document.getElementById('status').innerHTML='<div class="empty">暂无登记记录</div>'; return; }
+  var totalPpl=0, baby=0, pickup=0, plane=0, train=0, car=0;
+  data.forEach(function(r){
+    var f=r.fields||{};
+    totalPpl += parseInt(f['同行累计人数']||1)||1;
+    if(f['是否有宝宝']==='是') baby++;
+    if(f['需要接送']==='需要') pickup++;
+    if(f['到达方式']==='飞机') plane++; else if(f['到达方式']==='高铁') train++; else if(f['到达方式']==='自驾') car++;
+  });
+  document.getElementById('stats').innerHTML=
+    '<div class="stat"><div class="n">'+data.length+'</div><div class="l">登记人数</div></div>'+
+    '<div class="stat"><div class="n">'+totalPpl+'</div><div class="l">同行累计</div></div>'+
+    '<div class="stat"><div class="n">'+plane+'/'+train+'/'+car+'</div><div class="l">飞/铁/驾</div></div>'+
+    '<div class="stat"><div class="n">'+baby+'</div><div class="l">带宝宝</div></div>'+
+    '<div class="stat"><div class="n">'+pickup+'</div><div class="l">需接送</div></div>';
+  var html='';
+  data.forEach(function(r,i){
+    var f=r.fields||{};
+    var d = r.date ? new Date(r.date) : null;
+    var ds = d ? (d.getMonth()+1)+'/'+d.getDate()+' '+String(d.getHours()).padStart(2,'0')+':'+String(d.getMinutes()).padStart(2,'0') : '';
+    html += '<tr>'+
+      '<td>'+(i+1)+'</td>'+
+      '<td><b>'+esc(r.name)+'</b></td>'+
+      '<td>'+esc(f['同行累计人数']||'')+'</td>'+
+      '<td>'+esc(f['是否有宝宝']||'')+'</td>'+
+      '<td>'+esc(f['到达方式']||'')+'</td>'+
+      '<td>'+esc(f['到达日期']||'')+'</td>'+
+      '<td>'+esc(f['预计到达时间']||'')+'</td>'+
+      '<td>'+esc(f['需要接送']||'')+'</td>'+
+      '<td>'+stayTags(f)+'</td>'+
+      '<td style="color:#b0a594;font-size:11px">'+ds+'</td>'+
+      '</tr>';
+  });
+  document.getElementById('status').style.display='none';
+  document.getElementById('tbl').style.display='table';
+  document.getElementById('tbody').innerHTML=html;
+})
+.catch(function(e){
+  document.getElementById('status').className='err';
+  document.getElementById('status').textContent='加载失败：'+e.message+'（可能数据尚未生成，每天9点后更新）';
+});
+</script>
+</body>
+</html>
