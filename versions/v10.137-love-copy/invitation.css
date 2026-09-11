@@ -1,0 +1,26 @@
+/* V10.137: reference-led red photo frames; no changes to the opening or story. */
+@font-face{font-family:EditorialSong;src:url("invitation-song.woff2") format("woff2");font-weight:400;font-style:normal;font-display:swap}
+.editorial-invite{--invite-red:#a42b1b;--invite-ink:#171613;--invite-copy:#974b3d;position:relative;isolation:isolate;container-type:inline-size;overflow:clip;width:100%;min-width:0;padding:0 0 9%;background:#f8f6f1;color:var(--invite-ink);font-family:EditorialSong,"Songti SC","Noto Serif SC",serif;scroll-margin-top:0}
+html:not(.invite-media-ready) .editorial-invite{font-family:"Songti SC",serif}
+.invite-collage{position:relative;aspect-ratio:729/670;width:100%}
+.invite-heading{position:absolute;top:6%;right:4%;width:44%;text-align:center;font:400 clamp(27px,6.8vw,68px)/1.04 "Bodoni MT",Didot,"Times New Roman",serif;letter-spacing:-.045em;z-index:2}
+.invite-heading span{display:block;white-space:nowrap}.invite-heading i{display:block;font-size:.78em;line-height:1.1;margin:.09em 0 .14em;font-weight:400}
+.invite-frame{position:absolute;width:44.5%;margin:0;padding:1.65% 1.65% 0;background:var(--invite-red);box-shadow:0 3px 7px #4e261718;transform-origin:50% 50%;z-index:2}
+.invite-frame-first{left:8%;top:15%;transform:rotate(-5.5deg)}
+.invite-frame-second{right:5.3%;top:38%;transform:rotate(4.6deg);z-index:3}
+.invite-photo{width:100%;aspect-ratio:2/3;overflow:hidden;background:#c6bdb0}.invite-photo img{display:block;width:100%;height:100%;object-fit:cover;object-position:50% 50%}
+.invite-frame-second .invite-photo{aspect-ratio:4/5}.invite-frame-second .invite-photo img{object-position:50% 57%}
+.invite-frame figcaption{margin:0;padding:5% 2% 5.4%;color:#f5e8d5;font-size:clamp(12px,2.8vw,28px);line-height:1.4;font-weight:400;letter-spacing:.025em}.invite-frame-second figcaption{text-align:right}
+.invite-bow{position:absolute;top:-5%;left:-10%;width:26%;height:auto;color:#151412;overflow:visible;pointer-events:none}.invite-frame-second .invite-bow{left:auto;right:-7%;top:-3%;transform:rotate(15deg)}
+.invite-letter{position:relative;display:grid;grid-template-columns:1fr 1fr;column-gap:5%;row-gap:8cqw;padding:5% 9% 0;align-items:start}
+.invite-prose{grid-column:1;grid-row:1;font-size:clamp(14px,2.65vw,26px);line-height:1.85;color:var(--invite-copy)}.invite-prose p{margin:0;overflow-wrap:anywhere}
+.invite-banquet{grid-column:2;grid-row:1;align-self:end;width:119%;max-width:none;height:auto;margin-left:-12%;mix-blend-mode:multiply;pointer-events:none}
+.invite-signature{grid-column:1;grid-row:2;font-size:clamp(19px,4vw,39px);line-height:1.5;letter-spacing:.025em}.invite-signature p{margin:0;white-space:nowrap}.invite-signature time{display:block;margin-top:9%;font-family:"Times New Roman",serif;font-size:1.05em;letter-spacing:.045em}
+.invite-details{grid-column:2;grid-row:2 / 4;text-align:right;color:var(--invite-copy);font-size:clamp(14px,2.6vw,25px);line-height:1.85;min-width:0}.invite-details h3{margin:0 0 12%;color:var(--invite-ink);font-size:clamp(19px,4vw,39px);font-weight:400;line-height:1.5}.invite-details p{margin:0}.invite-details .invite-venue{margin-top:14%}.invite-details address{font:inherit;margin-top:6%;overflow-wrap:anywhere}
+.invite-wedding{grid-column:1;grid-row:3;align-self:end;font:400 clamp(38px,8.5vw,82px)/1.15 "Bodoni MT",Didot,"Times New Roman",serif;letter-spacing:-.045em;padding-top:4%}
+@supports(font-size:1cqw){.invite-heading{font-size:clamp(27px,6.8cqw,68px)}.invite-frame figcaption{font-size:clamp(12px,2.8cqw,28px)}.invite-prose{font-size:clamp(14px,2.65cqw,26px)}.invite-signature,.invite-details h3{font-size:clamp(19px,4cqw,39px)}.invite-details{font-size:clamp(14px,2.6cqw,25px)}.invite-wedding{font-size:clamp(38px,8.5cqw,82px)}}
+@media(max-width:360px){.invite-letter{padding-left:7%;padding-right:7%;column-gap:5%}.invite-heading{font-size:6.8vw}.invite-frame figcaption{font-size:12px}.invite-wedding{font-size:11vw}}
+@media(forced-colors:active){.invite-frame{border:2px solid CanvasText}.invite-frame figcaption{color:CanvasText}}
+/* Reuse the same tiny local subset for the existing third-page title. */
+.about-reactions h2{font-family:EditorialSong,"Songti SC","Noto Serif SC",serif}
+html.cover-first .about-reactions h2{font-family:"Songti SC",serif}
