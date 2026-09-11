@@ -1,0 +1,60 @@
+/* V10.116: one persistent photo sheet, print first and then a uniform lift. */
+.reference-art{--print-y:0%;--caption-alpha:1;--names-alpha:1;--photo-scale:2.18;--photo-rise:-8.15%;--camera-hide:1;--lens-flash:0}
+.camera-pending .reference-art{--print-y:-13.7%;--caption-alpha:0;--names-alpha:0;--photo-scale:1;--photo-rise:0%;--camera-hide:0}
+.reference-art .camera-art{opacity:0!important}
+.reference-art .camera-clean,
+html.star-turn .opening-underlay .reference-art .camera-clean,
+html.paper-motion .opening-underlay .reference-art .camera-clean{position:absolute;inset:0;display:block;width:100%;height:100%;object-fit:fill;opacity:1;pointer-events:none}
+/* Reuse only the blank lower paper of the existing asset; no generated replacement or altered photo. */
+.camera-paper-bed{position:absolute;inset:38% 0 25% 0;z-index:1;background:url("../v10.112-camera-story/camera-clean.png") center bottom/100% auto no-repeat;opacity:var(--camera-hide);clip-path:polygon(65% 0,100% 0,100% 100%,0 100%,0 3.6%,65% 3.6%);-webkit-mask-image:linear-gradient(#000 95%,transparent);mask-image:linear-gradient(#000 95%,transparent);pointer-events:none}
+.camera-photo-lift{position:absolute;inset:0;z-index:3;transform-origin:50.5% 66.45%;transform:translate3d(0,var(--photo-rise),0) scale(var(--photo-scale));pointer-events:none}
+.camera-print-clip{position:absolute;inset:0;clip-path:inset(59.6% 32.5% 26.7% 33.5%);pointer-events:none}
+/* The moving layer owns only the original photo. Never sample the camera illustration here. */
+.camera-print-sheet{position:absolute;inset:0;transform:translate3d(0,var(--print-y),0)}
+.reference-art .camera-photo{clip-path:none;background:#f8f5ef;outline:1px solid #1989a1;outline-offset:2px}
+.camera-caption,.camera-names{position:absolute;inset:0;z-index:2;background:url("../v10.111-camera-invitation/camera-invitation.png") center/100% 100% no-repeat;pointer-events:none}
+.camera-caption{clip-path:inset(76% 0 10% 0);opacity:var(--caption-alpha)}
+.camera-names{clip-path:inset(90% 0 0 0);opacity:var(--names-alpha)}
+.camera-shutter-press{position:absolute;left:58.3%;top:44.15%;width:6%;height:1.4%;border-radius:40%;background:#167f99;opacity:calc(var(--camera-press,0) * .5);transform:translateY(calc(var(--camera-press,0) * 2px));pointer-events:none}
+.camera-lens-glow{position:absolute;z-index:4;left:35%;top:40.9%;width:30%;height:20%;border-radius:50%;background:radial-gradient(circle,#fff 0 12%,#fffceacc 24%,#fff6d45c 42%,#fff6d400 70%);opacity:var(--lens-flash);transform:scale(calc(.72 + var(--lens-flash) * .45));pointer-events:none}
+.camera-flight-layer{position:fixed;inset:0;z-index:40;pointer-events:none;display:none}
+.camera-flight-layer.is-active{display:block}
+.camera-flight-layer canvas{position:absolute;inset:0;display:block;width:100%;height:100%;pointer-events:none}
+.camera-flash{position:absolute;inset:0;background:#fff9ed;opacity:0;pointer-events:none}
+@media(prefers-reduced-motion:reduce){
+ .camera-pending .reference-art{--print-y:0%;--caption-alpha:1;--names-alpha:1;--photo-scale:2.18;--photo-rise:-8.15%;--camera-hide:1}
+ .camera-flight-layer,.camera-lens-glow{display:none!important}
+}
+@media print{
+ .reference-art{--print-y:0%!important;--caption-alpha:1!important;--names-alpha:1!important;--photo-scale:2.18!important;--photo-rise:-8.15%!important;--camera-hide:1!important}
+ .camera-flight-layer,.camera-lens-glow{display:none!important}
+}
+/* The photo page follows its artwork height; no viewport-sized blank footer.
+   Do not let the next dark chapter's legacy gradient obscure the date. */
+html.star-turn .classic.reference-party,
+html.paper-motion .classic.reference-party{min-height:0}
+html.star-turn .opening-sequence + .chapter.party::before,
+html.paper-motion .opening-sequence + .chapter.party::before{content:none}
+
+/* V10.118: after the opening, remove all sticky/negative-margin playback
+   scaffolding. Natural height is still cover + poster, so the handoff is stable. */
+html.turn-settled .opening-underlay,
+html.turn-settled .paper-slices,
+html.turn-settled .turn-flight,
+html.turn-settled .cover-enter{display:none!important}
+html.turn-settled .turn-track,
+html.turn-settled .turn-sheet{position:relative!important;inset:auto!important;width:auto!important;height:auto!important;min-height:0!important;margin:0!important;padding:0!important;transform:none!important;box-shadow:none!important}
+html.turn-settled .turn-sheet::after{display:none!important}
+html.turn-settled .image-cover>picture{opacity:1!important}
+html.turn-settled .classic.reference-party{display:block!important;margin:0!important;min-height:0!important}
+html.turn-settled .opening-sequence + .chapter.party::before{content:none}
+
+/* V10.119: the under-paper viewport mirrors the real page AFTER landing.
+   A 2:3 poster is shorter than many phones: continue with the existing chapters,
+   not an empty viewport-coloured spacer. The artwork and actor coordinates stay
+   unchanged. This subtree is clipped by the existing underlay and retired with it. */
+.opening-continuation{display:block;margin:0;padding:0;pointer-events:none}
+html.star-turn .opening-underlay .opening-continuation img,
+html.paper-motion .opening-underlay .opening-continuation img{display:block;width:100%;height:auto;object-fit:fill;opacity:1}
+html.star-turn .opening-underlay .opening-continuation .chapter.party::before,
+html.paper-motion .opening-underlay .opening-continuation .chapter.party::before{content:none}
