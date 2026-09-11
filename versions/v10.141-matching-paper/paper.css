@@ -1,0 +1,5 @@
+/* Same source and blank bottom quarter used by page two's paper-tail.js.
+   400% image height limits the visible source to y=1152..1536,
+   keeping the camera illustration and lettering outside this window. */
+.about-reactions{background-color:#f8f6f1;background-image:url("../v10.125-keepsake-fast/media/camera-clean.webp");background-position:center bottom;background-size:auto 400%;background-repeat:no-repeat}
+html.cover-first .about-reactions{background-image:none}
