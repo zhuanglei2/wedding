@@ -1,0 +1,146 @@
+{
+  "sources": [
+    {
+      "path": "/Users/eleme/Desktop/wedding/b8890010727f9f1b16c7a8e35a75ba1c.jpg",
+      "bytes": 5401448,
+      "sha256": "327c3b4056eab9b0fd27fa7acb646811db7e106e7eeb9fd1916d0150cf8cf7f9",
+      "width": 3754,
+      "height": 5631
+    },
+    {
+      "path": "/Users/eleme/Desktop/wedding/c0bf9cf5c2241882aa52a18b7c40744d.jpg",
+      "bytes": 4947613,
+      "sha256": "ad3607ddf658a36cfe5738c5c9be91d28d3459dd4dfb1c3a794f9c34bcb142bd",
+      "width": 3911,
+      "height": 5866
+    }
+  ],
+  "outputs": [
+    {
+      "path": "media/couple-1-480.webp",
+      "bytes": 51692,
+      "format": "webp",
+      "mediaType": "image/webp",
+      "width": 480,
+      "height": 720,
+      "space": "srgb",
+      "channels": 3,
+      "depth": "uchar",
+      "isProgressive": false,
+      "isPalette": false,
+      "hasProfile": false,
+      "hasAlpha": false,
+      "autoOrient": {
+        "width": 480,
+        "height": 720
+      }
+    },
+    {
+      "path": "media/couple-1-800.webp",
+      "bytes": 141516,
+      "format": "webp",
+      "mediaType": "image/webp",
+      "width": 800,
+      "height": 1200,
+      "space": "srgb",
+      "channels": 3,
+      "depth": "uchar",
+      "isProgressive": false,
+      "isPalette": false,
+      "hasProfile": false,
+      "hasAlpha": false,
+      "autoOrient": {
+        "width": 800,
+        "height": 1200
+      }
+    },
+    {
+      "path": "media/couple-1-1200.webp",
+      "bytes": 299562,
+      "format": "webp",
+      "mediaType": "image/webp",
+      "width": 1200,
+      "height": 1800,
+      "space": "srgb",
+      "channels": 3,
+      "depth": "uchar",
+      "isProgressive": false,
+      "isPalette": false,
+      "hasProfile": false,
+      "hasAlpha": false,
+      "autoOrient": {
+        "width": 1200,
+        "height": 1800
+      }
+    },
+    {
+      "path": "media/couple-1-fallback.jpg",
+      "bytes": 145014
+    },
+    {
+      "path": "media/couple-2-480.webp",
+      "bytes": 50720,
+      "format": "webp",
+      "mediaType": "image/webp",
+      "width": 480,
+      "height": 720,
+      "space": "srgb",
+      "channels": 3,
+      "depth": "uchar",
+      "isProgressive": false,
+      "isPalette": false,
+      "hasProfile": false,
+      "hasAlpha": false,
+      "autoOrient": {
+        "width": 480,
+        "height": 720
+      }
+    },
+    {
+      "path": "media/couple-2-800.webp",
+      "bytes": 106316,
+      "format": "webp",
+      "mediaType": "image/webp",
+      "width": 800,
+      "height": 1200,
+      "space": "srgb",
+      "channels": 3,
+      "depth": "uchar",
+      "isProgressive": false,
+      "isPalette": false,
+      "hasProfile": false,
+      "hasAlpha": false,
+      "autoOrient": {
+        "width": 800,
+        "height": 1200
+      }
+    },
+    {
+      "path": "media/couple-2-1200.webp",
+      "bytes": 181974,
+      "format": "webp",
+      "mediaType": "image/webp",
+      "width": 1200,
+      "height": 1800,
+      "space": "srgb",
+      "channels": 3,
+      "depth": "uchar",
+      "isProgressive": false,
+      "isPalette": false,
+      "hasProfile": false,
+      "hasAlpha": false,
+      "autoOrient": {
+        "width": 1200,
+        "height": 1800
+      }
+    },
+    {
+      "path": "media/couple-2-fallback.jpg",
+      "bytes": 133927
+    },
+    {
+      "path": "media/banquet.webp",
+      "bytes": 243790
+    }
+  ]
+}
