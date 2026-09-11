@@ -1,0 +1,24 @@
+/* V10.151: restore V10.144; only the paper-to-red seam changes. */
+.editorial-invite + .closing{position:relative;--closing-paper-edge:clamp(44px,9vw,72px)}
+#invitation-join{scroll-margin-top:32px}
+/* Only the small decorative strip is masked, never the article/text/photos.
+   The opaque upper mask removes the generated asset's unwanted upper fade.
+   Native-width scaling retains the fine deckled silhouette on mobile. */
+@supports ((mask-image:linear-gradient(#000,#000)) or (-webkit-mask-image:linear-gradient(#000,#000))){
+  html.invite-media-ready .editorial-invite + .closing{padding-top:calc(var(--closing-paper-edge) + clamp(30px,4vw,44px));padding-bottom:clamp(38px,5vw,54px)}
+  html.invite-media-ready .editorial-invite + .closing::before{
+    content:"";position:absolute;top:-1px;left:0;width:100%;height:var(--closing-paper-edge);pointer-events:none;
+    background:#f8f5ef url("../v10.125-keepsake-fast/media/camera-clean.webp") center bottom/100% auto no-repeat;
+    -webkit-mask-image:linear-gradient(to bottom,#000 30%,transparent 31%),url("paper-edge.webp");
+    mask-image:linear-gradient(to bottom,#000 30%,transparent 31%),url("paper-edge.webp");
+    -webkit-mask-size:100% 100%,100% auto;mask-size:100% 100%,100% auto;
+    -webkit-mask-position:center,center 56%;mask-position:center,center 56%;
+    -webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;
+    -webkit-mask-composite:source-over;mask-composite:add;
+    filter:drop-shadow(0 2px 1.5px #3b150c24);
+  }
+}
+@media(forced-colors:active){
+  html.invite-media-ready .editorial-invite + .closing{padding-top:36px}
+  html.invite-media-ready .editorial-invite + .closing::before{content:none}
+}
