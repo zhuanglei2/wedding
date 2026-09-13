@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>婚礼当天时间表</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif; background: #fdfcfb; color: #3d3d3d; line-height: 1.6; position: relative; }
+        body::before { content: ''; position: fixed; top: 0; left: 0; right: 0; bottom: 0; pointer-events: none; z-index: 0; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Cpath d='M40 20c-4 8-12 12-20 12 8 0 16 4 20 12 4-8 12-12 20-12-8 0-16-4-20-12z' fill='%23e8ddd3' opacity='0.3'/%3E%3C/svg%3E"); }
+        .container { max-width: 900px; margin: 0 auto; padding: 20px; position: relative; z-index: 1; }
+
+        /* Header */
+        .header { text-align: center; padding: 60px 20px; background: linear-gradient(160deg, #f8f1eb, #fdf6f0, #f5ede5); border-radius: 16px; margin-bottom: 30px; border: 1px solid #efe6dd; position: relative; overflow: hidden; }
+        .header::before { content: ''; position: absolute; top: -20px; left: -20px; width: 120px; height: 120px; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M20 80 Q30 50 50 40 Q40 60 45 80' fill='none' stroke='%23c9a87c' stroke-width='1.5' opacity='0.3'/%3E%3Cpath d='M10 60 Q25 40 40 35 Q30 50 32 65' fill='none' stroke='%23c9a87c' stroke-width='1.2' opacity='0.25'/%3E%3Ccircle cx='50' cy='38' r='3' fill='%23c9a87c' opacity='0.2'/%3E%3Ccircle cx='38' cy='33' r='2' fill='%23c9a87c' opacity='0.2'/%3E%3C/svg%3E"); background-size: contain; background-repeat: no-repeat; }
+        .header::after { content: ''; position: absolute; bottom: -20px; right: -20px; width: 120px; height: 120px; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M80 20 Q70 50 50 60 Q60 40 55 20' fill='none' stroke='%23c9a87c' stroke-width='1.5' opacity='0.3'/%3E%3Cpath d='M90 40 Q75 60 60 65 Q70 50 68 35' fill='none' stroke='%23c9a87c' stroke-width='1.2' opacity='0.25'/%3E%3Ccircle cx='50' cy='62' r='3' fill='%23c9a87c' opacity='0.2'/%3E%3Ccircle cx='62' cy='67' r='2' fill='%23c9a87c' opacity='0.2'/%3E%3C/svg%3E"); background-size: contain; background-repeat: no-repeat; }
+        .header h1 { font-size: 28px; color: #5c4033; margin-bottom: 8px; letter-spacing: 2px; position: relative; }
+        .header .subtitle { font-size: 14px; color: #a08c7b; letter-spacing: 4px; text-transform: uppercase; }
+        .header .date { font-size: 20px; color: #8b6f5e; margin-top: 12px; font-weight: 600; }
+        .header .decor-rings { margin: 16px auto 0; width: 48px; height: 24px; position: relative; }
+        .header .decor-rings::before, .header .decor-rings::after { content: ''; position: absolute; width: 20px; height: 20px; border: 2px solid #c9a87c; border-radius: 50%; top: 0; opacity: 0.5; }
+        .header .decor-rings::before { left: 6px; }
+        .header .decor-rings::after { left: 20px; }
+
+        /* Tabs */
+        .tabs { display: flex; gap: 0; margin-bottom: 0; background: #fff; border-radius: 12px 12px 0 0; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+        .tab { flex: 1; padding: 16px; text-align: center; cursor: pointer; font-size: 15px; font-weight: 500; border: none; background: #f9f6f3; color: #888; transition: all 0.3s; }
+        .tab.active { background: #fff; color: #5c4033; border-bottom: 2px solid #c9a87c; }
+        .tab:hover { background: #fff; }
+
+        /* Content */
+        .content { background: #fff; padding: 30px; border-radius: 0 0 12px 12px; box-shadow: 0 2px 12px rgba(0,0,0,0.06); margin-bottom: 30px; position: relative; }
+        .content::after { content: ''; position: absolute; bottom: 10px; right: 10px; width: 100px; height: 100px; opacity: 0.06; pointer-events: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M50 10 C30 20 20 40 25 60 C30 80 45 90 50 90 C55 90 70 80 75 60 C80 40 70 20 50 10z' fill='none' stroke='%235c4033' stroke-width='2'/%3E%3Cpath d='M50 20 C40 30 35 45 38 58 C41 70 47 78 50 78 C53 78 59 70 62 58 C65 45 60 30 50 20z' fill='none' stroke='%235c4033' stroke-width='1.5'/%3E%3Cpath d='M50 10 L50 90' fill='none' stroke='%235c4033' stroke-width='1'/%3E%3C/svg%3E"); background-size: contain; background-repeat: no-repeat; }
+        .page { display: none; }
+        .page.active { display: block; }
+
+        /* Section */
+        .section { margin-bottom: 32px; }
+        .section-title { font-size: 17px; color: #5c4033; border-left: 3px solid #c9a87c; padding-left: 12px; margin-bottom: 16px; }
+        .section::after { content: ''; display: block; height: 1px; margin-top: 24px; background: linear-gradient(to right, transparent, #e8ddd3, transparent); }
+
+        /* Done list */
+        .done-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 10px; margin-bottom: 24px; }
+        .done-item { background: #f4f9f4; padding: 10px 14px; border-radius: 8px; font-size: 14px; color: #4a8c5c; }
+        .done-item::before { content: "✓ "; font-weight: bold; }
+
+        /* Todo table */
+        .todo-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+        .todo-table th { background: #faf7f4; padding: 10px 12px; text-align: left; color: #8b6f5e; font-weight: 500; border-bottom: 2px solid #efe6dd; }
+        .todo-table td { padding: 10px 12px; border-bottom: 1px solid #f5f1ed; }
+        .todo-table tr:hover { background: #fdfbf9; }
+        .todo-table .checkbox { width: 20px; height: 20px; accent-color: #c9a87c; cursor: pointer; }
+        .todo-table .note { color: #999; font-size: 13px; }
+        .dot-critical { display:inline-block; width:8px; height:8px; border-radius:50%; background:#e74c3c; margin-right:6px; }
+        .dot-urgent { display:inline-block; width:8px; height:8px; border-radius:50%; background:#e67e22; margin-right:6px; }
+        .dot-normal { display:inline-block; width:8px; height:8px; border-radius:50%; background:#f1c40f; margin-right:6px; }
+        .dot-low { display:inline-block; width:8px; height:8px; border-radius:50%; background:#27ae60; margin-right:6px; }
+
+        /* Priority badge */
+        .badge { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 12px; font-weight: 500; }
+        .badge-critical { background: #fdecea; color: #c0392b; }
+        .badge-urgent { background: #fef4e8; color: #d35400; }
+        .badge-normal { background: #fef9e7; color: #b7950b; }
+        .badge-low { background: #eafaf1; color: #27ae60; }
+
+        /* Timeline */
+        .timeline { position: relative; }
+        .timeline-phase { margin-bottom: 28px; }
+        .phase-title { font-size: 15px; font-weight: 600; color: #5c4033; background: linear-gradient(135deg, #faf7f4, #fdf6f0); padding: 10px 16px; border-radius: 8px; margin-bottom: 12px; border-left: 3px solid #c9a87c; }
+        .timeline-item { display: flex; padding: 8px 0; border-bottom: 1px solid #f5f1ed; align-items: flex-start; }
+        .timeline-item:last-child { border-bottom: none; }
+        .time-col { width: 70px; font-weight: 600; color: #8b6f5e; font-size: 14px; flex-shrink: 0; padding-top: 2px; }
+        .event-col { flex: 1; font-size: 14px; }
+        .event-col .event-name { font-weight: 500; }
+        .event-col .event-note { color: #999; font-size: 13px; margin-top: 2px; }
+
+        /* Route */
+        .route-box { background: #faf7f4; border-radius: 12px; padding: 20px; margin-top: 20px; border: 1px solid #efe6dd; position: relative; overflow: hidden; }
+        .route-box::before { content: ''; position: absolute; top: 0; right: 0; width: 150px; height: 150px; opacity: 0.08; pointer-events: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M70 10 Q60 30 55 50 Q50 70 60 90' fill='none' stroke='%23c9a87c' stroke-width='2'/%3E%3Cpath d='M55 50 Q45 45 35 50 Q25 55 30 65' fill='none' stroke='%23c9a87c' stroke-width='1.5'/%3E%3Cpath d='M55 50 Q65 45 75 50 Q85 55 80 65' fill='none' stroke='%23c9a87c' stroke-width='1.5'/%3E%3Ccircle cx='55' cy='30' r='2' fill='%23c9a87c'/%3E%3Ccircle cx='58' cy='70' r='2' fill='%23c9a87c'/%3E%3C/svg%3E"); background-size: contain; background-repeat: no-repeat; }
+        .route-step { display: flex; align-items: center; margin-bottom: 12px; }
+        .route-step:last-child { margin-bottom: 0; }
+        .route-dot { width: 10px; height: 10px; background: #c9a87c; border-radius: 50%; flex-shrink: 0; }
+        .route-line { width: 2px; height: 30px; background: #ddd0c3; margin-left: 5px; }
+        .route-text { margin-left: 12px; font-size: 14px; }
+        .route-text .place { font-weight: 600; color: #5c4033; }
+        .route-text .desc { color: #999; font-size: 13px; }
+
+        /* Warning box */
+        .warning-box { background: #fdf8f3; border: 1px solid #efe6dd; border-radius: 10px; padding: 16px 20px; margin-top: 24px; }
+        .warning-box h4 { color: #8b6f5e; margin-bottom: 10px; font-size: 15px; }
+        .warning-box ul { padding-left: 20px; }
+        .warning-box li { font-size: 14px; margin-bottom: 6px; color: #666; }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .container { padding: 6px; }
+            .content { padding: 12px; }
+            .done-list { grid-template-columns: repeat(2, 1fr); gap: 6px; }
+            .done-item { padding: 6px 10px; font-size: 13px; }
+            .header { padding: 30px 16px; border-radius: 12px; margin-bottom: 16px; }
+            .header h1 { font-size: 20px; }
+            .header .subtitle { font-size: 11px; letter-spacing: 3px; }
+            .header .date { font-size: 17px; margin-top: 8px; }
+            .tabs { border-radius: 10px 10px 0 0; }
+            .tab { padding: 12px 8px; font-size: 14px; }
+            .section { margin-bottom: 20px; }
+            .section-title { font-size: 15px; margin-bottom: 10px; }
+            .todo-table td, .todo-table th { padding: 8px 6px; font-size: 13px; }
+            .todo-table .note { font-size: 12px; }
+            .timeline-item { padding: 6px 0; }
+            .time-col { width: 55px; font-size: 13px; }
+            .event-col .event-name { font-size: 13px; }
+            .event-col .event-note { font-size: 12px; }
+            .phase-title { font-size: 14px; padding: 8px 12px; }
+            .route-box { padding: 14px; }
+            .route-text { font-size: 13px; }
+            .route-text .desc { font-size: 12px; }
+            .warning-box { padding: 12px 14px; }
+            .warning-box li { font-size: 13px; }
+        }
+
+        /* Countdown */
+        .countdown { text-align: center; margin-top: 20px; padding-top: 16px; border-top: 1px solid #efe6dd; }
+        .countdown-title { font-size: 13px; color: #a08c7b; margin-bottom: 10px; letter-spacing: 2px; }
+        .countdown-boxes { display: flex; justify-content: center; gap: 12px; }
+        .countdown-box { background: #fff; border-radius: 10px; padding: 10px 14px; min-width: 60px; box-shadow: 0 2px 6px rgba(0,0,0,0.04); border: 1px solid #efe6dd; }
+        .countdown-box .num { font-size: 26px; font-weight: 700; color: #5c4033; line-height: 1.2; }
+        .countdown-box .label { font-size: 11px; color: #a08c7b; margin-top: 4px; }
+
+        /* Progress bar */
+        .progress-wrap { margin-top: 18px; padding: 0 20px; }
+        .progress-info { display: flex; justify-content: space-between; font-size: 12px; color: #a08c7b; margin-bottom: 6px; }
+        .progress-bar { height: 8px; background: #efe6dd; border-radius: 4px; overflow: hidden; }
+        .progress-fill { height: 100%; background: linear-gradient(90deg, #c9a87c, #8b6f5e); border-radius: 4px; transition: width 0.5s ease; }
+
+        /* Contacts */
+        .contact-list { display: flex; flex-direction: column; gap: 8px; }
+        .contact-item { display: flex; align-items: center; padding: 14px 16px; background: linear-gradient(135deg, #fdfcfb, #faf7f4); border-radius: 12px; border: 1px solid #efe6dd; }
+        .contact-role { font-size: 12px; color: #fff; background: #c9a87c; padding: 2px 8px; border-radius: 4px; flex-shrink: 0; min-width: 56px; text-align: center; }
+        .contact-name { flex: 1; font-size: 14px; font-weight: 500; color: #5c4033; margin-left: 12px; }
+        .contact-phone { margin-left: auto; }
+        .contact-phone a { display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 50%; background: linear-gradient(135deg, #c9a87c, #a0835e); color: #fff; text-decoration: none; font-size: 16px; box-shadow: 0 2px 6px rgba(201,168,124,0.3); transition: transform 0.2s; }
+        .contact-phone a:active { transform: scale(0.9); }
+
+        /* Floating entry */
+        .fab-contacts { position: fixed; bottom: 24px; right: 24px; width: 52px; height: 52px; border-radius: 50%; background: linear-gradient(135deg, #c9a87c, #8b6f5e); color: #fff; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 16px rgba(0,0,0,0.15); cursor: pointer; z-index: 100; font-size: 20px; border: none; transition: transform 0.2s; }
+        .fab-contacts:hover { transform: scale(1.1); }
+        .fab-label { position: fixed; bottom: 28px; right: 84px; background: #5c4033; color: #fff; font-size: 12px; padding: 4px 10px; border-radius: 6px; z-index: 100; pointer-events: none; opacity: 0.9; }
+        .fab-transport { position: fixed; bottom: 90px; right: 24px; width: 52px; height: 52px; border-radius: 50%; background: linear-gradient(135deg, #7eb8c9, #4a8fa0); color: #fff; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 16px rgba(0,0,0,0.15); cursor: pointer; z-index: 100; font-size: 20px; border: none; transition: transform 0.2s; }
+        .fab-transport:hover { transform: scale(1.1); }
+        .fab-transport-label { position: fixed; bottom: 94px; right: 84px; background: #4a8fa0; color: #fff; font-size: 12px; padding: 4px 10px; border-radius: 6px; z-index: 100; pointer-events: none; opacity: 0.9; }
+        .transport-item { display: flex; align-items: flex-start; padding: 14px 16px; background: linear-gradient(135deg, #fdfcfb, #f4f9fa); border-radius: 12px; border: 1px solid #ddeef3; gap: 12px; }
+        .transport-icon { flex-shrink: 0; width: 36px; height: 36px; background: linear-gradient(135deg, #7eb8c9, #4a8fa0); border-radius: 8px; display: flex; align-items: center; justify-content: center; }
+        .transport-icon svg { width: 20px; height: 20px; stroke: #fff; fill: none; }
+        .transport-info { flex: 1; }
+        .transport-title { font-size: 14px; font-weight: 600; color: #3a3a3a; margin-bottom: 4px; }
+        .transport-desc { font-size: 12px; color: #666; line-height: 1.5; }
+        .transport-tag { display: inline-block; font-size: 11px; color: #fff; background: #4a8fa0; padding: 1px 6px; border-radius: 3px; margin-top: 4px; }
+
+        /* Contacts modal */
+        .modal-overlay { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.4); z-index: 200; align-items: center; justify-content: center; padding: 20px; }
+        .modal-overlay.show { display: flex; }
+        .modal-box { background: #fff; border-radius: 16px; padding: 24px; max-width: 400px; width: 100%; max-height: 80vh; overflow-y: auto; position: relative; }
+        .modal-box h3 { font-size: 17px; color: #5c4033; margin-bottom: 16px; text-align: center; }
+        .modal-close { position: absolute; top: 12px; right: 16px; font-size: 20px; color: #999; cursor: pointer; border: none; background: none; }
+
+        /* Nav action sheet */
+        .nav-sheet-overlay { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.4); z-index: 300; }
+        .nav-sheet-overlay.show { display: block; }
+        .nav-sheet { position: fixed; bottom: 0; left: 0; right: 0; z-index: 301; transform: translateY(100%); transition: transform 0.3s cubic-bezier(0.4,0,0.2,1); }
+        .nav-sheet-overlay.show .nav-sheet { transform: translateY(0); }
+        .nav-sheet-body { background: #f2f2f7; border-radius: 14px 14px 0 0; }
+        .nav-sheet-title { text-align: center; font-size: 13px; color: #86868b; padding: 14px 16px 8px; }
+        .nav-sheet-actions { background: #fff; margin: 0 8px; border-radius: 14px; overflow: hidden; }
+        .nav-sheet-actions a { display: block; padding: 16px 20px; text-align: center; text-decoration: none; color: #007aff; font-size: 17px; border-bottom: 0.5px solid #e5e5e5; }
+        .nav-sheet-actions a:last-child { border-bottom: none; }
+        .nav-sheet-actions a:active { background: #e5e5e5; }
+        .nav-sheet-cancel { display: block; margin: 8px; background: #fff; border-radius: 14px; padding: 16px 20px; text-align: center; color: #007aff; font-size: 17px; font-weight: 600; border: none; width: calc(100% - 16px); cursor: pointer; padding-bottom: calc(16px + env(safe-area-inset-bottom, 8px)); }
+        .nav-sheet-cancel:active { background: #e5e5e5; }
+
+        @media (max-width: 600px) {
+            .fab-contacts { width: 46px; height: 46px; bottom: 18px; right: 18px; font-size: 18px; }
+            .fab-label { bottom: 22px; right: 72px; }
+            .fab-transport { width: 46px; height: 46px; bottom: 76px; right: 18px; font-size: 18px; }
+            .fab-transport-label { bottom: 80px; right: 72px; }
+            .modal-box { padding: 18px; }
+        }
+
+        @media (max-width: 600px) {
+            .countdown { margin-top: 14px; padding-top: 12px; }
+            .countdown-boxes { gap: 8px; }
+            .countdown-box { padding: 8px 10px; min-width: 52px; }
+            .countdown-box .num { font-size: 20px; }
+            .countdown-box .label { font-size: 10px; }
+            .progress-wrap { padding: 0 10px; margin-top: 14px; }
+        }
+
+        /* Collapsible sections */
+        .collapsible { cursor: pointer; user-select: none; display: flex; align-items: center; justify-content: space-between; }
+        .collapsible::after { content: '▾'; font-size: 14px; color: #a08c7b; transition: transform 0.3s; margin-left: 8px; }
+        .collapsible.collapsed::after { transform: rotate(-90deg); }
+        .collapse-body { overflow: hidden; transition: max-height 0.3s ease; }
+        .collapse-body.hidden { max-height: 0 !important; }
+
+        /* Weather module */
+        .weather-box { background: linear-gradient(135deg, #e8f4fd, #f0f7ff); border-radius: 12px; padding: 16px 20px; margin-bottom: 20px; border: 1px solid #d4e8f7; }
+        .weather-box h4 { font-size: 15px; color: #2c6faa; margin-bottom: 12px; }
+        .weather-slots { display: flex; gap: 8px; overflow-x: auto; padding-bottom: 4px; }
+        .weather-slot { flex-shrink: 0; text-align: center; padding: 10px 12px; background: #fff; border-radius: 10px; min-width: 72px; box-shadow: 0 1px 4px rgba(0,0,0,0.05); }
+        .weather-slot .w-time { font-size: 12px; color: #666; margin-bottom: 4px; }
+        .weather-slot .w-icon { font-size: 22px; margin: 4px 0; }
+        .weather-slot .w-temp { font-size: 14px; font-weight: 600; color: #333; }
+        .weather-slot .w-desc { font-size: 11px; color: #888; margin-top: 2px; }
+        .weather-loading { text-align: center; color: #888; font-size: 13px; padding: 10px 0; }
+        .weather-note { font-size: 12px; color: #999; margin-top: 10px; text-align: center; }
+        @media (max-width: 600px) {
+            .weather-box { padding: 12px 14px; }
+            .weather-slot { min-width: 64px; padding: 8px 10px; }
+            .weather-slot .w-icon { font-size: 18px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>婚礼当天时间表</h1>
+            <div class="subtitle">Wedding Preparation Guide</div>
+            <div class="date">2026年10月6日</div>
+            <div class="decor-rings"></div>
+            <div class="countdown" id="countdown">
+                <div class="countdown-title">距离婚礼还有</div>
+                <div class="countdown-boxes">
+                    <div class="countdown-box"><div class="num" id="cd-days">--</div><div class="label">天</div></div>
+                    <div class="countdown-box"><div class="num" id="cd-hours">--</div><div class="label">时</div></div>
+                    <div class="countdown-box"><div class="num" id="cd-mins">--</div><div class="label">分</div></div>
+                    <div class="countdown-box"><div class="num" id="cd-secs">--</div><div class="label">秒</div></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content">
+                        <!-- 时间表页 -->
+            <div class="page active" id="page-timeline">
+                <div class="weather-box" id="weather-box">
+                    <h4>🌤️ 婚礼当天天气预报 · 宁海</h4>
+                    <div class="weather-loading" id="weather-loading">加载天气中...</div>
+                    <div class="weather-slots" id="weather-slots"></div>
+                    <div class="weather-note" id="weather-note"></div>
+                </div>
+                <div class="timeline">
+                    <div class="timeline-phase">
+                        <div class="phase-title collapsible" onclick="toggleSection(this)">新娘篇 · 酒店套房 <span style="font-size:12px;color:#999;font-weight:normal;">04:30-08:38</span></div>
+                        <div class="collapse-body">
+                        <div class="timeline-item"><div class="time-col">04:30</div><div class="event-col"><div class="event-name">起床、吃早餐</div><div class="event-note">准备拍摄道具</div></div></div>
+                        <div class="timeline-item"><div class="time-col">05:00</div><div class="event-col"><div class="event-name">开始化妆</div><div class="event-note">化妆师到达</div></div></div>
+                        <div class="timeline-item"><div class="time-col">07:00</div><div class="event-col"><div class="event-name">伴娘到达</div><div class="event-note">摄影老师到达</div></div></div>
+                        <div class="timeline-item"><div class="time-col">07:20</div><div class="event-col"><div class="event-name">晨袍拍摄</div><div class="event-note">提前准备好拍摄道具</div></div></div>
+                        <div class="timeline-item"><div class="time-col">07:50</div><div class="event-col"><div class="event-name">换中式礼服做造型</div></div></div>
+                        <div class="timeline-item"><div class="time-col">08:18</div><div class="event-col"><div class="event-name">新娘和父母、伴娘拍摄</div></div></div>
+                        <div class="timeline-item"><div class="time-col">08:38</div><div class="event-col"><div class="event-name">最后准备，等待新郎到达</div></div></div>
+                        </div>
+                    </div>
+
+                    <div class="timeline-phase">
+                        <div class="phase-title collapsible" onclick="toggleSection(this)">新郎篇 · 新郎家 <span style="font-size:12px;color:#999;font-weight:normal;">06:00-08:38</span></div>
+                        <div class="collapse-body">
+                        <div class="timeline-item"><div class="time-col">06:00</div><div class="event-col"><div class="event-name">起床、吃早餐</div></div></div>
+                        <div class="timeline-item"><div class="time-col">06:30</div><div class="event-col"><div class="event-name">换衣服做发型</div><div class="event-note">提前约好发型师</div></div></div>
+                        <div class="timeline-item"><div class="time-col">07:00</div><div class="event-col"><div class="event-name">伴郎到新郎家换衣服</div><div class="event-note">摄像老师到达</div></div></div>
+                        <div class="timeline-item"><div class="time-col">07:20</div><div class="event-col"><div class="event-name">新郎伴郎拍摄花絮</div></div></div>
+                        <div class="timeline-item"><div class="time-col">07:50</div><div class="event-col"><div class="event-name">婚车集合</div><div class="event-note">手捧花、胸花交给新郎</div></div></div>
+                        <div class="timeline-item"><div class="time-col">08:00</div><div class="event-col"><div class="event-name">🚗 出发接亲</div></div></div>
+                        <div class="timeline-item"><div class="time-col">08:38</div><div class="event-col"><div class="event-name">到达新娘酒店</div></div></div>
+                        </div>
+                    </div>
+
+                    <div class="timeline-phase">
+                        <div class="phase-title collapsible" onclick="toggleSection(this)">拦门 & 接亲篇 <span style="font-size:12px;color:#999;font-weight:normal;">08:38-10:48</span></div>
+                        <div class="collapse-body">
+                        <div class="timeline-item"><div class="time-col">08:38</div><div class="event-col"><div class="event-name">亲友拦门</div><div class="event-note">红包20-30个、喜糖、香烟</div></div></div>
+                        <div class="timeline-item"><div class="time-col">08:58</div><div class="event-col"><div class="event-name">伴娘姐妹团拦门游戏</div><div class="event-note">准备红包20-30个</div></div></div>
+                        <div class="timeline-item"><div class="time-col">09:28</div><div class="event-col"><div class="event-name">新人和伴娘伴郎拍合影</div></div></div>
+                        <div class="timeline-item"><div class="time-col">09:38</div><div class="event-col"><div class="event-name">给父母敬茶、拍全家福</div><div class="event-note">准备红包、茶杯、跪垫</div></div></div>
+                        <div class="timeline-item"><div class="time-col">09:50</div><div class="event-col"><div class="event-name">准时出门回新郎家</div><div class="event-note">所有亲友车队一起</div></div></div>
+                        <div class="timeline-item"><div class="time-col">10:38</div><div class="event-col"><div class="event-name">到达新郎家</div><div class="event-note">先放鞭炮，新娘下车，备红包喜糖</div></div></div>
+                        <div class="timeline-item"><div class="time-col">10:48</div><div class="event-col"><div class="event-name">新房拍摄</div><div class="event-note">喂饭吃点心（暂定）</div></div></div>
+                        </div>
+                    </div>
+
+                    <div class="timeline-phase">
+                        <div class="phase-title collapsible" onclick="toggleSection(this)">下午篇 · 午宴 & 外景 <span style="font-size:12px;color:#999;font-weight:normal;">11:00-14:08</span></div>
+                        <div class="collapse-body">
+                        <div class="timeline-item"><div class="time-col">11:00</div><div class="event-col"><div class="event-name">🚗 出发午宴便餐</div><div class="event-note">所有亲友车队一起</div></div></div>
+                        <div class="timeline-item"><div class="time-col">12:18</div><div class="event-col"><div class="event-name">午餐结束，新娘换轻纱</div><div class="event-note">亲友可提前出发酒店休息</div></div></div>
+                        <div class="timeline-item"><div class="time-col">13:18</div><div class="event-col"><div class="event-name">🚗 出发三门湾拍外景</div><div class="event-note">车队提前排好</div></div></div>
+                        <div class="timeline-item"><div class="time-col">14:08</div><div class="event-col"><div class="event-name">外景结束，回酒店</div><div class="event-note">检查车辆有无遗落物品</div></div></div>
+                        </div>
+                    </div>
+
+                    <div class="timeline-phase">
+                        <div class="phase-title collapsible" onclick="toggleSection(this)">晚宴篇 · 酒店宴会厅 <span style="font-size:12px;color:#999;font-weight:normal;">14:58-19:00</span></div>
+                        <div class="collapse-body">
+                        <div class="timeline-item"><div class="time-col">14:58</div><div class="event-col"><div class="event-name">到达酒店，换主婚纱</div><div class="event-note">化妆间提前准备好</div></div></div>
+                        <div class="timeline-item"><div class="time-col">15:58</div><div class="event-col"><div class="event-name">拍场布照片</div></div></div>
+                        <div class="timeline-item"><div class="time-col">16:38</div><div class="event-col"><div class="event-name">彩排走场</div></div></div>
+                        <div class="timeline-item"><div class="time-col">17:00</div><div class="event-col"><div class="event-name">迎宾</div></div></div>
+                        <div class="timeline-item"><div class="time-col">17:28</div><div class="event-col"><div class="event-name">🎉 仪式开始</div></div></div>
+                        <div class="timeline-item"><div class="time-col">18:18</div><div class="event-col"><div class="event-name">敬酒</div></div></div>
+                        <div class="timeline-item"><div class="time-col">19:00</div><div class="event-col"><div class="event-name">给长辈敬茶</div><div class="event-note">准备茶水</div></div></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="route-box">
+                    <h4 style="color:#5c4033; margin-bottom:16px;">🗺️ 全天路线图</h4>
+                    <div style="display:flex; flex-direction:column; gap:0;">
+                        <div class="route-step"><div class="route-dot"></div><div class="route-text"><span class="place">① 男方家（宁海县力洋镇海头村）</span><br><span class="desc">08:00 出发接亲（建议07:45，防国庆堵车）</span></div></div>
+                        <div style="display:flex; align-items:center; margin-left:5px;"><div style="width:2px; height:30px; background:#ddd0c3;"></div><div style="margin-left:10px; font-size:12px; color:#8b6f5e;">🚗 约38分钟 <a href="javascript:void(0)" onclick="openNav(29.288,121.430,'金海开元名都大酒店')" style="color:#c9a87c; text-decoration:none; margin-left:6px;">📍导航</a></div></div>
+                        <div class="route-step"><div class="route-dot"></div><div class="route-text"><span class="place">② 金海开元酒店（接亲）</span><br><span class="desc">08:38 到达 → 拦门、敬茶、合影 → 09:50 出发回男方家</span></div></div>
+                        <div style="display:flex; align-items:center; margin-left:5px;"><div style="width:2px; height:30px; background:#ddd0c3;"></div><div style="margin-left:10px; font-size:12px; color:#8b6f5e;">🚗 约38分钟 <a href="javascript:void(0)" onclick="openNav(29.210,121.585,'力洋镇海头村')" style="color:#c9a87c; text-decoration:none; margin-left:6px;">📍导航</a></div></div>
+                        <div class="route-step"><div class="route-dot"></div><div class="route-text"><span class="place">③ 男方家（拦门 + 新房拍摄 + 中饭）</span><br><span class="desc">10:38 到达 → 拦门、新房拍摄、吃中饭 → 13:18 出发</span></div></div>
+                        <div style="display:flex; align-items:center; margin-left:5px;"><div style="width:2px; height:30px; background:#ddd0c3;"></div><div style="margin-left:10px; font-size:12px; color:#8b6f5e;">🚗 前往三门湾 <a href="javascript:void(0)" onclick="openNav(29.150,121.560,'三门湾')" style="color:#c9a87c; text-decoration:none; margin-left:6px;">📍导航</a></div></div>
+                        <div class="route-step"><div class="route-dot"></div><div class="route-text"><span class="place">④ 三门湾（外景拍摄）</span><br><span class="desc">外景拍摄 → 14:08 拍摄结束返回</span></div></div>
+                        <div style="display:flex; align-items:center; margin-left:5px;"><div style="width:2px; height:30px; background:#ddd0c3;"></div><div style="margin-left:10px; font-size:12px; color:#8b6f5e;">🚗 前往西子酒店 <a href="javascript:void(0)" onclick="openNav(29.280,121.438,'西子国际大酒店')" style="color:#c9a87c; text-decoration:none; margin-left:6px;">📍导航</a></div></div>
+                        <div class="route-step"><div class="route-dot"></div><div class="route-text"><span class="place">⑤ 西子酒店 · 闻涛厅（换装→仪式→晚宴）</span><br><span class="desc">14:58 到达，不再转场</span></div></div>
+                    </div>
+                    <div style="margin-top:16px; padding-top:12px; border-top:1px dashed #ddd0c3; font-size:13px; color:#999;">
+                        全天共 <strong>4次转场</strong>，涉及 <strong>5个地点</strong> · 最远一程：力洋海头村 ↔ 金海开元酒店（约38分钟）<br>
+                        <span style="font-size:12px;">点击「📍导航」可直接跳转高德地图导航</span>
+                    </div>
+                </div>
+
+                <div class="warning-box">
+                    <h4>⚠️ 注意事项</h4>
+                    <ul>
+                        <li><strong>国庆堵车风险</strong>：接亲路程建议提前15分钟出发</li>
+                        <li><strong>迎宾→仪式仅28分钟</strong>：建议16:50开始迎宾，确保宾客入场</li>
+                        <li><strong>换装3次</strong>：中式礼服→轻纱→主婚纱，化妆师需全程跟妆</li>
+                        <li><strong>外景拍摄</strong>：10月海边风大，新娘备披肩</li>
+                        <li><strong>每次转场</strong>：指定专人检查车辆有无遗落物品</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 交通指引 浮动入口 -->
+    <button class="fab-transport" onclick="document.getElementById('transport-modal').classList.add('show')"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11V6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v5"/><path d="M2 11h20v7a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-7z"/><circle cx="6.5" cy="15.5" r="1.5"/><circle cx="17.5" cy="15.5" r="1.5"/></svg></button>
+    <div class="fab-transport-label">交通指引</div>
+
+    <div class="modal-overlay" id="transport-modal" onclick="if(event.target===this)this.classList.remove('show')">
+        <div class="modal-box">
+            <button class="modal-close" onclick="document.getElementById('transport-modal').classList.remove('show')">&times;</button>
+            <h3>宾客交通指引</h3>
+
+            <!-- 路线一：飞机 -->
+            <div style="margin-bottom:20px;">
+                <div style="display:flex;align-items:center;gap:8px;margin-bottom:12px;">
+                    <span style="background:linear-gradient(135deg,#7eb8c9,#4a8fa0);color:#fff;font-size:12px;padding:3px 10px;border-radius:12px;font-weight:600;">路线一</span>
+                    <span style="font-size:14px;font-weight:600;color:#3a3a3a;">✈️ 飞机到达</span>
+                </div>
+                <div style="display:flex;flex-direction:column;gap:0;margin-left:16px;border-left:2px dashed #7eb8c9;padding-left:16px;">
+                    <div class="transport-item" style="cursor:pointer;margin-bottom:10px;" onclick="openNav(29.816,121.462,'宁波栎社国际机场')">
+                        <div class="transport-info">
+                            <div class="transport-title">① 抵达宁波栎社机场</div>
+                            <div class="transport-desc">各地航班 → 宁波栎社国际机场(NGB)</div>
+                            <span class="transport-tag" style="background:#c9a87c;cursor:pointer;">导航到机场</span>
+                        </div>
+                    </div>
+                    <div class="transport-item" style="cursor:pointer;margin-bottom:10px;" onclick="openNav(29.826,121.524,'宁波火车站')">
+                        <div class="transport-info">
+                            <div class="transport-title">② 机场 → 宁波火车站</div>
+                            <div class="transport-desc">🚇 地铁2号线：约30分钟，栎社机场站→宁波站<br>🚗 打车/网约车：约15分钟，费用约30元</div>
+                            <span class="transport-tag" style="background:#c9a87c;cursor:pointer;">导航到宁波站</span>
+                        </div>
+                    </div>
+                    <div class="transport-item" style="margin-bottom:10px;">
+                        <div class="transport-info">
+                            <div class="transport-title">③ 宁波站 → 宁海站（高铁）</div>
+                            <div class="transport-desc">🚄 高铁约25-30分钟，班次密集<br>⏰ 首班 ~07:00 / 末班 ~22:50<br>💰 二等座约 30 元，建议 D/G 字头</div>
+                        </div>
+                    </div>
+                    <div class="transport-item" style="cursor:pointer;" onclick="openNav(29.288,121.430,'金海开元名都大酒店')">
+                        <div class="transport-info">
+                            <div class="transport-title">④ 宁海站 → 金海开元名都大酒店</div>
+                            <div class="transport-desc">🚗 打车约15分钟，约8公里，费用约20元<br>出站后可直接叫网约车前往</div>
+                            <span class="transport-tag" style="background:#c9a87c;cursor:pointer;">导航到酒店</span>
+                        </div>
+                    </div>
+                </div>
+                <div style="margin-top:8px;padding:8px 12px;background:#f0f8fb;border-radius:8px;font-size:11px;color:#4a8fa0;">
+                    全程预计：2.5-3小时（含候车）
+                </div>
+            </div>
+
+            <!-- 路线二：高铁直达 -->
+            <div style="margin-bottom:20px;">
+                <div style="display:flex;align-items:center;gap:8px;margin-bottom:12px;">
+                    <span style="background:linear-gradient(135deg,#c9a87c,#8b6f5e);color:#fff;font-size:12px;padding:3px 10px;border-radius:12px;font-weight:600;">路线二</span>
+                    <span style="font-size:14px;font-weight:600;color:#3a3a3a;">🚄 高铁/火车到达</span>
+                    <span class="transport-tag">推荐</span>
+                </div>
+                <div style="display:flex;flex-direction:column;gap:0;margin-left:16px;border-left:2px dashed #c9a87c;padding-left:16px;">
+                    <div class="transport-item" style="margin-bottom:10px;">
+                        <div class="transport-info">
+                            <div class="transport-title">① 各地 → 宁海站（高铁直达）</div>
+                            <div class="transport-desc">🚄 可搜索直达"宁海"的高铁/动车<br>如无直达，先到宁波站再转车（见路线一③）<br>⏰ 宁波→宁海 首班~07:00 / 末班~22:50</div>
+                        </div>
+                    </div>
+                    <div class="transport-item" style="cursor:pointer;" onclick="openNav(29.288,121.430,'金海开元名都大酒店')">
+                        <div class="transport-info">
+                            <div class="transport-title">② 宁海站 → 金海开元名都大酒店</div>
+                            <div class="transport-desc">🚗 打车约15分钟，约8公里，费用约20元<br>出站后可直接叫网约车前往</div>
+                            <span class="transport-tag" style="background:#c9a87c;cursor:pointer;">导航到酒店</span>
+                        </div>
+                    </div>
+                </div>
+                <div style="margin-top:8px;padding:8px 12px;background:#faf6f0;border-radius:8px;font-size:11px;color:#8b6f5e;">
+                    全程预计：到达宁海站后约15分钟到酒店
+                </div>
+            </div>
+
+            <!-- 路线三：自驾 -->
+            <div style="margin-bottom:16px;">
+                <div style="display:flex;align-items:center;gap:8px;margin-bottom:12px;">
+                    <span style="background:linear-gradient(135deg,#8bc9a0,#5a9e6f);color:#fff;font-size:12px;padding:3px 10px;border-radius:12px;font-weight:600;">路线三</span>
+                    <span style="font-size:14px;font-weight:600;color:#3a3a3a;">🚙 自驾到达</span>
+                </div>
+                <div style="display:flex;flex-direction:column;gap:0;margin-left:16px;border-left:2px dashed #8bc9a0;padding-left:16px;">
+                    <div class="transport-item" style="cursor:pointer;" onclick="openNav(29.288,121.430,'金海开元名都大酒店')">
+                        <div class="transport-info">
+                            <div class="transport-title">导航至金海开元名都大酒店</div>
+                            <div class="transport-desc">📍 宁海县桃源中路258号<br>🅿️ 酒店提供免费停车场</div>
+                            <span class="transport-tag" style="background:#c9a87c;cursor:pointer;">一键导航</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="padding:14px;background:#fff8e8;border:1px solid #f0d878;border-radius:10px;font-size:12px;color:#8b6f1a;line-height:1.7;">
+                <div style="font-weight:600;margin-bottom:6px;">🎫 火车票购买提示</div>
+                <div>12306 预售期 15 天（含当天），10月6日车票<b>最早9月22日（周二）</b>可购买</div>
+                <div style="margin-top:4px;">• 放票时间按车站分批，一般 8:00 起整点放票，建议提前查好车次放票时间</div>
+                <div>• 10月6日为国庆返程高峰，<b>热门车次几分钟售罄，建议9月22日定闹钟抢票</b></div>
+                <div>• 优先 D/G 字头直达宁海站；无直达可买宁波站再转车</div>
+                <div>• 返程票（10月6日晚/10月7日）同样紧张，建议往返一起买</div>
+                <div style="margin-top:8px;padding-top:8px;border-top:1px dashed #f0d878;color:#8b7355;">
+                    💡 如需接站服务请联系新郎庄磊
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 筹备小组 浮动入口 -->
+    <button class="fab-contacts" onclick="document.getElementById('contacts-modal').classList.add('show')"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></button>
+    <div class="fab-label">筹备小组</div>
+
+    <div class="modal-overlay" id="contacts-modal" onclick="if(event.target===this)this.classList.remove('show')">
+        <div class="modal-box">
+            <button class="modal-close" onclick="document.getElementById('contacts-modal').classList.remove('show')">&times;</button>
+            <h3>筹备小组</h3>
+            <div class="contact-list">
+                <div class="contact-item"><div class="contact-role">新郎</div><div class="contact-name">庄磊</div><div class="contact-phone"><a href="tel:18658487873"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></a></div></div>
+                <div class="contact-item"><div class="contact-role">新娘</div><div class="contact-name">吴郁</div><div class="contact-phone"><a href="tel:"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></a></div></div>
+                <div class="contact-item"><div class="contact-role">婚庆</div><div class="contact-name">花田喜事-王爽</div><div class="contact-phone"><a href="tel:"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></a></div></div>
+                <div class="contact-item"><div class="contact-role">摄影</div><div class="contact-name">芊禧影像-老杨</div><div class="contact-phone"><a href="tel:"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></a></div></div>
+                <div class="contact-item"><div class="contact-role">化妆</div><div class="contact-name">赢赢</div><div class="contact-phone"><a href="tel:"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></a></div></div>
+                <div class="contact-item"><div class="contact-role">婚车</div><div class="contact-name">杨哥</div><div class="contact-phone"><a href="tel:"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></a></div></div>
+                <div class="contact-item"><div class="contact-role">酒店</div><div class="contact-name">西子国际-谢婉娇</div><div class="contact-phone"><a href="tel:"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></a></div></div>
+                <div class="contact-item"><div class="contact-role">伴郎</div><div class="contact-name">楚楚、张帆</div><div class="contact-phone"><a href="tel:"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></a></div></div>
+                <div class="contact-item"><div class="contact-role">伴娘</div><div class="contact-name">萧萧、晴儿</div><div class="contact-phone"><a href="tel:"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></a></div></div>
+            </div>
+            <h3 style="font-size:15px;color:#5c4033;margin:20px 0 12px;padding-top:16px;border-top:1px solid #efe6dd;">紧急联系人</h3>
+            <div class="contact-list">
+                <div class="contact-item"><div class="contact-role">新郎父</div><div class="contact-name">待补充</div><div class="contact-phone"><a href="tel:"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></a></div></div>
+                <div class="contact-item"><div class="contact-role">新郎母</div><div class="contact-name">待补充</div><div class="contact-phone"><a href="tel:"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></a></div></div>
+                <div class="contact-item"><div class="contact-role">新娘父</div><div class="contact-name">待补充</div><div class="contact-phone"><a href="tel:"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></a></div></div>
+                <div class="contact-item"><div class="contact-role">新娘母</div><div class="contact-name">待补充</div><div class="contact-phone"><a href="tel:"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></a></div></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 导航选择底部面板 -->
+    <div class="nav-sheet-overlay" id="nav-modal" onclick="if(event.target===this)this.classList.remove('show')">
+        <div class="nav-sheet">
+            <div class="nav-sheet-body">
+                <div class="nav-sheet-title">选择导航应用</div>
+                <div class="nav-sheet-actions" id="nav-picker-list"></div>
+            </div>
+            <button class="nav-sheet-cancel" onclick="document.getElementById('nav-modal').classList.remove('show')">取消</button>
+        </div>
+    </div>
+
+    <script>
+        function openNav(lat, lng, name) {
+            var ua = navigator.userAgent.toLowerCase();
+            var isIOS = /iphone|ipad|ipod/.test(ua);
+            var isAndroid = /android/.test(ua);
+            var isHarmony = /harmonyos|hmos/.test(ua);
+            var isWechat = /micromessenger/.test(ua);
+
+            var list = document.getElementById('nav-picker-list');
+            list.innerHTML = '';
+            var apps = [];
+
+            if (isWechat) {
+                apps = [
+                    {name: '高德地图', url: 'https://uri.amap.com/navigation?to='+lng+','+lat+','+encodeURIComponent(name)+'&mode=car'},
+                    {name: '百度地图', url: 'https://api.map.baidu.com/direction?destination=latlng:'+lat+','+lng+'%7Cname:'+encodeURIComponent(name)+'&mode=driving&coord_type=wgs84&output=html'},
+                    {name: '腾讯地图', url: 'https://apis.map.qq.com/uri/v1/routeplan?type=drive&to='+encodeURIComponent(name)+'&tocoord='+lat+','+lng+'&referer=wedding'}
+                ];
+            } else if (isIOS) {
+                apps = [
+                    {name: '高德地图', url: 'iosamap://path?sourceApplication=wedding&dlat='+lat+'&dlon='+lng+'&dname='+encodeURIComponent(name)+'&dev=0&t=0'},
+                    {name: '百度地图', url: 'baidumap://map/direction?destination=latlng:'+lat+','+lng+'%7Cname:'+encodeURIComponent(name)+'&coord_type=wgs84&mode=driving&src=ios.wedding.app'},
+                    {name: '腾讯地图', url: 'qqmap://map/routeplan?type=drive&from=我的位置&fromcoord=CurrentLocation&to='+encodeURIComponent(name)+'&tocoord='+lat+','+lng+'&referer=wedding'},
+                    {name: 'Apple 地图', url: 'https://maps.apple.com/?daddr='+lat+','+lng+'&dname='+encodeURIComponent(name)+'&dirflg=d'}
+                ];
+            } else if (isAndroid || isHarmony) {
+                apps = [
+                    {name: '高德地图', url: 'androidamap://route/plan/?sourceApplication=wedding&dlat='+lat+'&dlon='+lng+'&dname='+encodeURIComponent(name)+'&dev=0&t=0'},
+                    {name: '百度地图', url: 'baidumap://map/direction?destination=latlng:'+lat+','+lng+'%7Cname:'+encodeURIComponent(name)+'&coord_type=wgs84&mode=driving&src=andr.wedding.app'},
+                    {name: '腾讯地图', url: 'qqmap://map/routeplan?type=drive&from=我的位置&fromcoord=CurrentLocation&to='+encodeURIComponent(name)+'&tocoord='+lat+','+lng+'&referer=wedding'},
+                    {name: '系统地图', url: 'geo:'+lat+','+lng+'?q='+encodeURIComponent(name)}
+                ];
+            } else {
+                apps = [
+                    {name: '高德地图', url: 'https://uri.amap.com/navigation?to='+lng+','+lat+','+encodeURIComponent(name)+'&mode=car'},
+                    {name: '百度地图', url: 'https://api.map.baidu.com/direction?destination=latlng:'+lat+','+lng+'%7Cname:'+encodeURIComponent(name)+'&mode=driving&coord_type=wgs84&output=html'},
+                    {name: '腾讯地图', url: 'https://apis.map.qq.com/uri/v1/routeplan?type=drive&to='+encodeURIComponent(name)+'&tocoord='+lat+','+lng+'&referer=wedding'}
+                ];
+            }
+
+            // H5 fallback always at bottom
+            apps.push({name: '网页导航(兜底)', url: 'https://uri.amap.com/navigation?to='+lng+','+lat+','+encodeURIComponent(name)+'&mode=car'});
+
+            apps.forEach(function(app) {
+                var a = document.createElement('a');
+                a.href = app.url;
+                a.textContent = app.name;
+                list.appendChild(a);
+            });
+            document.getElementById('nav-modal').classList.add('show');
+        }
+
+        function switchTab(page) {
+            document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+            document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+
+            if (page === 'todo') {
+                document.querySelectorAll('.tab')[0].classList.add('active');
+                document.getElementById('page-todo').classList.add('active');
+            } else if (page === 'timeline') {
+                document.querySelectorAll('.tab')[1].classList.add('active');
+                document.getElementById('page-timeline').classList.add('active');
+            }
+        }
+
+        function toggleSection(el) {
+            var body = el.nextElementSibling;
+            if (!body || !body.classList.contains('collapse-body')) return;
+            el.classList.toggle('collapsed');
+            if (body.classList.contains('hidden')) {
+                body.classList.remove('hidden');
+                body.style.maxHeight = body.scrollHeight + 'px';
+            } else {
+                body.style.maxHeight = body.scrollHeight + 'px';
+                requestAnimationFrame(function() {
+                    body.style.maxHeight = '0';
+                    body.classList.add('hidden');
+                });
+            }
+        }
+
+        function updateCountdown() {
+            var wedding = new Date('2026-10-06T00:00:00+08:00').getTime();
+            var now = new Date().getTime();
+            var diff = wedding - now;
+            if (diff <= 0) {
+                document.getElementById('countdown').querySelector('.countdown-title').textContent = '今天是大喜之日！';
+                document.getElementById('cd-days').textContent = '0';
+                document.getElementById('cd-hours').textContent = '0';
+                document.getElementById('cd-mins').textContent = '0';
+                document.getElementById('cd-secs').textContent = '0';
+                return;
+            }
+            var days = Math.floor(diff / 86400000);
+            var hours = Math.floor((diff % 86400000) / 3600000);
+            var mins = Math.floor((diff % 3600000) / 60000);
+            var secs = Math.floor((diff % 60000) / 1000);
+            document.getElementById('cd-days').textContent = days;
+            document.getElementById('cd-hours').textContent = hours;
+            document.getElementById('cd-mins').textContent = mins;
+            document.getElementById('cd-secs').textContent = secs;
+        }
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+
+        function updateProgress() {
+            var done = document.querySelectorAll('.done-item').length;
+            var checked = document.querySelectorAll('.checkbox:checked').length;
+            var total = done + document.querySelectorAll('.checkbox').length;
+            var completed = done + checked;
+            var pct = Math.round(completed / total * 100);
+            document.getElementById('progress-text').textContent = '备婚进度 ' + completed + '/' + total;
+            document.getElementById('progress-pct').textContent = pct + '%';
+            document.getElementById('progress-fill').style.width = pct + '%';
+            var doneLabel = document.getElementById('done-count');
+            if (doneLabel) doneLabel.textContent = '（' + done + '项）';
+        }
+        updateProgress();
+        document.addEventListener('change', function(e) {
+            if (e.target.classList.contains('checkbox')) updateProgress();
+        });
+
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('.collapse-body:not(.hidden)').forEach(function(el) {
+                el.style.maxHeight = 'none';
+            });
+            loadWeather();
+        });
+
+        function loadWeather() {
+            var targetDate = '2026-08-05';
+            var weddingDate = '2026-10-06';
+            var now = new Date();
+            var wedding = new Date(weddingDate+'T00:00:00+08:00');
+            var diffDays = Math.ceil((wedding - now) / 86400000);
+
+            var useDate = diffDays <= 7 ? weddingDate : targetDate;
+            var label = diffDays <= 7 ? '婚礼当天' : '演示（' + useDate + '）';
+            document.querySelector('#weather-box h4').textContent = '🌤️ ' + label + '天气预报 · 宁海';
+
+            var lat = 29.28, lng = 121.43;
+            var url = 'https://api.open-meteo.com/v1/forecast?latitude='+lat+'&longitude='+lng+'&hourly=temperature_2m,weathercode,windspeed_10m&timezone=Asia/Shanghai&start_date='+useDate+'&end_date='+useDate;
+
+            fetch(url).then(function(r){ return r.json(); }).then(function(data) {
+                var hours = data.hourly.time;
+                var temps = data.hourly.temperature_2m;
+                var codes = data.hourly.weathercode;
+                var winds = data.hourly.windspeed_10m;
+
+                var keyHours = [5, 7, 8, 10, 12, 13, 15, 17, 19];
+                var slots = document.getElementById('weather-slots');
+                var loading = document.getElementById('weather-loading');
+                loading.style.display = 'none';
+
+                keyHours.forEach(function(h) {
+                    var idx = h;
+                    if (idx >= hours.length) return;
+                    var slot = document.createElement('div');
+                    slot.className = 'weather-slot';
+                    var icon = weatherIcon(codes[idx]);
+                    var desc = weatherDesc(codes[idx]);
+                    slot.innerHTML = '<div class="w-time">'+String(h).padStart(2,'0')+':00</div><div class="w-icon">'+icon+'</div><div class="w-temp">'+Math.round(temps[idx])+'°C</div><div class="w-desc">'+desc+'</div>';
+                    slots.appendChild(slot);
+                });
+
+                var note = document.getElementById('weather-note');
+                if (diffDays > 7) {
+                    note.textContent = '注：当前为演示数据（'+useDate+'），婚礼前7天自动切换为10月6日实时预报';
+                } else {
+                    note.textContent = '数据来源：Open-Meteo · 更新于 '+new Date().toLocaleString('zh-CN');
+                }
+            }).catch(function() {
+                document.getElementById('weather-loading').textContent = '天气数据加载失败，请稍后刷新';
+            });
+        }
+
+        function weatherIcon(code) {
+            if (code === 0) return '☀️';
+            if (code <= 3) return '⛅';
+            if (code <= 49) return '🌫️';
+            if (code <= 59) return '🌦️';
+            if (code <= 69) return '🌧️';
+            if (code <= 79) return '🌨️';
+            if (code <= 82) return '🌧️';
+            if (code <= 86) return '🌨️';
+            if (code >= 95) return '⛈️';
+            return '🌥️';
+        }
+
+        function weatherDesc(code) {
+            if (code === 0) return '晴';
+            if (code <= 2) return '多云';
+            if (code === 3) return '阴';
+            if (code <= 49) return '雾';
+            if (code <= 55) return '小雨';
+            if (code <= 59) return '中雨';
+            if (code <= 65) return '雨';
+            if (code <= 69) return '雨夹雪';
+            if (code <= 75) return '雪';
+            if (code <= 79) return '冰粒';
+            if (code === 80) return '小阵雨';
+            if (code <= 82) return '大阵雨';
+            if (code <= 86) return '阵雪';
+            if (code >= 95) return '雷暴';
+            return '多云';
+        }
+    </script>
+</body>
+</html>
