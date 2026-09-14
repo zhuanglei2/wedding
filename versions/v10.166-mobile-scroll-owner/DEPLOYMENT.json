@@ -1,0 +1,17 @@
+{
+  "version": "V10.166",
+  "baseRevision": "e3ee8c8d86baacc4f3845e1bf05cb236fcbbd583",
+  "sourceFingerprint": "eb675ab170c053d117e783ca5dc3b90081e01d62c04c4bd245a864e14dfbe457",
+  "bucket": "hq-wedding",
+  "entry": "previews/v10.166-20260914-eb675ab170c0/index.html",
+  "dependencies": 72,
+  "bytes": 40610770,
+  "htmlBytes": 99077,
+  "htmlSha256": "f3f632a9e389f22ecaaac5f9cbb7d1482fef4b7bae89dc73ff3214ef05787646",
+  "status": "verified",
+  "cacheControl": "no-cache, max-age=0, must-revalidate",
+  "previousLoveSha256": "1bb552f2499dbd447fb678b00851355b76d9600e3ac94d42b29337313e96cf36",
+  "indexSha256": "36380e8d26a81f8d5f154d3cc1954e416bec2d29e9b038b5934196cf8ebabf62",
+  "guestSha256": "ce31d2aa378b81c4317f9ebe20fa783534526c3705c499aa5566a6236658ee32",
+  "backup": "previews/v10.166-20260914-eb675ab170c0/previous-love.html"
+}
