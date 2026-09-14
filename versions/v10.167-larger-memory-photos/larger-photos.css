@@ -1,0 +1,14 @@
+/* Only the falling 2024–2026 photo stack. Originals/crops/finale stay intact. */
+.story-fixed-page .story-enhanced .memory-card{
+ width:min(70%,calc(var(--story-window-height,700px) * .53));
+ /* Rotated portrait + frame must fit above/below the 16px edge fades. */
+ max-width:calc((var(--story-window-height,700px) - 32px - 3%) / 1.56);
+}
+.story-fixed-page .story-enhanced .memory-landscape{
+ width:min(84%,calc(var(--story-window-height,700px) * .76));
+ max-width:calc((100% - 16px) / 1.2);
+}
+.story-fixed-page .story-enhanced .memory-keepsake{
+ width:min(94%,calc(var(--story-window-height,700px) * .80));
+ max-width:calc((100% - 16px) / 1.05);
+}
