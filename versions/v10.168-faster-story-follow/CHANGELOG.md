@@ -1,6 +1,6 @@
 # V10.168 — quicker inner timeline follow
 
-Based on V10.167. Local preview only; not deployed.
+Based on V10.167. Deployed to Hangzhou OSS; see RELEASE.md and DEPLOYMENT.json.
 
 - Increase third-page inner-scroll tracking from dt/95 to dt/70.
 - Retain the interpolation clamp and line-visibility protection.
