@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>备婚指南</title>
+    <title>婚礼当天时间表</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif; background: #fdfcfb; color: #3d3d3d; line-height: 1.6; position: relative; }
@@ -223,7 +223,7 @@
 <body>
     <div class="container">
         <div class="header">
-            <h1>备婚指南</h1>
+            <h1>婚礼当天时间表</h1>
             <div class="subtitle">Wedding Preparation Guide</div>
             <div class="date">2026年10月6日</div>
             <div class="decor-rings"></div>
@@ -236,106 +236,11 @@
                     <div class="countdown-box"><div class="num" id="cd-secs">--</div><div class="label">秒</div></div>
                 </div>
             </div>
-            <div class="progress-wrap">
-                <div class="progress-info"><span id="progress-text">备婚进度 15/55</span><span id="progress-pct">27%</span></div>
-                <div class="progress-bar"><div class="progress-fill" id="progress-fill" style="width:27%"></div></div>
-            </div>
-        </div>
-
-        <div class="tabs">
-            <div class="tab active" onclick="switchTab('todo')">备婚待办事项</div>
-            <div class="tab" onclick="switchTab('timeline')">婚礼当天时间表</div>
         </div>
 
         <div class="content">
-            <!-- 待办事项页 -->
-            <div class="page active" id="page-todo">
-                <div class="section">
-                    <h3 class="section-title collapsible collapsed" onclick="toggleSection(this)">已完成 ✓ <span id="done-count" style="font-size:12px;color:#999;font-weight:normal;">（24项）</span></h3>
-                    <div class="collapse-body hidden">
-                    <div class="done-list">
-                        <div class="done-item">婚庆公司</div>
-                        <div class="done-item">婚纱 & 西服</div>
-                        <div class="done-item">酒店总统套房</div>
-                        <div class="done-item">村里庭院布置</div>
-                        <div class="done-item">伴郎伴娘</div>
-                        <div class="done-item">摄影摄像</div>
-                        <div class="done-item">化妆跟妆师</div>
-                        <div class="done-item">晚宴场地</div>
-                        <div class="done-item">婚车车队</div>
-                        <div class="done-item">新娘敬酒服</div>
-                        <div class="done-item">新娘主纱</div>
-                        <div class="done-item">新娘出门纱</div>
-                        <div class="done-item">新娘晨袍</div>
-                        <div class="done-item">三金</div>
-                        <div class="done-item">彩礼</div>
-                        <div class="done-item">婚戒对戒</div>
-                        <div class="done-item">婚纱照拍摄</div>
-                        <div class="done-item">喜帖制作</div>
-                        <div class="done-item">喜帖发送</div>
-                        <div class="done-item">酒席桌数确认</div>
-                        <div class="done-item">鞭炮/礼炮</div>
-                        <div class="done-item">座位安排 & 桌签</div>
-                        <div class="done-item">签到台布置</div>
-                        <div class="done-item">买火车票(9.11)</div>
-                    </div>
-                    </div>
-                </div>
-
-                <div class="section">
-                    <h3 class="section-title">🟠 8月中旬前 <span class="badge badge-urgent">8月15日前</span></h3>
-                    <table class="todo-table">
-                        <tr><th width="30"></th><th>事项</th><th>备注</th></tr>
-                        <tr><td><input type="checkbox" class="checkbox"></td><td><span class="dot-urgent"></span>亲友群通知</td><td class="note">时间、地点、路线</td></tr>
-                        <tr><td><input type="checkbox" class="checkbox"></td><td><span class="dot-urgent"></span>领证</td><td class="note">如未领，建议婚礼前办妥</td></tr>
-                    </table>
-                </div>
-
-                <div class="section">
-                    <h3 class="section-title">🟡 9月初完成 <span class="badge badge-normal">9月上旬</span></h3>
-                    <table class="todo-table">
-                        <tr><th width="30"></th><th>事项</th><th>备注</th></tr>
-                        <tr><td><input type="checkbox" class="checkbox"></td><td><span class="dot-normal"></span>菜单定稿</td><td class="note">与酒店确认，桌数定了才能定菜单</td></tr>
-                        <tr><td><input type="checkbox" class="checkbox"></td><td><span class="dot-normal"></span>午宴便餐安排</td><td class="note">确认在男方家的桌数和菜品</td></tr>
-                        <tr><td><input type="checkbox" class="checkbox"></td><td><span class="dot-normal"></span>新娘婚鞋</td><td class="note">建议备两双</td></tr>
-                        <tr><td><input type="checkbox" class="checkbox"></td><td><span class="dot-normal"></span>喜酒</td><td class="note">按桌数备</td></tr>
-                        <tr><td><input type="checkbox" class="checkbox"></td><td><span class="dot-normal"></span>喜烟</td><td class="note">接亲 + 宴席各备</td></tr>
-                        <tr><td><input type="checkbox" class="checkbox"></td><td><span class="dot-normal"></span>喜糖</td><td class="note">散装 + 礼盒</td></tr>
-                        <tr><td><input type="checkbox" class="checkbox"></td><td><span class="dot-normal"></span>伴手礼</td><td class="note">按宾客数</td></tr>
-                        <tr><td><input type="checkbox" class="checkbox"></td><td><span class="dot-normal"></span>手捧花 & 胸花</td><td class="note">新郎+伴郎+双方父母</td></tr>
-                        <tr><td><input type="checkbox" class="checkbox"></td><td><span class="dot-normal"></span>宾客接送 & 住宿</td><td class="note">外地宾客提前安排</td></tr>
-                    </table>
-                </div>
-
-                <div class="section">
-                    <h3 class="section-title collapsible" onclick="toggleSection(this)">🟢 9月底前 <span class="badge badge-low">国庆前搞定</span></h3>
-                    <div class="collapse-body">
-                    <table class="todo-table">
-                        <tr><th width="30"></th><th>事项</th><th>备注</th></tr>
-                        <tr><td><input type="checkbox" class="checkbox"></td><td><span class="dot-low"></span>亲友拦门红包</td><td class="note">20-30个（小额）</td></tr>
-                        <tr><td><input type="checkbox" class="checkbox"></td><td><span class="dot-low"></span>姐妹团拦门红包</td><td class="note">20-30个（小额）</td></tr>
-                        <tr><td><input type="checkbox" class="checkbox"></td><td><span class="dot-low"></span>新娘到新郎家红包</td><td class="note">若干</td></tr>
-                        <tr><td><input type="checkbox" class="checkbox"></td><td><span class="dot-low"></span>改口红包</td><td class="note">双方父母各一份</td></tr>
-                        <tr><td><input type="checkbox" class="checkbox"></td><td><span class="dot-low"></span>伴郎伴娘红包</td><td class="note">感谢红包</td></tr>
-                        <tr><td><input type="checkbox" class="checkbox"></td><td><span class="dot-low"></span>摄影/化妆/司仪红包</td><td class="note">按行情</td></tr>
-                        <tr><td><input type="checkbox" class="checkbox"></td><td><span class="dot-low"></span>压床红包</td><td class="note">如有安排</td></tr>
-                        <tr><td><input type="checkbox" class="checkbox"></td><td><span class="dot-low"></span>新郎发型师预约</td><td class="note">当天06:30需要</td></tr>
-                        <tr><td><input type="checkbox" class="checkbox"></td><td><span class="dot-low"></span>接亲酒店套房布置</td><td class="note">金海开元套房，喜字/气球/床品布置</td></tr>
-                        <tr><td><input type="checkbox" class="checkbox"></td><td><span class="dot-low"></span>婚房布置</td><td class="note">喜字、气球、床品四件套</td></tr>
-                        <tr><td><input type="checkbox" class="checkbox"></td><td><span class="dot-low"></span>拍摄道具准备</td><td class="note">跟摄影师确认清单</td></tr>
-                        <tr><td><input type="checkbox" class="checkbox"></td><td><span class="dot-low"></span>10月天气预案</td><td class="note">外景遇雨备选方案</td></tr>
-                        <tr><td><input type="checkbox" class="checkbox"></td><td><span class="dot-low"></span>铺床/压床人选</td><td class="note">强哥儿子；尿马桶人选：海涛哥儿子</td></tr>
-                        <tr><td><input type="checkbox" class="checkbox"></td><td><span class="dot-low"></span>十字披红</td><td class="note">新郎出发前</td></tr>
-                        <tr><td><input type="checkbox" class="checkbox"></td><td><span class="dot-low"></span>鞭炮安排</td><td class="note">新娘到新郎家时放</td></tr>
-                        <tr><td><input type="checkbox" class="checkbox"></td><td><span class="dot-low"></span>喂饭/吃点心环节</td><td class="note">确认有此环节，准备相关食品</td></tr>
-                        <tr><td><input type="checkbox" class="checkbox"></td><td><span class="dot-low"></span>敬茶流程 & 顺序</td><td class="note">先敬谁，准备茶杯跪垫</td></tr>
-                    </table>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 时间表页 -->
-            <div class="page" id="page-timeline">
+                        <!-- 时间表页 -->
+            <div class="page active" id="page-timeline">
                 <div class="weather-box" id="weather-box">
                     <h4>🌤️ 婚礼当天天气预报 · 宁海</h4>
                     <div class="weather-loading" id="weather-loading">加载天气中...</div>
