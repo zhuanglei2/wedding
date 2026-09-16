@@ -1,0 +1,28 @@
+/* V10.180 — display-only crop of the existing cover bitmap.
+   Master: 1400×3282. Photo window: x264, y1344, w872, h831.
+   Scale 1.12, anchor 50% 100%: trim mostly sky/background, retain hem.
+   The same bitmap is shared by the static cover and its paper-strip fronts. */
+.cover-photo-reframe{
+  position:absolute;inset:0;pointer-events:none;overflow:hidden;
+}
+.cover-photo-window{
+  position:absolute;left:18.8571428571%;top:40.9506398537%;
+  width:62.2857142857%;height:25.3199268739%;overflow:hidden;
+}
+.cover-photo-reframe .cover-photo-window>picture{
+  display:block;position:absolute;width:179.8165137615%;
+  left:-39.9082568807%;top:-193.1407942238%;margin:0;
+}
+.cover-photo-reframe .cover-photo-window img{
+  display:block;position:static;width:100%;height:auto;max-width:none;
+  aspect-ratio:1400 / 3282;margin:0;padding:0;border:0;
+}
+html.star-turn .image-cover>.cover-photo-reframe{
+  opacity:var(--front-opacity,1);
+}
+html.turn-settled .image-cover>.cover-photo-reframe{
+  opacity:1!important;
+}
+@media print{
+  html.star-turn .image-cover>.cover-photo-reframe{opacity:1!important}
+}

@@ -1,0 +1,12 @@
+/* V10.178: a cover-only mute/play control; no change to the printed invitation. */
+.cover-music.music-toggle{position:absolute;z-index:3;top:12px;right:12px;display:flex;align-items:center;gap:5px;width:auto;min-width:44px;min-height:44px;padding:6px;color:#ecd2a2;font:14px/1.4 "Songti SC",serif;letter-spacing:.02em}
+.cover-music.music-toggle::before{content:none}
+.cover-music-disc{display:grid;place-items:center;box-sizing:border-box;width:30px;height:30px;border:1px solid #ecd2a2a6;border-radius:50%;background:#74201970}
+.cover-music .music-icon{width:9px;height:11px}
+.cover-music[data-state="playing"] .music-icon::before{clip-path:none;background:linear-gradient(to right,currentColor 0 34%,transparent 34% 66%,currentColor 66% 100%)}
+.cover-music[data-state="loading"] .music-icon::before{clip-path:none;width:8px;height:8px;margin:1px 0}
+.cover-music[data-state="waiting"]{visibility:hidden}
+.cover-music:focus-visible{outline-color:#ecd2a2}
+.cover-music:active .cover-music-disc{background:#742019}
+html.turn-playing .cover-music{visibility:hidden;pointer-events:none}
+@media print{.cover-music{display:none!important}}

@@ -1,0 +1,150 @@
+/* V10.176: keep visual-first loading; start music at the camera shutter cue. */
+(()=>{'use strict';
+ const root=document.documentElement,section=document.querySelector('#our-story');
+ const player=document.querySelector('#wedding-music'),audio=document.querySelector('#wedding-audio');
+ if(!section||!player||!audio)return;
+ const art=section.querySelector('.reference-art'),photo=section.querySelector('.camera-photo img');
+ const toggle=player.querySelector('.music-toggle'),icon=toggle.querySelector('span');
+ const seek=player.querySelector('.music-seek'),elapsed=player.querySelector('.music-elapsed');
+ const durationLabel=player.querySelector('.music-duration'),status=player.querySelector('.music-status');
+ const options=player.querySelector('.music-options');
+ const start=Math.max(0,Number(player.dataset.startSeconds)||0);
+ const musicSource=audio.dataset.src;
+ // 20 ms of inline PCM silence: gesture priming must not request the 6.35 MB song.
+ const silence='data:audio/wav;base64,UklGRsQAAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YaAAAACAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA';
+ let openingRequested=false,assetsReady=!!window.WeddingCameraStory?.ready;
+ let primeEpoch=0,primeTimer=null;
+ let shutterSeen=!!window.WeddingCameraStory?.shutterFired;
+ let ready=false,autoConsumed=false,wanted=false,prepared=false,priming=false,primed=false;
+ let seeking=false,pendingSeek=start,request=0,resumeAfterHidden=false,observer=null;
+ const length=()=>prepared&&!priming&&audio.readyState>=1&&Number.isFinite(audio.duration)&&audio.duration>0?audio.duration:0;
+ const format=value=>{const n=Math.max(0,Math.floor(Number(value)||0));return String(Math.floor(n/60)).padStart(2,'0')+':'+String(n%60).padStart(2,'0')};
+ function state(value,message){
+  player.dataset.state=value;status.textContent=message;
+  const playing=value==='playing';icon.textContent='';
+  toggle.setAttribute('aria-pressed',String(playing));
+  const action=playing?'暂停音乐':value==='loading'?'取消音乐加载':value==='error'?'重新加载音乐':'播放音乐';
+  toggle.setAttribute('aria-label',action+'：我爱你不问归期（合唱版）');
+  toggle.setAttribute('title',action);
+  toggle.setAttribute('aria-busy',String(value==='loading'));
+ }
+ function progress(){
+  const total=length(),time=pendingSeek!==null?pendingSeek:Number(audio.currentTime)||0;
+  if(!seeking)seek.value=String(time);
+  elapsed.textContent=format(seeking?seek.value:time);
+  if(total){seek.max=String(total);durationLabel.textContent=format(Math.round(total))}
+  seek.setAttribute('aria-valuetext',format(seek.value)+' / '+(total?format(Math.round(total)):'04:25'));
+  seek.style.setProperty('--progress',Math.max(0,Math.min(100,Number(seek.value)/(total||264.725)*100))+'%');
+  seek.disabled=!ready||!total;
+ }
+ function seekTo(value){
+  const total=length(),n=Math.max(0,Math.min(Number(value)||0,total?Math.max(0,total-.05):264.675));
+  pendingSeek=n;
+  if(total){try{audio.currentTime=n;pendingSeek=null}catch(_){}}
+  progress();
+ }
+ function prepare(){
+  if(prepared)return true;
+  if(priming||document.hidden||!musicSource||(!ready&&!(openingRequested&&assetsReady)))return false;
+  // load() resets currentTime. Keep the chosen offset (or user seek) across retries.
+  if(pendingSeek===null)pendingSeek=Number.isFinite(audio.currentTime)?audio.currentTime:start;
+  prepared=true;audio.muted=false;audio.preload='auto';audio.src=musicSource;audio.load();
+  return true;
+ }
+ function bufferWhenReady(){prepare()}
+ function interact(){document.dispatchEvent(new Event('wedding-music-interaction'))}
+ function stop(){wanted=false;resumeAfterHidden=false;request++;audio.pause();if(ready)state('paused','已暂停')}
+ function attempt(){
+  if(!ready||!wanted||priming||document.hidden)return;
+  if(!prepare())return;audio.muted=false;
+  if(pendingSeek!==null&&length())seekTo(pendingSeek);
+  const id=++request;state('loading','音乐加载中…');
+  let result;try{result=audio.play()}catch(error){rejected(error,id);return}
+  Promise.resolve(result).then(()=>{
+   if(id!==request)return;
+   if(!wanted||document.hidden){audio.pause();return}
+   if(!audio.paused)state('playing','正在播放');
+  },error=>rejected(error,id));
+ }
+ function rejected(error,id){
+  if(id!==request)return;wanted=false;
+  if(error?.name==='NotAllowedError')state('blocked','轻点播放，开启音乐');
+  else if(error?.name==='AbortError')state('paused','已暂停');
+  else state('error','加载失败，点击重试');
+ }
+ // Best-effort gesture priming uses the same audio element, but only local silence.
+ // Changing sources can still be blocked by a browser; retain the manual play button.
+ function primeInGesture(event={}){
+  if(event.ctrlKey||event.metaKey||event.shiftKey||event.altKey||(event.button!==undefined&&event.button!==0))return;
+  openingRequested=true;
+  if(ready||prepared||primed||priming){bufferWhenReady();return}
+  primed=true;priming=true;audio.muted=true;audio.preload='none';audio.src=silence;
+  const id=++primeEpoch;
+  // Some mobile browsers leave a play promise pending. It must never hold up music.
+  primeTimer=setTimeout(()=>finishPrime(id),350);
+  let result;try{result=audio.play()}catch(_){finishPrime(id);return}
+  Promise.resolve(result).then(()=>finishPrime(id),()=>finishPrime(id));
+ }
+ function finishPrime(id){
+  if(id!==primeEpoch||!priming)return;
+  primeEpoch++;clearTimeout(primeTimer);primeTimer=null;
+  audio.pause();audio.muted=false;priming=false;
+  // Do not seek against the 20 ms silent clip's metadata.
+  bufferWhenReady();
+  if(ready&&wanted&&!document.hidden)attempt();
+ }
+ function photoIsVisible(){
+  const r=art.getBoundingClientRect();
+  return r.bottom>0&&r.top<window.innerHeight;
+ }
+ function checkStart(){
+  if(ready||document.hidden||!photo?.complete||!photo.naturalWidth||!photoIsVisible())return;
+  // Normal animation starts at the shutter; settled/static photos remain a no-animation fallback.
+  if(!shutterSeen&&!art.classList.contains('camera-photo-settled')&&root.classList.contains('camera-pending'))return;
+  ready=true;toggle.disabled=false;state('ready',shutterSeen?'快门已按下':'照片已显现');progress();
+  observer?.disconnect();
+  window.removeEventListener('scroll',checkStart);
+  if(!autoConsumed){autoConsumed=true;wanted=true;attempt()}
+ }
+ toggle.addEventListener('click',()=>{
+  interact();if(!ready)return;
+  if(wanted||!audio.paused){stop();return}
+  if(player.dataset.state==='error'){prepared=false;prepare()}
+  if(audio.ended)seekTo(start);
+  wanted=true;attempt();
+ });
+ seek.addEventListener('input',()=>{interact();seeking=true;seekTo(seek.value)});
+ seek.addEventListener('change',()=>{seeking=false;progress()});
+ seek.addEventListener('blur',()=>{seeking=false;progress()});
+ // The optional progress panel floats above the button; it never stretches the paper.
+ options.addEventListener('toggle',()=>{if(options.open)interact()});
+ player.addEventListener('keydown',event=>{
+  if(event.key==='Escape'&&options.open){options.open=false;options.querySelector('summary').focus();event.preventDefault()}
+ });
+ document.addEventListener('pointerdown',event=>{
+  if(options.open&&!player.contains(event.target))options.open=false;
+ },{passive:true});
+ for(const type of ['pointerdown','touchstart','keydown'])player.addEventListener(type,interact,{passive:true});
+ audio.addEventListener('loadedmetadata',()=>{if(!prepared||priming)return;if(pendingSeek!==null)seekTo(pendingSeek);progress()});
+ audio.addEventListener('durationchange',progress);audio.addEventListener('timeupdate',progress);
+ audio.addEventListener('playing',()=>{if(priming)return;if(!ready||!wanted||document.hidden){audio.pause();return}state('playing','正在播放')});
+ audio.addEventListener('pause',()=>{if(ready&&!priming&&audio.paused&&player.dataset.state!=='blocked'&&player.dataset.state!=='error')state('paused',document.hidden?'音乐已暂停':'已暂停')});
+ audio.addEventListener('waiting',()=>{if(ready&&wanted&&!priming)state('loading','音乐缓冲中…')});
+ audio.addEventListener('ended',()=>{if(!ready||!prepared||priming)return;wanted=false;resumeAfterHidden=false;state('ended','播放结束，点击重听');progress()});
+ audio.addEventListener('error',()=>{if(priming||!prepared)return;if(ready){request++;wanted=false;audio.pause();state('error','加载失败，点击重试')}else prepared=false});
+ document.querySelector('.cover-enter')?.addEventListener('click',primeInGesture,{capture:true});
+ document.addEventListener('camera-story-started',()=>{openingRequested=true;assetsReady=true;bufferWhenReady()});
+ document.addEventListener('camera-shutter',()=>{shutterSeen=true;checkStart()});
+ document.addEventListener('camera-story-complete',checkStart);
+ document.addEventListener('camera-assets-ready',()=>{assetsReady=true;bufferWhenReady();checkStart()});
+ photo?.addEventListener('load',checkStart);
+ if(window.MutationObserver){observer=new window.MutationObserver(checkStart);observer.observe(art,{attributes:true,attributeFilter:['class']});observer.observe(root,{attributes:true,attributeFilter:['class']})}
+ window.addEventListener('scroll',checkStart,{passive:true});
+ document.addEventListener('visibilitychange',()=>{
+  if(document.hidden){resumeAfterHidden=ready&&wanted;request++;audio.pause()}
+  else{bufferWhenReady();checkStart();if(resumeAfterHidden&&wanted){resumeAfterHidden=false;attempt()}}
+ });
+ window.addEventListener('pagehide',()=>{resumeAfterHidden=ready&&wanted;request++;audio.pause()});
+ window.addEventListener('pageshow',()=>{bufferWhenReady();checkStart();if(resumeAfterHidden&&wanted&&!document.hidden){resumeAfterHidden=false;attempt()}});
+ checkStart();
+})();

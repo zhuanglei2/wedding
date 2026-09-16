@@ -1,0 +1,27 @@
+/* Reserved on both paper layers: controls never shift the shutter geometry. */
+.music-slot{position:relative;z-index:8;flex:none;width:min(78%,640px);height:116px;margin:8px auto 20px;color:#a5372e;font:14px/1.4 "Songti SC",serif;box-sizing:border-box}
+.music-controls{display:flex;align-items:center;gap:14px;border-top:1px solid #b83c3140;padding-top:12px}
+.music-toggle{flex:none;display:grid;place-items:center;width:46px;height:46px;padding:0;border:1.5px solid #23869d;border-radius:50%;color:#23869d;background:transparent;cursor:pointer;font:19px/1 sans-serif}
+.music-details{flex:1;min-width:0}
+.music-title{font-size:16px;line-height:1.4;letter-spacing:.035em;margin:0}
+.music-title span{font-size:13px;white-space:nowrap;letter-spacing:0}
+.music-artist{font-size:12px;color:#84695e;line-height:1.6;margin:2px 0}
+.music-progress{display:flex;align-items:center;gap:8px;color:#397888;font:12px/1.5 ui-monospace,monospace;font-variant-numeric:tabular-nums}
+.music-seek{--progress:0%;flex:1;min-width:0;width:100%;height:22px;margin:0;appearance:none;-webkit-appearance:none;background:transparent;cursor:pointer;touch-action:pan-y}
+.music-seek::-webkit-slider-runnable-track{height:3px;border-radius:2px;background:linear-gradient(to right,#23869d var(--progress),#23869d30 var(--progress))}
+.music-seek::-webkit-slider-thumb{appearance:none;-webkit-appearance:none;width:12px;height:12px;margin-top:-4.5px;border:2px solid #f8f5ef;border-radius:50%;background:#23869d;box-shadow:0 0 0 1px #23869d}
+.music-seek::-moz-range-track{height:3px;background:#23869d30;border:0}
+.music-seek::-moz-range-progress{height:3px;background:#23869d}
+.music-seek::-moz-range-thumb{width:9px;height:9px;background:#23869d;border:2px solid #f8f5ef;border-radius:50%}
+.music-foot{display:flex;align-items:center;gap:8px;margin-top:0;padding-left:60px}
+.music-foot button{min-width:42px;min-height:28px;padding:2px 5px;border:0;background:transparent;color:#397888;font:13px/1.3 ui-monospace,monospace;cursor:pointer}
+.music-status{flex:1;text-align:center;color:#84695e;font-size:12px;line-height:1.4;margin:0}
+.music-slot button:focus-visible,.music-seek:focus-visible{outline:2px solid #23869d;outline-offset:3px}
+.music-slot [disabled]{cursor:default;opacity:.5}
+.music-slot[data-state="waiting"] .music-controls,.music-slot[data-state="waiting"] .music-foot,.music-spacer{visibility:hidden}
+.music-slot[data-state="playing"] .music-toggle{color:#f8f5ef;background:#23869d}
+.music-slot[data-state="error"] .music-status,.music-slot[data-state="blocked"] .music-status{color:#a5372e}
+.music-slot audio{display:none}
+@media(max-width:370px){.music-slot{width:84%}.music-controls{gap:10px}.music-foot{padding-left:56px}.music-title{font-size:15px}.music-title span{font-size:12px}}
+@media(min-width:760px){.music-slot{height:124px;margin-top:18px;margin-bottom:30px}.music-title{font-size:20px}.music-artist,.music-progress,.music-status{font-size:14px}.music-title span{font-size:15px}}
+@media print{.music-slot{display:none!important}}

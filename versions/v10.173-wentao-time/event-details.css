@@ -1,0 +1,13 @@
+/* V10.173: native date typesetting; the original raster and portrait are untouched.
+   Display a narrow blank-paper sample from the SAME responsive cover image over
+   only its old date, then center the updated line. No new background download. */
+.cover-date-revision{position:absolute;inset:0;pointer-events:none;z-index:1}
+.cover-date-paper{position:absolute;inset:0;overflow:hidden;clip-path:inset(79.05% 36% 18.6% 36%);-webkit-mask-image:linear-gradient(90deg,transparent 36%,#000 37.3%,#000 62.7%,transparent 64%),linear-gradient(to bottom,transparent 79.05%,#000 79.32%,#000 81.13%,transparent 81.4%);mask-image:linear-gradient(90deg,transparent 36%,#000 37.3%,#000 62.7%,transparent 64%),linear-gradient(to bottom,transparent 79.05%,#000 79.32%,#000 81.13%,transparent 81.4%);-webkit-mask-composite:source-in;mask-composite:intersect}
+.cover-date-paper>picture{position:absolute;inset:0;display:block;transform:translateY(-3%)}
+.cover-date-revision picture>img{position:static;display:block;width:100%;max-width:100%;height:auto;margin:0;padding:0;border:0;aspect-ratio:1400/3282}
+.cover-date-line{position:absolute;top:78.96%;left:5%;width:90%;height:2.6%;display:flex;align-items:center;justify-content:center;white-space:nowrap;color:#e8cc98;font-family:"Songti SC","Noto Serif SC","STSong","SimSun",serif;font-size:min(4vw,40px);font-weight:400;line-height:1;letter-spacing:0;text-shadow:0 .6px .5px #6d271f80}
+html.star-turn .image-cover>.cover-date-revision{opacity:var(--front-opacity,1)}
+html.turn-settled .image-cover>.cover-date-revision{opacity:1!important}
+.paper-front>.cover-date-revision{right:auto;bottom:auto;z-index:0}
+@media(prefers-reduced-motion:reduce){html.star-turn .image-cover>.cover-date-revision{opacity:1!important}}
+@media print{.image-cover>.cover-date-revision{opacity:1!important}}
