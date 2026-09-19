@@ -78,7 +78,7 @@ body{font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Source Han 
 .tl .tc{width:52px;font-weight:600;color:#8b6f5e;font-size:14px;flex-shrink:0}
 .tl .ec{flex:1;font-size:14px}
 .tl .ec .en-name{font-weight:500}
-.tl .ec .en-note{color:#aaa;font-size:13px;margin-top:2px}
+.tl .ec .en-note{display:none}
 .tl.past{opacity:.28}
 .tl.past::after{content:"✓";font-size:11px;color:#27ae60;background:#eafaf1;padding:2px 8px;border-radius:8px;flex-shrink:0;align-self:center}
 .show-past .tl.past{opacity:.42}
@@ -303,8 +303,9 @@ function buildTimeline(){
 }
 function updateLive(){
   var nowMin=toMin(new Date().toTimeString().slice(0,5));
-  var tls=document.querySelectorAll('.tl');var maxGi=0;
+  var tls=document.querySelectorAll('.tl');var maxGi=-1;
   tls.forEach(function(t){var g=parseInt(t.dataset.gi);if(toMin(t.dataset.time)<=nowMin&&g>maxGi)maxGi=g;});
+  if(maxGi===-1)maxGi=0;
   var hasPast=false;var curPhase=null;
   tls.forEach(function(t){
     var g=parseInt(t.dataset.gi);
