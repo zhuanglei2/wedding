@@ -283,7 +283,7 @@ var PHASES=[
  ]}
 ];
 function toMin(t){var a=t.split(':');return parseInt(a[0])*60+parseInt(a[1]);}
-var TESTING=true; // 测试当天效果，测完改回false
+var TESTING=false; // 测试当天效果时改true
 function isWeddingDay(){
   if(TESTING)return true;
   var p=new URLSearchParams(location.search);
