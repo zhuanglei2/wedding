@@ -399,8 +399,8 @@ function fireConfetti(){
   setTimeout(function(){if(ov)ov.remove();},3600);
 }
 (function(){
-  var demo=new URLSearchParams(location.search).get('demo')==='1';
-  if(demo||!sessionStorage.getItem('cfired')){
+  if(!isWeddingDay())return;
+  if(!sessionStorage.getItem('cfired')){
     sessionStorage.setItem('cfired','1');
     setTimeout(fireConfetti,350);
   }
