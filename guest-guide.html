@@ -26,11 +26,11 @@ body{font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Source Han 
 .hd::after{content:"";display:block;width:48px;height:1px;background:linear-gradient(90deg,transparent,#c9a87c,transparent);margin:14px auto 0}
 .cd{text-align:center;font-size:12px;color:#c9a87c;margin:6px 0 14px;letter-spacing:1px}
 .cd b{font-size:20px;color:#c9a87c;font-weight:700;margin:0 3px}
-.tabs{position:fixed;left:10px;right:10px;bottom:10px;max-width:540px;margin:0 auto;background:#fff;border:1px solid #efe6dd;border-radius:20px;display:flex;z-index:50;box-shadow:0 6px 24px rgba(139,111,94,0.16);padding:5px}
-.tab{flex:1;text-align:center;padding:7px 0 5px;font-size:11px;color:#a99a89;cursor:pointer;border:none;background:none;font-family:inherit;border-radius:14px;transition:all .25s}
-.tab svg{width:19px;height:19px;stroke:currentColor;fill:none;stroke-width:1.8;display:block;margin:0 auto 3px}
-.tab.active{color:#fff;background:linear-gradient(135deg,#d9b98f,#c9a87c 55%,#b8896a);box-shadow:0 3px 10px rgba(201,168,124,.4)}
-.tab.active svg{animation:tabPop .3s ease}
+.tabs{position:fixed;left:12px;right:12px;bottom:12px;max-width:536px;margin:0 auto;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);border:1px solid #efe6dd;border-radius:22px;display:flex;z-index:50;box-shadow:0 6px 24px rgba(139,111,94,0.18);padding:6px}
+.tab{flex:1;text-align:center;padding:5px 0 4px;font-size:10px;color:#b0a594;cursor:pointer;border:none;background:none;font-family:inherit;transition:color .25s}
+.tab svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:1.8;display:block;margin:0 auto 3px;padding:7px;box-sizing:content-box;border-radius:50%;transition:all .25s}
+.tab.active{color:#c9a87c}
+.tab.active svg{background:linear-gradient(135deg,#dcb893,#c9a87c 55%,#b8896a);stroke:#fff;color:#fff;box-shadow:0 3px 10px rgba(201,168,124,.45);animation:tabPop .3s ease}
 @keyframes tabPop{from{transform:scale(.7)}to{transform:scale(1)}}
 .page{display:none}
 .page.active{display:block;animation:fadeIn .4s ease}
@@ -116,7 +116,6 @@ body{font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Source Han 
 <div class="petals" id="petals"></div>
 <div class="wrap">
   <div class="hd">
-    <div class="xi">囍</div>
     <svg viewBox="0 0 52 26" fill="none" stroke="#c9a87c" stroke-width="1.5"><circle cx="18" cy="13" r="9.5"/><circle cx="34" cy="13" r="9.5"/></svg>
     <h1>婚礼宾客指南</h1>
     <div class="en">Wedding Guest Guide</div>
@@ -260,7 +259,7 @@ function isWeddingDay(){
 }
 function renderTimeline(){
   var box=document.getElementById('timeline');
-  var live=isWeddingDay();
+  var live=true;
   var nowMin=live?toMin(new Date().toTimeString().slice(0,5)):-1;
   // 扁平化，找当前环节
   var flat=[];var gi=0;
@@ -301,7 +300,7 @@ function scrollToCurrent(){
   if(now){now.scrollIntoView({behavior:'smooth',block:'center'});}
 }
 renderTimeline();
-if(isWeddingDay()){setTimeout(scrollToCurrent,400);setInterval(function(){renderTimeline();setTimeout(scrollToCurrent,200);},60000);}
+setTimeout(scrollToCurrent,400);setInterval(function(){renderTimeline();setTimeout(scrollToCurrent,200);},60000);
 // 天气
 function weatherIcon(c){if(c===0)return'☀️';if(c<=3)return'⛅';if(c<=49)return'🌫️';if(c<=59)return'🌦️';if(c<=69)return'🌧️';if(c<=79)return'🌨️';if(c<=82)return'🌧️';if(c<=86)return'🌨️';if(c>=95)return'⛈️';return'🌥️'}
 function weatherDesc(c){if(c===0)return'晴';if(c<=3)return'多云';if(c<=49)return'雾';if(c<=59)return'小雨';if(c<=69)return'雨';if(c<=79)return'雪';if(c>=95)return'雷雨';return'阴'}
