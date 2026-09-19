@@ -363,12 +363,12 @@ function fireConfetti(){
 })();
 // 左右滑动切换Tab
 (function(){
-  var sx=0,sy=0;
-  document.addEventListener('touchstart',function(e){var t=e.touches[0];sx=t.clientX;sy=t.clientY;},{passive:true});
+  var sx=0,sy=0,st=null;
+  document.addEventListener('touchstart',function(e){var t=e.touches[0];sx=t.clientX;sy=t.clientY;st=e.target;},{passive:true});
   document.addEventListener('touchend',function(e){
     var t=e.changedTouches[0];var dx=t.clientX-sx;var dy=t.clientY-sy;
-    if(Math.abs(dx)<60||Math.abs(dx)<Math.abs(dy))return;
-    if(e.target.closest('.wslots,button,a,.tl,.loc-row,.contact,.tabs'))return;
+    if(Math.abs(dx)<50||Math.abs(dx)<Math.abs(dy))return;
+    if(st&&st.closest('a,button,.wslots,.tabs'))return;
     var tabs=['schedule','route','contact','weather'];
     var btns=document.querySelectorAll('.tab');var cur=0;
     btns.forEach(function(b,i){if(b.classList.contains('active'))cur=i;});
@@ -378,7 +378,7 @@ function fireConfetti(){
   },{passive:true});
   // 鼠标拖拽(桌面测试)
   var mx=0,md=false;
-  document.addEventListener('mousedown',function(e){if(e.target.closest('button,a,.tl,.loc-row,.contact,.tabs,.wslots'))return;md=true;mx=e.clientX;});
+  document.addEventListener('mousedown',function(e){if(e.target.closest('a,button,.wslots,.tabs'))return;md=true;mx=e.clientX;});
   document.addEventListener('mouseup',function(e){if(!md)return;md=false;var dx=e.clientX-mx;if(Math.abs(dx)<80)return;var tabs=['schedule','route','contact','weather'];var btns=document.querySelectorAll('.tab');var cur=0;btns.forEach(function(b,i){if(b.classList.contains('active'))cur=i;});var ni=dx<0?cur+1:cur-1;if(ni<0||ni>=tabs.length)return;switchTab(tabs[ni],btns[ni]);});
 })();
 </script>
