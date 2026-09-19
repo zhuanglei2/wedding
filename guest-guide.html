@@ -303,6 +303,13 @@ function buildTimeline(){
   document.getElementById('timeline').innerHTML='<div class="showpast-btn" id="showpast-btn" style="display:none"><button onclick="togglePast(this)">展开已过环节 ▾</button></div>'+html;
 }
 function updateLive(){
+  var live=isWeddingDay();
+  if(!live){
+    document.querySelectorAll('.tl').forEach(function(t){t.classList.remove('past','now');});
+    document.querySelectorAll('.phase').forEach(function(ph){ph.classList.remove('is-past','current-phase');});
+    var sb0=document.getElementById('showpast-btn');if(sb0)sb0.style.display='none';
+    return;
+  }
   var nowMin=toMin(new Date().toTimeString().slice(0,5));
   var tls=document.querySelectorAll('.tl');var maxGi=-1;
   tls.forEach(function(t){var g=parseInt(t.dataset.gi);if(toMin(t.dataset.time)<=nowMin&&g>maxGi)maxGi=g;});
