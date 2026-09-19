@@ -14,6 +14,10 @@ body{font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Source Han 
 .petals{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
 .petal{position:absolute;top:-30px;font-size:14px;opacity:.55;animation:fall linear infinite}
 @keyframes fall{0%{transform:translateY(-30px) rotate(0deg) translateX(0);opacity:0}10%{opacity:.6}90%{opacity:.5}100%{transform:translateY(105vh) rotate(360deg) translateX(40px);opacity:0}}
+/* 礼花特效 */
+#confetti{position:fixed;inset:0;pointer-events:none;z-index:9999;overflow:hidden}
+.cpart{position:absolute;will-change:transform,opacity;animation:cfly linear forwards;border-radius:2px}
+@keyframes cfly{0%{transform:translate(0,0) rotate(0deg);opacity:1}80%{opacity:1}100%{transform:translate(var(--dx),var(--dy)) rotate(900deg);opacity:0}}
 .wrap{position:relative;z-index:1;max-width:560px;margin:0 auto;padding:18px 56px 20px 14px}
 .hd{text-align:center;padding:8px 0 4px;animation:fadeDown .8s ease}
 @keyframes fadeDown{from{opacity:0;transform:translateY(-12px)}to{opacity:1;transform:none}}
@@ -331,6 +335,52 @@ function weatherDesc(c){if(c===0)return'晴';if(c<=3)return'多云';if(c<=49)ret
     });
     document.getElementById('w-note').textContent='数据来源：Open-Meteo · '+(demo?'今日预览':'婚礼当天');
   }).catch(function(){document.getElementById('w-loading').textContent='天气加载失败，请稍后刷新'});
+})();
+// 礼花特效（首次打开）
+function fireConfetti(){
+  var ov=document.createElement('div');ov.id='confetti';document.body.appendChild(ov);
+  var colors=['#c9a87c','#d9534f','#e8a0b0','#f0d878','#b8896a','#ffffff','#e3a0a0','#d4af37'];
+  for(var i=0;i<80;i++){
+    var p=document.createElement('div');p.className='cpart';
+    var side=i%2;p.style.background=colors[i%colors.length];
+    p.style.top=(Math.random()*45)+'%';
+    p.style.left=side?'auto':'-12px';p.style.right=side?'-12px':'auto';
+    p.style.width=(7+Math.random()*7)+'px';p.style.height=(11+Math.random()*9)+'px';
+    var dx=side?-(180+Math.random()*520):(180+Math.random()*520);
+    var dy=220+Math.random()*420;
+    p.style.setProperty('--dx',dx+'px');p.style.setProperty('--dy',dy+'px');
+    p.style.animationDuration=(1.7+Math.random()*1.3)+'s';
+    p.style.animationDelay=(Math.random()*0.35)+'s';
+    ov.appendChild(p);
+  }
+  setTimeout(function(){if(ov)ov.remove();},3600);
+}
+(function(){
+  var demo=new URLSearchParams(location.search).get('demo')==='1';
+  if(demo||!sessionStorage.getItem('cfired')){
+    sessionStorage.setItem('cfired','1');
+    setTimeout(fireConfetti,350);
+  }
+})();
+// 左右滑动切换Tab
+(function(){
+  var sx=0,sy=0;
+  document.addEventListener('touchstart',function(e){var t=e.touches[0];sx=t.clientX;sy=t.clientY;},{passive:true});
+  document.addEventListener('touchend',function(e){
+    var t=e.changedTouches[0];var dx=t.clientX-sx;var dy=t.clientY-sy;
+    if(Math.abs(dx)<60||Math.abs(dx)<Math.abs(dy))return;
+    if(e.target.closest('.wslots,button,a,.tl,.loc-row,.contact,.tabs'))return;
+    var tabs=['schedule','route','contact','weather'];
+    var btns=document.querySelectorAll('.tab');var cur=0;
+    btns.forEach(function(b,i){if(b.classList.contains('active'))cur=i;});
+    var ni=dx<0?cur+1:cur-1;
+    if(ni<0||ni>=tabs.length)return;
+    switchTab(tabs[ni],btns[ni]);
+  },{passive:true});
+  // 鼠标拖拽(桌面测试)
+  var mx=0,md=false;
+  document.addEventListener('mousedown',function(e){if(e.target.closest('button,a,.tl,.loc-row,.contact,.tabs,.wslots'))return;md=true;mx=e.clientX;});
+  document.addEventListener('mouseup',function(e){if(!md)return;md=false;var dx=e.clientX-mx;if(Math.abs(dx)<80)return;var tabs=['schedule','route','contact','weather'];var btns=document.querySelectorAll('.tab');var cur=0;btns.forEach(function(b,i){if(b.classList.contains('active'))cur=i;});var ni=dx<0?cur+1:cur-1;if(ni<0||ni>=tabs.length)return;switchTab(tabs[ni],btns[ni]);});
 })();
 </script>
 </body>
