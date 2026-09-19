@@ -38,8 +38,12 @@ body{font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Source Han 
 .tab.active svg{background:linear-gradient(135deg,#dcb893,#c9a87c 55%,#b8896a);stroke:#fff;color:#fff;box-shadow:0 3px 10px rgba(201,168,124,.45);animation:tabPop .3s ease}
 @keyframes tabPop{from{transform:scale(.7)}to{transform:scale(1)}}
 .page{display:none}
-.page.active{display:block;animation:fadeIn .4s ease}
+.page.active{display:block;animation:fadeIn .35s ease}
+.page.active.slide-l{animation:slideR .35s cubic-bezier(.22,.61,.36,1)}
+.page.active.slide-r{animation:slideL .35s cubic-bezier(.22,.61,.36,1)}
 @keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+@keyframes slideR{from{opacity:0;transform:translateX(36px)}to{opacity:1;transform:none}}
+@keyframes slideL{from{opacity:0;transform:translateX(-36px)}to{opacity:1;transform:none}}
 .card{background:#fff;border-radius:16px;padding:16px 14px;box-shadow:0 4px 18px rgba(139,111,94,0.08);border:1px solid #efe6dd;margin-bottom:14px}
 .card-title{font-size:16px;color:#5c4033;font-weight:600;margin-bottom:12px;text-align:center}
 .card-title::after{content:"";display:block;width:30px;height:2px;background:linear-gradient(90deg,#c9a87c,#8b6f5e);margin:8px auto 0;border-radius:1px}
@@ -52,8 +56,8 @@ body{font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Source Han 
 .phase.is-past{display:none}
 .show-past .phase.is-past{display:block}
 .show-past .phase.is-past .phase-body{max-height:none}
-.showpast-btn{text-align:center;margin:6px 0 12px}
-.showpast-btn button{background:#fff;border:1px dashed #d4c5b0;color:#a99a89;border-radius:18px;padding:6px 16px;font-size:12px;cursor:pointer;font-family:inherit}
+.showpast-btn{text-align:left;margin:0 0 8px;padding-left:2px}
+.showpast-btn button{background:none;border:none;color:#b0a594;font-size:11px;cursor:pointer;font-family:inherit;padding:2px 0;text-decoration:underline;text-decoration-color:#e0d5c8;text-underline-offset:3px}
 .tl{display:flex;padding:8px 4px;border-bottom:1px solid #f5f1ed;align-items:flex-start;transition:all .3s}
 .tl:last-child{border-bottom:none}
 .tl .tc{width:56px;font-weight:600;color:#8b6f5e;font-size:14px;flex-shrink:0}
@@ -195,9 +199,12 @@ body{font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Source Han 
   var p=document.getElementById('petals');var icons=['🌸','🌺','🏵️','💐','💖'];var n=10;
   for(var i=0;i<n;i++){var s=document.createElement('div');s.className='petal';s.textContent=icons[i%icons.length];s.style.left=(Math.random()*100)+'%';s.style.fontSize=(10+Math.random()*10)+'px';s.style.animationDuration=(8+Math.random()*8)+'s';s.style.animationDelay=(-Math.random()*10)+'s';p.appendChild(s);}
 })();
-function switchTab(p,btn){
-  document.querySelectorAll('.page').forEach(function(el){el.classList.remove('active')});
-  document.getElementById('p-'+p).classList.add('active');
+function switchTab(p,btn,dir){
+  document.querySelectorAll('.page').forEach(function(el){el.classList.remove('active','slide-l','slide-r');});
+  var np=document.getElementById('p-'+p);
+  if(dir==='next')np.classList.add('slide-l');
+  else if(dir==='prev')np.classList.add('slide-r');
+  np.classList.add('active');
   document.querySelectorAll('.tab').forEach(function(t){t.classList.remove('active')});
   btn.classList.add('active');
   if(p==='schedule') setTimeout(scrollToCurrent,100);
@@ -375,12 +382,12 @@ function fireConfetti(){
     btns.forEach(function(b,i){if(b.classList.contains('active'))cur=i;});
     var ni=dx<0?cur+1:cur-1;
     if(ni<0||ni>=tabs.length)return;
-    switchTab(tabs[ni],btns[ni]);
+    switchTab(tabs[ni],btns[ni],ni>cur?'next':'prev');
   },{passive:true});
   // 鼠标拖拽(桌面测试)
   var mx=0,md=false;
   document.addEventListener('mousedown',function(e){if(e.target.closest('a,button,.wslots,.tabs'))return;md=true;mx=e.clientX;});
-  document.addEventListener('mouseup',function(e){if(!md)return;md=false;var dx=e.clientX-mx;if(Math.abs(dx)<80)return;var tabs=['schedule','route','contact','weather'];var btns=document.querySelectorAll('.tab');var cur=0;btns.forEach(function(b,i){if(b.classList.contains('active'))cur=i;});var ni=dx<0?cur+1:cur-1;if(ni<0||ni>=tabs.length)return;switchTab(tabs[ni],btns[ni]);});
+  document.addEventListener('mouseup',function(e){if(!md)return;md=false;var dx=e.clientX-mx;if(Math.abs(dx)<80)return;var tabs=['schedule','route','contact','weather'];var btns=document.querySelectorAll('.tab');var cur=0;btns.forEach(function(b,i){if(b.classList.contains('active'))cur=i;});var ni=dx<0?cur+1:cur-1;if(ni<0||ni>=tabs.length)return;switchTab(tabs[ni],btns[ni],ni>cur?'next':'prev');});
 })();
 </script>
 </body>
