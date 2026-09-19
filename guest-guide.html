@@ -322,11 +322,40 @@ function togglePhase(el){
 }
 function scrollToCurrent(){
   var now=document.querySelector('.tl.now');
-  if(now){now.scrollIntoView({behavior:'smooth',block:'center'});}
+  if(now){
+    var body=now.closest('.phase-body');
+    if(body){body.scrollTop=now.offsetTop-body.clientHeight/2+now.offsetHeight/2;}
+    else now.scrollIntoView({behavior:'smooth',block:'center'});
+  }
+}
+// 机械tick音效
+var actx;
+function tick(){
+  try{
+    if(!actx)actx=new (window.AudioContext||window.webkitAudioContext)();
+    var o=actx.createOscillator();var g=actx.createGain();
+    o.connect(g);g.connect(actx.destination);o.type='square';o.frequency.value=1400;
+    g.gain.setValueAtTime(0.12,actx.currentTime);
+    g.gain.exponentialRampToValueAtTime(0.001,actx.currentTime+0.04);
+    o.start();o.stop(actx.currentTime+0.04);
+  }catch(e){}
+}
+// 滚轮按滚动位置切换当前项 + tick音效
+function attachRollerScroll(){
+  document.querySelectorAll('.phase-body').forEach(function(body){
+    var last=-1;
+    body.addEventListener('scroll',function(){
+      var center=body.scrollTop+body.clientHeight/2;
+      var items=body.querySelectorAll('.tl');var best=null,bestD=Infinity;
+      items.forEach(function(it){var mid=it.offsetTop+it.offsetHeight/2;var d=Math.abs(mid-center);if(d<bestD){bestD=d;best=it;}});
+      if(best){var gi=parseInt(best.dataset.gi);if(gi!==last){last=gi;items.forEach(function(it){it.classList.remove('now');});best.classList.add('now');tick();}}
+    },{passive:true});
+  });
 }
 buildTimeline();
 updateLive();
-setTimeout(scrollToCurrent,500);setInterval(function(){updateLive();setTimeout(scrollToCurrent,200);},60000);
+attachRollerScroll();
+setTimeout(scrollToCurrent,500);
 // 天气
 function weatherIcon(c){if(c===0)return'☀️';if(c<=3)return'⛅';if(c<=49)return'🌫️';if(c<=59)return'🌦️';if(c<=69)return'🌧️';if(c<=79)return'🌨️';if(c<=82)return'🌧️';if(c<=86)return'🌨️';if(c>=95)return'⛈️';return'🌥️'}
 function weatherDesc(c){if(c===0)return'晴';if(c<=3)return'多云';if(c<=49)return'雾';if(c<=59)return'小雨';if(c<=69)return'雨';if(c<=79)return'雪';if(c>=95)return'雷雨';return'阴'}
