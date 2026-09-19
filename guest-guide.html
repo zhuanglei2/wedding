@@ -9,7 +9,7 @@
 <meta property="og:image" content="http://www.zl-wedding.asia/share.png">
 <style>
 *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
-body{font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;background:linear-gradient(160deg,#fdfcfb 0%,#f7f1ea 55%,#f2ebe1 100%);color:#5c4033;min-height:100vh;padding-bottom:62px;overflow-x:hidden}
+body{font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;background:linear-gradient(160deg,#fdfcfb 0%,#f7f1ea 55%,#f2ebe1 100%);color:#5c4033;min-height:100vh;padding-bottom:62px;overflow-x:hidden;font-size:15px}
 /* 喜庆花瓣飘落 */
 .petals{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
 .petal{position:absolute;top:-30px;font-size:14px;opacity:.55;animation:fall linear infinite}
@@ -35,29 +35,31 @@ body{font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;backgr
 .page.active{display:block;animation:fadeIn .4s ease}
 @keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
 .card{background:#fff;border-radius:16px;padding:16px 14px;box-shadow:0 4px 18px rgba(139,111,94,0.08);border:1px solid #efe6dd;margin-bottom:14px}
-.card-title{font-size:15px;color:#5c4033;font-weight:600;margin-bottom:12px;text-align:center}
+.card-title{font-size:16px;color:#5c4033;font-weight:600;margin-bottom:12px;text-align:center}
 .card-title::after{content:"";display:block;width:30px;height:2px;background:linear-gradient(90deg,#c9a87c,#8b6f5e);margin:8px auto 0;border-radius:1px}
 /* 日程时间轴 */
 .phase{margin-bottom:10px}
-.phase-t{font-size:13px;font-weight:600;color:#5c4033;background:linear-gradient(135deg,#faf7f4,#fdf6f0);padding:8px 12px;border-radius:8px;border-left:3px solid #c9a87c;margin-bottom:6px;display:flex;justify-content:space-between;align-items:center;cursor:pointer}
+.phase-t{font-size:14px;font-weight:600;color:#5c4033;background:linear-gradient(135deg,#faf7f4,#fdf6f0);padding:9px 12px;border-radius:8px;border-left:3px solid #c9a87c;margin-bottom:6px;display:flex;justify-content:space-between;align-items:center;cursor:pointer}
 .phase-t .pc{font-size:11px;color:#a99a89;font-weight:400}
 .phase-body{overflow:hidden;transition:max-height .4s ease}
 .phase-body.hidden{max-height:0 !important}
-.tl{display:flex;padding:7px 4px;border-bottom:1px solid #f5f1ed;align-items:flex-start;transition:all .3s}
+.tl{display:flex;padding:8px 4px;border-bottom:1px solid #f5f1ed;align-items:flex-start;transition:all .3s}
 .tl:last-child{border-bottom:none}
-.tl .tc{width:52px;font-weight:600;color:#8b6f5e;font-size:13px;flex-shrink:0}
-.tl .ec{flex:1;font-size:13px}
+.tl .tc{width:56px;font-weight:600;color:#8b6f5e;font-size:14px;flex-shrink:0}
+.tl .ec{flex:1;font-size:14px}
 .tl .ec .en-name{font-weight:500}
-.tl .ec .en-note{color:#aaa;font-size:12px;margin-top:2px}
+.tl .ec .en-note{color:#aaa;font-size:13px;margin-top:2px}
 .tl.past{opacity:.4}
 .tl.past .ec .en-note{display:none}
 .tl.past .tc::after{content:" ✓";color:#27ae60}
-.tl.now{background:linear-gradient(90deg,#fdf6ed,#fff);border-left:3px solid #c9a87c;padding-left:6px;border-radius:6px;animation:nowPulse 2s ease-in-out infinite}
+.tl.now{background:linear-gradient(90deg,#fdf6ed,#fff);border-left:3px solid #c9a87c;padding:10px 6px 10px 8px;border-radius:8px;animation:nowPulse 2s ease-in-out infinite}
+.tl.now .tc{color:#c9a87c;font-size:16px;font-weight:700}
+.tl.now .ec .en-name{font-size:17px;color:#5c4033}
+.tl.now .ec .en-note{font-size:13px}
 @keyframes nowPulse{0%,100%{box-shadow:0 0 0 0 rgba(201,168,124,.35)}50%{box-shadow:0 0 0 6px rgba(201,168,124,0)}}
-.tl.now .tc{color:#c9a87c}
-.tl.now .en-name::after{content:" · 进行中";color:#c9a87c;font-size:11px}
+.tl.now .en-name::after{content:" · 进行中";color:#c9a87c;font-size:12px}
 .tl.next .tc{color:#c9a87c}
-.note-box{background:#faf6f0;border-radius:10px;padding:11px 14px;font-size:12px;color:#8b7355;line-height:1.7;margin-top:8px}
+.note-box{background:#faf6f0;border-radius:10px;padding:11px 14px;font-size:13px;color:#8b7355;line-height:1.7;margin-top:8px}
 .live-bar{display:none;text-align:center;font-size:12px;color:#c9a87c;background:#fff8e8;border:1px solid #f0d878;border-radius:10px;padding:8px;margin-bottom:12px}
 .live-bar.show{display:block;animation:fadeIn .4s}
 /* 天气 */
@@ -72,21 +74,22 @@ body{font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;backgr
 .wload{text-align:center;color:#888;font-size:13px;padding:10px 0}
 .wnote{font-size:11px;color:#999;margin-top:10px;text-align:center;line-height:1.6}
 /* 路线 */
-.hotel-note{background:#faf7f4;border:1px solid #efe6dd;border-radius:10px;padding:11px 13px;margin-bottom:12px;font-size:12.5px;color:#5c4033;line-height:1.9}
+.hotel-note{background:#faf7f4;border:1px solid #efe6dd;border-radius:10px;padding:12px 14px;margin-bottom:12px;font-size:13.5px;color:#5c4033;line-height:2}
+.hotel-note a{color:#b8824f;text-decoration:none;font-weight:600;border-bottom:1px solid #e3d2bd;margin-left:4px}
 .route{padding:11px 0;border-bottom:1px dashed #efe6dd}
 .route:last-of-type{border-bottom:none}
 .route-head{display:flex;align-items:center;gap:7px;margin-bottom:7px}
-.route-tag{font-size:13px;font-weight:600;color:#5c4033}
+.route-tag{font-size:14px;font-weight:600;color:#5c4033}
 .route-rec{font-size:10px;color:#fff;background:linear-gradient(135deg,#c9a87c,#8b6f5e);padding:1px 7px;border-radius:8px}
-.route-line{font-size:12.5px;color:#7a6a5a;line-height:1.9}
+.route-line{font-size:13.5px;color:#7a6a5a;line-height:2}
 .route-line .loc{color:#b8824f;text-decoration:none;font-weight:600;border-bottom:1px solid #e3d2bd}
-.route-line .addr{display:inline-block;margin-left:5px;color:#b3a898;font-size:11px}
+.route-line .addr{display:inline-block;margin-left:5px;color:#b3a898;font-size:12px}
 .nav-btn{display:block;text-align:center;margin-top:12px;padding:11px;border-radius:10px;background:#fff;border:1.5px solid #c9a87c;color:#b8926a;font-size:13px;text-decoration:none;font-weight:500}
 .nav-btn:active{transform:scale(.98);background:#fdf6ed}
 /* 电话 */
 .contact{display:flex;align-items:center;padding:12px 14px;background:linear-gradient(135deg,#fdfcfb,#faf7f4);border-radius:12px;border:1px solid #efe6dd;margin-bottom:10px;animation:fadeIn .4s}
 .contact-role{font-size:11px;color:#fff;background:#c9a87c;padding:2px 8px;border-radius:4px;flex-shrink:0;min-width:52px;text-align:center}
-.contact-name{flex:1;font-size:14px;font-weight:500;color:#5c4033;margin-left:11px}
+.contact-name{flex:1;font-size:15px;font-weight:500;color:#5c4033;margin-left:11px}
 .contact-phone a{display:flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,#c9a87c,#a0835e);color:#fff;text-decoration:none;box-shadow:0 2px 8px rgba(201,168,124,0.35)}
 .contact-phone a:active{transform:scale(.88)}
 .contact-phone svg{width:16px;height:16px;stroke:#fff;fill:none;stroke-width:2}
@@ -118,7 +121,7 @@ body{font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;backgr
   <div class="page" id="p-route">
     <div class="card">
       <div class="card-title">路线指引</div>
-      <div class="hotel-note">🏨 入住酒店：<b>金海开元名都大酒店</b>（桃源中路258号）<br>💍 婚宴酒店：<b>宁海西子国际大酒店</b>（跃龙街道外环东路8号）</div>
+      <div class="hotel-note">🏨 入住酒店：<b>金海开元名都大酒店</b>（桃源中路258号）<a href="https://uri.amap.com/navigation?to=121.430,29.288,金海开元名都大酒店&mode=car">📍导航</a><br>💍 婚宴酒店：<b>宁海西子国际大酒店</b>（跃龙街道外环东路8号）<a href="https://uri.amap.com/navigation?to=121.438,29.280,宁海西子国际大酒店&mode=car">📍导航</a></div>
       <div class="route">
         <div class="route-head"><span class="route-tag">🚄 高铁</span><span class="route-rec">推荐</span></div>
         <div class="route-line">① 各地 → <a class="loc" href="https://uri.amap.com/navigation?to=121.544,29.874,宁海站&mode=car">宁海站</a>（可直达，或经宁波站转🚄）<span class="addr">宁海县</span></div>
@@ -289,14 +292,20 @@ if(isWeddingDay()){setTimeout(scrollToCurrent,400);setInterval(function(){render
 function weatherIcon(c){if(c===0)return'☀️';if(c<=3)return'⛅';if(c<=49)return'🌫️';if(c<=59)return'🌦️';if(c<=69)return'🌧️';if(c<=79)return'🌨️';if(c<=82)return'🌧️';if(c<=86)return'🌨️';if(c>=95)return'⛈️';return'🌥️'}
 function weatherDesc(c){if(c===0)return'晴';if(c<=3)return'多云';if(c<=49)return'雾';if(c<=59)return'小雨';if(c<=69)return'雨';if(c<=79)return'雪';if(c>=95)return'雷雨';return'阴'}
 (function(){
+  var p=new URLSearchParams(location.search);
+  var demo=p.get('demo')==='1';
   var wd='2026-10-06';
   var diff=Math.ceil((new Date(wd+'T00:00:00+08:00')-Date.now())/86400000);
-  if(diff>7){
+  var useDate,label;
+  if(demo){var t=new Date();useDate=t.getFullYear()+'-'+String(t.getMonth()+1).padStart(2,'0')+'-'+String(t.getDate()).padStart(2,'0');label='今日天气预览';}
+  else if(diff<=7){useDate=wd;label='婚礼当天天气预报';}
+  else{
     document.getElementById('w-loading').style.display='none';
     document.getElementById('w-note').innerHTML='距婚礼还有'+diff+'天，<br>婚礼前7天自动显示10月6日实时天气预报。<br>10月宁海约16-24°C，建议备薄外套。';
     return;
   }
-  var url='https://api.open-meteo.com/v1/forecast?latitude=29.28&longitude=121.43&hourly=temperature_2m,weathercode,windspeed_10m&timezone=Asia/Shanghai&start_date='+wd+'&end_date='+wd;
+  document.getElementById('w-title').textContent='🌤️ '+label+' · 宁海';
+  var url='https://api.open-meteo.com/v1/forecast?latitude=29.28&longitude=121.43&hourly=temperature_2m,weathercode,windspeed_10m&timezone=Asia/Shanghai&start_date='+useDate+'&end_date='+useDate;
   fetch(url).then(function(r){return r.json()}).then(function(data){
     var hours=data.hourly.time,temps=data.hourly.temperature_2m,codes=data.hourly.weathercode;
     var slots=document.getElementById('w-slots');document.getElementById('w-loading').style.display='none';
@@ -306,7 +315,7 @@ function weatherDesc(c){if(c===0)return'晴';if(c<=3)return'多云';if(c<=49)ret
       s.innerHTML='<div class="wt">'+String(h).padStart(2,'0')+':00</div><div class="wi">'+weatherIcon(codes[h])+'</div><div class="wtmp">'+Math.round(temps[h])+'°C</div><div class="wd">'+weatherDesc(codes[h])+'</div>';
       slots.appendChild(s);
     });
-    document.getElementById('w-note').textContent='数据来源：Open-Meteo · 婚礼当天';
+    document.getElementById('w-note').textContent='数据来源：Open-Meteo · '+(demo?'今日预览':'婚礼当天');
   }).catch(function(){document.getElementById('w-loading').textContent='天气加载失败，请稍后刷新'});
 })();
 </script>
