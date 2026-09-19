@@ -193,7 +193,7 @@ function switchTab(p,btn){
   var wedding=new Date('2026-10-06T00:00:00+08:00').getTime();
   var d=Math.ceil((wedding-Date.now())/86400000);
   document.getElementById('cd-days').textContent=d>0?d:0;
-  if(d<=0)document.getElementById('cd').innerHTML='🎉 今天是大喜之日！';
+  if(d<=0||isWeddingDay())document.getElementById('cd').innerHTML='🎉 今天是大喜之日！';
 })();
 // 全天时间表数据
 var PHASES=[
@@ -242,7 +242,11 @@ var PHASES=[
  ]}
 ];
 function toMin(t){var a=t.split(':');return parseInt(a[0])*60+parseInt(a[1]);}
-function isWeddingDay(){var n=new Date();return n.getFullYear()===2026&&n.getMonth()===9&&n.getDate()===6;}
+function isWeddingDay(){
+  var p=new URLSearchParams(location.search);
+  if(p.get('demo')==='1')return true;
+  var n=new Date();return n.getFullYear()===2026&&n.getMonth()===9&&n.getDate()===6;
+}
 function renderTimeline(){
   var box=document.getElementById('timeline');
   var live=isWeddingDay();
