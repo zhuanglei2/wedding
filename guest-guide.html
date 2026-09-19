@@ -53,20 +53,19 @@ body{font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Source Han 
 .phase-t .pc{font-size:11px;color:#a99a89;font-weight:400}
 .phase-body{overflow:hidden;transition:max-height .4s ease}
 .phase-body.hidden{max-height:0 !important}
-.phase.is-past{display:none}
-.show-past .phase.is-past{display:block}
-.show-past .phase.is-past .phase-body{max-height:none}
+.phase.is-past .phase-t{opacity:.55}
 .showpast-btn{text-align:left;margin:0 0 8px;padding-left:2px}
 .showpast-btn button{background:none;border:none;color:#b0a594;font-size:11px;cursor:pointer;font-family:inherit;padding:2px 0;text-decoration:underline;text-decoration-color:#e0d5c8;text-underline-offset:3px}
-.tl{display:flex;padding:8px 4px;border-bottom:1px solid #f5f1ed;align-items:flex-start;transition:all .3s}
+.tl{display:flex;padding:8px 4px;border-bottom:1px solid #f5f1ed;align-items:flex-start;max-height:100px;overflow:hidden;transition:max-height .55s ease,opacity .4s,padding .4s,border-color .4s}
 .tl:last-child{border-bottom:none}
 .tl .tc{width:56px;font-weight:600;color:#8b6f5e;font-size:14px;flex-shrink:0}
 .tl .ec{flex:1;font-size:14px}
 .tl .ec .en-name{font-weight:500}
 .tl .ec .en-note{color:#aaa;font-size:13px;margin-top:2px}
-.tl.past{opacity:.4}
-.tl.past .ec .en-note{display:none}
+.tl.past{max-height:0;opacity:0;padding-top:0;padding-bottom:0;border-color:transparent}
 .tl.past .tc::after{content:" ✓";color:#27ae60}
+.show-past .tl.past{max-height:100px;opacity:.42;padding-top:8px;padding-bottom:8px;border-color:#f5f1ed}
+.show-past .tl.past .ec .en-note{display:block}
 .tl.now{background:linear-gradient(90deg,rgba(201,168,124,.14),rgba(201,168,124,.02));border-radius:10px;padding:11px 12px;margin:4px 0;position:relative;animation:nowGlow 2.4s ease-in-out infinite}
 .tl.now .tc{color:#c9a87c}
 .tl.now .ec .en-name{font-weight:600}
@@ -269,34 +268,35 @@ function isWeddingDay(){
   if(p.get('demo')==='1')return true;
   var n=new Date();return n.getFullYear()===2026&&n.getMonth()===9&&n.getDate()===6;
 }
-function renderTimeline(){
-  var box=document.getElementById('timeline');
-  var live=true;
-  var nowMin=live?toMin(new Date().toTimeString().slice(0,5)):-1;
-  // 扁平化，找当前环节
-  var flat=[];var gi=0;
-  PHASES.forEach(function(ph){ph.items.forEach(function(it){flat.push({gi:gi,ph:ph,time:it[0],name:it[1],note:it[2]});gi++;});});
-  var nowIdx=-1;
-  if(live){for(var i=0;i<flat.length;i++){if(toMin(flat[i].time)<=nowMin)nowIdx=i;}}
-  if(live&&nowIdx===-1)nowIdx=0; // 当天还没开始，定位到第一项
-  var html='';var gi2=0;var hasPast=false;
+function buildTimeline(){
+  var html='';var gi=0;
   PHASES.forEach(function(ph){
-    var firstGi=gi2,lastGi=gi2+ph.items.length-1;gi2+=ph.items.length;
-    var phaseDone=live&&lastGi<nowIdx;
-    if(phaseDone)hasPast=true;
-    var pcls=phaseDone?' is-past':'';
-    html+='<div class="phase'+pcls+'"><div class="phase-t" onclick="togglePhase(this)">'+ph.title+'<span class="pc">'+ph.range+'</span></div><div class="phase-body">';
-    ph.items.forEach(function(it){
-      var curGi=firstGi+(ph.items.indexOf(it));
-      var c='';
-      if(live){if(curGi<nowIdx)c='past';else if(curGi===nowIdx)c='now';}
-      html+='<div class="tl '+c+'" data-time="'+it[0]+'"><div class="tc">'+it[0]+'</div><div class="ec"><div class="en-name">'+it[1]+'</div>'+(it[2]?'<div class="en-note">'+it[2]+'</div>':'')+'</div></div>';
+    var firstGi=gi;gi+=ph.items.length;
+    html+='<div class="phase" data-first="'+firstGi+'" data-count="'+ph.items.length+'"><div class="phase-t" onclick="togglePhase(this)">'+ph.title+'<span class="pc">'+ph.range+'</span></div><div class="phase-body">';
+    ph.items.forEach(function(it,idx){
+      html+='<div class="tl" data-gi="'+(firstGi+idx)+'" data-time="'+it[0]+'"><div class="tc">'+it[0]+'</div><div class="ec"><div class="en-name">'+it[1]+'</div>'+(it[2]?'<div class="en-note">'+it[2]+'</div>':'')+'</div></div>';
     });
     html+='</div></div>';
   });
-  var pb='';
-  if(live&&hasPast){pb='<div class="showpast-btn"><button onclick="togglePast(this)">展开已过环节 ▾</button></div>';}
-  box.innerHTML=pb+html;
+  document.getElementById('timeline').innerHTML='<div class="showpast-btn" id="showpast-btn" style="display:none"><button onclick="togglePast(this)">展开已过环节 ▾</button></div>'+html;
+}
+function updateLive(){
+  var nowMin=toMin(new Date().toTimeString().slice(0,5));
+  var tls=document.querySelectorAll('.tl');var maxGi=0;
+  tls.forEach(function(t){var g=parseInt(t.dataset.gi);if(toMin(t.dataset.time)<=nowMin&&g>maxGi)maxGi=g;});
+  var hasPast=false;
+  tls.forEach(function(t){
+    var g=parseInt(t.dataset.gi);
+    t.classList.remove('past','now');
+    if(g<maxGi){t.classList.add('past');hasPast=true;}
+    else if(g===maxGi)t.classList.add('now');
+  });
+  document.querySelectorAll('.phase').forEach(function(ph){
+    var f=parseInt(ph.dataset.first),c=parseInt(ph.dataset.count);
+    ph.classList.toggle('is-past',(f+c-1)<maxGi);
+  });
+  var sb=document.getElementById('showpast-btn');
+  if(sb)sb.style.display=hasPast?'block':'none';
 }
 function togglePast(btn){
   var on=document.getElementById('timeline').classList.toggle('show-past');
@@ -311,8 +311,9 @@ function scrollToCurrent(){
   var now=document.querySelector('.tl.now');
   if(now){now.scrollIntoView({behavior:'smooth',block:'center'});}
 }
-renderTimeline();
-setTimeout(scrollToCurrent,400);setInterval(function(){renderTimeline();setTimeout(scrollToCurrent,200);},60000);
+buildTimeline();
+updateLive();
+setTimeout(scrollToCurrent,500);setInterval(function(){updateLive();setTimeout(scrollToCurrent,200);},60000);
 // 天气
 function weatherIcon(c){if(c===0)return'☀️';if(c<=3)return'⛅';if(c<=49)return'🌫️';if(c<=59)return'🌦️';if(c<=69)return'🌧️';if(c<=79)return'🌨️';if(c<=82)return'🌧️';if(c<=86)return'🌨️';if(c>=95)return'⛈️';return'🌥️'}
 function weatherDesc(c){if(c===0)return'晴';if(c<=3)return'多云';if(c<=49)return'雾';if(c<=59)return'小雨';if(c<=69)return'雨';if(c<=79)return'雪';if(c>=95)return'雷雨';return'阴'}
