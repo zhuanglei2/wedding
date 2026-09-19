@@ -314,14 +314,6 @@ function updateLive(){
     var f=parseInt(ph.dataset.first),c=parseInt(ph.dataset.count);
     ph.classList.toggle('is-past',(f+c-1)<maxGi);
     ph.classList.toggle('current-phase',ph===curPhase);
-    if(ph===curPhase){
-      ph.querySelectorAll('.tl').forEach(function(it){
-        var g=parseInt(it.dataset.gi);
-        it.classList.toggle('roller-hidden',g<maxGi-1||g>maxGi+1);
-      });
-    }else{
-      ph.querySelectorAll('.tl').forEach(function(it){it.classList.remove('roller-hidden');});
-    }
   });
   var sb=document.getElementById('showpast-btn');
   if(sb)sb.style.display=hasPast?'block':'none';
