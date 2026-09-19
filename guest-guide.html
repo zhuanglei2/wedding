@@ -43,11 +43,6 @@ body{font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Source Han 
 .stab svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:1.8;display:block;margin:0;padding:0}
 .stab.active{background:linear-gradient(135deg,#dcb893,#c9a87c 55%,#b8896a);color:#fff;border-color:#c9a87c;box-shadow:0 3px 12px rgba(201,168,124,.5)}
 .stab:active{transform:scale(.92)}
-/* 页面左右Tab引导 */
-.page-nav{display:flex;justify-content:space-between;align-items:center;padding:0 4px;margin-bottom:10px;min-height:26px}
-.page-nav a{font-size:13px;color:#c9a87c;text-decoration:none;opacity:.45;transition:opacity .2s;font-weight:500}
-.page-nav a:active{opacity:.9}
-.page-nav .cur{font-size:12px;color:#b0a594;letter-spacing:1px}
 .page{display:none}
 .page.active{display:block;animation:fadeIn .35s ease}
 .page.active.slide-l{animation:slideR .35s cubic-bezier(.22,.61,.36,1)}
@@ -56,8 +51,13 @@ body{font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Source Han 
 @keyframes slideR{from{opacity:0;transform:translateX(36px)}to{opacity:1;transform:none}}
 @keyframes slideL{from{opacity:0;transform:translateX(-36px)}to{opacity:1;transform:none}}
 .card{background:#fff;border-radius:16px;padding:16px 14px;box-shadow:0 4px 18px rgba(139,111,94,0.08);border:1px solid #efe6dd;margin-bottom:14px}
-.card-title{font-size:16px;color:#5c4033;font-weight:600;margin-bottom:12px;text-align:center}
-.card-title::after{content:"";display:block;width:30px;height:2px;background:linear-gradient(90deg,#c9a87c,#8b6f5e);margin:8px auto 0;border-radius:1px}
+.card-title{display:flex;align-items:center;justify-content:space-between;font-size:16px;color:#5c4033;font-weight:600;margin-bottom:14px}
+.card-title .ct-mid{flex:1;text-align:center}
+.card-title .ct-mid::after{content:"";display:block;width:30px;height:2px;background:linear-gradient(90deg,#c9a87c,#8b6f5e);margin:6px auto 0;border-radius:1px}
+.card-title .ct-side{font-size:12px;color:#c9a87c;text-decoration:none;opacity:.5;display:flex;align-items:center;gap:1px;flex-shrink:0;transition:opacity .2s}
+.card-title .ct-side:active{opacity:.9}
+.card-title .ct-side svg{width:13px;height:13px;stroke:currentColor;fill:none;stroke-width:2.2}
+.card-title .ct-empty{width:44px;flex-shrink:0}
 /* 日程时间轴 */
 .phase{margin-bottom:10px}
 .phase-t{font-size:14px;font-weight:600;color:#5c4033;background:linear-gradient(135deg,#faf7f4,#fdf6f0);padding:9px 12px;border-radius:8px;border-left:3px solid #c9a87c;margin-bottom:6px;display:flex;justify-content:space-between;align-items:center;cursor:pointer}
@@ -149,12 +149,11 @@ body{font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Source Han 
     <div class="venue">2026年10月6日<br>婚宴酒店：宁海西子国际大酒店（跃龙街道外环东路8号）</div>
   </div>
   <div class="cd" id="cd">距婚礼还有 <b id="cd-days">--</b> 天</div>
-  <div class="page-nav" id="page-nav"></div>
 
   <!-- 日程 -->
   <div class="page" id="p-schedule">
     <div class="card">
-      <div class="card-title">当天日程</div>
+      <div class="card-title"><span class="ct-empty"></span><span class="ct-mid">当天日程</span><a class="ct-side" onclick="switchTab('route')">路线 <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg></a></div>
       <div id="timeline"></div>
       <div class="note-box" id="sched-note">宾客请在 <b>16:38</b> 前到达婚宴酒店签到入席。</div>
     </div>
@@ -163,7 +162,7 @@ body{font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Source Han 
   <!-- 路线 -->
   <div class="page active" id="p-route">
     <div class="card">
-      <div class="card-title">路线指引</div>
+      <div class="card-title"><a class="ct-side" onclick="switchTab('schedule')"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg> 日程</a><span class="ct-mid">路线指引</span><a class="ct-side" onclick="switchTab('contact')">电话 <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg></a></div>
       <a class="nav-btn" href="https://uri.amap.com/navigation?to=121.438,29.280,宁海西子国际大酒店&mode=car">一键导航到婚宴酒店</a>
       <a class="nav-btn" style="margin-top:10px" href="https://uri.amap.com/navigation?to=121.430,29.288,金海开元名都大酒店&mode=car">一键导航到入住酒店</a>
       <div class="grp-h">💒 婚礼主要地点</div>
@@ -181,7 +180,7 @@ body{font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Source Han 
   <!-- 电话 -->
   <div class="page" id="p-contact">
     <div class="card">
-      <div class="card-title">联系电话</div>
+      <div class="card-title"><a class="ct-side" onclick="switchTab('route')"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg> 路线</a><span class="ct-mid">联系电话</span><a class="ct-side" onclick="switchTab('weather')">天气 <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg></a></div>
       <p class="intro">有疑问或需要协助，可联系以下人员</p>
       <div class="contact"><div class="contact-role">新郎</div><div class="contact-name">庄磊</div><div class="contact-phone"><a href="tel:18658487873"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></a></div></div>
       <div class="contact"><div class="contact-role">父亲</div><div class="contact-name">庄恒席</div><div class="contact-phone"><a href="tel:13034660025"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></a></div></div>
@@ -193,7 +192,7 @@ body{font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Source Han 
   <!-- 天气 -->
   <div class="page" id="p-weather">
     <div class="card">
-      <div class="card-title">婚礼当天天气</div>
+      <div class="card-title"><a class="ct-side" onclick="switchTab('contact')"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg> 电话</a><span class="ct-mid">婚礼当天天气</span><span class="ct-empty"></span></div>
       <div class="wbox" id="weather-box">
         <h4 id="w-title">🌤️ 天气预报 · 宁海</h4>
         <div class="wload" id="w-loading">加载天气中...</div>
@@ -219,17 +218,6 @@ body{font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Source Han 
   for(var i=0;i<n;i++){var s=document.createElement('div');s.className='petal';s.textContent=icons[i%icons.length];s.style.left=(Math.random()*100)+'%';s.style.fontSize=(10+Math.random()*10)+'px';s.style.animationDuration=(8+Math.random()*8)+'s';s.style.animationDelay=(-Math.random()*10)+'s';p.appendChild(s);}
 })();
 // 页面顶部左右Tab引导
-function updatePageNav(cur){
-  var tabs=[['schedule','日程'],['route','路线'],['contact','电话'],['weather','天气']];
-  var idx=0;tabs.forEach(function(t,i){if(t[0]===cur)idx=i;});
-  var html='';
-  if(idx>0)html+='<a href="javascript:void(0)" onclick="switchTab(\''+tabs[idx-1][0]+'\')">← '+tabs[idx-1][1]+'</a>';
-  else html+='<span></span>';
-  html+='<span class="cur">'+tabs[idx][1]+'</span>';
-  if(idx<tabs.length-1)html+='<a href="javascript:void(0)" onclick="switchTab(\''+tabs[idx+1][0]+'\')">'+tabs[idx+1][1]+' →</a>';
-  else html+='<span></span>';
-  document.getElementById('page-nav').innerHTML=html;
-}
 function switchTab(p,dir){
   document.querySelectorAll('.page').forEach(function(el){el.classList.remove('active','slide-l','slide-r');});
   var np=document.getElementById('p-'+p);
@@ -238,7 +226,6 @@ function switchTab(p,dir){
   np.classList.add('active');
   document.querySelectorAll('[data-tab]').forEach(function(t){t.classList.toggle('active',t.dataset.tab===p);});
   if(p==='schedule') setTimeout(scrollToCurrent,100);
-  if(typeof updatePageNav==='function')updatePageNav(p);
   window.scrollTo(0,0);
 }
 // 倒计时
@@ -358,7 +345,6 @@ function scrollToCurrent(){
 }
 buildTimeline();
 updateLive();
-updatePageNav('route');
 setTimeout(scrollToCurrent,500);
 // 天气
 function weatherIcon(c){if(c===0)return'☀️';if(c<=3)return'⛅';if(c<=49)return'🌫️';if(c<=59)return'🌦️';if(c<=69)return'🌧️';if(c<=79)return'🌨️';if(c<=82)return'🌧️';if(c<=86)return'🌨️';if(c>=95)return'⛈️';return'🌥️'}
