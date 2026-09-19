@@ -43,12 +43,11 @@ body{font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Source Han 
 .stab svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:1.8;display:block;margin:0;padding:0}
 .stab.active{background:linear-gradient(135deg,#dcb893,#c9a87c 55%,#b8896a);color:#fff;border-color:#c9a87c;box-shadow:0 3px 12px rgba(201,168,124,.5)}
 .stab:active{transform:scale(.92)}
-/* 滑动提示 */
-.swipe-hint{position:fixed;left:50%;bottom:84px;transform:translate(-50%,10px);background:#5c4033;color:#fff;font-size:13px;padding:9px 20px;border-radius:22px;z-index:60;box-shadow:0 4px 16px rgba(0,0,0,.25);opacity:0;pointer-events:none;white-space:nowrap;display:flex;align-items:center;gap:6px}
-.swipe-hint.show{animation:hintShow 4s ease forwards}
-@keyframes hintShow{0%{opacity:0;transform:translate(-50%,10px)}15%{opacity:1;transform:translate(-50%,0)}80%{opacity:1;transform:translate(-50%,0)}100%{opacity:0;transform:translate(-50%,-10px)}}
-.swipe-hint .arr{display:inline-block;animation:arrMove 1.2s ease-in-out infinite}
-@keyframes arrMove{0%,100%{transform:translateX(0)}50%{transform:translateX(-6px)}}
+/* 页面左右Tab引导 */
+.page-nav{display:flex;justify-content:space-between;align-items:center;padding:0 4px;margin-bottom:10px;min-height:26px}
+.page-nav a{font-size:13px;color:#c9a87c;text-decoration:none;opacity:.45;transition:opacity .2s;font-weight:500}
+.page-nav a:active{opacity:.9}
+.page-nav .cur{font-size:12px;color:#b0a594;letter-spacing:1px}
 .page{display:none}
 .page.active{display:block;animation:fadeIn .35s ease}
 .page.active.slide-l{animation:slideR .35s cubic-bezier(.22,.61,.36,1)}
@@ -149,6 +148,7 @@ body{font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Source Han 
     <div class="venue">2026年10月6日<br>婚宴酒店：宁海西子国际大酒店（跃龙街道外环东路8号）</div>
   </div>
   <div class="cd" id="cd">距婚礼还有 <b id="cd-days">--</b> 天</div>
+  <div class="page-nav" id="page-nav"></div>
 
   <!-- 日程 -->
   <div class="page" id="p-schedule">
@@ -217,17 +217,18 @@ body{font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Source Han 
   var p=document.getElementById('petals');var icons=['🌸','🌺','🏵️','💐','💖'];var n=10;
   for(var i=0;i<n;i++){var s=document.createElement('div');s.className='petal';s.textContent=icons[i%icons.length];s.style.left=(Math.random()*100)+'%';s.style.fontSize=(10+Math.random()*10)+'px';s.style.animationDuration=(8+Math.random()*8)+'s';s.style.animationDelay=(-Math.random()*10)+'s';p.appendChild(s);}
 })();
-// 首次打开滑动提示
-(function(){
-  if(sessionStorage.getItem('swipeHint'))return;
-  sessionStorage.setItem('swipeHint','1');
-  setTimeout(function(){
-    var h=document.createElement('div');h.className='swipe-hint';
-    h.innerHTML='<span class="arr">👈</span> 左右滑动切换页面 <span class="arr" style="animation-direction:alternate-reverse">👉</span>';
-    document.body.appendChild(h);h.classList.add('show');
-    setTimeout(function(){h.remove();},4500);
-  },1200);
-})();
+// 页面顶部左右Tab引导
+function updatePageNav(cur){
+  var tabs=[['schedule','日程'],['route','路线'],['contact','电话'],['weather','天气']];
+  var idx=0;tabs.forEach(function(t,i){if(t[0]===cur)idx=i;});
+  var html='';
+  if(idx>0)html+='<a href="javascript:void(0)" onclick="switchTab(\''+tabs[idx-1][0]+'\')">← '+tabs[idx-1][1]+'</a>';
+  else html+='<span></span>';
+  html+='<span class="cur">'+tabs[idx][1]+'</span>';
+  if(idx<tabs.length-1)html+='<a href="javascript:void(0)" onclick="switchTab(\''+tabs[idx+1][0]+'\')">'+tabs[idx+1][1]+' →</a>';
+  else html+='<span></span>';
+  document.getElementById('page-nav').innerHTML=html;
+}
 function switchTab(p,dir){
   document.querySelectorAll('.page').forEach(function(el){el.classList.remove('active','slide-l','slide-r');});
   var np=document.getElementById('p-'+p);
@@ -236,6 +237,7 @@ function switchTab(p,dir){
   np.classList.add('active');
   document.querySelectorAll('[data-tab]').forEach(function(t){t.classList.toggle('active',t.dataset.tab===p);});
   if(p==='schedule') setTimeout(scrollToCurrent,100);
+  if(typeof updatePageNav==='function')updatePageNav(p);
   window.scrollTo(0,0);
 }
 // 倒计时
@@ -347,6 +349,7 @@ function scrollToCurrent(){
 }
 buildTimeline();
 updateLive();
+updatePageNav('route');
 setTimeout(scrollToCurrent,500);
 // 天气
 function weatherIcon(c){if(c===0)return'☀️';if(c<=3)return'⛅';if(c<=49)return'🌫️';if(c<=59)return'🌦️';if(c<=69)return'🌧️';if(c<=79)return'🌨️';if(c<=82)return'🌧️';if(c<=86)return'🌨️';if(c>=95)return'⛈️';return'🌥️'}
