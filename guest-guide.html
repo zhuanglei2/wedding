@@ -57,12 +57,12 @@ body{font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Source Han 
 .tl.past{opacity:.4}
 .tl.past .ec .en-note{display:none}
 .tl.past .tc::after{content:" ✓";color:#27ae60}
-.tl.now{background:linear-gradient(90deg,rgba(201,168,124,.14),rgba(201,168,124,.02));border-radius:10px;padding:11px 12px;margin:4px 0;position:relative}
+.tl.now{background:linear-gradient(90deg,rgba(201,168,124,.14),rgba(201,168,124,.02));border-radius:10px;padding:11px 12px;margin:4px 0;position:relative;animation:nowGlow 2.4s ease-in-out infinite}
 .tl.now .tc{color:#c9a87c}
 .tl.now .ec .en-name{font-weight:600}
 .tl.now .ec .en-name::after{content:"进行中";display:inline-block;font-size:10px;color:#fff;background:linear-gradient(135deg,#c9a87c,#8b6f5e);padding:1px 7px;border-radius:8px;margin-left:7px;vertical-align:middle;font-weight:400}
-.tl.now::before{content:"";position:absolute;left:-1px;top:8px;bottom:8px;width:3px;background:#c9a87c;border-radius:2px;animation:nowPulse 2.4s ease-in-out infinite}
-@keyframes nowPulse{0%,100%{opacity:.5}50%{opacity:1}}
+.tl.now::before{content:"";position:absolute;left:-1px;top:8px;bottom:8px;width:3px;background:#c9a87c;border-radius:2px}
+@keyframes nowGlow{0%,100%{box-shadow:0 0 0 0 rgba(201,168,124,.28)}50%{box-shadow:0 0 0 8px rgba(201,168,124,0)}}
 .tl.next .tc{color:#c9a87c}
 .note-box{background:#faf6f0;border-radius:10px;padding:11px 14px;font-size:13px;color:#8b7355;line-height:1.7;margin-top:8px}
 .live-bar{display:none;text-align:center;font-size:12px;color:#c9a87c;background:#fff8e8;border:1px solid #f0d878;border-radius:10px;padding:8px;margin-bottom:12px}
@@ -91,6 +91,16 @@ body{font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Source Han 
 .route-line .addr{display:inline-block;margin-left:5px;color:#b3a898;font-size:12px}
 .nav-btn{display:block;text-align:center;margin-top:12px;padding:11px;border-radius:10px;background:#fff;border:1.5px solid #c9a87c;color:#b8926a;font-size:13px;text-decoration:none;font-weight:500}
 .nav-btn:active{transform:scale(.98);background:#fdf6ed}
+.loc-row{display:flex;align-items:center;gap:11px;padding:12px 0;border-bottom:1px solid #f5f1ed}
+.loc-row:last-child{border-bottom:none}
+.loc-ic{width:38px;height:38px;border-radius:10px;background:linear-gradient(135deg,#c9a87c,#8b6f5e);color:#fff;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
+.loc-ic svg{width:22px;height:22px;stroke:#fff;fill:none;stroke-width:1.8}
+.loc-info{flex:1;min-width:0}
+.loc-name2{font-size:14px;font-weight:600;color:#5c4033}
+.loc-addr2{font-size:12px;color:#a99a89;margin-top:3px;line-height:1.5}
+.loc-nav{flex-shrink:0;background:#fff;border:1.5px solid #c9a87c;color:#b8926a;border-radius:9px;padding:8px 11px;font-size:12px;text-decoration:none;white-space:nowrap}
+.loc-nav:active{transform:scale(.95);background:#fdf6ed}
+.grp-h{font-size:13px;color:#8b6f5e;border-left:3px solid #c9a87c;padding-left:10px;margin:14px 0 8px;font-weight:600}
 /* 电话 */
 .contact{display:flex;align-items:center;padding:12px 14px;background:linear-gradient(135deg,#fdfcfb,#faf7f4);border-radius:12px;border:1px solid #efe6dd;margin-bottom:10px;animation:fadeIn .4s}
 .contact-role{font-size:11px;color:#fff;background:#c9a87c;padding:2px 8px;border-radius:4px;flex-shrink:0;min-width:52px;text-align:center}
@@ -114,7 +124,6 @@ body{font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Source Han 
 
   <!-- 日程 -->
   <div class="page active" id="p-schedule">
-    <div class="live-bar" id="live-bar">🔴 实时模式 · 自动定位当前环节，已过环节已折叠</div>
     <div class="card">
       <div class="card-title">当天日程</div>
       <div id="timeline"></div>
@@ -127,23 +136,15 @@ body{font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Source Han 
     <div class="card">
       <div class="card-title">路线指引</div>
       <div class="hotel-note">🏨 入住酒店：<b>金海开元名都大酒店</b>（桃源中路258号）<a href="https://uri.amap.com/navigation?to=121.430,29.288,金海开元名都大酒店&mode=car">📍导航</a><br>💍 婚宴酒店：<b>宁海西子国际大酒店</b>（跃龙街道外环东路8号）<a href="https://uri.amap.com/navigation?to=121.438,29.280,宁海西子国际大酒店&mode=car">📍导航</a></div>
-      <div class="route">
-        <div class="route-head"><span class="route-tag">🚄 高铁</span><span class="route-rec">推荐</span></div>
-        <div class="route-line">① 各地 → <a class="loc" href="https://uri.amap.com/navigation?to=121.544,29.874,宁海站&mode=car">宁海站</a>（可直达，或经宁波站转🚄）<span class="addr">宁海县</span></div>
-        <div class="route-line">② 宁海站 → <a class="loc" href="https://uri.amap.com/navigation?to=121.430,29.288,金海开元名都大酒店&mode=car">金海开元名都大酒店</a>（入住）：打车约15min<span class="addr">桃源中路258号</span></div>
-      </div>
-      <div class="route">
-        <div class="route-head"><span class="route-tag">✈️ 飞机</span></div>
-        <div class="route-line">① 各地 → <a class="loc" href="https://uri.amap.com/navigation?to=121.462,29.816,宁波栎社国际机场&mode=car">宁波栎社国际机场</a><span class="addr">海曙区栎社</span></div>
-        <div class="route-line">② 机场 → <a class="loc" href="https://uri.amap.com/navigation?to=121.524,29.826,宁波站&mode=car">宁波站</a>：地铁2号线约30min / 打车约15min</div>
-        <div class="route-line">③ 宁波站 → <a class="loc" href="https://uri.amap.com/navigation?to=121.544,29.874,宁海站&mode=car">宁海站</a>：🚄高铁约25-30min<span class="addr">需另购高铁票</span></div>
-        <div class="route-line">④ 宁海站 → <a class="loc" href="https://uri.amap.com/navigation?to=121.430,29.288,金海开元名都大酒店&mode=car">金海开元名都大酒店</a>（入住）：打车约15min</div>
-      </div>
-      <div class="route">
-        <div class="route-head"><span class="route-tag">🚗 自驾</span></div>
-        <div class="route-line">入住酒店：导航至 <a class="loc" href="https://uri.amap.com/navigation?to=121.430,29.288,金海开元名都大酒店&mode=car">金海开元名都大酒店</a><span class="addr">桃源中路258号</span></div>
-        <div class="route-line">婚宴酒店：导航至 <a class="loc" href="https://uri.amap.com/navigation?to=121.438,29.280,宁海西子国际大酒店&mode=car">宁海西子国际大酒店</a><span class="addr">外环东路8号</span></div>
-      </div>
+      <div class="grp-h">💒 婚礼主要地点</div>
+      <div class="loc-row"><div class="loc-ic">🏠</div><div class="loc-info"><div class="loc-name2">男方家（力洋镇海头村）</div><div class="loc-addr2">宁海县力洋镇海头村 · 接亲/午宴</div></div><a class="loc-nav" href="https://uri.amap.com/navigation?to=121.585,29.210,力洋镇海头村&mode=car">📍导航</a></div>
+      <div class="loc-row"><div class="loc-ic"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V5h14v16"/><path d="M9 21v-4h6v4"/><rect x="8" y="8" width="2.4" height="2.4"/><rect x="13.6" y="8" width="2.4" height="2.4"/><rect x="8" y="13" width="2.4" height="2.4"/><rect x="13.6" y="13" width="2.4" height="2.4"/></svg></div><div class="loc-info"><div class="loc-name2">金海开元名都大酒店</div><div class="loc-addr2">桃源中路258号 · 新娘接亲酒店/宾客入住</div></div><a class="loc-nav" href="https://uri.amap.com/navigation?to=121.430,29.288,金海开元名都大酒店&mode=car">📍导航</a></div>
+      <div class="loc-row"><div class="loc-ic">💍</div><div class="loc-info"><div class="loc-name2">宁海西子国际大酒店</div><div class="loc-addr2">跃龙街道外环东路8号 · 婚宴酒店</div></div><a class="loc-nav" href="https://uri.amap.com/navigation?to=121.438,29.280,宁海西子国际大酒店&mode=car">📍导航</a></div>
+      <div class="loc-row"><div class="loc-ic">🌊</div><div class="loc-info"><div class="loc-name2">宁海三门湾滨海公园</div><div class="loc-addr2">宁海县 · 外景拍摄</div></div><a class="loc-nav" href="https://uri.amap.com/navigation?to=121.560,29.150,宁海三门湾滨海公园&mode=car">📍导航</a></div>
+      <div class="grp-h">🚉 外地宾客到达</div>
+      <div class="loc-row"><div class="loc-ic">🚄</div><div class="loc-info"><div class="loc-name2">宁海站</div><div class="loc-addr2">宁波市宁海县 · 距入住酒店约15分钟</div></div><a class="loc-nav" href="https://uri.amap.com/navigation?to=121.544,29.874,宁海站&mode=car">📍导航</a></div>
+      <div class="loc-row"><div class="loc-ic">✈️</div><div class="loc-info"><div class="loc-name2">宁波栎社国际机场</div><div class="loc-addr2">宁波市海曙区栎社</div></div><a class="loc-nav" href="https://uri.amap.com/navigation?to=121.462,29.816,宁波栎社国际机场&mode=car">📍导航</a></div>
+      <div class="loc-row"><div class="loc-ic">🚉</div><div class="loc-info"><div class="loc-name2">宁波站</div><div class="loc-addr2">宁波市海曙区南站东路</div></div><a class="loc-nav" href="https://uri.amap.com/navigation?to=121.524,29.826,宁波站&mode=car">📍导航</a></div>
       <a class="nav-btn" href="https://uri.amap.com/navigation?to=121.438,29.280,宁海西子国际大酒店&mode=car">💍 一键导航到婚宴酒店</a>
     </div>
   </div>
@@ -283,7 +284,6 @@ function renderTimeline(){
   var pb='';
   if(live&&hasPast){pb='<div class="showpast-btn"><button onclick="togglePast(this)">展开已过环节 ▾</button></div>';}
   box.innerHTML=pb+html;
-  if(live){document.getElementById('live-bar').classList.add('show');}
 }
 function togglePast(btn){
   var on=document.getElementById('timeline').classList.toggle('show-past');
