@@ -346,28 +346,13 @@ function updateLive(){
   if(bub){
     var nowItem=document.querySelector('.tl.now');
     if(nowItem){
-      var wasHidden=!bub.classList.contains('show');
       bub.innerHTML='<span class="dot"></span><span class="bub-text">'+nowItem.querySelector('.en-name').textContent.replace(/🎉 |🎮 /,'').trim()+' 进行中</span>';
       bub.classList.add('show');
-      bub.classList.remove('collapsed');
-      if(wasHidden){
-        clearTimeout(bubbleTimer);
-        bubbleTimer=setTimeout(function(){bub.classList.add('collapsed');},4000);
-      }
     }else{bub.classList.remove('show');}
   }
 }
-var bubbleTimer;
 function onBubbleClick(){
-  var bub=document.getElementById('now-bubble');
-  if(bub.classList.contains('collapsed')){
-    bub.classList.remove('collapsed');
-    clearTimeout(bubbleTimer);
-    bubbleTimer=setTimeout(function(){bub.classList.add('collapsed');},4000);
-  }else{
-    switchTab('schedule');setTimeout(scrollToCurrent,300);
-    bub.classList.add('collapsed');
-  }
+  switchTab('schedule');setTimeout(scrollToCurrent,300);
 }
 function togglePast(btn){
   var on=document.getElementById('timeline').classList.toggle('show-past');
