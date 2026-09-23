@@ -59,13 +59,13 @@ body{font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Source Han 
 .card-title .ct-side svg{width:13px;height:13px;stroke:currentColor;fill:none;stroke-width:2.2}
 .card-title .ct-empty{width:44px;flex-shrink:0}
 .card-title .ct-now-hint{display:none}
-.now-bubble{position:fixed;left:12px;bottom:72px;z-index:55;background:linear-gradient(135deg,#d44848,#c93939);color:#fff;font-size:12px;padding:7px 14px;border-radius:18px;box-shadow:0 3px 12px rgba(212,72,72,.3);display:none;align-items:center;gap:5px;max-width:200px;cursor:pointer;transform-origin:left center;animation:bubblePop .4s ease}
+.now-bubble{position:fixed;left:12px;bottom:72px;z-index:55;background:linear-gradient(135deg,#d44848,#c93939);color:#fff;font-size:11px;padding:6px 10px;border-radius:20px;box-shadow:0 3px 12px rgba(212,72,72,.3);display:none;align-items:center;gap:4px;cursor:pointer;transform-origin:left center;animation:bubblePop .4s ease;white-space:nowrap;max-width:160px;overflow:hidden}
 .now-bubble.show{display:flex}
-.now-bubble .bub-text{transition:opacity .5s ease}
-.now-bubble.collapsed{padding:7px 9px}
-.now-bubble.collapsed .bub-text{opacity:0;width:0;margin:0;overflow:hidden;transition:opacity .3s ease}
-.now-bubble.collapsed .dot{width:9px;height:9px;transition:width .5s ease}
-.now-bubble:active{transform:scale(.95)}
+.now-bubble .bub-text{transition:opacity .4s ease;overflow:hidden}
+.now-bubble.collapsed{padding:6px;width:18px;height:18px;justify-content:center;gap:0}
+.now-bubble.collapsed .bub-text{opacity:0;width:0;transition:opacity .2s ease}
+.now-bubble.collapsed .dot{width:8px;height:8px}
+.now-bubble:active{transform:scale(.92)}
 .now-bubble.show{display:flex}
 @keyframes bubblePop{from{opacity:0;transform:translateY(-8px) scale(.9)}to{opacity:1;transform:none}}
 .now-bubble .dot{width:6px;height:6px;border-radius:50%;background:#fff;animation:dotBlink 1s ease-in-out infinite;flex-shrink:0}
