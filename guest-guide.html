@@ -58,6 +58,7 @@ body{font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Source Han 
 .card-title .ct-side:active{opacity:.9}
 .card-title .ct-side svg{width:13px;height:13px;stroke:currentColor;fill:none;stroke-width:2.2}
 .card-title .ct-empty{width:44px;flex-shrink:0}
+.card-title .ct-now-hint{display:inline-block;font-size:10px;color:#c9a87c;margin-left:4px;font-weight:400}
 /* 日程时间轴 */
 .phase{margin-bottom:10px}
 .phase-t{font-size:14px;font-weight:600;color:#5c4033;background:linear-gradient(135deg,#faf7f4,#fdf6f0);padding:9px 12px;border-radius:8px;border-left:3px solid #c9a87c;margin-bottom:6px;display:flex;justify-content:space-between;align-items:center;cursor:pointer}
@@ -164,7 +165,7 @@ body{font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Source Han 
   <!-- 路线 -->
   <div class="page active" id="p-route">
     <div class="card">
-      <div class="card-title"><a class="ct-side" onclick="switchTab('schedule','prev')"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg> 日程</a><span class="ct-mid">路线指引</span><a class="ct-side" onclick="switchTab('contact','next')">电话 <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg></a></div>
+      <div class="card-title"><a class="ct-side" onclick="switchTab('schedule','prev')"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg> 日程<span class="ct-now-hint" id="route-now-hint"></span></a><span class="ct-mid">路线指引</span><a class="ct-side" onclick="switchTab('contact','next')">电话 <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg></a></div>
       <a class="nav-btn" href="https://uri.amap.com/navigation?to=121.438,29.280,宁海西子国际大酒店&mode=car">一键导航到婚宴酒店</a>
       <a class="nav-btn" style="margin-top:10px" href="https://uri.amap.com/navigation?to=121.430,29.288,金海开元名都大酒店&mode=car">一键导航到入住/接亲酒店</a>
       <div class="grp-h">💒 婚礼主要地点</div>
@@ -308,6 +309,7 @@ function updateLive(){
     document.querySelectorAll('.tl').forEach(function(t){t.classList.remove('past','now');});
     document.querySelectorAll('.phase').forEach(function(ph){ph.classList.remove('is-past','current-phase');});
     var sb0=document.getElementById('showpast-btn');if(sb0)sb0.style.display='none';
+    var h0=document.getElementById('route-now-hint');if(h0)h0.textContent='';
     return;
   }
   var nowMin=toMin(new Date().toTimeString().slice(0,5));
@@ -328,6 +330,13 @@ function updateLive(){
   });
   var sb=document.getElementById('showpast-btn');
   if(sb)sb.style.display=hasPast?'block':'none';
+  // 更新路线页当前环节提示
+  var hint=document.getElementById('route-now-hint');
+  if(hint){
+    var nowItem=document.querySelector('.tl.now');
+    if(nowItem){hint.textContent='· '+nowItem.querySelector('.en-name').textContent.replace(/🎉 |🎮 /,'').trim()+'进行中';}
+    else{hint.textContent='';}
+  }
 }
 function togglePast(btn){
   var on=document.getElementById('timeline').classList.toggle('show-past');
