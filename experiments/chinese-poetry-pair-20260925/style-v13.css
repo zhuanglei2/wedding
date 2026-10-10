@@ -1,0 +1,18 @@
+@import url("style-v9.css");
+
+.palette-filters {
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+/* Four columns, read from right to left. Visible lettering occupies roughly
+   x=10.9–41.2%, y=2.4–23.0%, above both heads in the unchanged photograph. */
+.inscription {
+  width: 36%;
+  left: 8%;
+  top: -.2%;
+}
+.inscription img { filter: none; }

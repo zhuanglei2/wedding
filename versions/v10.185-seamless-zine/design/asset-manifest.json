@@ -1,0 +1,64 @@
+{
+  "canvas": {
+    "width": 1200,
+    "height": 2000
+  },
+  "policy": "Generated underpainting supplies environment and torn-paper seams only. All final people are covered by original photograph pixels. Only proportional resampling in protected regions; no retouch, recolouring or synthesis. Source-space preservation contours are visually checked; lossless master has exact pixel proof. Responsive WebP is a lossy delivery derivative.",
+  "photos": [
+    {
+      "name": "seated",
+      "source": "/Users/eleme/Desktop/wedding/59636a811k762aacf68c8ec4b37bbc52.jpg",
+      "left": 0,
+      "top": -240,
+      "width": 1000,
+      "viewBox": "0 0 854 1280",
+      "contours": [
+        "M 425 565 Q 472 553 524 549 Q 571 531 599 544 Q 638 533 669 563 Q 696 586 718 604 Q 757 612 753 665 Q 749 742 745 796 Q 760 835 790 852 Q 812 875 794 914 Q 775 985 704 1032 Q 609 1096 509 1105 Q 375 1129 239 1094 Q 108 1080 56 1028 Q 13 1001 0 969 L 0 813 Q 81 759 172 747 Q 311 733 417 738 Q 429 694 425 650 Q 413 601 425 565 Z"
+      ],
+      "height": 1499,
+      "sha256": "f372827ec75236fa258a99df799d15091af76262169cfd4b9c758adb87de2a53",
+      "protectedPixels": 430538,
+      "mask": "seated-preservation-mask.png",
+      "layer": "seated-preserved.png",
+      "pixelProof": "PASS: 430538 fully protected pixels exactly match directly resized original RGB."
+    },
+    {
+      "name": "mural",
+      "source": "/Users/eleme/Desktop/wedding/087f4a3a79f7b920abff19f11eb716ef.jpg",
+      "left": 450,
+      "top": 830,
+      "width": 750,
+      "viewBox": "0 0 1280 1920",
+      "contours": [
+        "M 186 581 C 253 555 309 574 319 645 Q 330 700 346 745 Q 365 800 379 861 Q 390 947 348 986 Q 341 1107 359 1239 L 328 1440 Q 345 1482 348 1534 Q 268 1573 194 1556 Q 151 1550 126 1476 L 115 1274 Q 95 1124 96 1020 L 103 827 Q 101 746 160 697 Q 162 630 186 581 Z",
+        "M 756 604 C 810 587 865 635 863 697 Q 906 740 932 835 Q 971 943 1054 1071 Q 1169 1228 1280 1385 L 1280 1857 Q 1066 1887 865 1849 Q 676 1837 486 1790 Q 324 1765 261 1714 Q 266 1553 351 1399 Q 395 1250 558 1149 Q 623 1047 722 992 Q 693 967 629 977 Q 586 974 598 907 Q 623 857 687 846 L 738 820 Q 759 773 735 722 Q 727 660 756 604 Z"
+      ],
+      "height": 1125,
+      "sha256": "f4956206f785e0a2f141b81f25a476e1cfcfb809e72f5d60076114e91eef0f4a",
+      "protectedPixels": 343075,
+      "mask": "mural-preservation-mask.png",
+      "layer": "mural-preserved.png",
+      "pixelProof": "PASS: 343075 fully protected pixels exactly match directly resized original RGB."
+    }
+  ],
+  "assets": [
+    {
+      "file": "gathered-scenes-600.webp",
+      "width": 600,
+      "height": 1000,
+      "bytes": 151810
+    },
+    {
+      "file": "gathered-scenes-900.webp",
+      "width": 900,
+      "height": 1500,
+      "bytes": 298388
+    },
+    {
+      "file": "gathered-scenes-1200.webp",
+      "width": 1200,
+      "height": 2000,
+      "bytes": 433452
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "canvas": {
+    "width": 1200,
+    "height": 2000
+  },
+  "display": {
+    "width": 1200,
+    "height": 1840,
+    "cropTop": 160
+  },
+  "lyrics": [
+    "是想念如你温柔过境",
+    "才发现原来花开都有声音"
+  ],
+  "source": "/Users/eleme/Desktop/wedding/59636a811k762aacf68c8ec4b37bbc52.jpg",
+  "sourceHash": "f372827ec75236fa258a99df799d15091af76262169cfd4b9c758adb87de2a53",
+  "paper": "/Users/eleme/IdeaProjects/wedding/versions/v10.159-flow-and-gilt/media/camera-clean.webp",
+  "photograph": {
+    "left": 0,
+    "top": 60,
+    "width": 1200,
+    "height": 1799,
+    "protectedPixels": 1380745,
+    "share": 0.5753104166666667,
+    "layoutShare": 0.57644
+  },
+  "policy": "One factual photographic anchor; French architectural contours are reinterpreted with ImageGen above it. All original people, veil, clothing and full train are protected native photograph pixels, proportionally resampled only. Exact proof applies to PNG master; WebP is lossy delivery.",
+  "pixelProof": "PASS: 1380745 protected original RGB pixels",
+  "assets": [
+    {
+      "file": "gathered-scenes-600.webp",
+      "width": 600,
+      "height": 920,
+      "bytes": 100876
+    },
+    {
+      "file": "gathered-scenes-900.webp",
+      "width": 900,
+      "height": 1380,
+      "bytes": 187936
+    },
+    {
+      "file": "gathered-scenes-1200.webp",
+      "width": 1200,
+      "height": 1840,
+      "bytes": 269056
+    }
+  ]
+}

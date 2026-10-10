@@ -1,0 +1,11 @@
+/* Only the corrected 您 is revealed from the generated edit. Everything outside
+   x=425..517 / y=83..188 stays on the original 1024x1536 artwork. Both page-turn
+   layers share this rule and the normal story-image decode/readiness gate. */
+.reference-art .camera-greeting-patch,
+html.star-turn .opening-underlay .reference-art .camera-greeting-patch,
+html.paper-motion .opening-underlay .reference-art .camera-greeting-patch{
+ position:absolute;inset:0;z-index:2;
+ display:block;width:100%;height:100%;margin:0;border:0;
+ object-fit:fill;opacity:1;pointer-events:none;
+ clip-path:inset(5.4036458333% 49.51171875% 87.7604166667% 41.50390625%);
+}

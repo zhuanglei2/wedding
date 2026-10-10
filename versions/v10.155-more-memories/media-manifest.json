@@ -1,0 +1,94 @@
+{
+  "files": [
+    {
+      "id": "kayaking",
+      "source": "c17ed54854894d61e713e61354c3152b.jpg",
+      "sourceBytes": 119558,
+      "sourceSha256": "e84346ee5455171a63bc36f97aa97ff5b0e8824dda68ffe5298ef22ee9bf7d96",
+      "output": "media/kayaking.webp",
+      "alt": "绿树环绕的河道上划船",
+      "width": 451,
+      "height": 800,
+      "bytes": 86506
+    },
+    {
+      "id": "street-food",
+      "source": "IMG_0259.HEIC.JPG",
+      "sourceBytes": 260624,
+      "sourceSha256": "669bc2ee3a83a3771be0d096071b2fb63597ff8523bb080d78a84139776b85dd",
+      "output": "media/street-food.webp",
+      "alt": "一起吃饼和热汤",
+      "width": 800,
+      "height": 600,
+      "bytes": 56986
+    },
+    {
+      "id": "together",
+      "source": "IMG_0809.JPG",
+      "sourceBytes": 177226,
+      "sourceSha256": "62bf9c4d2dd59f59a41201efca462cb5ed45a83d8d8ab7211b23b45f4b103fe4",
+      "output": "media/together.webp",
+      "alt": "两个人并肩自拍",
+      "width": 601,
+      "height": 800,
+      "bytes": 39154
+    },
+    {
+      "id": "lakeside",
+      "source": "IMG_2124.HEIC.JPG",
+      "sourceBytes": 216318,
+      "sourceSha256": "12e5bfe154d730e4ae7b48483403c930aed97be0d7cfdc61a9be4046b0dd140f",
+      "output": "media/lakeside.webp",
+      "alt": "坐在湖边享受闲暇",
+      "width": 601,
+      "height": 800,
+      "bytes": 52714
+    },
+    {
+      "id": "roses",
+      "source": "IMG_5011.HEIC.JPG",
+      "sourceBytes": 198149,
+      "sourceSha256": "98c7b88a41415d7622a0ec70ca2fb002dfc22eab634c49013bdbf644cd936ab3",
+      "output": "media/roses.webp",
+      "alt": "散步时带着的一束玫瑰",
+      "width": 601,
+      "height": 800,
+      "bytes": 45814
+    },
+    {
+      "id": "sunset-eaves",
+      "source": "IMG_5246.HEIC.JPG",
+      "sourceBytes": 174952,
+      "sourceSha256": "667d53185e6d6d907da7842f49038ac18b289b483a4c44630240d26f01fb2ed3",
+      "output": "media/sunset-eaves.webp",
+      "alt": "晚霞下的飞檐",
+      "width": 601,
+      "height": 800,
+      "bytes": 12228
+    },
+    {
+      "id": "dinner",
+      "source": "IMG_5532.HEIC.JPG",
+      "sourceBytes": 198279,
+      "sourceSha256": "c3cca1cba3bc0fb51a923b0a1a3f27dc0e8217599b351dafe35dd4a3cbddf913",
+      "output": "media/dinner.webp",
+      "alt": "一起吃饭的日常",
+      "width": 601,
+      "height": 800,
+      "bytes": 56038
+    },
+    {
+      "id": "birthday-wish",
+      "source": "IMG_5625.HEIC.JPG",
+      "sourceBytes": 268829,
+      "sourceSha256": "ae4c7e67e7d874a6d3a4dc0cabab5491dd35e23162eac54c00c8f6c83736d364",
+      "output": "media/birthday-wish.webp",
+      "alt": "生日蛋糕前许愿",
+      "width": 600,
+      "height": 800,
+      "bytes": 35412
+    }
+  ],
+  "totalBytes": 384852,
+  "sourceBytes": 1613935
+}

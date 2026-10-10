@@ -1,0 +1,152 @@
+@font-face {
+  font-family: PoetryBrush;
+  src: url("../../assets/ma-shan-zheng-v10.6.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+* { box-sizing: border-box; }
+:root {
+  color-scheme: light;
+  --paper: #f8f5ef;
+  --ink: #354234;
+  --olive: #7c8564;
+  --red: #953a3c;
+}
+html { background: #deddd3; }
+body { margin: 0; color: var(--ink); }
+.scroll {
+  --sheet-width: min(100vw, 520px);
+  position: relative;
+  isolation: isolate;
+  container-type: size;
+  width: var(--sheet-width);
+  height: max(100svh, calc(var(--sheet-width) * 1.5));
+  margin: 0 auto;
+  background: var(--paper);
+}
+
+/* The same paper asset and grain scale as invitation page two. */
+.paper {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  pointer-events: none;
+}
+.paper i {
+  display: block;
+  flex: none;
+  width: 100%;
+  aspect-ratio: 8 / 3;
+  background: url("../../versions/v10.125-keepsake-fast/media/camera-clean.webp") center bottom / 100% auto no-repeat;
+}
+.paper i:nth-child(even) { transform: scaleY(-1); }
+
+/* Quiet page furniture: one botanical book ribbon, no flower stickers. */
+.ribbon {
+  position: absolute;
+  top: 0;
+  right: 10.5%;
+  width: 9%;
+  height: 7%;
+  background: var(--olive) url("branch.svg") center 40% / 180% auto;
+}
+h1 {
+  position: absolute;
+  top: 12%;
+  right: 5.5%;
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: flex-start;
+  gap: .8cqw;
+  margin: 0;
+  font: 400 9.5cqw/1.12 PoetryBrush, "Kaiti SC", STKaiti, serif;
+  letter-spacing: .06em;
+}
+h1 span { writing-mode: vertical-rl; }
+h1 span:nth-child(2) { margin-top: 10cqw; }
+h1::after {
+  content: "";
+  position: absolute;
+  top: calc(100% + 6cqw);
+  right: 4.5cqw;
+  height: 9cqw;
+  border-right: 1px solid #7c856466;
+}
+
+/* The images define the composition; no tilted cards, mats or drop shadows.
+   Height-relative caps keep both photographs inside one sheet on short screens. */
+.photograph { position: absolute; margin: 0; }
+.photograph img { display: block; width: 100%; height: auto; }
+.garden {
+  top: 7.5%;
+  left: 5%;
+  width: min(63cqw, 27.5cqh);
+}
+.corridor {
+  right: 5%;
+  bottom: 7%;
+  width: min(69cqw, 38cqh);
+}
+.photo-window {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 591 / 680;
+  overflow: hidden;
+}
+/* Display source rows 334–1013: remove black bars and unused overhead roof.
+   Heads start around row 458; shoes and dress remain above row 1014. */
+.photo-window img {
+  position: absolute;
+  left: 0;
+  top: -49.1176470588%;
+  width: 100%;
+  height: auto;
+  /* Reversible display grading only; no retouching or AI-generated faces. */
+  filter: brightness(1.045) saturate(.92) contrast(1.02);
+}
+
+.verse {
+  position: absolute;
+  left: 9%;
+  bottom: 15%;
+  width: 12%;
+  margin: 0;
+}
+blockquote { margin: 0; }
+blockquote p {
+  margin: 0 auto;
+  width: fit-content;
+  writing-mode: vertical-rl;
+  color: var(--ink);
+  font: 400 6.5cqw/1.15 PoetryBrush, "Kaiti SC", STKaiti, serif;
+  letter-spacing: .18em;
+}
+.fine-line { display: none; }
+.verse-dot {
+  display: block;
+  width: 2cqw;
+  height: 2cqw;
+  margin: 5cqw auto 0;
+  border: 1px solid var(--red);
+  background: #953a3c0f;
+}
+.closing { position: absolute; bottom: 0; left: 0; right: 0; }
+.end-band {
+  width: 100%;
+  height: 1.8cqw;
+  background: var(--olive);
+}
+
+@media (max-width: 600px) {
+  html { background: var(--paper); }
+  .scroll { --sheet-width: 100vw; }
+}
+@media print {
+  @page { margin: 0; }
+  * { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+}

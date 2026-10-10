@@ -1,0 +1,86 @@
+*{box-sizing:border-box}
+:root{color-scheme:light;--paper:#f8f5ef;--ink:#76644e;--red:#9c3940;--green:#858d68}
+html{background:#deddd3}
+body{margin:0;padding:32px 16px;color:var(--ink);font-family:"Kaiti SC",STKaiti,KaiTi,"Songti SC",serif}
+.scroll{position:relative;isolation:isolate;container-type:inline-size;width:100%;max-width:520px;margin:auto;background:var(--paper);box-shadow:0 6px 30px #3d372215}
+.paper{position:absolute;inset:0;z-index:-1;overflow:hidden;display:flex;flex-direction:column;pointer-events:none}
+.paper i{display:block;flex:none;width:100%;aspect-ratio:8/3;background:url("../../versions/v10.125-keepsake-fast/media/camera-clean.webp") center bottom/100% auto no-repeat}
+.paper i:nth-child(even){transform:scaleY(-1)}
+.opening{position:relative;padding-top:62cqw;text-align:center}
+.ribbon{position:absolute;top:0;left:36%;width:28%;height:48cqw;background:var(--green) url("branch.svg") center top/100% auto;opacity:.92}
+.botanical{position:absolute;top:34cqw;left:19%;width:62%;height:auto}
+.preface{margin:0 0 6.5cqw;color:var(--red);font-size:clamp(10px,2.5cqw,14px);letter-spacing:.32em;padding-left:.32em}
+h1{display:flex;flex-direction:row-reverse;justify-content:center;gap:6.4cqw;margin:0;font-weight:400;font-size:clamp(22px,5.7cqw,32px);line-height:1.6;letter-spacing:.22em}
+h1 span{writing-mode:vertical-rl}
+.source{margin:5.5cqw 0 0;font-size:clamp(10px,2.5cqw,13px);letter-spacing:.15em}
+.seal{display:block;width:8cqw;margin:6cqw auto 9cqw;color:var(--red);font-family:"Songti SC",SimSun,serif;font-size:8cqw;line-height:1.1;transform:rotate(-5deg)}
+.photograph{margin:0 auto;width:79%}
+.photograph img{display:block;width:100%;height:auto}
+figcaption{display:flex;justify-content:space-between;padding-top:3cqw;font-size:clamp(9px,2.25cqw,12px);letter-spacing:.12em;color:#887a62}
+figcaption span:last-child{color:var(--red)}
+.verse{text-align:center;padding:11cqw 0 12cqw}
+.fine-line{width:1px;height:10cqw;margin:0 auto 8cqw;background:#9c9b7b99}
+blockquote{margin:0;font-size:clamp(19px,4.9cqw,27px);line-height:1.9;letter-spacing:.24em;padding-left:.24em;font-weight:400}
+blockquote p{margin:0}
+.verse-dot{display:block;width:4px;height:4px;background:var(--red);margin:7cqw auto 0;transform:rotate(45deg)}
+.corridor{width:86%}
+/* Hide only the screenshot's black rows 0–128 and 1014–1279.
+   Source remains untouched. All photographic rows 129–1013 stay visible. */
+.photo-window{position:relative;width:100%;aspect-ratio:591/885;overflow:hidden}
+.photo-window img{position:absolute;left:0;top:-14.5762711864%;width:100%;height:auto}
+.closing{text-align:center;padding-top:9cqw}
+.closing>img{display:block;width:26%;height:auto;margin:0 auto 3cqw;opacity:.75}
+.names{font-size:clamp(17px,4.2cqw,23px);font-weight:400;letter-spacing:.2em;margin:0 0 5cqw;padding-left:.2em}
+.names span{font-size:.68em;margin:0 .8em;color:#8f9473}
+.poem-credit{display:inline-block;padding:10px 4px;color:#827764;font-size:clamp(10px,2.35cqw,13px);line-height:1.6;letter-spacing:.06em;text-decoration:none;text-underline-offset:4px}
+.poem-credit:hover{text-decoration:underline;color:var(--red)}
+.poem-credit:focus-visible{outline:1px solid var(--red);outline-offset:4px}
+.end-band{height:10cqw;margin-top:9cqw;background:var(--green) url("branch.svg") center 40%/28% auto}
+@media(max-width:600px){html{background:var(--paper)}body{padding:0}.scroll{max-width:none;box-shadow:none}}
+@media print{@page{margin:0}body{padding:0}.scroll{box-shadow:none;max-width:520px}*{print-color-adjust:exact;-webkit-print-color-adjust:exact}.poem-credit{text-decoration:none}}
+
+/* Fixed paper: same standalone fallback as the invitation's syncPaper().
+   Photos retain their natural ratios; content no longer determines sheet height. */
+body{padding:0}
+.scroll{--sheet-width:min(100vw,520px);width:var(--sheet-width);height:max(100svh,calc(var(--sheet-width)*1.5));min-height:0}
+.opening{position:static;padding:0}
+.ribbon{left:9%;width:19%;height:17%}
+.botanical{top:10%;left:3%;width:34%}
+.preface{position:absolute;top:5%;right:8%;margin:0;font-size:2.5cqw}
+h1{position:absolute;top:13%;right:10%;gap:4cqw;font-size:5.5cqw;line-height:1.3}
+.source{position:absolute;top:33%;right:8%;margin:0;font-size:2.3cqw}
+.seal{position:absolute;top:6%;left:43%;width:auto;margin:0;font-size:8cqw}
+.photograph{position:absolute;margin:0}
+.garden{left:6%;top:22%;width:48%}
+.corridor{left:55%;top:42%;width:41%}
+figcaption{padding-top:1.8cqw;font-size:2.1cqw;line-height:1.3}
+.verse{position:absolute;left:9%;top:75%;width:40%;padding:0}
+.fine-line,.verse-dot{display:none}
+blockquote{font-size:4.3cqw;line-height:1.7;letter-spacing:.2em;padding-left:.2em}
+.closing{position:absolute;left:0;right:0;bottom:0;height:12%;padding:0}
+.closing>img{display:none}
+.names{position:absolute;top:0;left:6%;font-size:3.8cqw;margin:0;line-height:1.4}
+.poem-credit{position:absolute;right:6%;top:0;max-width:48%;padding:0;font-size:2.1cqw;line-height:1.6}
+.end-band{position:absolute;bottom:0;left:0;right:0;height:30%;margin:0}
+@media(max-width:600px){.scroll{--sheet-width:100vw}}
+
+/* A single poem across the two empty areas; no names, labels or credits. */
+h1{right:17%;top:15%;font-size:6cqw;letter-spacing:.28em}
+.verse{top:76%;left:8%;width:42%}
+blockquote{font-size:4.8cqw;letter-spacing:.22em}
+
+/* Mounted photographic prints: treatment stays outside the original pixels. */
+.photograph{
+  padding:1.2cqw 1.2cqw 2.5cqw;
+  background:#fffdf6;
+  border:1px solid #b6a88c55;
+  box-shadow:0 1px 2px #483c2820,0 1.4cqw 2.8cqw #483c2816;
+}
+.photograph::before{
+  content:"";position:absolute;inset:.4cqw;
+  border:1px solid #b6a88c26;pointer-events:none;
+}
+.garden{left:4%;width:50%;transform:rotate(-.4deg)}
+.corridor{left:55%;width:43%;transform:rotate(.4deg)}
+.photograph>img,.photo-window{outline:1px solid #685a4026;outline-offset:0}
+@media print{.photograph{box-shadow:none}}

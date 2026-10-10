@@ -1,0 +1,7 @@
+@font-face{font-family:AboutHand;src:url("../../assets/ma-shan-zheng-v10.6.ttf") format("truetype");font-weight:400;font-style:normal;font-display:swap}
+.about-comic{position:relative;isolation:isolate;overflow:hidden;container-type:inline-size;padding:12% 5% 9%;background:#fffdf7;color:#a42d22;font-family:AboutHand,"Kaiti SC",STKaiti,cursive}
+.about-comic header{width:65%;margin:0 auto 7%;text-align:center}
+.about-comic h2{margin:0;font:400 10cqw/1.3 AboutHand,"Kaiti SC",cursive;letter-spacing:.1em;transform:rotate(-3deg)}
+.about-comic header svg{display:block;width:85%;margin:2% auto 0;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round}
+.comic-lead{font:400 5.1cqw/1.8 AboutHand,"Kaiti SC",cursive;text-align:center;margin:0 0 4%;letter-spacing:.02em}.comic-lead span{white-space:nowrap}
+.comic-sheet{margin:0;mix-blend-mode:multiply}.comic-sheet img{display:block;width:100%;height:auto}

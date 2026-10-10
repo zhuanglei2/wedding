@@ -1,0 +1,60 @@
+#story-timeline{scroll-margin-top:12vh}
+#story-timeline .story-node{padding-bottom:7%}
+#story-timeline [hidden]{display:none!important}
+.memory-copy{position:relative;isolation:isolate}
+.memory-stack{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:5%;margin-top:8%}
+.memory-card{box-sizing:border-box;margin:0;padding:3% 3% 8%;background:#fffdf8;border:1px solid #e4ddd2;box-shadow:0 3px 7px #45352230;transform-origin:center}
+.memory-card img{display:block;width:100%;height:auto;aspect-ratio:3/4;object-fit:contain;background:#fffdf8}
+.memory-card.memory-landscape img{aspect-ratio:4/3}
+.memory-card img[data-media-src]:not([src]),.wedding-finale img[data-media-src]:not([src]){display:none}
+.memory-keepsake{grid-column:1/-1;padding:5%;color:#2e2a27;font-family:-apple-system,BlinkMacSystemFont,"PingFang SC",sans-serif}
+.keepsake-author{color:#637495;font-size:3.4cqw;font-weight:600;margin:0 0 3%}
+.memory-keepsake figcaption{font-size:4.15cqw;line-height:1.5;letter-spacing:0;white-space:nowrap;margin-bottom:4%}
+.memory-keepsake figcaption span{margin-left:.15em}
+.keepsake-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(4px,1.7cqw,10px)}
+.memory-keepsake .keepsake-grid img{aspect-ratio:1;object-fit:cover;object-position:50% 54%}
+.keepsake-date{font-size:3cqw;color:#8d8983;margin-top:5%}
+.wedding-node{margin-top:12%}
+.wedding-node .timeline-prose p{font-family:AboutHand,"Kaiti SC",STKaiti,cursive;font-size:7cqw;line-height:1.6;color:#a42d22}
+.wedding-finale{width:90%;margin:9% auto 0;padding:2.4% 2.4% 6%;box-sizing:border-box;background:#fffdf8;box-shadow:0 3px 12px #45352226;transform:rotate(-1deg)}
+.wedding-finale img{display:block;width:100%;height:auto;aspect-ratio:2/3;object-fit:contain}
+.story-enhanced .type-glyph{opacity:0}
+.story-enhanced .type-glyph.typed{opacity:1}
+.story-enhanced .story-node:not(.entered){visibility:hidden;pointer-events:none}
+.story-enhanced .type-block:not(.typing):not(.type-complete){visibility:hidden}
+.story-enhanced .memory-stack{display:block;position:absolute;inset:0;margin:0;z-index:4;pointer-events:none;overflow:visible}
+.story-enhanced .memory-card{position:absolute;left:50%;top:var(--memory-center,60%);width:63%;padding:2% 2% 6%;opacity:0;transform:translate(-50%,-50%) rotate(-2deg)}
+.story-enhanced .memory-landscape{width:76%}
+.story-enhanced .memory-keepsake{width:88%;padding:5%}
+.story-enhanced .memory-card.landed{opacity:1}
+.story-enhanced .wedding-finale{opacity:0}
+.story-enhanced .wedding-finale.revealed{opacity:1}
+.story-paper-window.story-following{scroll-behavior:auto!important;overflow-anchor:none}
+.photo-retry{display:block;margin:1em auto;padding:.7em 1em;border:1px solid #ac7b64;border-radius:4px;background:#fffdf8;color:#74392c;font:inherit}
+@media(prefers-reduced-motion:reduce){.story-enhanced .type-glyph{opacity:1}.story-enhanced .type-block{visibility:visible}.story-enhanced .wedding-finale{opacity:1}}
+
+/* The comic intro stays outside the fixed-height timeline reading window. */
+.about-reactions.story-fixed-page{height:var(--story-page-height,max(100svh,var(--paper-height,0px)));min-height:0;padding:0;overflow:hidden}
+.story-page-layout{position:relative;box-sizing:border-box;height:100%;display:flex;flex-direction:column;padding:12% 8% 8%;container-type:inline-size}
+.story-fixed-intro{flex:none;position:relative;z-index:1}
+.story-timeline-frame{position:relative;flex:1;min-height:0;margin-top:clamp(20px,5cqw,40px);border-top:1px solid #74392c20;border-bottom:1px solid #74392c16}
+.story-paper-window{position:relative;box-sizing:border-box;height:100%;min-height:0;overflow-y:auto;overflow-x:hidden;scrollbar-width:none;scroll-behavior:auto;-webkit-overflow-scrolling:touch}
+.story-timeline-frame .story-paper-window{-webkit-mask-image:linear-gradient(to bottom,transparent,#000 16px,#000 calc(100% - 16px),transparent);mask-image:linear-gradient(to bottom,transparent,#000 16px,#000 calc(100% - 16px),transparent)}
+.story-paper-window::-webkit-scrollbar{display:none}
+.story-paper-window:focus-visible{outline:1px solid #ac7b64;outline-offset:-4px}
+.story-paper-content{box-sizing:border-box;min-height:100%;padding:20px 0 24px;container-type:inline-size}
+.story-fixed-page #story-timeline{margin-top:0;scroll-margin-top:var(--story-anchor-offset,20px)}
+.story-fixed-page .story-enhanced .memory-card{width:min(63%,calc(var(--story-window-height,700px) * .46))}
+.story-fixed-page .story-enhanced .memory-landscape{width:min(76%,calc(var(--story-window-height,700px) * .65))}
+.story-fixed-page .story-enhanced .memory-keepsake{width:min(88%,calc(var(--story-window-height,700px) * .72));container-type:inline-size}
+.story-fixed-page .memory-keepsake figcaption{font-size:5.4cqw}
+.story-fixed-page .keepsake-author{font-size:4.4cqw}
+.story-fixed-page .keepsake-date{font-size:3.8cqw}
+.story-fixed-page #story-timeline .wedding-node{min-height:calc(var(--story-window-height,700px) - 48px);padding-bottom:0}
+.story-fixed-page .wedding-finale{width:min(96%,calc(var(--final-photo-height,480px) * .666667 + 16px));padding:8px 8px 20px;margin:6% auto 0}
+/* Only the finale overlays its completed node; earlier timeline text keeps its layout. */
+.story-fixed-page .story-enhanced .wedding-node{position:relative}
+.story-fixed-page .story-enhanced .wedding-finale.revealed{position:absolute;top:0;left:0;right:0;z-index:6;margin:0 auto;box-shadow:0 5px 18px #45352238}
+.story-fixed-page .wedding-node .timeline-prose p{font-size:6.3cqw}
+@media(max-height:720px) and (max-width:600px){.story-page-layout{padding-top:7%;padding-bottom:6%}.story-fixed-intro header{margin-bottom:7%}.story-fixed-intro .reaction-story{gap:5cqw}.story-timeline-frame{margin-top:18px}}
+@media print{.about-reactions.story-fixed-page,.story-page-layout{height:auto}.story-timeline-frame{flex:none}.story-paper-window{height:auto;overflow:visible}.story-timeline-frame .story-paper-window{-webkit-mask-image:none;mask-image:none}}

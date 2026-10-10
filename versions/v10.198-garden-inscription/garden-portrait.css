@@ -1,0 +1,72 @@
+/* Approved equal-lettering-v18, scoped to the new fourth page.
+   No global reset, paper texture, photo filter, or image regeneration. */
+#garden-portrait {
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  place-items: center;
+  width: 100%;
+  min-height: var(--paper-height, 100vh);
+  min-height: 100svh;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background: #151a17;
+  scroll-margin-top: 0;
+  outline-offset: -3px;
+}
+#garden-portrait .garden-palette {
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+#garden-portrait .garden-frame {
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+#garden-portrait .garden-photo-window {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+#garden-portrait .garden-photo-window img {
+  position: absolute;
+  display: block;
+  width: 124%;
+  max-width: none;
+  height: auto;
+  left: -18.6%;
+  top: -21.5%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+#garden-portrait .garden-inscription {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  line-height: 0;
+  pointer-events: none;
+}
+#garden-portrait .garden-verse {
+  position: absolute;
+  display: block;
+  height: auto;
+  overflow: hidden;
+}
+/* Equal source-pixel scale; differing viewBox widths are intentional. */
+#garden-portrait .garden-verse-time { left: 16%; top: 3.8%; width: 7.6%; }
+#garden-portrait .garden-verse-light { left: 6.1%; top: 8.1%; width: 7.982123%; }
+#garden-portrait .garden-verse-years { left: 86.6%; top: 67.6%; width: 8.703911%; }
+#garden-portrait .garden-verse-joy { left: 76.7%; top: 73.2%; width: 7.982123%; }
+@media print { #garden-portrait { min-height: 0; break-inside: avoid; } }

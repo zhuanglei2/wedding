@@ -1,0 +1,38 @@
+* { box-sizing: border-box; }
+html { background: #151a17; color-scheme: dark; }
+body { margin: 0; }
+.scroll {
+  --sheet-width: min(100vw, 520px);
+  display: grid;
+  place-items: center;
+  width: var(--sheet-width);
+  height: max(100svh, calc(var(--sheet-width) * 1.5));
+  margin: 0 auto;
+}
+
+/* New 3918 x 5877 original: complete image, no screenshot crop or stretching. */
+.corridor {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  margin: 0;
+}
+.photo-window, .photo-window > img { display: block; width: 100%; }
+.photo-window > img { height: auto; }
+
+/* Quiet ivory lettering: all transparent padding is retained. Its entire
+   image frame ends at 33% of photograph height, above the groom's hair. */
+.inscription {
+  position: absolute;
+  top: 3%;
+  left: 2%;
+  width: 30%;
+  margin: 0;
+  line-height: 0;
+}
+.inscription picture, .inscription img { display: block; width: 100%; }
+.inscription img { height: auto; }
+
+@media (max-width: 600px) {
+  .scroll { --sheet-width: 100vw; }
+}

@@ -1,0 +1,54 @@
+{
+  "source": "/Users/eleme/IdeaProjects/wedding/versions/v10.193-compact-drawn-paper/design/gathered-scenes-master.png",
+  "sourceHash": "83f78aa8e210faefce04d3bda10a6808617687672cef4c6db8bd8747fe3d0018",
+  "canvas": {
+    "width": 1200,
+    "height": 1540
+  },
+  "nativePixelChecks": 1443429,
+  "sourceAnchors": [
+    0,
+    50,
+    80,
+    827,
+    849,
+    935,
+    1007,
+    1066,
+    1090,
+    1200
+  ],
+  "targetAnchorsAtSeam": [
+    0,
+    107.27272727272728,
+    140.7450980392157,
+    849.2971428571428,
+    875.569105691057,
+    983.1709844559585,
+    1049.0335917312661,
+    1105.8252427184466,
+    1143.3333333333333,
+    1200
+  ],
+  "assets": [
+    {
+      "file": "gathered-scenes-600.webp",
+      "width": 600,
+      "height": 770,
+      "bytes": 100446
+    },
+    {
+      "file": "gathered-scenes-900.webp",
+      "width": 900,
+      "height": 1155,
+      "bytes": 179302
+    },
+    {
+      "file": "gathered-scenes-1200.webp",
+      "width": 1200,
+      "height": 1540,
+      "bytes": 263690
+    }
+  ],
+  "policy": "ImageGen reworked only the upper paper crop; registered generated pencil architecture to immutable photo axes. All RGB at/below the original tear is identical to V193 PNG master. WebP delivery remains lossy. No people, scale, framing or lyrics changes."
+}

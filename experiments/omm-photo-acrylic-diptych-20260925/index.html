@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#f4efe4">
+  <meta name="description" content="上半幅保留原始婚纱摄影，下半幅为纸本丙烯插画的双分区页面。">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src 'self'; style-src 'unsafe-inline'; base-uri 'none'; form-action 'none'">
+  <title>摄影与纸本丙烯 · 婚纱双联画</title>
+  <style>
+    * { box-sizing: border-box; }
+    html { background: #f4efe4; color-scheme: light; }
+    body { margin: 0; min-width: 0; }
+    main { min-height: 100vh; min-height: 100svh; display: grid; place-items: center; }
+    figure { position: relative; width: 100%; max-width: 960px; margin: 0; }
+    picture, img { display: block; width: 100%; }
+    img { height: auto; }
+    /* Feather only source rows 742–785, below the entire dress; never blur the photo. */
+    .photo-feather {
+      position: absolute;
+      top: 47.2%;
+      left: 0;
+      width: 100%;
+      height: 2.8%;
+      pointer-events: none;
+      -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #0000000f 20%, #00000040 42%, #000000a3 68%, #000000eb 88%, #000 100%);
+      mask-image: linear-gradient(to bottom, transparent 0%, #0000000f 20%, #00000040 42%, #000000a3 68%, #000000eb 88%, #000 100%);
+    }
+    .photo-feather::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: url("drafts/lower-panel.png") center top / 100% auto no-repeat;
+      /* Mirror only this narrow paper strip so it meets the lower panel's first row. */
+      transform: scaleY(-1);
+    }
+    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+    @media (min-width: 700px) {
+      figure { width: min(960px, calc(100vh * .75)); width: min(960px, calc(100svh * .75)); }
+    }
+    @media print {
+      @page { size: 180mm 240mm; margin: 0; }
+      html { background: transparent; }
+      main { min-height: 0; }
+      figure { width: 100%; max-width: none; }
+      img { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <figure aria-labelledby="diptych-caption">
+      <picture>
+        <source type="image/webp" srcset="wedding-omm-diptych.webp">
+        <img src="wedding-omm-diptych.png" width="1179" height="1572" decoding="async" fetchpriority="high" alt="3:4 婚纱双联画。上半幅是未经重绘的完整原始照片：两人站在金色宫廷内，新郎在左、新娘在右。下半幅在大面积米白色纸张中央，以细线和黑色、象牙白、赭金色丙烯色块简化两人姿态、婚纱裙摆和一道拱线。">
+      </picture>
+      <div class="photo-feather" aria-hidden="true"></div>
+      <figcaption id="diptych-caption" class="sr-only">原始摄影与纸本丙烯插画，上下各半，不添加画面文字。</figcaption>
+    </figure>
+  </main>
+</body>
+</html>

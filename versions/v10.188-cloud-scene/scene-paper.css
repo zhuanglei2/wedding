@@ -1,0 +1,9 @@
+/* Keep the illustration visible. Only the OUTERMOST paper margin blends into
+   the same cached paper material as page two; never mask the designed field. */
+.gathered-scenes{background:#f8f5ef}
+.gathered-scenes::before,.gathered-scenes::after{
+  height:3%;background:#f8f5ef url("../v10.159-flow-and-gilt/media/camera-clean.webp") center bottom/100% auto no-repeat;
+}
+.gathered-scenes::before{-webkit-mask-image:linear-gradient(#000,transparent);mask-image:linear-gradient(#000,transparent)}
+.gathered-scenes::after{-webkit-mask-image:linear-gradient(transparent,#000);mask-image:linear-gradient(transparent,#000)}
+html.cover-first .gathered-scenes::before,html.cover-first .gathered-scenes::after{background-image:none}

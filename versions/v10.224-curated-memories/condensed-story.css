@@ -1,0 +1,12 @@
+/* Exactly three sentences, three lines. Keep the existing typewriter glyphs.
+   The 21-character middle line fits the reading width on narrow screens;
+   shorter lines retain their original size. No crop, ellipsis or horizontal scroll. */
+#story-timeline .condensed-node h3{margin-bottom:1em}
+#story-timeline .condensed-prose{line-height:1.9}
+#story-timeline .condensed-prose p{white-space:nowrap}
+#story-timeline .condensed-prose .story-phrase{display:inline}
+#story-timeline .condensed-prose p:nth-child(2){font-size:min(1em,4.2cqw)}
+#story-timeline .condensed-prose p+p{margin-top:.9em}
+#story-timeline .condensed-prose p:last-child{
+ margin-top:1.25em;color:#a42d22;font-size:1.1em;letter-spacing:.08em;
+}

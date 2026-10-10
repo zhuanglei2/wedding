@@ -1,0 +1,34 @@
+{
+  "source": {
+    "path": "/Users/eleme/Desktop/wedding/aa0dca4cbs40cbfcf2373b2a2e855dd0.jpg",
+    "width": 3918,
+    "height": 5877,
+    "sha256": "f6f5643b61587cbda7583924f038bac558112e81dc367c4183bc3fb3b4a35d40"
+  },
+  "processing": "Auto-orient, proportional downscale, WebP quality 93. No crop, retouching, sharpening, grading or AI processing.",
+  "exports": [
+    {
+      "name": "media/corridor-hq-900-v8.webp",
+      "width": 900,
+      "height": 1350,
+      "bytes": 291358
+    },
+    {
+      "name": "media/corridor-hq-1350-v8.webp",
+      "width": 1350,
+      "height": 2025,
+      "bytes": 557900
+    },
+    {
+      "name": "media/corridor-hq-1800-v8.webp",
+      "width": 1800,
+      "height": 2700,
+      "bytes": 930570
+    }
+  ],
+  "lettering": {
+    "file": "media/poem-lettering-ivory-v2.webp",
+    "bytes": 125340,
+    "visiblePixelsAndAlpha": "lossless"
+  }
+}

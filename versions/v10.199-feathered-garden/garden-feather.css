@@ -1,0 +1,30 @@
+/* A short, static alpha feather at the photo's two horizontal edges.
+   The original pixels, framing, lettering and section geometry stay intact. */
+#garden-portrait {
+  background: #f8f5ef url("../v10.159-flow-and-gilt/media/camera-clean.webp") center bottom / 100% auto no-repeat;
+}
+html.cover-first #garden-portrait { background-image: none; }
+
+/* Only the photo window is masked. The sibling red lettering stays crisp.
+   Keep 4.5%–97.4% fully opaque; the smaller bottom feather avoids the hem. */
+#garden-portrait .garden-photo-window {
+  --garden-edge-feather: linear-gradient(to bottom,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, .10) .6%,
+    rgba(0, 0, 0, .38) 1.6%,
+    rgba(0, 0, 0, .78) 2.9%,
+    rgba(0, 0, 0, .96) 3.8%,
+    #000 4.5%,
+    #000 97.4%,
+    rgba(0, 0, 0, .86) 98.3%,
+    rgba(0, 0, 0, .40) 99%,
+    rgba(0, 0, 0, .10) 99.6%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  -webkit-mask-image: var(--garden-edge-feather);
+  mask-image: var(--garden-edge-feather);
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+}

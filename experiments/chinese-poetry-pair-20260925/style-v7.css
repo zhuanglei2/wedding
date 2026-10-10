@@ -1,0 +1,48 @@
+* { box-sizing: border-box; }
+html { background: #151a17; color-scheme: dark; }
+body { margin: 0; }
+.scroll {
+  --sheet-width: min(100vw, 520px);
+  display: grid;
+  place-items: center;
+  width: var(--sheet-width);
+  height: max(100svh, calc(var(--sheet-width) * 1.5));
+  margin: 0 auto;
+}
+
+/* Keep the complete 591 x 885 photographic area at its native aspect ratio.
+   Do not enlarge to cover a taller viewport, or add a synthetic photo backdrop. */
+.corridor {
+  position: relative;
+  width: min(100%, 591px);
+  aspect-ratio: 591 / 885;
+  margin: 0;
+}
+.photo-window { position: absolute; inset: 0; overflow: hidden; }
+.photo-window > img {
+  position: absolute;
+  display: block;
+  left: 0;
+  /* Hide only the screenshot's 129 upper black rows; lower rows fall outside. */
+  top: -14.5762711864%;
+  width: 100%;
+  max-width: none;
+  height: auto;
+}
+
+/* The custom eight-character drawing, not a substituted browser font.
+   Its transparent padding is retained; the ink remains above the faces. */
+.inscription {
+  position: absolute;
+  top: 8%;
+  left: 4%;
+  width: 22%;
+  margin: 0;
+  line-height: 0;
+}
+.inscription picture, .inscription img { display: block; width: 100%; }
+.inscription img { height: auto; }
+
+@media (max-width: 600px) {
+  .scroll { --sheet-width: 100vw; }
+}

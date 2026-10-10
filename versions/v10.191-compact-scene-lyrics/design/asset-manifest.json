@@ -1,0 +1,58 @@
+{
+  "canvas": {
+    "width": 971,
+    "height": 1619
+  },
+  "display": {
+    "width": 1200,
+    "height": 1800,
+    "cropTop": 0
+  },
+  "source": "/var/folders/03/3t__8yls3mzfzs6dxj2tts2h0000gn/T/codex-clipboard-2f3ae0fd-6b95-4e31-9333-5606c96b4c2b.png",
+  "sourceHash": "665928c9866fb6eaf7683140308f30e2e1308311080c5315abde8a865b0b7993",
+  "selectedPicture": "design/selected-picture.png",
+  "lyrics": [
+    "是想念如你温柔过境",
+    "才发现原来花开都有声音"
+  ],
+  "policy": "User-selected composite kept byte-for-byte as the PNG master. No further image generation, recolouring or portrait manipulation. Responsive WebP is lossy. Only its old English footer is hidden by the webpage viewport; the generated lyric image is a separate DOM image below.",
+  "assets": [
+    {
+      "file": "gathered-scenes-600.webp",
+      "width": 600,
+      "height": 1000,
+      "bytes": 138872
+    },
+    {
+      "file": "gathered-scenes-900.webp",
+      "width": 900,
+      "height": 1501,
+      "bytes": 247606
+    },
+    {
+      "file": "gathered-scenes-1200.webp",
+      "width": 1200,
+      "height": 2001,
+      "bytes": 344536
+    }
+  ],
+  "lyricImage": {
+    "width": 2172,
+    "height": 724,
+    "transparentPixelRatio": 0.8884153414120448,
+    "assets": [
+      {
+        "file": "lyrics-600.webp",
+        "width": 600,
+        "height": 200,
+        "bytes": 28226
+      },
+      {
+        "file": "lyrics-1200.webp",
+        "width": 1200,
+        "height": 400,
+        "bytes": 94658
+      }
+    ]
+  }
+}

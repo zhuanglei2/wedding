@@ -1,0 +1,9 @@
+/* Static 3:5 paper interlude. No portrait crop, transform or extra animation. */
+.gathered-scenes{display:block;position:relative;isolation:isolate;width:100%;max-width:100%;margin:0;padding:0;overflow:hidden;background:#f8f5ef;scroll-margin-top:0;outline-offset:-3px}
+.gathered-scenes-sheet{display:block;position:relative;width:100%;aspect-ratio:3/5;margin:0;padding:0}
+.gathered-scenes-sheet>img,.gathered-scenes-sheet>noscript>img{display:block;width:100%;height:auto;aspect-ratio:3/5;object-fit:contain;max-width:100%;border:0;margin:0;padding:0}
+/* The texture fades only in the outer paper margin, never over either photo. */
+.gathered-scenes::before,.gathered-scenes::after{content:"";position:absolute;left:0;right:0;height:18px;z-index:1;pointer-events:none}
+.gathered-scenes::before{top:0;background:linear-gradient(#f8f5ef,rgba(248,245,239,0))}
+.gathered-scenes::after{bottom:0;background:linear-gradient(rgba(248,245,239,0),#f8f5ef)}
+@media print{.gathered-scenes{break-inside:avoid}}

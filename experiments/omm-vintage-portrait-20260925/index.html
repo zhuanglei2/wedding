@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#f8f5ef">
+  <meta name="description" content="按 OMM Photo Acrylic Diptych 制作：上半保留完整婚纱原照，下半是取自同一照片的纸本丙烯小画。">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src 'self'; style-src 'unsafe-inline'; base-uri 'none'; form-action 'none'">
+  <title>摄影与纸本丙烯 · 复古婚礼肖像</title>
+  <style>
+    * { box-sizing: border-box; }
+    html { background: #f8f5ef; color-scheme: light; }
+    body { margin: 0; }
+    main { min-height: 100vh; min-height: 100svh; display: grid; place-items: center; }
+    figure { width: 100%; max-width: 900px; margin: 0; }
+    picture, img { display: block; width: 100%; }
+    img { height: auto; }
+    figcaption { position: absolute; width: 1px; height: 1px; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+    @media (min-width: 700px) {
+      figure { width: min(900px, 75vh); width: min(900px, 75svh); }
+    }
+    @media print {
+      @page { size: 180mm 240mm; margin: 0; }
+      main { min-height: 0; }
+      figure { width: 100%; max-width: none; }
+      img { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <figure aria-labelledby="poster-caption">
+      <picture>
+        <source type="image/webp" srcset="portrait-087f-omm-960.webp 960w, portrait-087f-omm-1536.webp 1536w" sizes="(min-width: 700px) min(900px, 75vh), 100vw">
+        <img src="portrait-087f-omm.png" width="1536" height="2048" decoding="async" fetchpriority="high" alt="上下各半的 3:4 摄影与纸本丙烯海报。上半完整保留两人站在海景画前的真实婚纱照片，左右是奶油色纸张；下半在大面积纸白中，以小幅哑光丙烯色块和纤细手绘线条表现新郎、新娘、展开的裙摆与帆船。">
+      </picture>
+      <figcaption id="poster-caption">以最新婚纱照片为唯一人物与场景来源。原始摄影不重绘；下半采用 OMM Photo Acrylic Diptych 的小主体、大留白纸本丙烯语言。</figcaption>
+    </figure>
+  </main>
+</body>
+</html>

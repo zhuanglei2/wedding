@@ -1,0 +1,140 @@
+@font-face {
+  font-family: PoetryBrush;
+  src: url("../../assets/ma-shan-zheng-v10.6.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+* { box-sizing: border-box; }
+:root {
+  color-scheme: light;
+  --paper: #f8f5ef;
+  --ink: #354234;
+  --olive: #7c8564;
+  --red: #953a3c;
+}
+html { background: #deddd3; }
+body { margin: 0; color: var(--ink); }
+.scroll {
+  --sheet-width: min(100vw, 520px);
+  position: relative;
+  isolation: isolate;
+  container-type: size;
+  width: var(--sheet-width);
+  height: max(100svh, calc(var(--sheet-width) * 1.5));
+  margin: 0 auto;
+  background: var(--paper);
+}
+
+/* Page two's blank paper strip, at exactly the original grain scale. */
+.paper {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  pointer-events: none;
+}
+.paper i {
+  display: block;
+  flex: none;
+  width: 100%;
+  aspect-ratio: 8 / 3;
+  background: url("../../versions/v10.125-keepsake-fast/media/camera-clean.webp") center bottom / 100% auto no-repeat;
+}
+.paper i:nth-child(even) { transform: scaleY(-1); }
+
+/* One poem, placed like a small inscription above the garden entrance. */
+.opening {
+  position: absolute;
+  top: 5.5%;
+  left: 8%;
+  z-index: 1;
+}
+h1 {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: flex-start;
+  gap: 2.6cqw;
+  margin: 0;
+  font: 400 min(7.6cqw, 2.8cqh)/1.15 PoetryBrush, "Kaiti SC", STKaiti, serif;
+  letter-spacing: .1em;
+}
+h1 span { writing-mode: vertical-rl; }
+h1 span:nth-child(2) {
+  margin-top: 2cqh;
+  color: #58604d;
+}
+.cinnabar {
+  position: absolute;
+  right: -4cqw;
+  top: .8cqh;
+  width: 1.45cqw;
+  height: 3.5cqw;
+  background: var(--red);
+  border-radius: 1px;
+}
+
+/* A single open garden gate. No frame, paper tears, shadow or tilt. */
+.corridor {
+  --photo-width: 86cqw;
+  --photo-height: 71cqh;
+  /* Cover only the 591 x 885 photographic area, never the screenshot bars. */
+  --image-width: max(var(--photo-width), calc(var(--photo-height) * .66779661));
+  position: absolute;
+  right: 5%;
+  bottom: 7.5%;
+  width: var(--photo-width);
+  height: var(--photo-height);
+  margin: 0;
+}
+.photo-window {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 50% 50% 0 0 / 28% 28% 0 0;
+}
+.photo-window img {
+  display: block;
+  position: absolute;
+  left: 50%;
+  /* 266 screenshot rows below the photograph; retain its final row (1013). */
+  bottom: calc(var(--image-width) * -.45008460237);
+  width: var(--image-width);
+  max-width: none;
+  height: auto;
+  transform: translateX(-50%);
+}
+.margin-rule {
+  position: absolute;
+  left: 4.5%;
+  bottom: 7.5%;
+  height: 21%;
+  width: 1px;
+  background: #7c856455;
+}
+.closing {
+  position: absolute;
+  bottom: 3.4%;
+  left: 9%;
+  width: 86%;
+  display: flex;
+  justify-content: center;
+}
+.closing span {
+  width: 5cqw;
+  height: 1px;
+  background: #7c85647a;
+}
+
+@media (max-width: 600px) {
+  html { background: var(--paper); }
+  .scroll { --sheet-width: 100vw; }
+}
+@media print {
+  @page { margin: 0; }
+  * { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+}

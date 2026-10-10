@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="zh-CN" data-background="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <title>新喜已临 · 独立题字</title>
+  <style>
+    * { box-sizing: border-box; }
+    :root { color-scheme: light; --surface: #fff; --ink: #454545; --line: #dedede; }
+    :root[data-background="dark"] { color-scheme: dark; --surface: #151a17; --ink: #e9e9e9; --line: #49514b; }
+    body { margin: 0; background: var(--surface); color: var(--ink); font: 13px/1.4 system-ui, sans-serif; }
+    main { display: grid; place-items: center; min-height: 100svh; padding: 20px 20px 85px; }
+    img { display: block; width: min(86vw, 620px); height: auto; max-height: calc(100svh - 125px); object-fit: contain; }
+    .controls { position: fixed; bottom: max(20px, env(safe-area-inset-bottom)); left: 50%; transform: translateX(-50%); display: flex; gap: 8px; padding: 5px; background: var(--surface); border: 1px solid var(--line); border-radius: 30px; }
+    button { appearance: none; border: 1px solid transparent; border-radius: 22px; padding: 8px 17px; white-space: nowrap; color: var(--ink); background: transparent; font: inherit; cursor: pointer; }
+    button[aria-pressed="true"] { border-color: var(--line); }
+    button:focus-visible { outline: 2px solid #c73c35; outline-offset: 3px; }
+  </style>
+</head>
+<body>
+  <main aria-label="独立题字预览">
+    <img src="media/lettering-new-joy-v13.webp" width="1254" height="1254" alt="朱红题字，从右往左四列：时日有序 光景常新 岁月并进 新喜已临" fetchpriority="high">
+  </main>
+  <div class="controls" role="group" aria-label="预览底色">
+    <button type="button" data-background="light" aria-pressed="false">浅底</button>
+    <button type="button" data-background="dark" aria-pressed="true">深底</button>
+  </div>
+  <script>
+    const controls = document.querySelectorAll('button[data-background]');
+    for (const button of controls) {
+      button.addEventListener('click', () => {
+        document.documentElement.dataset.background = button.dataset.background;
+        for (const item of controls) item.setAttribute('aria-pressed', String(item === button));
+      });
+    }
+  </script>
+</body>
+</html>

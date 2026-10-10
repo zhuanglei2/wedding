@@ -1,0 +1,43 @@
+{
+  "canvas": {
+    "width": 1200,
+    "height": 2000
+  },
+  "source": "/Users/eleme/Desktop/wedding/59636a811k762aacf68c8ec4b37bbc52.jpg",
+  "sourceWidth": 854,
+  "sourceHeight": 1280,
+  "sourceHash": "f372827ec75236fa258a99df799d15091af76262169cfd4b9c758adb87de2a53",
+  "policy": "One continuous source photograph. All people AND their surrounding scene are original photograph pixels, proportionally resampled only. Generated treatment is limited to environmental outer paper edges. No new accent colour. Exact pixel proof applies to lossless master; responsive WebP is lossy delivery.",
+  "photograph": {
+    "left": 0,
+    "top": 0,
+    "width": 1200,
+    "height": 1799,
+    "fullyProtectedSourceBand": [
+      174,
+      1130
+    ],
+    "protectedPixels": 1701248,
+    "pixelProof": "PASS: 1701248 RGB pixels match directly resized original."
+  },
+  "assets": [
+    {
+      "file": "gathered-scenes-600.webp",
+      "width": 600,
+      "height": 1000,
+      "bytes": 97916
+    },
+    {
+      "file": "gathered-scenes-900.webp",
+      "width": 900,
+      "height": 1500,
+      "bytes": 187862
+    },
+    {
+      "file": "gathered-scenes-1200.webp",
+      "width": 1200,
+      "height": 2000,
+      "bytes": 273124
+    }
+  ]
+}

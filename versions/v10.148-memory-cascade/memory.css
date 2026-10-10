@@ -1,0 +1,10 @@
+#story-timeline{scroll-margin-top:8vh}
+.memory-stack{position:relative;width:100%;height:115cqw;min-height:370px;max-height:850px;margin:10% 0 0;isolation:isolate;overflow:hidden;perspective:1100px}
+.memory-card{position:absolute;left:50%;top:50%;width:41%;padding:2% 2% 5%;margin:0;background:#fffdf8;border:1px solid #d6cfc4;box-shadow:0 3px 7px #45352230;transform:translate(-50%,-50%) rotate(-3deg);transform-origin:50% 60%}
+.memory-card img{display:block;width:100%;height:auto;aspect-ratio:3/4;object-fit:contain;background:#fffdf8}.memory-landscape{width:49%}.memory-landscape img{aspect-ratio:4/3}
+.memory-card [data-media-src]:not([src]){display:none}
+.memory-enhanced .memory-card{opacity:0}.memory-enhanced .memory-card.landed{opacity:1}
+.memory-card:nth-child(3n+1){transform:translate(-75%,-58%) rotate(-11deg)}.memory-card:nth-child(3n+2){transform:translate(-25%,-46%) rotate(9deg)}
+.memory-card:last-child{transform:translate(-50%,-50%) rotate(-3deg)}
+html.memory-auto-reading{scroll-behavior:auto!important}
+@media(prefers-reduced-motion:reduce){.memory-stack{min-height:370px}.memory-enhanced .memory-card{opacity:1}}

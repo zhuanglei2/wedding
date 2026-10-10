@@ -1,0 +1,19 @@
+/* Preserve the entire 854x1280 source. The completed finale alone is lifted
+   out of the masked timeline; the comic, page height and timing stay put. */
+#celebration{position:relative}
+#celebration .wedding-finale{width:94%}
+#celebration .wedding-finale img{
+ display:block;width:100%;height:auto;
+ aspect-ratio:auto;
+ object-fit:contain;
+ object-position:center;
+}
+#celebration>.wedding-finale.finale-expanded{
+ position:absolute;z-index:8;
+ left:var(--finale-left);top:var(--finale-top);
+ width:var(--finale-width);max-width:none;
+ margin:0;padding:8px 8px 20px;box-sizing:border-box;
+ background:#fffdf8;box-shadow:0 7px 24px #45352238;
+ pointer-events:none;
+}
+#celebration>.wedding-finale.finale-expanded .photo-retry{pointer-events:auto}

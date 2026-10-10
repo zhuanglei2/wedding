@@ -1,0 +1,35 @@
+{
+  "sourceDimensions": [
+    2086,
+    754
+  ],
+  "crop": {
+    "left": 78,
+    "top": 228,
+    "width": 1946,
+    "height": 290
+  },
+  "transparentFraction": 0.9416197664866954,
+  "assets": [
+    {
+      "name": "champagne-branch-640.webp",
+      "width": 640,
+      "height": 95,
+      "bytes": 23440
+    },
+    {
+      "name": "champagne-branch-1024.webp",
+      "width": 1024,
+      "height": 153,
+      "bytes": 47196
+    },
+    {
+      "name": "champagne-branch-1280.webp",
+      "width": 1280,
+      "height": 191,
+      "bytes": 67620
+    }
+  ],
+  "cssHeightAt390": 60.45,
+  "policy": "Only a static transparent botanical ornament is new. No portrait/image/lyrics edits. Existing V196 scroll controller reused unchanged; no additional scroll stop or script. CSS is inline to avoid another render-blocking request."
+}

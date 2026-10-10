@@ -1,0 +1,106 @@
+@font-face {
+  font-family: InscriptionBrush;
+  src: url("../../assets/liu-jian-xi-v10.6.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+* { box-sizing: border-box; }
+:root {
+  color-scheme: light;
+  --paper: #f8f5ef;
+  --vermilion: #d35346;
+}
+html { background: #deddd3; }
+body { margin: 0; }
+.scroll {
+  --sheet-width: min(100vw, 520px);
+  position: relative;
+  isolation: isolate;
+  container-type: size;
+  width: var(--sheet-width);
+  height: max(100svh, calc(var(--sheet-width) * 1.5));
+  margin: 0 auto;
+  background: var(--paper);
+}
+
+/* Same blank strip and grain scale as invitation page two. */
+.paper {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  pointer-events: none;
+}
+.paper i {
+  display: block;
+  flex: none;
+  width: 100%;
+  aspect-ratio: 8 / 3;
+  background: url("../../versions/v10.125-keepsake-fast/media/camera-clean.webp") center bottom / 100% auto no-repeat;
+}
+.paper i:nth-child(even) { transform: scaleY(-1); }
+
+/* The photograph is the poster. Only a narrow, real paper surround remains. */
+.corridor {
+  --paper-edge: clamp(8px, 2.5cqw, 14px);
+  --photo-width: calc(100cqw - var(--paper-edge) * 2);
+  /* Extremely tall windows gain paper above/below rather than cropped people. */
+  --photo-height: min(calc(100cqh - var(--paper-edge) * 2), calc(var(--photo-width) * 3.25));
+  --image-width: max(var(--photo-width), calc(var(--photo-height) * .66779661));
+  position: absolute;
+  left: var(--paper-edge);
+  top: 50%;
+  transform: translateY(-50%);
+  width: var(--photo-width);
+  height: var(--photo-height);
+  margin: 0;
+}
+.photo-window {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+.photo-window img {
+  position: absolute;
+  display: block;
+  /* Centre on source x=308, clamped to avoid gaps on wider sheets. */
+  left: clamp(calc(100% - var(--image-width)), calc(50% - var(--image-width) * .5211505922), 0px);
+  /* Source photo = rows 129–1013; 266 screenshot rows follow it. */
+  bottom: calc(var(--image-width) * -.45008460237);
+  width: var(--image-width);
+  max-width: none;
+  height: auto;
+}
+
+/* Small two-column inscription stays entirely in the roof's negative space. */
+.inscription {
+  position: absolute;
+  top: 7.5%;
+  left: 7%;
+  z-index: 1;
+  color: var(--vermilion);
+}
+h1 {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: flex-start;
+  gap: .3em;
+  margin: 0;
+  font: 400 clamp(18px, min(7.2cqw, 4cqh), 32px)/1.08 InscriptionBrush, "Kaiti SC", STKaiti, serif;
+  letter-spacing: .09em;
+}
+h1 span { writing-mode: vertical-rl; }
+h1 span:nth-child(2) { margin-top: .65em; }
+
+@media (max-width: 600px) {
+  html { background: var(--paper); }
+  .scroll { --sheet-width: 100vw; }
+}
+@media print {
+  @page { margin: 0; }
+  * { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+}

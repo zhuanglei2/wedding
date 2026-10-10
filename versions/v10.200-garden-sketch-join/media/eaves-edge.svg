@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 320" preserveAspectRatio="none">
+  <defs>
+    <linearGradient id="top-blend" x1="0" y1="0" x2="0" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="white" stop-opacity="0"/>
+      <stop offset=".06" stop-color="white" stop-opacity="1"/>
+      <stop offset="1" stop-color="white" stop-opacity="1"/>
+    </linearGradient>
+  </defs>
+  <!-- A shallow torn join, not a regular sawtooth or a blurred strip.
+       Max y=309, so its deepest point is only 20.28% of the photo frame. -->
+  <path fill="url(#top-blend)" d="M0 0H1000V222
+    L988 223 981 220 969 226 959 224 947 230 939 228
+    925 235 913 233 903 236 896 234 883 242 873 240
+    862 245 855 243 841 247 832 246 823 250 811 248
+    797 254 790 251 778 258 765 256 751 261 742 258
+    730 264 722 261 710 267 698 264 687 270 676 267
+    664 274 655 270 641 275 629 272 616 278 607 274
+    594 280 583 277 571 282 560 278 549 283 538 280
+    524 286 514 282 502 287 490 284 478 290 468 286
+    455 291 445 287 432 294 421 290 409 295 397 291
+    385 296 376 291 362 298 353 294 339 300 327 296
+    314 302 305 297 291 304 280 299 268 305 256 301
+    243 307 231 302 218 308 206 303 193 309 182 304
+    168 308 156 302 143 307 133 301 119 306 108 300
+    94 304 83 298 70 303 60 297 46 301 36 296 22 300 12 295 0 299Z"/>
+</svg>

@@ -1,0 +1,27 @@
+/* Continue page two's paper at exactly the same image-width scale.
+   Every strip reveals source y=1152..1536 only: no lettering or camera art.
+   The layer is behind the photograph; its existing alpha feather exposes
+   the grain naturally, without another white overlay on the portrait. */
+#garden-portrait .garden-paper-head {
+  position: absolute;
+  inset: 0 0 50%;
+  z-index: 0;
+  overflow: hidden;
+  background: #f8f5ef;
+  pointer-events: none;
+}
+#garden-portrait .garden-paper-head > span {
+  display: block;
+  width: 100%;
+  aspect-ratio: 8 / 3;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: url("../v10.159-flow-and-gilt/media/camera-clean.webp") center bottom / 100% auto no-repeat;
+}
+#garden-portrait .garden-frame { z-index: 1; }
+/* Share the already-cached page-two texture after the cover, not during its
+   first paint. A direct later-page visit may also release the texture. */
+html.cover-first:not(.later-media-ready) #garden-portrait .garden-paper-head > span {
+  background-image: none;
+}

@@ -1,0 +1,9 @@
+/* Restore the original photo scale; lower the crop window to center the couple.
+   Keep the original JPEG and film dimensions, including curved print copies. */
+.reference-art .camera-photo img,
+html.star-turn .opening-underlay .reference-art .camera-photo img,
+html.paper-motion .opening-underlay .reference-art .camera-photo img{
+ transform:none;
+ transform-origin:50% 50%;
+ object-position:50% 40%;
+}

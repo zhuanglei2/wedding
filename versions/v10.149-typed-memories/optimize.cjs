@@ -1,0 +1,6 @@
+const fs=require('node:fs'),path=require('node:path'),crypto=require('node:crypto');
+const sharp=require('/Users/eleme/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/sharp');
+const root='/Users/eleme/Desktop/wedding',output=path.join(__dirname,'media');
+const inputs=[['日常/IMG_6387.HEIC.JPG','heart-sea',640,80],['日常/19be55409f2383633e933f98ef2488.jpg','heart-sunset',640,80],['日常/029ab57aff0956c9360a398bd7a38b.jpg','ice-creams',640,80],['日常/13bee541066454d28a0bcf1ac58c67.jpg','heart-trees',640,80],['b048a3c3bm0f83d0bd1ff6541e82fb60.jpg','wedding-finale',1620,83]];
+const hash=p=>crypto.createHash('sha256').update(fs.readFileSync(p)).digest('hex');
+(async()=>{fs.mkdirSync(output,{recursive:true});let total=0;for(const [input,name,size,quality] of inputs){const src=path.join(root,input),before=hash(src);const result=await sharp(src).rotate().resize({width:size,height:size,fit:'inside',withoutEnlargement:true}).webp({quality,effort:5}).toFile(path.join(output,name+'.webp'));if(hash(src)!==before)throw Error('Original changed');total+=result.size;console.log(name,result.width,result.height,result.size)}console.log('New assets bytes:',total)})().catch(e=>{console.error(e);process.exitCode=1});

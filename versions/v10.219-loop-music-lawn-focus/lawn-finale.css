@@ -1,0 +1,12 @@
+/* Only the lawn portrait before Love, always. Keep the fixed-height page,
+   portrait bottom, full source width, and existing reveal animation intact.
+   4:5 instead of 2:3 gives the couple up to 20% more size in the same height;
+   the removed area is sky above their heads, never the raised hand or dress. */
+.story-fixed-page #story-timeline .wedding-finale{
+ width:min(96%,calc(var(--final-photo-height,480px) * .8 + 16px));
+}
+.story-fixed-page #story-timeline .wedding-finale img{
+ aspect-ratio:4/5;
+ object-fit:cover;
+ object-position:50% 100%;
+}

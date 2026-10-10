@@ -1,0 +1,89 @@
+{
+  "canvas": {
+    "width": 1800,
+    "height": 3000
+  },
+  "referencePolicy": "Original source bytes untouched. No generative portrait content. Source watermark retained.",
+  "photos": [
+    {
+      "source": "/Users/eleme/Desktop/wedding/b45b6d656q4216b835b18eaf0e4cca0c.jpg.JPG",
+      "sha256": "b911d6c05bedb66565395079a0c5ae14948ba4c3013df0c6cae139cfd06a7745",
+      "original": {
+        "width": 1179,
+        "height": 786
+      },
+      "resizeBox": {
+        "left": 662,
+        "top": 343,
+        "width": 1034,
+        "height": 581
+      },
+      "photoRect": {
+        "left": 743,
+        "top": 343,
+        "width": 872,
+        "height": 581
+      },
+      "templateWindow": {
+        "x": 345,
+        "y": 173,
+        "width": 580,
+        "height": 343
+      },
+      "pixelProof": "PASS: all fitted-photo pixels equal directly resized source; no crop, no retouch, no overlay"
+    },
+    {
+      "source": "/Users/eleme/Desktop/wedding/087f4a3a79f7b920abff19f11eb716ef.jpg",
+      "sha256": "f4956206f785e0a2f141b81f25a476e1cfcfb809e72f5d60076114e91eef0f4a",
+      "original": {
+        "width": 3911,
+        "height": 5866
+      },
+      "resizeBox": {
+        "left": 164,
+        "top": 1331,
+        "width": 865,
+        "height": 1328
+      },
+      "photoRect": {
+        "left": 164,
+        "top": 1346,
+        "width": 865,
+        "height": 1298
+      },
+      "templateWindow": {
+        "x": 68,
+        "y": 706,
+        "width": 501,
+        "height": 741
+      },
+      "pixelProof": "PASS: all fitted-photo pixels equal directly resized source; no crop, no retouch, no overlay"
+    }
+  ],
+  "assets": [
+    {
+      "file": "gathered-scenes-600.webp",
+      "width": 600,
+      "height": 1000,
+      "bytes": 110592
+    },
+    {
+      "file": "gathered-scenes-900.webp",
+      "width": 900,
+      "height": 1500,
+      "bytes": 218042
+    },
+    {
+      "file": "gathered-scenes-1200.webp",
+      "width": 1200,
+      "height": 2000,
+      "bytes": 338596
+    },
+    {
+      "file": "gathered-scenes-1800.webp",
+      "width": 1800,
+      "height": 3000,
+      "bytes": 622854
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "canvas": {
+    "width": 1200,
+    "height": 1540
+  },
+  "oldBottom": 1800,
+  "illustrationReduction": 260,
+  "source": "/Users/eleme/IdeaProjects/wedding/versions/v10.191-compact-scene-lyrics/design/selected-picture.png",
+  "sourceHash": "665928c9866fb6eaf7683140308f30e2e1308311080c5315abde8a865b0b7993",
+  "nativePixelChecks": 1429029,
+  "portraitChecks": 851000,
+  "assets": [
+    {
+      "file": "gathered-scenes-600.webp",
+      "width": 600,
+      "height": 770,
+      "bytes": 102886
+    },
+    {
+      "file": "gathered-scenes-900.webp",
+      "width": 900,
+      "height": 1155,
+      "bytes": 183298
+    },
+    {
+      "file": "gathered-scenes-1200.webp",
+      "width": 1200,
+      "height": 1540,
+      "bytes": 261706
+    }
+  ],
+  "policy": "Only the drawn paper interior is redesigned. Every photographic-core pixel from the user-selected composite is translated upward by 260px with identical RGB in the PNG master. No photographic stretching. Lyrics reused unchanged; WebP delivery is lossy."
+}

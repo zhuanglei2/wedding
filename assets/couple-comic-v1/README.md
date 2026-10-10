@@ -1,0 +1,10 @@
+# 双人漫画表情 · V1
+
+使用内置 imagegen，以用户婚纱照为人物与服装参考生成。四格预览稿，非独立透明素材；尚未嵌入网页或部署。
+
+文件：couple-expressions.png
+
+## Prompt
+
+Use case: illustration-story. Generate a single polished character-and-expression sticker contact sheet for a Chinese wedding invitation, using the attached photograph ONLY as identity and clothing reference. The subjects are the actual groom 庄磊 and bride 吴郁. Retain recognizable face shapes, hairlines and facial features: groom black side-parted softly wavy hair, black tuxedo, white shirt, black bow tie; bride black swept-back updo, delicate silver tiara, veil, pearl necklace and earrings, white strapless wedding dress. Transform into charming hand-drawn 2D comic caricatures, adult couple with gently enlarged heads, expressive eyebrows and natural detailed eyes, not generic emoji, not 3D dolls, not infant chibi. Warm fine ink contours, restrained watercolor flat fills, ivory/black clothing, small muted brick red and teal accents compatible with handmade wedding stationery.
+One unified 2 by 2 contact sheet with generous clean ivory whitespace separating four independent compositions, no panel borders, no watermarks, no additional people. Top left: the two standing together smiling, waist-up character identity portrait, no caption. Top right: groom alone gazing lovingly, hand at chest, slightly blushing and two small hearts, hand-written Chinese caption exactly "一见钟情". Bottom left: bride waist-up lifting one open hand beside her head as she turns toward groom off-canvas, slightly raised eyebrow, playful confident smile, affectionately pretending to be stern, NOT violent, no hitting; large clear handwritten speech bubble exactly "重新说！". Bottom right: groom waist-up sheepishly smiling, one hand scratching back of head, softened eyebrows, tiny sweat-drop comic mark; handwritten speech bubble exactly "开始于一次……". Keep both characters completely consistent across panels. Hands anatomically readable, no lost necklines, no cropped tiara or raised hand. Text precisely as given; no extra headings or labels. The sheet should feel tailored to the actual two people, elegant yet funny, high resolution.

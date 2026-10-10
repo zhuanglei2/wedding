@@ -1,0 +1,18 @@
+/* The smaller empty drawn field is edited into the image itself. Show all of
+   it: no upward shift, top clipping, squashing or photo scale change in CSS. */
+.gathered-scenes{background:#f8f5ef}
+.gathered-scenes-sheet{aspect-ratio:auto}
+.scene-picture{display:block;position:relative;width:100%;aspect-ratio:1200/1540}
+.scene-picture>img,.scene-picture>noscript>img{
+  display:block;width:100%;height:auto;aspect-ratio:1200/1540;max-width:100%;margin:0;border:0;
+}
+.gathered-scenes::before,.gathered-scenes::after{content:none}
+.gathered-scenes-sheet>.scene-lyrics{
+  display:block;position:relative;width:100%;margin:0;padding:0 5% 4%;
+  border:0;background:#f8f5ef url("../v10.159-flow-and-gilt/media/camera-clean.webp") center bottom/100% auto no-repeat;
+}
+.scene-lyrics>img,.scene-lyrics>noscript>img{
+  display:block;width:100%;height:auto;aspect-ratio:3/1;object-fit:contain;
+  margin:0;padding:0;border:0;max-width:100%;
+}
+html.cover-first .scene-lyrics{background-image:none}

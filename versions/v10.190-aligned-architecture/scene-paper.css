@@ -1,0 +1,15 @@
+/* Keep the illustration visible. Only the OUTERMOST paper margin blends into
+   the same cached paper material as page two; never mask the designed field. */
+.gathered-scenes{background:#f8f5ef}
+.gathered-scenes::before,.gathered-scenes::after{
+  height:3%;background:#f8f5ef url("../v10.159-flow-and-gilt/media/camera-clean.webp") center bottom/100% auto no-repeat;
+}
+.gathered-scenes::before{-webkit-mask-image:linear-gradient(#000,transparent);mask-image:linear-gradient(#000,transparent)}
+.gathered-scenes::after{-webkit-mask-image:linear-gradient(transparent,#000);mask-image:linear-gradient(transparent,#000)}
+html.cover-first .gathered-scenes::before,html.cover-first .gathered-scenes::after{background-image:none}
+@font-face{font-family:SceneLyrics;src:url("media/lyrics.woff2") format("woff2");font-weight:400;font-style:normal;font-display:swap}
+.gathered-scenes{container-type:inline-size}
+.gathered-scenes-sheet,.gathered-scenes-sheet>img,.gathered-scenes-sheet>noscript>img{aspect-ratio:1200/1840}
+.scene-lyric{position:absolute;z-index:2;margin:0;max-width:84%;font:400 clamp(16px,4.5cqw,45px)/1.45 SceneLyrics,"Kaiti SC",STKaiti,serif;letter-spacing:.09em;color:#76685b;white-space:nowrap;font-synthesis:none}
+.scene-lyric--top{top:2.3%;left:8%;transform:rotate(-1deg);transform-origin:left center}
+.scene-lyric--bottom{bottom:3.9%;right:8%;transform:rotate(-.6deg);transform-origin:right center}

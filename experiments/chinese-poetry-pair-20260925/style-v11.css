@@ -1,0 +1,21 @@
+@import url("style-v9.css");
+
+.palette-filters {
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+/* 20% larger than v10. The visible ink is at x=7.12–23.30%,
+   y=3.05–27.76%, staying to the left of both faces as it grows. */
+.inscription {
+  width: 36%;
+  left: -3.6%;
+  top: -2.9%;
+}
+
+/* The filter lives on the image in index.html so its fragment is resolved
+   against that document, rather than an imported stylesheet in file previews. */
+.inscription img { filter: none; }

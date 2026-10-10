@@ -1,0 +1,44 @@
+@import url("style-v9.css");
+
+.palette-filters {
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+.inscription {
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+.verse {
+  position: absolute;
+  display: block;
+  height: auto;
+  overflow: hidden;
+}
+
+/* Two diagonal pairs of four-character vertical phrases.
+   Each pair steps down from right to left by about one character,
+   rather than forming a straight eight-character column. */
+.verse-time {
+  left: 16%;
+  top: 3.8%;
+  width: 7.6%;
+}
+.verse-light {
+  left: 6.1%;
+  top: 8.1%;
+  width: 7.2%;
+}
+.verse-years {
+  left: 86.6%;
+  top: 67.6%;
+  width: 7.1%;
+}
+.verse-joy {
+  left: 76.7%;
+  top: 73.2%;
+  width: 6.8%;
+}

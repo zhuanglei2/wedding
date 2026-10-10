@@ -1,0 +1,8 @@
+/* Display-only crop: original JPEG and instant-film dimensions stay intact.
+   The same rule also reaches the copied images in curved print strips. */
+.reference-art .camera-photo img,
+html.star-turn .opening-underlay .reference-art .camera-photo img,
+html.paper-motion .opening-underlay .reference-art .camera-photo img{
+ transform:scale(1.2);
+ transform-origin:45% 62%;
+}

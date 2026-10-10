@@ -1,0 +1,83 @@
+{
+  "canvas": {
+    "width": 1200,
+    "height": 2000
+  },
+  "referencePolicy": "Original source bytes untouched. No generative portrait content. Clean landscape supplied by user; no watermark removal.",
+  "photos": [
+    {
+      "source": "/Users/eleme/Desktop/wedding/a4ac32bfdq9fbe2e01e87def7bd2b44b.jpg",
+      "sha256": "30209d88b37b04b182999b241bad7fbdcbffc9f785aedc419f621139ae1f2219",
+      "original": {
+        "width": 1179,
+        "height": 786
+      },
+      "resizeBox": {
+        "left": 60,
+        "top": 60,
+        "width": 1080,
+        "height": 720
+      },
+      "photoRect": {
+        "left": 60,
+        "top": 60,
+        "width": 1080,
+        "height": 720
+      },
+      "templateWindow": {
+        "x": 48,
+        "y": 84,
+        "width": 876,
+        "height": 546
+      },
+      "pixelProof": "PASS: all fitted-photo pixels equal directly resized source; no crop, no retouch, no overlay"
+    },
+    {
+      "source": "/Users/eleme/Desktop/wedding/087f4a3a79f7b920abff19f11eb716ef.jpg",
+      "sha256": "f4956206f785e0a2f141b81f25a476e1cfcfb809e72f5d60076114e91eef0f4a",
+      "original": {
+        "width": 3911,
+        "height": 5866
+      },
+      "resizeBox": {
+        "left": 420,
+        "top": 835,
+        "width": 720,
+        "height": 1080
+      },
+      "photoRect": {
+        "left": 420,
+        "top": 835,
+        "width": 720,
+        "height": 1080
+      },
+      "templateWindow": {
+        "x": 344,
+        "y": 676,
+        "width": 580,
+        "height": 868
+      },
+      "pixelProof": "PASS: all fitted-photo pixels equal directly resized source; no crop, no retouch, no overlay"
+    }
+  ],
+  "assets": [
+    {
+      "file": "gathered-scenes-600.webp",
+      "width": 600,
+      "height": 1000,
+      "bytes": 101436
+    },
+    {
+      "file": "gathered-scenes-900.webp",
+      "width": 900,
+      "height": 1500,
+      "bytes": 205770
+    },
+    {
+      "file": "gathered-scenes-1200.webp",
+      "width": 1200,
+      "height": 2000,
+      "bytes": 307164
+    }
+  ]
+}

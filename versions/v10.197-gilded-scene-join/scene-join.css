@@ -1,0 +1,12 @@
+/* A small static paper bridge. It has no animation, focus target or scroll stop. */
+.scene-gilded-join{
+  position:relative;display:grid;place-items:center;isolation:isolate;
+  width:100%;height:clamp(48px,15.5vw,96px);overflow:hidden;
+  margin:0;padding:0;border:0;pointer-events:none;
+  background:#f8f5ef url("../v10.159-flow-and-gilt/media/camera-clean.webp") center bottom/100% auto no-repeat;
+}
+.scene-gilded-join>img{
+  display:block;width:78%;max-width:620px;height:auto;
+  margin:0;padding:0;border:0;opacity:.92;object-fit:contain;
+}
+html.cover-first .scene-gilded-join{background-image:none}

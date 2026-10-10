@@ -1,0 +1,9 @@
+@import url("style-v17.css");
+
+/* All four phrases now use the same source-pixel scale as 时日有序.
+   Their SVG windows are 179/188/205/188px wide, so equal CSS widths
+   would still produce unequal lettering. Positions remain unchanged. */
+.verse-time { width: 7.6%; }
+.verse-light { width: 7.982123%; }
+.verse-years { width: 8.703911%; }
+.verse-joy { width: 7.982123%; }

@@ -1,0 +1,14 @@
+@import url("style-v9.css");
+
+/* The original source and 1.24x photograph framing remain unchanged.
+   Inline SVG recolors only lettering, including in local file previews. */
+.palette-filters {
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+.inscription img {
+  filter: url("#poem-champagne-ink");
+}
