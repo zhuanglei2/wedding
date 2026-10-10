@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>庄磊&吴郁·婚礼宾客指南</title>
+<meta property="og:title" content="庄磊&吴郁·婚礼宾客指南">
+<meta property="og:description" content="日程 · 路线 · 电话 · 天气，庄磊&吴郁婚礼">
+<meta property="og:image" content="http://www.zl-wedding.asia/share.png">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Source Han Sans SC",-apple-system,sans-serif;background:linear-gradient(160deg,#fdfcfb 0%,#f7f1ea 55%,#f2ebe1 100%);color:#5c4033;min-height:100vh;padding-bottom:72px;overflow-x:hidden;font-size:15px;font-weight:400}
+/* 喜庆花瓣飘落 */
+.petals{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+.petal{position:absolute;top:-30px;font-size:14px;opacity:.55;animation:fall linear infinite}
+@keyframes fall{0%{transform:translateY(-30px) rotate(0deg) translateX(0);opacity:0}10%{opacity:.6}90%{opacity:.5}100%{transform:translateY(105vh) rotate(360deg) translateX(40px);opacity:0}}
+/* 礼花特效 */
+#confetti{position:fixed;inset:0;pointer-events:none;z-index:9999;overflow:hidden}
+.cpart{position:absolute;will-change:transform,opacity;animation:cfly linear forwards;border-radius:2px}
+@keyframes cfly{0%{transform:translate(0,0) rotate(0deg);opacity:1}80%{opacity:1}100%{transform:translate(var(--dx),var(--dy)) rotate(900deg);opacity:0}}
+.wrap{position:relative;z-index:1;max-width:560px;margin:0 auto;padding:18px 14px 20px}
+.hd{text-align:center;padding:8px 0 4px;animation:fadeDown .8s ease}
+@keyframes fadeDown{from{opacity:0;transform:translateY(-12px)}to{opacity:1;transform:none}}
+.hd .xi{font-size:22px;color:#c9a87c;letter-spacing:6px;margin-bottom:8px;font-weight:700;text-shadow:0 1px 2px rgba(201,168,124,.3)}
+.hd svg{display:block;width:52px;height:26px;margin:0 auto 12px;animation:popRings 1s ease}
+@keyframes popRings{from{transform:scale(.6);opacity:0}to{transform:scale(1);opacity:1}}
+.hd h1{font-size:22px;letter-spacing:3px;font-weight:700;background:linear-gradient(90deg,#c9a87c,#8b6f5e,#c9a87c);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;line-height:1.4}
+.hd h1 .h1-sub{display:block;font-size:15px;letter-spacing:2px;margin-top:4px;font-weight:600}
+.hd .en{font-size:11px;color:#c9a87c;margin-top:8px;letter-spacing:4px;text-transform:uppercase}
+.hd .venue{font-size:12px;color:#8b7355;margin-top:9px;line-height:1.6}
+.hd::after{content:"";display:block;width:48px;height:1px;background:linear-gradient(90deg,transparent,#c9a87c,transparent);margin:14px auto 0}
+.cd{text-align:center;font-size:12px;color:#c9a87c;margin:6px 0 14px;letter-spacing:1px}
+.cd b{font-size:20px;color:#c9a87c;font-weight:700;margin:0 3px}
+.tabs{position:fixed;left:12px;right:12px;bottom:12px;max-width:536px;margin:0 auto;background:rgba(255,255,255,.94);backdrop-filter:blur(8px);border:1px solid #efe6dd;border-radius:22px;display:flex;z-index:50;box-shadow:0 6px 24px rgba(139,111,94,0.18);padding:6px}
+.tab{flex:1;text-align:center;padding:6px 0 5px;font-size:10px;color:#b0a594;cursor:pointer;border:none;background:none;font-family:inherit;border-radius:14px;transition:all .25s}
+.tab svg{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:1.8;display:block;margin:0 auto 3px;padding:0;flex-shrink:0;transition:all .25s}
+.tab.active{color:#fff;background:linear-gradient(135deg,#dcb893,#c9a87c 55%,#b8896a);box-shadow:0 3px 10px rgba(201,168,124,.4)}
+.tab.active svg{stroke:#fff;color:#fff;animation:tabPop .3s ease}
+@keyframes tabPop{from{transform:scale(.7)}to{transform:scale(1)}}
+/* 右侧浮动导航(overlay，不挤压内容) */
+.side-nav{position:fixed;right:8px;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:8px;z-index:49}
+.stab{width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,.9);backdrop-filter:blur(6px);border:1px solid #efe6dd;display:flex;align-items:center;justify-content:center;color:#b0a594;cursor:pointer;font-family:inherit;box-shadow:0 2px 8px rgba(139,111,94,0.14);transition:all .25s}
+.stab svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:1.8;display:block;margin:0;padding:0}
+.stab.active{background:linear-gradient(135deg,#dcb893,#c9a87c 55%,#b8896a);color:#fff;border-color:#c9a87c;box-shadow:0 3px 12px rgba(201,168,124,.5)}
+.stab:active{transform:scale(.92)}
+.page{display:none}
+.page.active{display:block;animation:fadeIn .35s ease}
+.page.active.slide-l{animation:slideR .35s cubic-bezier(.22,.61,.36,1)}
+.page.active.slide-r{animation:slideL .35s cubic-bezier(.22,.61,.36,1)}
+@keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+@keyframes slideR{from{opacity:0;transform:translateX(36px)}to{opacity:1;transform:none}}
+@keyframes slideL{from{opacity:0;transform:translateX(-36px)}to{opacity:1;transform:none}}
+.card{background:#fff;border-radius:16px;padding:16px 14px;box-shadow:0 4px 18px rgba(139,111,94,0.08);border:1px solid #efe6dd;margin-bottom:14px}
+.card-title{display:flex;align-items:center;justify-content:space-between;font-size:16px;color:#5c4033;font-weight:600;margin-bottom:14px}
+.card-title .ct-mid{flex:1;text-align:center}
+.card-title .ct-mid::after{content:"";display:block;width:30px;height:2px;background:linear-gradient(90deg,#c9a87c,#8b6f5e);margin:6px auto 0;border-radius:1px}
+.card-title .ct-side{font-size:12px;color:#c9a87c;text-decoration:none;opacity:.5;display:flex;align-items:center;gap:1px;flex-shrink:0;transition:opacity .2s}
+.card-title .ct-side:active{opacity:.9}
+.card-title .ct-side svg{width:13px;height:13px;stroke:currentColor;fill:none;stroke-width:2.2}
+.card-title .ct-empty{width:44px;flex-shrink:0}
+.card-title .ct-now-hint{display:none}
+.now-bubble{position:fixed;left:24px;bottom:76px;z-index:55;background:linear-gradient(135deg,#d44848,#c93939);color:#fff;font-size:11px;padding:6px 10px;border-radius:20px;box-shadow:0 3px 12px rgba(212,72,72,.3);display:none;align-items:center;gap:4px;cursor:pointer;width:max-content;max-width:150px;overflow:hidden;white-space:nowrap}
+.now-bubble.show{display:inline-flex}
+.now-bubble .bub-text{overflow:hidden}
+.now-bubble.collapsed{padding:7px;width:24px;height:24px;justify-content:center;gap:0}
+.now-bubble.collapsed .bub-text{display:none}
+.now-bubble.collapsed .dot{width:10px;height:10px}
+.now-bubble:active{transform:scale(.92)}
+.now-bubble.show{display:flex}
+@keyframes bubblePop{from{opacity:0;transform:translateY(-8px) scale(.9)}to{opacity:1;transform:none}}
+.now-bubble .dot{width:6px;height:6px;border-radius:50%;background:#fff;animation:dotBlink 1s ease-in-out infinite;flex-shrink:0}
+@keyframes dotBlink{0%,100%{opacity:1}50%{opacity:.3}}
+/* 日程时间轴 */
+.phase{margin-bottom:10px}
+.phase-t{font-size:14px;font-weight:600;color:#5c4033;background:linear-gradient(135deg,#faf7f4,#fdf6f0);padding:9px 12px;border-radius:8px;border-left:3px solid #c9a87c;margin-bottom:6px;display:flex;justify-content:space-between;align-items:center;cursor:pointer}
+.phase-t .pc{font-size:11px;color:#a99a89;font-weight:400}
+.phase-body{overflow:hidden;transition:max-height .4s ease}
+.phase-body.hidden{max-height:0 !important}
+.phase.is-past{display:none}
+.show-past .phase.is-past{display:block}
+.show-past .phase.is-past .phase-body{max-height:none}
+/* 当前阶段滚轮 */
+.phase.current-phase .phase-body{max-height:160px;overflow-y:auto;scroll-snap-type:y mandatory;scrollbar-width:none;-webkit-overflow-scrolling:touch;border-radius:12px;background:linear-gradient(180deg,#fff,#fdfcfb);border:1px solid #efe6dd;padding:4px 0;-webkit-mask-image:linear-gradient(180deg,transparent 0%,#000 14%,#000 86%,transparent 100%);mask-image:linear-gradient(180deg,transparent 0%,#000 14%,#000 86%,transparent 100%)}
+.phase.current-phase .phase-body::-webkit-scrollbar{display:none}
+.phase.current-phase .phase-body::before,.phase.current-phase .phase-body::after{content:"";position:sticky;left:0;right:0;height:4px;z-index:1;pointer-events:none}
+.showpast-btn{text-align:left;margin:0 0 8px;padding-left:2px}
+.showpast-btn button{background:none;border:none;color:#b0a594;font-size:11px;cursor:pointer;font-family:inherit;padding:2px 0;text-decoration:underline;text-decoration-color:#e0d5c8;text-underline-offset:3px}
+.tl{display:flex;padding:8px 6px;border-bottom:1px solid #f5f1ed;align-items:center;scroll-snap-align:center}
+.tl:last-child{border-bottom:none}
+.tl .tc{width:52px;font-weight:600;color:#8b6f5e;font-size:14px;flex-shrink:0}
+.tl .ec{flex:1;font-size:14px}
+.tl .ec .en-name{font-weight:500}
+.tl .ec .en-note{color:#aaa;font-size:13px;margin-top:2px}
+.tl.past{opacity:.28}
+.tl.past::after{content:"✓";font-size:11px;color:#27ae60;background:#eafaf1;padding:2px 8px;border-radius:8px;flex-shrink:0;align-self:center}
+.show-past .tl.past{opacity:.42}
+.tl.now{background:linear-gradient(90deg,rgba(201,168,124,.16),rgba(201,168,124,.02));border-radius:10px;padding:14px 12px;margin:2px 0;position:relative;animation:nowGlow 2.4s ease-in-out infinite;scroll-snap-align:center}
+.tl.now .tc{color:#c9a87c;font-size:16px;font-weight:700}
+.tl.now .ec .en-name{font-weight:700;font-size:16px;color:#5c4033}
+.tl.now .ec .en-note{font-size:13px}
+.tl.now::after{content:"进行中";font-size:10px;color:#fff;background:linear-gradient(135deg,#d44848,#c93939);padding:3px 9px;border-radius:10px;flex-shrink:0;align-self:center;box-shadow:0 2px 6px rgba(201,57,57,.35);animation:badgePulse 1.5s ease-in-out infinite}
+@keyframes badgePulse{0%,100%{transform:scale(1)}50%{transform:scale(1.08)}}
+.tl.now::before{content:"";position:absolute;left:-1px;top:8px;bottom:8px;width:3px;background:linear-gradient(180deg,#c9a87c,#d44848);border-radius:2px}
+@keyframes nowGlow{0%,100%{box-shadow:0 0 0 0 rgba(201,168,124,.3)}50%{box-shadow:0 0 0 8px rgba(201,168,124,0)}}
+.tl.next .tc{color:#c9a87c}
+.tl.roller-hidden{display:none}
+.note-box{background:#faf6f0;border-radius:10px;padding:11px 14px;font-size:13px;color:#8b7355;line-height:1.7;margin-top:8px}
+.live-bar{display:none;text-align:center;font-size:12px;color:#c9a87c;background:#fff8e8;border:1px solid #f0d878;border-radius:10px;padding:8px;margin-bottom:12px}
+.live-bar.show{display:block;animation:fadeIn .4s}
+/* 天气 */
+.wbox{background:linear-gradient(135deg,#e8f4fd,#f0f7ff);border-radius:12px;padding:14px;border:1px solid #d4e8f7}
+.wbox h4{font-size:14px;color:#2c6faa;margin-bottom:10px;text-align:center}
+.wslots{display:flex;gap:8px;overflow-x:auto;padding-bottom:4px}
+.wslot{flex-shrink:0;text-align:center;padding:9px 11px;background:#fff;border-radius:10px;min-width:64px;box-shadow:0 1px 4px rgba(0,0,0,0.05)}
+.wslot .wt{font-size:11px;color:#666}
+.wslot .wi{font-size:20px;margin:3px 0}
+.wslot .wtmp{font-size:13px;font-weight:600;color:#333}
+.wslot .wd{font-size:10px;color:#888;margin-top:2px}
+.wload{text-align:center;color:#888;font-size:13px;padding:10px 0}
+.wnote{font-size:11px;color:#999;margin-top:10px;text-align:center;line-height:1.6}
+/* 路线 */
+.hotel-note{background:#faf7f4;border:1px solid #efe6dd;border-radius:10px;padding:12px 14px;margin-bottom:12px;font-size:13.5px;color:#5c4033;line-height:2}
+.hotel-note a{color:#b8824f;text-decoration:none;font-weight:600;border-bottom:1px solid #e3d2bd;margin-left:4px}
+.route{padding:11px 0;border-bottom:1px dashed #efe6dd}
+.route:last-of-type{border-bottom:none}
+.route-head{display:flex;align-items:center;gap:7px;margin-bottom:7px}
+.route-tag{font-size:14px;font-weight:600;color:#5c4033}
+.route-rec{font-size:10px;color:#fff;background:linear-gradient(135deg,#c9a87c,#8b6f5e);padding:1px 7px;border-radius:8px}
+.route-line{font-size:13.5px;color:#7a6a5a;line-height:2}
+.route-line .loc{color:#b8824f;text-decoration:none;font-weight:600;border-bottom:1px solid #e3d2bd}
+.route-line .addr{display:inline-block;margin-left:5px;color:#b3a898;font-size:12px}
+.nav-btn{display:block;text-align:center;margin-top:14px;padding:13px;border:none;border-radius:24px;background:linear-gradient(135deg,#d9b98f,#c9a87c 55%,#b8896a);color:#fff;font-size:14px;text-decoration:none;font-weight:600;letter-spacing:1px;box-shadow:0 4px 14px rgba(201,168,124,.4)}
+.nav-btn:active{transform:scale(.98)}
+.loc-row{display:flex;align-items:center;gap:11px;padding:12px 0;border-bottom:1px solid #f5f1ed}
+.loc-row:last-child{border-bottom:none}
+.loc-ic{width:38px;height:38px;border-radius:10px;background:linear-gradient(135deg,#c9a87c,#8b6f5e);color:#fff;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
+.loc-ic svg{width:22px;height:22px;stroke:#fff;fill:none;stroke-width:1.8}
+.loc-info{flex:1;min-width:0}
+.loc-name2{font-size:14px;font-weight:600;color:#5c4033}
+.loc-name2 .lp{margin-right:4px}
+.loc-addr2{font-size:12px;color:#a99a89;margin-top:3px;line-height:1.5;display:flex;align-items:center;gap:5px}
+.loc-copy{background:none;border:none;color:#c9a87c;cursor:pointer;font-size:11px;padding:2px 5px;border-radius:4px;flex-shrink:0;transition:background .2s;font-family:inherit}
+.loc-copy:active{background:#f0e6da}
+.loc-copy.copied{color:#27ae60}
+.loc-nav{flex-shrink:0;background:#fff;border:1.5px solid #c9a87c;color:#b8926a;border-radius:9px;padding:8px 11px;font-size:12px;text-decoration:none;white-space:nowrap}
+.loc-nav:active{transform:scale(.95);background:#fdf6ed}
+.grp-h{font-size:13px;color:#8b6f5e;border-left:3px solid #c9a87c;padding-left:10px;margin:14px 0 8px;font-weight:600}
+/* 电话 */
+.contact{display:flex;align-items:center;padding:14px 16px;background:linear-gradient(135deg,#fdfcfb,#faf7f4);border-radius:14px;border:1px solid #efe6dd;margin-bottom:10px;animation:fadeIn .4s;transition:transform .2s,box-shadow .2s}
+.contact:active{transform:scale(.98);box-shadow:0 4px 16px rgba(201,168,124,0.15)}
+.contact-role{font-size:11px;color:#fff;background:linear-gradient(135deg,#c9a87c,#8b6f5e);padding:4px 10px;border-radius:10px;flex-shrink:0;min-width:56px;text-align:center;font-weight:500}
+.contact-name{flex:1;font-size:16px;font-weight:600;color:#5c4033;margin-left:14px}
+.contact-phone a{display:flex;align-items:center;justify-content:center;width:42px;height:42px;border-radius:50%;background:linear-gradient(135deg,#c9a87c,#a0835e);color:#fff;text-decoration:none;box-shadow:0 3px 12px rgba(201,168,124,0.4);transition:transform .2s}
+.contact-phone a:active{transform:scale(.85)}
+.contact-phone svg{width:18px;height:18px;stroke:#fff;fill:none;stroke-width:2}
+.intro{text-align:center;font-size:13px;color:#8b7355;line-height:1.8;margin-bottom:14px}
+</style>
+</head>
+<body>
+<div class="petals" id="petals"></div>
+<div class="now-bubble" id="now-bubble" onclick="onBubbleClick()"></div>
+<div class="wrap">
+  <div class="hd">
+    <svg viewBox="0 0 52 26" fill="none" stroke="#c9a87c" stroke-width="1.5"><circle cx="18" cy="13" r="9.5"/><circle cx="34" cy="13" r="9.5"/></svg>
+    <h1>庄磊 & 吴郁<span class="h1-sub">婚礼宾客指南</span></h1>
+    <div class="en">Wedding Guest Guide</div>
+    <div class="venue">2026年10月6日<br>婚宴酒店：宁海西子国际大酒店（跃龙街道外环东路8号）</div>
+  </div>
+  <div class="cd" id="cd">距婚礼还有 <b id="cd-days">--</b> 天</div>
+
+  <!-- 日程 -->
+  <div class="page" id="p-schedule">
+    <div class="card">
+      <div class="card-title"><span class="ct-empty"></span><span class="ct-mid">当天日程</span><a class="ct-side" onclick="switchTab('route','next')">路线 <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg></a></div>
+      <div id="timeline"></div>
+      <div class="note-box" id="sched-note">宾客请在 <b>16:38</b> 前到达婚宴酒店签到入席。</div>
+    </div>
+  </div>
+
+  <!-- 路线 -->
+  <div class="page active" id="p-route">
+    <div class="card">
+      <div class="card-title"><a class="ct-side" onclick="switchTab('schedule','prev')"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg> 日程</a><span class="ct-mid">路线指引</span><a class="ct-side" onclick="switchTab('contact','next')">电话 <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg></a></div>
+      <a class="nav-btn" href="https://uri.amap.com/navigation?to=121.438,29.280,宁海西子国际大酒店&mode=car">一键导航到婚宴酒店</a>
+      <a class="nav-btn" style="margin-top:10px" href="https://uri.amap.com/navigation?to=121.427,29.290,金海开元名都大酒店&mode=car">一键导航到入住/接亲酒店</a>
+      <div class="grp-h">💒 婚礼主要地点</div>
+      <div class="loc-row"><div class="loc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7"/><path d="M5 11v9h14v-9"/><path d="M10 20v-5h4v5"/></svg></div><div class="loc-info"><div class="loc-name2">新郎家（力洋镇海头村）</div><div class="loc-addr2"><span>宁海县力洋镇海头村</span><button class="loc-copy" onclick="copyAddr(this)">复制</button></div></div><a class="loc-nav" href="https://uri.amap.com/navigation?to=121.636200,29.308330,海头村&mode=car">📍导航</a></div>
+      <div class="loc-row"><div class="loc-ic"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V5h14v16"/><path d="M9 21v-4h6v4"/><rect x="8" y="8" width="2.4" height="2.4"/><rect x="13.6" y="8" width="2.4" height="2.4"/><rect x="8" y="13" width="2.4" height="2.4"/><rect x="13.6" y="13" width="2.4" height="2.4"/></svg></div><div class="loc-info"><div class="loc-name2">接亲 入住（金海开元名都大酒店）</div><div class="loc-addr2"><span>宁海县桃源街道金水路399号</span><button class="loc-copy" onclick="copyAddr(this)">复制</button></div></div><a class="loc-nav" href="https://uri.amap.com/navigation?to=121.427,29.290,金海开元名都大酒店&mode=car">📍导航</a></div>
+      <div class="loc-row"><div class="loc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12l3 6-9 12L3 9z"/><path d="M3 9h18"/><path d="M9 3l3 18M15 3l-3 18"/></svg></div><div class="loc-info"><div class="loc-name2">晚宴现场（宁海西子国际大酒店）</div><div class="loc-addr2"><span>宁海县跃龙街道外环东路8号</span><button class="loc-copy" onclick="copyAddr(this)">复制</button></div></div><a class="loc-nav" href="https://uri.amap.com/navigation?to=121.438,29.280,宁海西子国际大酒店&mode=car">📍导航</a></div>
+      <div class="loc-row"><div class="loc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3"/><path d="M2 18c2 0 2 2 4 2s2-2 4-2 2 2 4 2 2-2 4-2 2 2 4 2 2-2 4-2"/></svg></div><div class="loc-info"><div class="loc-name2">外景地（宁海三门湾滨海公园）</div><div class="loc-addr2"><span>宁海县三门湾滨海公园</span><button class="loc-copy" onclick="copyAddr(this)">复制</button></div></div><a class="loc-nav" href="https://uri.amap.com/navigation?to=121.560,29.150,宁海三门湾滨海公园&mode=car">📍导航</a></div>
+      <div class="grp-h">🚉 外地宾客到达</div>
+      <div class="loc-row"><div class="loc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="3" width="12" height="13" rx="3"/><path d="M6 10h12"/><circle cx="9.5" cy="13.5" r="1"/><circle cx="14.5" cy="13.5" r="1"/><path d="M8 16l-2 4M16 16l2 4"/></svg></div><div class="loc-info"><div class="loc-name2">高铁站（宁海站）</div><div class="loc-addr2"><span>宁海站</span><button class="loc-copy" onclick="copyAddr(this)">复制</button></div></div><a class="loc-nav" href="https://uri.amap.com/navigation?to=121.544,29.874,宁海站&mode=car">📍导航</a></div>
+      <div class="loc-row"><div class="loc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 3L3 10l7 2 2 7 4-4 5 1z"/></svg></div><div class="loc-info"><div class="loc-name2">机场（宁波栎社国际机场）</div><div class="loc-addr2"><span>宁波市海曙区栎社</span><button class="loc-copy" onclick="copyAddr(this)">复制</button></div></div><a class="loc-nav" href="https://uri.amap.com/navigation?to=121.462,29.816,宁波栎社国际机场&mode=car">📍导航</a></div>
+      <div class="loc-row"><div class="loc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V8l7-4 7 4v13"/><path d="M10 21v-5h4v5"/><path d="M9 12h6"/></svg></div><div class="loc-info"><div class="loc-name2">火车站（宁波站）</div><div class="loc-addr2"><span>宁波市海曙区南站东路</span><button class="loc-copy" onclick="copyAddr(this)">复制</button></div></div><a class="loc-nav" href="https://uri.amap.com/navigation?to=121.524,29.826,宁波站&mode=car">📍导航</a></div>
+    </div>
+  </div>
+
+  <!-- 电话 -->
+  <div class="page" id="p-contact">
+    <div class="card">
+      <div class="card-title"><a class="ct-side" onclick="switchTab('route','prev')"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg> 路线</a><span class="ct-mid">联系电话</span><a class="ct-side" onclick="switchTab('weather','next')">天气 <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg></a></div>
+      <p class="intro">有疑问或需要协助，可联系以下人员</p>
+      <div class="contact"><div class="contact-role">新郎</div><div class="contact-name">庄磊</div><div class="contact-phone"><a href="tel:18658487873"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></a></div></div>
+      <div class="contact"><div class="contact-role">新郎父亲</div><div class="contact-name">庄恒席</div><div class="contact-phone"><a href="tel:13034660025"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></a></div></div>
+      <div class="contact"><div class="contact-role">新郎母亲</div><div class="contact-name">张密亲</div><div class="contact-phone"><a href="tel:13586573855"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></a></div></div>
+      <div class="contact"><div class="contact-role">婚车</div><div class="contact-name">松哥</div><div class="contact-phone"><a href="tel:18758463333"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></a></div></div>
+    </div>
+  </div>
+
+  <!-- 天气 -->
+  <div class="page" id="p-weather">
+    <div class="card">
+      <div class="card-title"><a class="ct-side" onclick="switchTab('contact','prev')"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg> 电话</a><span class="ct-mid">婚礼当天天气</span><span class="ct-empty"></span></div>
+      <div class="wbox" id="weather-box">
+        <h4 id="w-title">🌤️ 天气预报 · 宁海</h4>
+        <div class="wload" id="w-loading">加载天气中...</div>
+        <div class="wslots" id="w-slots"></div>
+        <div class="wnote" id="w-note"></div>
+      </div>
+      <div class="note-box" style="margin-top:12px">10月宁海早晚偏凉、午间舒适，建议备一件薄外套；海边外景风大，可带披肩。</div>
+    </div>
+  </div>
+</div>
+
+<div class="tabs">
+  <button class="tab" data-tab="schedule" onclick="switchTab('schedule')"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>日程</button>
+  <button class="tab active" data-tab="route" onclick="switchTab('route')"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l19-9-9 19-2-8-8-2z"/></svg>路线</button>
+  <button class="tab" data-tab="contact" onclick="switchTab('contact')"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>电话</button>
+  <button class="tab" data-tab="weather" onclick="switchTab('weather')"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>天气</button>
+</div>
+
+<script>
+// 花瓣飘落
+(function(){
+  var p=document.getElementById('petals');var icons=['🌸','🌺','🏵️','💐','💖'];var n=10;
+  for(var i=0;i<n;i++){var s=document.createElement('div');s.className='petal';s.textContent=icons[i%icons.length];s.style.left=(Math.random()*100)+'%';s.style.fontSize=(10+Math.random()*10)+'px';s.style.animationDuration=(8+Math.random()*8)+'s';s.style.animationDelay=(-Math.random()*10)+'s';p.appendChild(s);}
+})();
+// 页面顶部左右Tab引导
+function switchTab(p,dir){
+  document.querySelectorAll('.page').forEach(function(el){el.classList.remove('active','slide-l','slide-r');});
+  var np=document.getElementById('p-'+p);
+  if(dir==='next')np.classList.add('slide-l');
+  else if(dir==='prev')np.classList.add('slide-r');
+  np.classList.add('active');
+  document.querySelectorAll('[data-tab]').forEach(function(t){t.classList.toggle('active',t.dataset.tab===p);});
+  if(p==='schedule') setTimeout(scrollToCurrent,100);
+  window.scrollTo(0,0);
+}
+// 倒计时
+(function(){
+  var wedding=new Date('2026-10-06T00:00:00+08:00').getTime();
+  var d=Math.ceil((wedding-Date.now())/86400000);
+  document.getElementById('cd-days').textContent=d>0?d:0;
+  if(d<=0||isWeddingDay())document.getElementById('cd').innerHTML='🎉 今天是大喜之日！';
+})();
+// 全天时间表数据
+var PHASES=[
+ {title:'新娘篇 · 酒店套房',range:'04:30-08:38',items:[
+  ['04:30','起床、吃早餐','准备拍摄道具'],
+  ['05:00','开始化妆','化妆师到达'],
+  ['07:00','伴娘到达','摄影老师到达'],
+  ['07:20','晨袍拍摄','提前准备好拍摄道具'],
+  ['07:50','换中式礼服做造型',''],
+  ['08:18','新娘和父母、伴娘拍摄',''],
+  ['08:38','最后准备，等待新郎到达','']
+ ]},
+ {title:'新郎篇 · 新郎家',range:'06:00-08:38',items:[
+  ['06:00','起床、吃早餐',''],
+  ['06:30','换衣服做发型','提前约好发型师'],
+  ['07:00','伴郎到新郎家换衣服','摄像老师到达'],
+  ['07:20','新郎伴郎拍摄花絮',''],
+  ['07:30','婚车集合','手捧花、胸花交给新郎'],
+  ['07:58','🚗 出发接亲',''],
+  ['08:38','到达新娘酒店','']
+ ]},
+ {title:'拦门 & 接亲篇',range:'08:38-10:48',items:[
+  ['08:38','亲友拦门','红包20-30个、喜糖、香烟'],
+  ['08:58','伴娘姐妹团拦门游戏','准备红包20-30个'],
+  ['09:28','新人和伴娘伴郎拍合影',''],
+  ['09:38','给父母敬茶、拍全家福','准备红包、茶杯、跪垫'],
+  ['09:50','准时出门回新郎家','所有亲友车队一起'],
+  ['10:38','到达新郎家','先放鞭炮，新娘下车'],
+  ['10:48','新房拍摄','喂饭吃点心（暂定）']
+ ]},
+ {title:'下午篇 · 午宴 & 外景',range:'11:30-14:08',items:[
+  ['11:30','入场村委会午饭（海头村）','所有亲友一起'],
+  ['13:00','午餐结束，新娘换轻纱','亲友可提前出发酒店休息'],
+  ['13:18','🚗 出发三门湾拍外景','车队提前排好'],
+  ['14:08','外景结束，回酒店','检查车辆有无遗落物品']
+ ]},
+ {title:'晚宴篇 · 酒店宴会厅',range:'14:58-19:30',items:[
+  ['14:58','到达酒店，换主婚纱','化妆间提前准备好'],
+  ['15:58','拍场布照片',''],
+  ['16:18','彩排走场',''],
+  ['16:38','迎宾','宾客入场签到'],
+  ['16:58','🎉 仪式开始',''],
+  ['17:48','敬酒',''],
+  ['18:15','🎮 游戏',''],
+  ['19:30','给长辈敬茶','准备茶水']
+ ]}
+];
+function toMin(t){var a=t.split(':');return parseInt(a[0])*60+parseInt(a[1]);}
+var TESTING=false; // 测试当天效果时改true
+function isWeddingDay(){
+  if(TESTING)return true;
+  var p=new URLSearchParams(location.search);
+  if(p.get('demo')==='1')return true;
+  var n=new Date();return n.getFullYear()===2026&&n.getMonth()===9&&n.getDate()===6;
+}
+function buildTimeline(){
+  var html='';var gi=0;
+  PHASES.forEach(function(ph){
+    var firstGi=gi;gi+=ph.items.length;
+    html+='<div class="phase" data-first="'+firstGi+'" data-count="'+ph.items.length+'"><div class="phase-t" onclick="togglePhase(this)">'+ph.title+'<span class="pc">'+ph.range+'</span></div><div class="phase-body">';
+    ph.items.forEach(function(it,idx){
+      html+='<div class="tl" data-gi="'+(firstGi+idx)+'" data-time="'+it[0]+'"><div class="tc">'+it[0]+'</div><div class="ec"><div class="en-name">'+it[1]+'</div>'+(it[2]?'<div class="en-note">'+it[2]+'</div>':'')+'</div></div>';
+    });
+    html+='</div></div>';
+  });
+  document.getElementById('timeline').innerHTML='<div class="showpast-btn" id="showpast-btn" style="display:none"><button onclick="togglePast(this)">展开已过环节 ▾</button></div>'+html;
+}
+function updateLive(){
+  var live=isWeddingDay();
+  if(!live){
+    document.querySelectorAll('.tl').forEach(function(t){t.classList.remove('past','now');});
+    document.querySelectorAll('.phase').forEach(function(ph){ph.classList.remove('is-past','current-phase');});
+    var sb0=document.getElementById('showpast-btn');if(sb0)sb0.style.display='none';
+    var bub0=document.getElementById('now-bubble');if(bub0)bub0.classList.remove('show');
+    return;
+  }
+  var nowMin=toMin(new Date().toTimeString().slice(0,5));
+  var tls=document.querySelectorAll('.tl');var maxGi=-1;
+  tls.forEach(function(t){var g=parseInt(t.dataset.gi);if(toMin(t.dataset.time)<=nowMin&&g>maxGi)maxGi=g;});
+  if(maxGi===-1)maxGi=0;
+  var hasPast=false;var curPhase=null;
+  tls.forEach(function(t){
+    var g=parseInt(t.dataset.gi);
+    t.classList.remove('past','now');
+    if(g<maxGi){t.classList.add('past');hasPast=true;}
+    else if(g===maxGi){t.classList.add('now');curPhase=t.closest('.phase');}
+  });
+  document.querySelectorAll('.phase').forEach(function(ph){
+    var f=parseInt(ph.dataset.first),c=parseInt(ph.dataset.count);
+    ph.classList.toggle('is-past',(f+c-1)<maxGi);
+    ph.classList.toggle('current-phase',ph===curPhase);
+  });
+  var sb=document.getElementById('showpast-btn');
+  if(sb)sb.style.display=hasPast?'block':'none';
+  var bub=document.getElementById('now-bubble');
+  if(bub){
+    var nowItem=document.querySelector('.tl.now');
+    if(nowItem){
+      bub.innerHTML='<span class="dot"></span><span class="bub-text">'+nowItem.querySelector('.en-name').textContent.replace(/🎉 |🎮 /,'').trim()+' 进行中</span>';
+      bub.classList.add('show');
+    }else{bub.classList.remove('show');}
+  }
+}
+function onBubbleClick(){
+  switchTab('schedule');setTimeout(scrollToCurrent,300);
+}
+function copyAddr(btn){
+  var text=btn.previousElementSibling.textContent;
+  if(navigator.clipboard){navigator.clipboard.writeText(text);}
+  else{var ta=document.createElement('textarea');ta.value=text;document.body.appendChild(ta);ta.select();document.execCommand('copy');ta.remove();}
+  btn.textContent='已复制';btn.classList.add('copied');
+  setTimeout(function(){btn.textContent='复制';btn.classList.remove('copied');},1500);
+}
+function togglePast(btn){
+  var on=document.getElementById('timeline').classList.toggle('show-past');
+  btn.textContent=on?'收起已过环节 ▴':'展开已过环节 ▾';
+}
+function togglePhase(el){
+  var b=el.nextElementSibling;
+  if(b.classList.contains('hidden')){b.classList.remove('hidden');b.style.maxHeight='none';}
+  else{b.style.maxHeight='0';b.classList.add('hidden');}
+}
+function scrollToCurrent(){
+  var now=document.querySelector('.tl.now');
+  if(now){
+    var body=now.closest('.phase-body');
+    if(body){body.scrollTop=now.offsetTop-body.clientHeight/2+now.offsetHeight/2;}
+    else now.scrollIntoView({behavior:'smooth',block:'center'});
+  }
+}
+buildTimeline();
+updateLive();
+(function(){var t=new URLSearchParams(location.search).get('tab');if(t&&['schedule','route','contact','weather'].indexOf(t)>=0){switchTab(t);}})();
+setTimeout(scrollToCurrent,500);
+// 天气
+function weatherIcon(c){if(c===0)return'☀️';if(c<=3)return'⛅';if(c<=49)return'🌫️';if(c<=59)return'🌦️';if(c<=69)return'🌧️';if(c<=79)return'🌨️';if(c<=82)return'🌧️';if(c<=86)return'🌨️';if(c>=95)return'⛈️';return'🌥️'}
+function weatherDesc(c){if(c===0)return'晴';if(c<=3)return'多云';if(c<=49)return'雾';if(c<=59)return'小雨';if(c<=69)return'雨';if(c<=79)return'雪';if(c>=95)return'雷雨';return'阴'}
+(function(){
+  var p=new URLSearchParams(location.search);
+  var demo=p.get('demo')==='1';
+  var wd='2026-10-06';
+  var diff=Math.ceil((new Date(wd+'T00:00:00+08:00')-Date.now())/86400000);
+  var useDate,label;
+  if(demo){var t=new Date();useDate=t.getFullYear()+'-'+String(t.getMonth()+1).padStart(2,'0')+'-'+String(t.getDate()).padStart(2,'0');label='今日天气预览';}
+  else if(diff<=7){useDate=wd;label='婚礼当天天气预报';}
+  else{
+    document.getElementById('w-loading').style.display='none';
+    document.getElementById('w-note').innerHTML='距婚礼还有'+diff+'天，<br>婚礼前7天自动显示10月6日实时天气预报。<br>10月宁海约16-24°C，建议备薄外套。';
+    return;
+  }
+  document.getElementById('w-title').textContent='🌤️ '+label+' · 宁海';
+  var url='https://api.open-meteo.com/v1/forecast?latitude=29.28&longitude=121.43&hourly=temperature_2m,weathercode,windspeed_10m&timezone=Asia/Shanghai&start_date='+useDate+'&end_date='+useDate;
+  fetch(url).then(function(r){return r.json()}).then(function(data){
+    var hours=data.hourly.time,temps=data.hourly.temperature_2m,codes=data.hourly.weathercode;
+    var slots=document.getElementById('w-slots');document.getElementById('w-loading').style.display='none';
+    [8,10,12,14,16,17,18,19].forEach(function(h){
+      if(h>=hours.length)return;
+      var s=document.createElement('div');s.className='wslot';
+      s.innerHTML='<div class="wt">'+String(h).padStart(2,'0')+':00</div><div class="wi">'+weatherIcon(codes[h])+'</div><div class="wtmp">'+Math.round(temps[h])+'°C</div><div class="wd">'+weatherDesc(codes[h])+'</div>';
+      slots.appendChild(s);
+    });
+    document.getElementById('w-note').textContent='数据来源：Open-Meteo · '+(demo?'今日预览':'婚礼当天');
+  }).catch(function(){document.getElementById('w-loading').textContent='天气加载失败，请稍后刷新'});
+})();
+// 礼花特效（首次打开）
+function fireConfetti(){
+  var ov=document.createElement('div');ov.id='confetti';document.body.appendChild(ov);
+  var colors=['#c9a87c','#d9534f','#e8a0b0','#f0d878','#b8896a','#ffffff','#e3a0a0','#d4af37'];
+  for(var i=0;i<80;i++){
+    var p=document.createElement('div');p.className='cpart';
+    var side=i%2;p.style.background=colors[i%colors.length];
+    p.style.top=(Math.random()*45)+'%';
+    p.style.left=side?'auto':'-12px';p.style.right=side?'-12px':'auto';
+    p.style.width=(7+Math.random()*7)+'px';p.style.height=(11+Math.random()*9)+'px';
+    var dx=side?-(180+Math.random()*520):(180+Math.random()*520);
+    var dy=220+Math.random()*420;
+    p.style.setProperty('--dx',dx+'px');p.style.setProperty('--dy',dy+'px');
+    p.style.animationDuration=(1.7+Math.random()*1.3)+'s';
+    p.style.animationDelay=(Math.random()*0.35)+'s';
+    ov.appendChild(p);
+  }
+  setTimeout(function(){if(ov)ov.remove();},3600);
+}
+(function(){
+  if(!isWeddingDay())return;
+  if(!sessionStorage.getItem('cfired')){
+    sessionStorage.setItem('cfired','1');
+    setTimeout(fireConfetti,350);
+  }
+})();
+// 左右滑动切换Tab
+(function(){
+  var sx=0,sy=0,st=null;
+  document.addEventListener('touchstart',function(e){var t=e.touches[0];sx=t.clientX;sy=t.clientY;st=e.target;},{passive:true});
+  document.addEventListener('touchend',function(e){
+    var t=e.changedTouches[0];var dx=t.clientX-sx;var dy=t.clientY-sy;
+    if(Math.abs(dx)<50||Math.abs(dx)<Math.abs(dy))return;
+    if(st&&st.closest('a,button,.wslots,.tabs'))return;
+    var tabs=['schedule','route','contact','weather'];
+    var btns=document.querySelectorAll('.tab');var cur=0;
+    btns.forEach(function(b,i){if(b.classList.contains('active'))cur=i;});
+    var ni=dx<0?cur+1:cur-1;
+    if(ni<0||ni>=tabs.length)return;
+    switchTab(tabs[ni],ni>cur?'next':'prev');
+  },{passive:true});
+  // 鼠标拖拽(桌面测试)
+  var mx=0,md=false;
+  document.addEventListener('mousedown',function(e){if(e.target.closest('a,button,.wslots,.tabs'))return;md=true;mx=e.clientX;});
+  document.addEventListener('mouseup',function(e){if(!md)return;md=false;var dx=e.clientX-mx;if(Math.abs(dx)<80)return;var tabs=['schedule','route','contact','weather'];var btns=document.querySelectorAll('.tab');var cur=0;btns.forEach(function(b,i){if(b.classList.contains('active'))cur=i;});var ni=dx<0?cur+1:cur-1;if(ni<0||ni>=tabs.length)return;switchTab(tabs[ni],ni>cur?'next':'prev');});
+})();
+</script>
+</body>
+</html>
